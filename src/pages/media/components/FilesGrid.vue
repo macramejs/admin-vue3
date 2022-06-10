@@ -13,9 +13,9 @@
 
 <script lang="ts" setup>
 import { PropType } from 'vue';
-import { MediaCollection } from '@admin/types';
+import { MediaCollection } from '@/types';
 import FilesGridTable from './FilesGridTable.vue';
-import { MediaUpload } from '@admin/modules/media';
+import { MediaUpload } from '@/modules/media';
 
 const props = defineProps({
     collection: {

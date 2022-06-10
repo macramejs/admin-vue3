@@ -21,7 +21,7 @@ import {
 } from '@macramejs/admin-vue3';
 import FilesSidebarHeader from './FilesSidebarHeader.vue';
 import FilesSidebarBody from './FilesSidebarBody.vue';
-import { MediaCollection } from '@admin/types';
+import { MediaCollection } from '@/types';
 
 const props = defineProps({
     collections: {

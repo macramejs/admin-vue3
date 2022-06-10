@@ -21,8 +21,8 @@ import {
 } from '@macramejs/macrame-vue3';
 import PagesSidebarHeader from './PagesSidebarHeader.vue';
 import PagesSidebarBody from './PagesSidebarBody.vue';
-import { PageTreeItem, Page } from '@admin/types';
-import { post } from '@admin/modules/request';
+import { PageTreeItem, Page } from '@/types';
+import { post } from '@/modules/request';
 
 const props = defineProps({
     pages: {

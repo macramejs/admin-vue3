@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import { Page } from '@admin/types';
+import { Page } from '@/types';
 import { PropType } from 'vue';
 import { Tree } from '@macramejs/macrame-vue3';
 import { Tree as BaseTree } from '@macramejs/admin-vue3';

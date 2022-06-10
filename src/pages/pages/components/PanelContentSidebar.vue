@@ -10,12 +10,12 @@
 </template>
 
 <script lang="ts" setup>
-import { SectionBlocks, DrawerBlocks } from '@admin/modules/blocks';
-import { Drawers, sections } from "@admin/modules/content";
-import { Cabinet } from "@macramejs/macrame-vue3";
-import { ContentSidebar, DrawerSection } from "@macramejs/admin-vue3";
+import { SectionBlocks, DrawerBlocks } from '@/modules/blocks';
+import { Drawers, sections } from '@admin/modules/content';
+import { Cabinet } from '@macramejs/macrame-vue3';
+import { ContentSidebar, DrawerSection } from '@macramejs/admin-vue3';
 
-import { ref } from "vue";
+import { ref } from 'vue';
 
 // allow drawing all registered sections
 let drawsSections = {};

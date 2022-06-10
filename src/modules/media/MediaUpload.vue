@@ -3,10 +3,10 @@
 </template>
 
 <script lang="ts" setup>
-import { MediaCollection } from '@admin/types';
+import { MediaCollection } from '@/types';
 import { FileUpload } from '@macramejs/admin-vue3';
 import { PropType } from 'vue';
-import { mediaIndex } from '@admin/modules/media';
+import { mediaIndex } from '@/modules/media';
 
 const emit = defineEmits(['uploaded']);
 

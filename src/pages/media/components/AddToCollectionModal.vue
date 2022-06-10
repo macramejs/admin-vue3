@@ -30,7 +30,7 @@ import {
     ContextMenuItem,
 } from '@macramejs/admin-vue3';
 import { Selection } from '../modules';
-import { MediaCollection } from '@admin/types/resources';
+import { MediaCollection } from '@/types/resources';
 
 const isOpen = ref<boolean>(false);
 

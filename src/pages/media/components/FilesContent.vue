@@ -11,7 +11,7 @@
 
 <script lang="ts" setup>
 import { PropType, ref } from 'vue';
-import { MediaCollection } from '@admin/types';
+import { MediaCollection } from '@/types';
 import { Content, ContentBody, ContentSidebar } from '@macramejs/admin-vue3';
 import FilesGrid from './FilesGrid.vue';
 import FilesFilters from './FilesFilters.vue';

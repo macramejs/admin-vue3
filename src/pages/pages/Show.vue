@@ -38,7 +38,7 @@
             </div>
         </template>
         <template v-slot:topbar-right>
-            <PagesTopbarRight :form="contentForm" :page="page?.data"/>
+            <PagesTopbarRight :form="contentForm" :page="page?.data" />
         </template>
     </BaseLayout>
 </template>
@@ -57,16 +57,16 @@ import { useForm } from '@macramejs/macrame-vue3';
 import { TabGroup, TabList, Tab, Content } from '@macramejs/admin-vue3';
 import { TabPanels, TabPanel } from '@headlessui/vue';
 import BaseLayout from './Index.vue';
-import { saveQueue } from '@admin/modules/save-queue';
-import { PageResource, LinkOption } from '@admin/types/resources';
-import { PageContent, PageMeta } from '@admin/types/forms';
+import { saveQueue } from '@/modules/save-queue';
+import { PageResource, LinkOption } from '@/types/resources';
+import { PageContent, PageMeta } from '@/types/forms';
 import PagesTopbarRight from './components/PagesTopbarRight.vue';
 import PanelMetaBody from './components/PanelMetaBody.vue';
 import PanelContentBody from './components/PanelContentBody.vue';
 import PanelContentSidebar from './components/PanelContentSidebar.vue';
 import EditSlugModal from './components/EditSlugModal.vue';
 import PanelSettingsBody from './components/PanelSettingsBody.vue';
-import { linkOptions as GlobalLinkOptions } from '@admin/modules/links';
+import { linkOptions as GlobalLinkOptions } from '@/modules/links';
 
 const tabs = ['content', 'meta', 'settings'];
 
@@ -129,12 +129,14 @@ onBeforeUnmount(() => {
 });
 
 const fullSlug = computed(() => {
-    let parts = (props.page?.data.full_slug || "").split('/').filter(p => p);
+    let parts = (props.page?.data.full_slug || '').split('/').filter(p => p);
     parts.pop();
     return `${parts.join(' > ')} > <strong>${contentForm.slug}</strong>`;
 });
 const pageUrl = computed(() => {
-    let parts = (props.page?.data.full_slug || "").split('/').filter(p => p);
-    return `${window.location.origin}/${parts.join('/')}?preview=${props.page?.data.preview_key}`;
+    let parts = (props.page?.data.full_slug || '').split('/').filter(p => p);
+    return `${window.location.origin}/${parts.join('/')}?preview=${
+        props.page?.data.preview_key
+    }`;
 });
 </script>

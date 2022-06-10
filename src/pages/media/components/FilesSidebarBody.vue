@@ -21,9 +21,7 @@
             secondary
             :active="c.id == collection?.id"
             class="flex-1 py-1 cursor-pointer pr-4"
-            :to="
-                c.id == collection?.id ? `/media` : `/media/${c.id}`
-            "
+            :to="c.id == collection?.id ? `/media` : `/media/${c.id}`"
         >
             <div class="flex justify-between">
                 {{ c.title }}
@@ -36,9 +34,9 @@
 <script lang="ts" setup>
 import { SidebarLink, SidebarSecondarySection } from '@macramejs/admin-vue3';
 import { PropType } from 'vue';
-import { MediaCollection } from '@admin/types';
+import { MediaCollection } from '@/types';
 
-import { mediaIndex } from '@admin/modules/media';
+import { mediaIndex } from '@/modules/media';
 import AddCollectionForm from './AddCollectionForm.vue';
 
 const props = defineProps({

@@ -35,7 +35,7 @@
 
 <script lang="ts" setup>
 import { Tree } from '@macramejs/macrame-vue3';
-import { Page } from '@admin/types';
+import { Page } from '@/types';
 import { TreeItem } from '@macramejs/admin-vue3';
 import { Link } from '@inertiajs/inertia-vue3';
 import PagesTree from './PagesTree.vue';

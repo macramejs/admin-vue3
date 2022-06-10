@@ -1,9 +1,16 @@
 import { RouteRecordRaw } from 'vue-router';
 
-import Show from './Show.vue';
-
 const routes: RouteRecordRaw[] = [
-    { path: '/', component: () => import('./Show.vue') },
+    {
+        path: '/',
+        component: () => import('@/layout/LayoutApp.vue'),
+        children: [
+            {
+                path: '/',
+                component: () => import('./Show.vue'),
+            }
+        ]
+    },
 ];
 
 export { routes };

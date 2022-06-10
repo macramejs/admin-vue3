@@ -44,8 +44,8 @@
 
 <script lang="ts" setup>
 import 'lazysizes';
-import { ResponsiveImage } from '@admin/components';
-import { getMediaById } from '@admin/modules/media';
+import { ResponsiveImage } from '@/components';
+import { getMediaById } from '@/modules/media';
 import { onBeforeMount, PropType, ref, watch } from 'vue';
 import SelectImageModal from './SelectImageModal.vue';
 import {
@@ -67,7 +67,7 @@ interface ParseableImage {
 const props = defineProps({
     modelValue: {
         type: Object as PropType<ParseableImage>,
-    }
+    },
 });
 
 const model = ref(props.modelValue);

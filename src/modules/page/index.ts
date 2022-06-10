@@ -1,5 +1,5 @@
 import { Inertia } from '@inertiajs/inertia';
-import { Page } from '@admin/types/resources';
+import { Page } from '@/types/resources';
 
 export const deletePage = async (page: Page) => {
     if (confirm(`Are you sure you want to delete Page ${page.name}?`)) {

@@ -1,6 +1,6 @@
 import { client } from './index';
-import { LoginForm } from '@admin/types/forms';
-import { UserResource } from '@admin/types/resources';
+import { LoginForm } from '@/types/forms';
+import { UserResource } from '@/types/resources';
 
 async function login(payload: LoginForm) {
     await client.get('sanctum/csrf-cookie',{ baseURL: import.meta.env.VITE_APP_URL as string })

@@ -34,9 +34,9 @@
 
 <script lang="ts" setup>
 import { PropType } from 'vue';
-import { PageResource } from '@admin/types/resources';
-import { PageContentForm } from '@admin/types/forms';
-import { deletePage } from '@admin/modules/page';
+import { PageResource } from '@/types/resources';
+import { PageContentForm } from '@/types/forms';
+import { deletePage } from '@/modules/page';
 import {
     Card,
     FormField,
@@ -44,7 +44,7 @@ import {
     Button,
     IconTrash,
 } from '@macramejs/admin-vue3';
-import { slugify } from '@admin/modules/helpers';
+import { slugify } from '@/modules/helpers';
 
 const props = defineProps({
     page: {

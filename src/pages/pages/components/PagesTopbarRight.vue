@@ -13,13 +13,13 @@
 // imports
 import { PropType, ref, watch } from 'vue';
 import PagesTopbarRightLivetime from './PagesTopbarRightLivetime.vue';
-import { SelectLocale } from '@admin/modules/localize';
-import TopbarRight from '@admin/layout/TopbarRight.vue';
+import { SelectLocale } from '@/modules/localize';
+import TopbarRight from '@/layout/TopbarRight.vue';
 import 'v-calendar/dist/style.css';
 
 // types
-import { Page } from '@admin/types/resources';
-import { PageContentForm } from '@admin/types/forms';
+import { Page } from '@/types/resources';
+import { PageContentForm } from '@/types/forms';
 
 const props = defineProps({
     page: {

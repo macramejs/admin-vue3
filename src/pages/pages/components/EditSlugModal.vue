@@ -23,8 +23,8 @@
 <script lang="ts" setup>
 import { ref, PropType } from 'vue';
 import { Modal, Input, Button, IconEditPencil } from '@macramejs/admin-vue3';
-import { slugify } from '@admin/modules/helpers';
-import { PageContentForm } from '@admin/types/forms';
+import { slugify } from '@/modules/helpers';
+import { PageContentForm } from '@/types/forms';
 
 const isOpen = ref<boolean>(false);
 

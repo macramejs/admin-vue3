@@ -14,8 +14,8 @@
                     <FormFieldLabel> Bild </FormFieldLabel>
                     <SelectImage v-model="model.image" />
                     <div v-if="model.image?.id">
-                        <Input v-model="title" label="title"/>
-                        <Input v-model="alt" label="alt"/>
+                        <Input v-model="title" label="title" />
+                        <Input v-model="alt" label="alt" />
                     </div>
                 </div>
             </div>
@@ -32,7 +32,7 @@ import {
 } from '@macramejs/admin-vue3';
 import { watch, reactive } from 'vue';
 import { translatable } from '@macramejs/macrame-vue3';
-import { locale } from '@admin/modules/localize';
+import { locale } from '@/modules/localize';
 import DrawerTextImage from './../drawers/DrawerTextImage.vue';
 import SelectImage from './components/SelectImage.vue';
 const emit = defineEmits(['update:modelValue']);
@@ -55,11 +55,15 @@ const props = defineProps({
 const model = reactive(props.modelValue);
 
 const title = translatable<string>(
-    locale, model.image.title, (value) => model.image.title = value
+    locale,
+    model.image.title,
+    value => (model.image.title = value)
 );
 
 const alt = translatable<string>(
-    locale, model.image.alt, (value) => model.image.alt = value
+    locale,
+    model.image.alt,
+    value => (model.image.alt = value)
 );
 
 watch(

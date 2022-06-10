@@ -2,15 +2,22 @@
     <div class="flex items-center space-x-2">
         <span class="text-xs uppercase">
             <template v-if="!form.is_live">offline</template>
-            <template v-else-if="!form.publish_at || hasBeenPublished">online</template>
+            <template v-else-if="!form.publish_at || hasBeenPublished"
+                >online</template
+            >
             <template v-else>geplant</template>
         </span>
-        <Toggle :modelValue="form.is_live && (!form.publish_at || hasBeenPublished)" @update:modelValue="() => {
-            if(form.publish_at) {
-                publishAt = null;
-            } 
-            form.is_live = !form.is_live;
-        }"/>
+        <Toggle
+            :modelValue="form.is_live && (!form.publish_at || hasBeenPublished)"
+            @update:modelValue="
+                () => {
+                    if (form.publish_at) {
+                        publishAt = null;
+                    }
+                    form.is_live = !form.is_live;
+                }
+            "
+        />
     </div>
     <DatePicker
         v-model="publishAt"
@@ -76,8 +83,8 @@ import { DatePicker } from 'v-calendar';
 import 'v-calendar/dist/style.css';
 
 // types
-import { Page } from '@admin/types/resources';
-import { PageContentForm } from '@admin/types/forms';
+import { Page } from '@/types/resources';
+import { PageContentForm } from '@/types/forms';
 
 const props = defineProps({
     page: {
@@ -93,16 +100,14 @@ const props = defineProps({
 const hasBeenPublished = ref(props.page.has_been_published);
 
 const publishAt = ref(
-    props.page.publish_at
-        ? new Date(props.page.publish_at)
-        : new Date()
+    props.page.publish_at ? new Date(props.page.publish_at) : new Date()
 );
 
 watch(
     () => publishAt.value,
     date => {
         props.form.publish_at = date;
-        if(date != null) props.form.is_live = true;
+        if (date != null) props.form.is_live = true;
         hasBeenPublished.value = false;
     }
 );

@@ -49,8 +49,8 @@
 <script lang="ts" setup>
 import { Form } from '@macramejs/macrame-vue3';
 import { PropType, computed } from 'vue';
-import { PageResource } from '@admin/types/resources';
-import { PageMetaForm } from '@admin/types/forms';
+import { PageResource } from '@/types/resources';
+import { PageMetaForm } from '@/types/forms';
 import {
     TabPanel,
     DrawerSection,

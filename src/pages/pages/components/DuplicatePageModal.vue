@@ -19,7 +19,7 @@
 import { ref, PropType } from 'vue';
 import { Modal, Input, Button, IconDuplicatePage } from '@macramejs/admin-vue3';
 import { useForm } from '@macramejs/macrame-vue3';
-import { Page } from '@admin/types/resources';
+import { Page } from '@/types/resources';
 import { Inertia } from '@inertiajs/inertia';
 
 const isOpen = ref<boolean>(false);

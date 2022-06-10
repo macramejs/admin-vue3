@@ -37,7 +37,7 @@ import {
 import { PropType } from 'vue';
 import { Selection } from '../modules';
 import AddToCollectionModal from './AddToCollectionModal.vue';
-import { MediaCollection } from '@admin/types/resources';
+import { MediaCollection } from '@/types/resources';
 
 const props = defineProps({
     selection: {

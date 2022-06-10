@@ -4,14 +4,14 @@
             <DrawerTextFull preview />
         </template>
         <Card>
-            <Wysiwyg v-model="text" class="w-full" :key="locale"/>
+            <Wysiwyg v-model="text" class="w-full" :key="locale" />
         </Card>
     </BaseSection>
 </template>
 <script setup lang="ts">
 import { Wysiwyg, Section as BaseSection, Card } from '@macramejs/admin-vue3';
 import { translatable } from '@macramejs/macrame-vue3';
-import { locale } from '@admin/modules/localize';
+import { locale } from '@/modules/localize';
 import DrawerTextFull from './../drawers/DrawerTextFull.vue';
 import { watch, reactive } from 'vue';
 
@@ -27,8 +27,7 @@ const props = defineProps({
     },
 });
 
-const text = translatable<string>(
-    locale, props.modelValue.text, 
-    (value) => emit('update:modelValue', { text: value })
+const text = translatable<string>(locale, props.modelValue.text, value =>
+    emit('update:modelValue', { text: value })
 );
 </script>

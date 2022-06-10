@@ -51,7 +51,7 @@ import { PropType } from 'vue';
 import { useForm } from '@macramejs/macrame-vue3';
 import { CheckboxSwitch, Button } from '@macramejs/admin-vue3';
 import { GuestLayout, GuestLayoutInput as Input } from '@macramejs/admin-vue3';
-import { login } from '@admin/modules/api'
+import { login } from '@/modules/api';
 import { useRouter } from 'vue-router';
 
 interface Lang {
@@ -93,10 +93,10 @@ const form = useForm({
 const submit = () => {
     login(form)
         .then(() => {
-            router.push('/')
+            router.push('/');
         })
         .catch(() => {
             //
         });
-}
+};
 </script>

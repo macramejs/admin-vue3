@@ -1,7 +1,7 @@
-import { Media, MediaCollection } from '@admin/types';
+import { Media, MediaCollection } from '@/types';
 import { Inertia } from '@inertiajs/inertia';
 import { reactive } from 'vue';
-import { mediaIndex } from '@admin/modules/media';
+import { mediaIndex } from '@/modules/media';
 
 export interface Selection {
     files: Media[];

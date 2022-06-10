@@ -49,8 +49,8 @@ import {
     IconDuplicatePage,
 } from '@macramejs/admin-vue3';
 import { PropType } from 'vue';
-import { Page } from '@admin/types/resources';
-import { deletePage } from '@admin/modules/page';
+import { Page } from '@/types/resources';
+import { deletePage } from '@/modules/page';
 import AddPageModal from './AddPageModal.vue';
 import DuplicatePageModal from './DuplicatePageModal.vue';
 

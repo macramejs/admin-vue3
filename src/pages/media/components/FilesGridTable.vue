@@ -58,8 +58,8 @@ import { PropType } from 'vue';
 import { ContextButton } from '@macramejs/admin-vue3';
 import SelectionMenu from './SelectionMenu.vue';
 import { selection, useSelection } from '../modules';
-import { mediaIndex } from '@admin/modules/media';
-import { MediaCollection } from '@admin/types/resources';
+import { mediaIndex } from '@/modules/media';
+import { MediaCollection } from '@/types/resources';
 
 const props = defineProps({
     collections: {

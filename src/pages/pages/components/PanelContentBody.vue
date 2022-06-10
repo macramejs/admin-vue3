@@ -67,9 +67,9 @@
 import { Sections, ContentBody, hideSections } from '@macramejs/admin-vue3';
 import { PropType } from 'vue';
 import { templates } from './templates';
-import { sections } from '@admin/modules/content';
-import { Page } from '@admin/types/resources';
-import { PageContentForm } from '@admin/types/forms';
+import { sections } from '@/modules/content';
+import { Page } from '@/types/resources';
+import { PageContentForm } from '@/types/forms';
 
 const props = defineProps({
     page: {

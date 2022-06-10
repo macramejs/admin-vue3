@@ -37,8 +37,8 @@
 import { IconAddImage } from '@macramejs/admin-vue3';
 import { Modal } from '@macramejs/admin-vue3';
 import { PropType, ref } from 'vue';
-import { mediaIndex, MediaUpload } from '@admin/modules/media';
-import { Media } from '@admin/types/resources';
+import { mediaIndex, MediaUpload } from '@/modules/media';
+import { Media } from '@/types/resources';
 
 const isOpen = ref<boolean>(false);
 

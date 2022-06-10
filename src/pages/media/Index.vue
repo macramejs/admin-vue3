@@ -23,12 +23,12 @@
 
 <script lang="ts" setup>
 import { onMounted, PropType, watch } from 'vue';
-import { Admin } from '@admin/layout';
-import { mediaIndex } from '@admin/modules/media';
+import { Admin } from '@/layout';
+import { mediaIndex } from '@/modules/media';
 import {
     MediaCollectionCollectionResource,
     MediaCollectionResource,
-} from '@admin/types';
+} from '@/types';
 import { Content, ContentSidebar, ContentBody } from '@macramejs/admin-vue3';
 import FilesSidebar from './components/FilesSidebar.vue';
 import FilesTopbarLeft from './components/FilesTopbarLeft.vue';

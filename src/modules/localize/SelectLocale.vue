@@ -1,27 +1,30 @@
 <template>
     <ContextMenu>
         <template #button>
-            <div class="relative flex items-center justify-center p-2 h-8 bg-gray-200 rounded cursor-pointer hover:bg-gray-300">
+            <div
+                class="relative flex items-center justify-center p-2 h-8 bg-gray-200 rounded cursor-pointer hover:bg-gray-300"
+            >
                 {{ localize.getLanguage(locale) }}
             </div>
         </template>
 
         <template #default="close">
-            <ContextMenuItem 
-                v-for="(language, l) in localize.languages" 
+            <ContextMenuItem
+                v-for="(language, l) in localize.languages"
                 :key="l"
-                @click="() => {
-                    locale = l;
-                    //close();
-                }"
+                @click="
+                    () => {
+                        locale = l;
+                        //close();
+                    }
+                "
             >
                 {{ language }}
             </ContextMenuItem>
         </template>
-        
     </ContextMenu>
 </template>
 <script lang="ts" setup>
-import { ContextMenu, ContextMenuItem } from '@macramejs/admin-vue3'
-import { localize, locale } from '@admin/modules/localize'; 
+import { ContextMenu, ContextMenuItem } from '@macramejs/admin-vue3';
+import { localize, locale } from '@/modules/localize';
 </script>

@@ -8,7 +8,7 @@
 import { PropType } from 'vue';
 import PagesTree from './PagesTree.vue';
 import { Tree } from '@macramejs/macrame-vue3';
-import { Page } from '@admin/types';
+import { Page } from '@/types';
 
 const props = defineProps({
     tree: {

@@ -25,8 +25,8 @@ export { default as SectionLogoWall } from './sections/SectionLogoWall.vue';
 export { default as SectionTextFull } from './sections/SectionTextFull.vue';
 export { default as SectionTextImage } from './sections/SectionTextImage.vue';
 
-import { SectionBlocks } from '@admin/modules/blocks';
-import { SectionBlocks } from '@admin/modules/blocks';
+import { SectionBlocks } from '@/modules/blocks';
+import { SectionBlocks } from '@/modules/blocks';
 import SectionTextFull from './sections/SectionTextFull.vue';
 import SectionTextImage from './sections/SectionTextImage.vue';
 import SectionInfoBox from './sections/SectionInfoBox.vue';

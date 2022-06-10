@@ -16,7 +16,7 @@
 </template>
 <script lang="ts" setup>
 import { ContentSidebar, Input, Checkbox } from '@macramejs/admin-vue3';
-import { mediaIndex } from '@admin/modules/media';
+import { mediaIndex } from '@/modules/media';
 
 const props = defineProps();
 </script>

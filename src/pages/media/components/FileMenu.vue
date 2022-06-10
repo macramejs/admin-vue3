@@ -13,8 +13,8 @@
 </template>
 
 <script lang="ts" setup>
-import { Media } from '@admin/types/resources';
-import { deleteFile } from '@admin/modules/media';
+import { Media } from '@/types/resources';
+import { deleteFile } from '@/modules/media';
 import { PropType } from 'vue';
 import {
     ContextMenu,

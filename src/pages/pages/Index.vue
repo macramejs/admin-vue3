@@ -1,13 +1,12 @@
 <template>
-    <SidebarSecondrayWrapper>
-    </SidebarSecondrayWrapper>
+    <SidebarSecondrayWrapper> </SidebarSecondrayWrapper>
 </template>
 
 <script setup lang="ts">
 import { PropType } from 'vue';
-import { Admin } from '@admin/layout';
+import { Admin } from '@/layout';
 import PageSidebar from './components/PagesSidebar.vue';
-import { PageTreeCollectionResource } from '@admin/types';
+import { PageTreeCollectionResource } from '@/types';
 
 const props = defineProps({
     pages: {
