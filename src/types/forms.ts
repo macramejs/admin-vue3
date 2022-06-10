@@ -8,6 +8,13 @@ export type Example = {
 }
 export type ExampleForm = Form<Example>;
 
+// Auth
+
+export type LoginForm = {
+    email: string,
+    password: string
+}
+
 // Page
 
 export type PageContent = {
@@ -26,7 +33,7 @@ export type PageMeta = {
 export type PageMetaForm = Form<PageMeta>;
 
 // NavItem
-        export type NavItemForm = Form<NavItem>;
+export type NavItemForm = Form<NavItem>;
 
 // Block
 

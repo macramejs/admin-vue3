@@ -1,16 +1,6 @@
 <template>
-    <Admin sidebar-secondary>
-        <template v-slot:sidebar-secondary>
-            <PageSidebar :pages="pages?.data || []" />
-        </template>
-        <template v-slot:topbar-left>
-            <slot name="topbar-left" />
-        </template>
-        <template v-slot:topbar-right>
-            <slot name="topbar-right" />
-        </template>
-        <router-view />
-    </Admin>
+    <SidebarSecondrayWrapper>
+    </SidebarSecondrayWrapper>
 </template>
 
 <script setup lang="ts">

@@ -5,8 +5,9 @@ import Show from './Show.vue';
 const routes: RouteRecordRaw[] = [
     { 
         path: '/pages', 
-        component: () => import('./Index.vue'),
+        component: () => import('./PagesLayout.vue'),
         children: [
+            { path: '', component: () => import('./Index.vue') },
             { path: ':id', component: () => import('./Show.vue') },
         ]
     },
