@@ -2,6 +2,7 @@ import axios from 'axios';
 
 // modules:
 export * from './auth';
+export * from './pages';
 
 const client = axios.create({
     baseURL: import.meta.env.VITE_API_URL as string,
