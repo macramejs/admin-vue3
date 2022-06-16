@@ -54,7 +54,7 @@ import {
     GuestLayoutInput as Input, 
     Checkbox, 
     Button 
-} from '@macramejs/admin-vue3';
+} from '@/ui';
 
 interface Lang {
     password: string;

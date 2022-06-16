@@ -18,5 +18,5 @@
     </Drawer>
 </template>
 <script lang="ts" setup>
-import { Drawer } from '@macramejs/admin-vue3';
+import { Drawer } from '@/ui';
 </script>

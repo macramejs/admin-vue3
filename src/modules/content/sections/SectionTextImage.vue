@@ -29,7 +29,7 @@ import {
     FormFieldLabel,
     Card,
     Input,
-} from '@macramejs/admin-vue3';
+} from '@/ui';
 import { watch, reactive } from 'vue';
 import { translatable } from '@macramejs/macrame-vue3';
 import { locale } from '@/modules/localize';

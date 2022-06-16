@@ -36,7 +36,7 @@
 
 <script lang="ts" setup>
 import { PropType, ref, watch } from 'vue';
-import { Input, Button, Modal, Select, Toggle } from '@macramejs/admin-vue3';
+import { Input, Button, Modal, Select, Toggle } from '@/ui';
 import { linkOptions } from '@/modules/links';
 
 const emit = defineEmits(['update:modelValue']);

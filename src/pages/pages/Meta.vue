@@ -1,5 +1,5 @@
 <template>
-    <Content>
+    <Main>
         <span class="inline-block pb-8 text-xl font-medium">
             Meta Informationen
         </span>
@@ -10,14 +10,14 @@
                         <Input
                             class="w-full"
                             label="Title"
-                            v-model="form.title"
+                            v-model="form.meta.title"
                         />
                     </FormField>
                     <FormField>
                         <FormFieldLabel>Beschreibung</FormFieldLabel>
                         <Textarea
                             placeholder="Description"
-                            v-model="form.description"
+                            v-model="form.meta.description"
                         />
                     </FormField>
                     <div class="mt-4 max-w-[600px]">
@@ -43,21 +43,21 @@
                 </Card>
             </div>
         </div>
-    </Content>
+    </Main>
 </template>
 
 <script setup lang="ts">
 import { PropType, computed } from 'vue';
 import { PageResource } from '@/types/resources';
-import { PageMetaForm } from '@/types/forms';
+import { PageForm } from '@/types/forms';
 import {
     Card,
     FormField,
     FormFieldLabel,
     Input,
     Textarea,
-    Content,
-} from '@macramejs/admin-vue3';
+    Main,
+} from '@/ui';
 
 const props = defineProps({
     page: {
@@ -65,7 +65,7 @@ const props = defineProps({
         required: true,
     },
     form: {
-        type: Object as PropType<PageMetaForm>,
+        type: Object as PropType<PageForm>,
         required: true,
     },
     fullSlug: {

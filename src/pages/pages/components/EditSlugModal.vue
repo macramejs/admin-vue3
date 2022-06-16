@@ -22,7 +22,7 @@
 
 <script lang="ts" setup>
 import { ref, PropType } from 'vue';
-import { Modal, Input, Button, IconEditPencil } from '@macramejs/admin-vue3';
+import { Modal, Input, Button, IconEditPencil } from '@/ui';
 import { slugify } from '@/modules/helpers';
 import { PageContentForm } from '@/types/forms';
 

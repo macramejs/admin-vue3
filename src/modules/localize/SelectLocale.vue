@@ -25,6 +25,6 @@
     </ContextMenu>
 </template>
 <script lang="ts" setup>
-import { ContextMenu, ContextMenuItem } from '@macramejs/admin-vue3';
+import { ContextMenu, ContextMenuItem } from '@/ui';
 import { localize, locale } from '@/modules/localize';
 </script>

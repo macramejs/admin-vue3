@@ -18,7 +18,7 @@ import { PropType, ref } from 'vue';
 import {
     SidebarSecondary,
     SidebarSecondarySection,
-} from '@macramejs/admin-vue3';
+} from '@/ui';
 import FilesSidebarHeader from './FilesSidebarHeader.vue';
 import FilesSidebarBody from './FilesSidebarBody.vue';
 import { MediaCollection } from '@/types';

@@ -36,7 +36,7 @@ import {
     ButtonRound,
     Button,
     IconPlus,
-} from '@macramejs/admin-vue3';
+} from '@/ui';
 import { useForm } from '@macramejs/macrame-vue3';
 import { templateOptions } from './templates';
 import { Page } from '@/types/resources';

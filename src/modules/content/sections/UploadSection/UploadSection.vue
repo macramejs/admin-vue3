@@ -42,7 +42,7 @@
 <script setup lang="ts">
 import { computed, ref, reactive, watch } from 'vue';
 import { useForm, usePage } from '@inertiajs/inertia-vue3';
-import { Modal, Card } from '@macramejs/admin-vue3';
+import { Modal, Card } from '@/ui';
 import FileExplorer from './FileExplorer.vue';
 import Dropzone from './Dropzone.vue';
 

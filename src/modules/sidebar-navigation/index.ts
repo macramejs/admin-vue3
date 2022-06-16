@@ -1,7 +1,7 @@
-// import { IconList } from '@macramejs/admin-vue3';
-// import { IconPages } from '@macramejs/admin-vue3';
-// import { IconMediaImageFolder } from '@macramejs/admin-vue3';
-// import { IconDashboard } from '@macramejs/admin-vue3';
+// import { IconList } from '@/ui';
+// import { IconPages } from '@/ui';
+// import { IconMediaImageFolder } from '@/ui';
+// import { IconDashboard } from '@/ui';
 
 import { RouterLinkProps } from "vue-router";
 

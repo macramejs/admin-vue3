@@ -8,7 +8,7 @@
 
 <script lang="ts" setup>
 import { locale } from '@/modules/localize';
-import { Input } from '@macramejs/admin-vue3';
+import { Input } from '@/ui';
 import { translatable } from '@macramejs/macrame-vue3';
 import { PageContentForm } from '@/types/forms';
 import { PropType } from 'vue';

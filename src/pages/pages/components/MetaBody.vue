@@ -60,7 +60,7 @@ import {
     Drawer,
     Input,
     Textarea,
-} from '@macramejs/admin-vue3';
+} from '@/ui';
 
 const props = defineProps({
     page: {

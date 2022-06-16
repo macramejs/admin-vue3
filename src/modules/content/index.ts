@@ -2,6 +2,7 @@ export { default as Drawers } from './Drawers.vue';
 
 // Components
 export { default as SelectImage } from './sections/components/SelectImage.vue';
+export { default as DrawerSection } from './components/DrawerSection.vue';
 
 // Drawers
 export { default as DrawerAccordion } from './drawers/DrawerAccordion.vue';

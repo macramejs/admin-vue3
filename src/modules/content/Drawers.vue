@@ -44,7 +44,7 @@
 </template>
 
 <script lang="ts" setup>
-import { DrawerSection } from '@macramejs/admin-vue3';
+import DrawerSection from './components/DrawerSection.vue';
 import { Cabinet } from '@macramejs/macrame-vue3';
 
 import {

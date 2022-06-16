@@ -11,7 +11,7 @@
 
 <script lang="ts" setup>
 import { useForm } from '@macramejs/macrame-vue3';
-import { Input } from '@macramejs/admin-vue3';
+import { Input } from '@/ui';
 import { MediaCollection } from '@/types';
 
 const form = useForm<MediaCollection>({

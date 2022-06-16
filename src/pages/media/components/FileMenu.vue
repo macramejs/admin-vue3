@@ -20,8 +20,8 @@ import {
     ContextMenu,
     ContextMenuItem,
     ContextMenuDivider,
-    IconTrash,
-} from '@macramejs/admin-vue3';
+} from '@/ui';
+import { IconTrash } from '@/ui/icons';
 
 const props = defineProps({
     file: {

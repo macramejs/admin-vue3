@@ -29,7 +29,6 @@ import {
     MediaCollectionCollectionResource,
     MediaCollectionResource,
 } from '@/types';
-import { Content, ContentSidebar, ContentBody } from '@macramejs/admin-vue3';
 import FilesSidebar from './components/FilesSidebar.vue';
 import FilesTopbarLeft from './components/FilesTopbarLeft.vue';
 import FilesTopbarRight from './components/FilesTopbarRight.vue';

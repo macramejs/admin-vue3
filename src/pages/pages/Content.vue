@@ -1,6 +1,6 @@
 <template>
-    <Content>
-        <ContentBody>
+    <Main>
+        <MainBody>
             <component :is="getComponent()" :form="form" v-if="form">
                 <div class="flex justify-end mb-4">
                     <button
@@ -19,33 +19,33 @@
                 </div>
                 <Sections v-model="form.content" :sections="sections" />
             </component>
-        </ContentBody>
-        <ContentSidebar v-model:open="isOpen">
+        </MainBody>
+        <MainSidebar v-model:open="isOpen">
             <Drawers :sections="drawsSections" />
             <DrawerSection title="Blöcke">
                 <Cabinet>
                     <DrawerBlocks :draws="SectionBlocks" />
                 </Cabinet>
             </DrawerSection>
-        </ContentSidebar>
-    </Content>
+        </MainSidebar>
+    </Main>
 </template>
 
 <script setup lang="ts">
 import {
     Sections,
-    Content,
-    ContentBody,
-    hideSections,
-} from '@macramejs/admin-vue3';
-import { ContentSidebar, DrawerSection } from '@macramejs/admin-vue3';
+    Main,
+    MainBody,
+    HideSections,
+    MainSidebar, 
+} from '@/ui';
+import { DrawerSection } from '@/modules/content';
 import { Cabinet } from '@macramejs/macrame-vue3';
 import { PropType } from 'vue';
 import { templates } from './templates';
 import { Drawers, sections } from '@/modules/content';
 import { SectionBlocks, DrawerBlocks } from '@/modules/blocks';
-import IconExpand from '@/modules/icons/IconExpand.vue';
-import IconCollapse from '@/modules/icons/IconCollapse.vue';
+import { IconExpand, IconCollapse } from '@/ui/icons';
 import { Page } from '@/types/resources';
 import { PageContentForm } from '@/types/forms';
 import { ref } from 'vue';

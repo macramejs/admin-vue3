@@ -21,7 +21,7 @@ import {
     Input,
     Section as BaseSection,
     FormFieldLabel,
-} from '@macramejs/admin-vue3';
+} from '@/ui';
 import DrawerInfoBox from './../drawers/DrawerInfoBox.vue';
 import { watch, reactive } from 'vue';
 import Link from './components/Link.vue';

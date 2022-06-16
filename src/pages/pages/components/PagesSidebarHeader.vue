@@ -5,6 +5,6 @@
 </template>
 
 <script lang="ts" setup>
-import { SidebarSecondaryHeader } from '@macramejs/admin-vue3';
+import { SidebarSecondaryHeader } from '@/ui';
 import AddPageModal from './AddPageModal.vue';
 </script>

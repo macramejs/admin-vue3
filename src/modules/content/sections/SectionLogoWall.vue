@@ -67,14 +67,16 @@ import {
     Card,
     Section as BaseSection,
     InteractionButton,
-    IconDraggable,
-    IconTrash,
-    IconMoreHorizontal,
     Input,
     Header,
     ContextMenu,
     ContextMenuItem,
-} from "@macramejs/admin-vue3";
+} from "@/ui";
+import {
+    IconDraggable,
+    IconTrash,
+    IconMoreHorizontal,
+} from "@/ui/icons";
 import { watch, reactive } from "vue";
 import DrawerLogoWall from "../drawers/DrawerLogoWall.vue";
 import AddItem from "./components/AddItem.vue";

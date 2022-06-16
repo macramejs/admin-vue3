@@ -100,7 +100,7 @@
 
 <script lang="ts" setup>
 import { ref, toRefs, watch } from 'vue';
-import { FileUpload, Index } from '@macramejs/admin-vue3';
+import { FileUpload, Index } from '@/ui';
 import FileMenu from './FileMenu.vue';
 import { mediaIndex } from '@/modules/media';
 

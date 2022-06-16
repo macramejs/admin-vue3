@@ -8,5 +8,5 @@
 </template>
 
 <script lang="ts" setup>
-import { IconPlus } from "@macramejs/admin-vue3";
+import { IconPlus } from "@/ui/icons";
 </script>

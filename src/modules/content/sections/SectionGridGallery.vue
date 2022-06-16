@@ -23,7 +23,7 @@
 </template>
 <script setup lang="ts">
 import Draggable from "vuedraggable";
-import { Card, Section as BaseSection } from "@macramejs/admin-vue3";
+import { Card, Section as BaseSection } from "@/ui";
 import { watch, reactive } from "vue";
 import DrawerGridGallery from "../drawers/DrawerGridGallery.vue";
 import SelectImage from "./components/SelectImage.vue";

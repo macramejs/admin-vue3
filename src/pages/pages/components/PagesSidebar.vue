@@ -11,7 +11,7 @@
 
 <script lang="ts" setup>
 import { watch, PropType } from 'vue';
-import { SidebarSecondary } from '@macramejs/admin-vue3';
+import { SidebarSecondary } from '@/ui';
 import {
     useTree,
     Tree,

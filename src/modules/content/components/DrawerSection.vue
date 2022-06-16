@@ -21,7 +21,7 @@
     </div>
 </template>
 <script lang="ts" setup>
-import { IconCaret } from '../icons';
+import { IconCaret } from '@/ui/icons';
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue';
 const props = defineProps({
     title: {

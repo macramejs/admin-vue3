@@ -43,7 +43,7 @@ import {
     Input,
     Button,
     IconTrash,
-} from '@macramejs/admin-vue3';
+} from '@/ui';
 import { slugify } from '@/modules/helpers';
 
 const props = defineProps({

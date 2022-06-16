@@ -32,7 +32,7 @@
 </template>
 
 <script lang="ts" setup>
-import { SidebarLink, SidebarSecondarySection } from '@macramejs/admin-vue3';
+import { SidebarLink, SidebarSecondarySection } from '@/ui';
 import { PropType } from 'vue';
 import { MediaCollection } from '@/types';
 

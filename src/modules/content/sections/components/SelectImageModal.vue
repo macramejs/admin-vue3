@@ -34,8 +34,8 @@
 </template>
 
 <script lang="ts" setup>
-import { IconAddImage } from '@macramejs/admin-vue3';
-import { Modal } from '@macramejs/admin-vue3';
+import { IconAddImage } from '@/ui/icons';
+import { Modal } from '@/ui';
 import { PropType, ref } from 'vue';
 import { mediaIndex, MediaUpload } from '@/modules/media';
 import { Media } from '@/types/resources';

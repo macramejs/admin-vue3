@@ -47,7 +47,7 @@ import {
     IconMoreHorizontal,
     IconPlus,
     IconDuplicatePage,
-} from '@macramejs/admin-vue3';
+} from '@/ui';
 import { PropType } from 'vue';
 import { Page } from '@/types/resources';
 import { deletePage } from '@/modules/page';

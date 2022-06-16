@@ -15,5 +15,5 @@
 <script lang="ts" setup>
 import SidebarPrimary from './components/SidebarPrimary/SidebarPrimary.vue';
 import Link from './components/SidebarPrimary/Link.vue';
-import IconPage from '@/modules/icons/IconPage.vue';
+import IconPage from '@/ui/icons/IconPage.vue';
 </script>

@@ -17,7 +17,7 @@
 
 <script lang="ts" setup>
 import { ref, PropType } from 'vue';
-import { Modal, Input, Button, IconDuplicatePage } from '@macramejs/admin-vue3';
+import { Modal, Input, Button, IconDuplicatePage } from '@/ui';
 import { useForm } from '@macramejs/macrame-vue3';
 import { Page } from '@/types/resources';
 import { Inertia } from '@inertiajs/inertia';

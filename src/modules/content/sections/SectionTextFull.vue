@@ -9,7 +9,7 @@
     </BaseSection>
 </template>
 <script setup lang="ts">
-import { Wysiwyg, Section as BaseSection, Card } from '@macramejs/admin-vue3';
+import { Wysiwyg, Section as BaseSection, Card } from '@/ui';
 import { translatable } from '@macramejs/macrame-vue3';
 import { locale } from '@/modules/localize';
 import DrawerTextFull from './../drawers/DrawerTextFull.vue';

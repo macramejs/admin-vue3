@@ -17,6 +17,6 @@
 </template>
 
 <script lang="ts" setup>
-import { Badge } from '@macramejs/admin-vue3';
+import { Badge } from '@/ui';
 import { mediaIndex } from '@/modules/media';
 </script>

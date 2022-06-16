@@ -55,7 +55,7 @@
 
 <script lang="ts" setup>
 import { PropType } from 'vue';
-import { ContextButton } from '@macramejs/admin-vue3';
+import { ContextButton } from '@/ui';
 import SelectionMenu from './SelectionMenu.vue';
 import { selection, useSelection } from '../modules';
 import { mediaIndex } from '@/modules/media';

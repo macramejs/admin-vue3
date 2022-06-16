@@ -78,7 +78,7 @@
 <script lang="ts" setup>
 // imports
 import { PropType, ref, watch } from 'vue';
-import { Toggle } from '@macramejs/admin-vue3';
+import { Toggle } from '@/ui';
 import { DatePicker } from 'v-calendar';
 import 'v-calendar/dist/style.css';
 

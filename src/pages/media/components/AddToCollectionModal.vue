@@ -28,7 +28,7 @@ import {
     Select,
     Button,
     ContextMenuItem,
-} from '@macramejs/admin-vue3';
+} from '@/ui';
 import { Selection } from '../modules';
 import { MediaCollection } from '@/types/resources';
 

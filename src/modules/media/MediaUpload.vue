@@ -4,7 +4,7 @@
 
 <script lang="ts" setup>
 import { MediaCollection } from '@/types';
-import { FileUpload } from '@macramejs/admin-vue3';
+import { FileUpload } from '@/ui';
 import { PropType } from 'vue';
 import { mediaIndex } from '@/modules/media';
 

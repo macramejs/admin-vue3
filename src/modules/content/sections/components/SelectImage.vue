@@ -54,7 +54,7 @@ import {
     IconMoreHorizontal,
     ContextMenu,
     ContextMenuItem,
-} from '@macramejs/admin-vue3';
+} from '@/ui';
 
 const emit = defineEmits(['update:modelValue']);
 

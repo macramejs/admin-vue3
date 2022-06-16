@@ -32,8 +32,8 @@ import {
     ContextMenu,
     ContextMenuItem,
     ContextMenuDivider,
-    IconTrash,
-} from '@macramejs/admin-vue3';
+} from '@/ui';
+import { IconTrash } from '@/ui/icons';
 import { PropType } from 'vue';
 import { Selection } from '../modules';
 import AddToCollectionModal from './AddToCollectionModal.vue';

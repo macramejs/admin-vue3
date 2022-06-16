@@ -40,7 +40,7 @@
 <script setup lang="ts">
 import { login } from '@/modules/api';
 import { GuestLayout } from '@/layout';
-import { CheckboxSwitch, Button, Input } from '@macramejs/admin-vue3';
+import { CheckboxSwitch, Button, Input } from '@/ui';
 import { useRouter } from 'vue-router';
 import { LoginFormData, LoginForm } from '@/types/forms';
 import { useForm } from '@macramejs/macrame-vue3';
