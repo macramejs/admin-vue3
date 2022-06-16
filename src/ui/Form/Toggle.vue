@@ -49,10 +49,9 @@
 </template>
 
 <script lang="ts">
-import { ref } from 'vue';
 import { Switch, SwitchGroup, SwitchLabel } from '@headlessui/vue';
-import { getSize, sizes } from './props/size';
-import { getVariant, variants } from './props/variant';
+import { getSize, sizes } from '../_props/size';
+import { getVariant, variants } from '../_props/variant';
 
 export default {
     components: { Switch, SwitchGroup, SwitchLabel },

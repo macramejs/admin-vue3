@@ -27,7 +27,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { getVariant, variants } from './props/variant';
+import { getVariant, variants } from './_props/variant';
 
 export default defineComponent({
     props: {

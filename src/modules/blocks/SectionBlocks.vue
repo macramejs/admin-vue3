@@ -15,7 +15,8 @@
     </BaseSection>
 </template>
 <script setup lang="ts">
-import { Card, Section as BaseSection, Select } from '@/ui';
+import BaseSection from '../content/sections/BaseSection.vue';
+import { Card, Select } from '@/ui';
 import DrawerBlocks from './DrawerBlocks.vue';
 import { watch, reactive } from 'vue';
 

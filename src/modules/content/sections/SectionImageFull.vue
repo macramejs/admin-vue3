@@ -8,7 +8,8 @@
     </BaseSection>
 </template>
 <script setup lang="ts">
-import { FormFieldLabel, Section as BaseSection } from '@/ui';
+import BaseSection from './BaseSection.vue';
+import { FormFieldLabel } from '@/ui';
 import { watch, ref } from 'vue';
 import DrawerImageFull from './../drawers/DrawerImageFull.vue';
 import SelectImage from './components/SelectImage.vue';

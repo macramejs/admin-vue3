@@ -4,7 +4,7 @@
             <button
                 class="p-1 text-gray-100 opacity-0 hover:bg-black rounded-xs group-hover:opacity-100"
             >
-                <IconMoreHorizontal class="w-4 h-4" />
+                <IconMoreHoriz class="w-4 h-4" />
             </button>
         </template>
         <AddPageModal :parent="page">
@@ -40,14 +40,13 @@
 </template>
 
 <script lang="ts" setup>
-import {
-    ContextMenu,
-    ContextMenuItem,
-    IconTrash,
-    IconMoreHorizontal,
-    IconPlus,
-    IconDuplicatePage,
-} from '@/ui';
+import { ContextMenu, ContextMenuItem } from '@/ui';
+
+import IconMoreHoriz from '@/ui/Icons/IconMoreHoriz.vue';
+import IconTrash from '@/ui/Icons/IconTrash.vue';
+import IconPlus from '@/ui/Icons/IconPlus.vue';
+import IconDuplicatePage from '@/ui/Icons/IconDuplicatePage.vue';
+
 import { PropType } from 'vue';
 import { Page } from '@/types/resources';
 import { deletePage } from '@/modules/page';

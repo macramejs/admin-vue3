@@ -4,7 +4,7 @@
             <div
                 class="flex flex-col items-center justify-center w-full rounded cursor-pointer bg-gray-50 hover:bg-gray-200 h-28 text-gray"
             >
-                <IconAddImage class="w-12 h-12" />
+                <IconAddMediaImage class="w-12 h-12" />
                 Bild auswählen
             </div>
         </slot>
@@ -34,7 +34,7 @@
 </template>
 
 <script lang="ts" setup>
-import { IconAddImage } from '@/ui/icons';
+import IconAddMediaImage from '@/ui/Icons/IconAddMediaImage.vue';
 import { Modal } from '@/ui';
 import { PropType, ref } from 'vue';
 import { mediaIndex, MediaUpload } from '@/modules/media';

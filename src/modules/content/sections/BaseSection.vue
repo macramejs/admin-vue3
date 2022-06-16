@@ -27,7 +27,7 @@
                 <ContextMenu placement="left">
                     <template #button>
                         <InteractionButton class="cursor-pointer" gray>
-                            <IconMoreHorizontal class="w-4 h-4" />
+                            <IconMoreHoriz class="w-4 h-4" />
                         </InteractionButton>
                     </template>
                     <ContextMenuItem
@@ -45,7 +45,7 @@
                     gray
                     @click="collapsed = !collapsed"
                 >
-                    <IconCaret
+                    <IconNavArrowDown
                         class="w-4 h-4"
                         :class="{
                             ' rotate-180': collapsed,
@@ -67,14 +67,12 @@
 </template>
 <script setup lang="ts">
 import { ref, watch } from 'vue';
-import ContextMenu from './ContextMenu.vue';
-import InteractionButton from './InteractionButton.vue';
-import ContextMenuItem from './ContextMenuItem.vue';
-import IconDraggable from '../icons/IconDraggable.vue';
-import IconTrash from '../icons/IconTrash.vue';
-import IconCaret from '../icons/IconCaret.vue';
-import IconMoreHorizontal from '../icons/IconMoreHorizontal.vue';
-import { hideSections } from './sections';
+import { ContextMenuItem, InteractionButton, ContextMenu } from '@/ui';
+import IconDraggable from '@/ui/Icons/custom/IconDraggable.vue';
+import IconTrash from '@/ui/Icons/IconTrash.vue';
+import IconNavArrowDown from '@/ui/Icons/IconNavArrowDown.vue';
+import IconMoreHoriz from '@/ui/Icons/IconMoreHoriz.vue';
+import { hideSections } from '../';
 
 const props = defineProps({
     title: {

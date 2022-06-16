@@ -153,7 +153,7 @@
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
 import { Index } from '@macramejs/macrame-vue3';
-import Button from './Button.vue';
+import Button from '../Buttons/Button.vue';
 
 export default defineComponent({
     components: { Button },

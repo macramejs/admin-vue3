@@ -26,8 +26,8 @@
 
 <script lang="ts" setup>
 import { useAttrs } from 'vue';
-import { getVariant, variants } from './props/variant';
-import { getSize, sizes } from './props/size';
+import { getVariant, variants } from '../_props/variant';
+import { getSize, sizes } from '../_props/size';
 
 const props = defineProps({
     disabled: {

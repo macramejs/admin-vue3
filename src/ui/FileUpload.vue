@@ -14,9 +14,9 @@
             v-bind="getRootProps()"
         >
             <input v-bind="getInputProps()" />
-            <div class="flex items-center flex-col justify-center">
+            <div class="flex flex-col items-center justify-center">
                 <div class="text-orange">
-                    <IconAddImage />
+                    <IconAddMediaImage class="w-4 h-4" />
                 </div>
                 <div class="text-sm text-center uppercase" v-if="busy">
                     Loading ...
@@ -47,7 +47,7 @@
 </template>
 
 <script lang="ts" setup>
-import { IconAddImage } from './../icons';
+import IconAddMediaImage from './Icons/IconAddMediaImage.vue';
 import { ref, computed } from 'vue';
 import { useDropzone } from 'vue3-dropzone';
 import axios from 'axios';

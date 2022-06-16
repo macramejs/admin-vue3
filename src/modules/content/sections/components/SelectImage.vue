@@ -25,7 +25,7 @@
             <ContextMenu placement="left">
                 <template #button>
                     <InteractionButton class="mt-2 mr-2 cursor-pointer" dark>
-                        <IconMoreHorizontal class="w-4 h-4" />
+                        <IconMoreHoriz class="w-4 h-4" />
                     </InteractionButton>
                 </template>
                 <ContextMenuItem
@@ -44,17 +44,18 @@
 
 <script lang="ts" setup>
 import 'lazysizes';
-import { ResponsiveImage } from '@/components';
 import { getMediaById } from '@/modules/media';
 import { onBeforeMount, PropType, ref, watch } from 'vue';
 import SelectImageModal from './SelectImageModal.vue';
 import {
+    ResponsiveImage,
     InteractionButton,
-    IconTrash,
-    IconMoreHorizontal,
     ContextMenu,
     ContextMenuItem,
 } from '@/ui';
+
+import IconMoreHoriz from '@/ui/Icons/IconMoreHoriz.vue';
+import IconTrash from '@/ui/Icons/IconTrash.vue';
 
 const emit = defineEmits(['update:modelValue']);
 

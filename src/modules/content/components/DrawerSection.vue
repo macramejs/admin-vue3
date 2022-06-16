@@ -10,7 +10,7 @@
                         'rotate-180': !open,
                     }"
                 >
-                    <IconCaret class="w-3 h-3" />
+                    <IconNavArrowDown class="w-3 h-3" />
                 </div>
             </DisclosureButton>
 
@@ -21,7 +21,7 @@
     </div>
 </template>
 <script lang="ts" setup>
-import { IconCaret } from '@/ui/icons';
+import IconNavArrowDown from '@/ui/Icons/IconNavArrowDown.vue';
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue';
 const props = defineProps({
     title: {

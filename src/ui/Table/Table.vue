@@ -29,9 +29,9 @@
 </template>
 
 <script lang="ts">
+import { Component } from '@macramejs/macrame';
 import { defineComponent, PropType } from 'vue';
 import { Index } from '@macramejs/macrame-vue3';
-import { Component } from '@macramejs/macrame';
 import Th from './Th.vue';
 import Td from './Td.vue';
 

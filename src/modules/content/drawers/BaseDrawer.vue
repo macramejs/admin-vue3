@@ -34,7 +34,7 @@
     </div>
 </template>
 <script lang="ts" setup>
-const props = defineProps({
+defineProps({
     color: {
         type: String,
         default: 'purple',

@@ -41,7 +41,7 @@
                     }"
                     v-if="children?.items.length > 0"
                 >
-                    <IconCaret class="w-3 h-3" />
+                    <IconNavArrowDown class="w-3 h-3" />
                 </DisclosureButton>
             </div>
         </div>
@@ -53,7 +53,8 @@
 
 <script lang="ts" setup>
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue';
-import { IconDraggable, IconCaret } from '../icons/';
+import IconDraggable from '../Icons/custom/IconDraggable.vue';
+import IconNavArrowDown from '../Icons/IconNavArrowDown.vue';
 
 const props = defineProps({
     item: {

@@ -71,7 +71,7 @@ import {
     DialogOverlay,
     DialogTitle,
 } from '@headlessui/vue';
-import { getSize, sizes } from './props/size';
+import { getSize, sizes } from './_props/size';
 
 const emit = defineEmits(['close', 'update:open']);
 const props = defineProps({

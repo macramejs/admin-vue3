@@ -33,5 +33,5 @@
     </Drawer>
 </template>
 <script lang="ts" setup>
-import { Drawer } from '@/ui';
+import Drawer from '../content/drawers/BaseDrawer.vue';
 </script>

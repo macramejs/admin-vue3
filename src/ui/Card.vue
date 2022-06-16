@@ -15,8 +15,8 @@
 
 <script lang="ts">
 import { defineComponent, computed } from 'vue';
-import { getVariant, variants } from './props/variant';
-import { getSize, sizes } from './props/size';
+import { getVariant, variants } from './_props/variant';
+import { getSize, sizes } from './_props/size';
 
 export default defineComponent({
     props: {

@@ -29,7 +29,7 @@
                             <ContextMenu placement="left">
                                 <template #button>
                                     <InteractionButton class="cursor-pointer">
-                                        <IconMoreHorizontal class="w-4 h-4" />
+                                        <IconMoreHoriz class="w-4 h-4" />
                                     </InteractionButton>
                                 </template>
                                 <ContextMenuItem
@@ -66,18 +66,16 @@
 <script setup lang="ts">
 import {
     Card,
-    Section as BaseSection,
     InteractionButton,
     Input,
     Header,
     ContextMenu,
     ContextMenuItem,
 } from '@/ui';
-import {
-    IconDraggable,
-    IconTrash,
-    IconMoreHorizontal,
-} from '@/ui/icons';
+import BaseSection from './BaseSection.vue';
+import IconMoreHoriz from '@/ui/Icons/IconMoreHoriz.vue';
+import IconDraggable from '@/ui/Icons/custom/IconDraggable.vue';
+import IconTrash from '@/ui/Icons/IconTrash.vue';
 import { watch, reactive } from 'vue';
 import AddItem from './components/AddItem.vue';
 import Draggable from 'vuedraggable';

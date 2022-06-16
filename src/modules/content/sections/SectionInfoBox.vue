@@ -15,13 +15,8 @@
     </BaseSection>
 </template>
 <script setup lang="ts">
-import {
-    Card,
-    Textarea,
-    Input,
-    Section as BaseSection,
-    FormFieldLabel,
-} from '@/ui';
+import BaseSection from './BaseSection.vue';
+import { Card, Textarea, Input, FormFieldLabel } from '@/ui';
 import DrawerInfoBox from './../drawers/DrawerInfoBox.vue';
 import { watch, reactive } from 'vue';
 import Link from './components/Link.vue';

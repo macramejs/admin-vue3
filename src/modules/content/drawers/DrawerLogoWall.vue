@@ -1,7 +1,7 @@
 <template>
     <Drawer title="Logo Wall" hint="Logo Wall" color="orange">
         <svg
-            class="h-4 w-4"
+            class="w-4 h-4"
             width="24"
             height="24"
             stroke-width="1.5"
@@ -33,5 +33,5 @@
     </Drawer>
 </template>
 <script lang="ts" setup>
-import { Drawer } from "@/ui";
+import Drawer from './BaseDrawer.vue';
 </script>

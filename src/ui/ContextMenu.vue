@@ -2,7 +2,7 @@
     <Popper v-bind="$attrs" :placement="placement" arrow class="popper-wrapper">
         <slot name="button">
             <button class="p-1 text-gray-100 hover:bg-black rounded-xs">
-                <IconMoreHorizontal class="w-4 h-4" />
+                <IconMoreHoriz class="w-4 h-4" />
             </button>
         </slot>
         <template #content="{ close }">
@@ -19,7 +19,7 @@
 
 <script lang="ts" setup>
 import Popper from 'vue3-popper';
-import IconMoreHorizontal from './../icons/IconMoreHorizontal.vue';
+import IconMoreHoriz from './Icons/IconMoreHoriz.vue';
 
 defineProps({
     placement: {

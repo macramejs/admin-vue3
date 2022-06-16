@@ -23,13 +23,8 @@
     </BaseSection>
 </template>
 <script setup lang="ts">
-import {
-    Textarea,
-    Section as BaseSection,
-    FormFieldLabel,
-    Card,
-    Input,
-} from '@/ui';
+import BaseSection from './BaseSection.vue';
+import { Textarea, FormFieldLabel, Card, Input } from '@/ui';
 import { watch, reactive } from 'vue';
 import { translatable } from '@macramejs/macrame-vue3';
 import { locale } from '@/modules/localize';

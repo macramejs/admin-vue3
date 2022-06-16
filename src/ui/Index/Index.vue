@@ -32,8 +32,8 @@
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
 import { Index } from '@macramejs/macrame-vue3';
-import Pagination from '../Index/Index/Pagination.vue';
-import Search from '../Index/Index/Search.vue';
+import Pagination from './Pagination.vue';
+import Search from './Search.vue';
 
 type IndexProps = {
     table: Index;

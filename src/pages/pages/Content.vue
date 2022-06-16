@@ -32,22 +32,17 @@
 </template>
 
 <script setup lang="ts">
-import {
-    Sections,
-    Main,
-    MainBody,
-    HideSections,
-    MainSidebar, 
-} from '@/ui';
-import { DrawerSection } from '@/modules/content';
+import { Main, MainBody, MainSidebar } from '@/ui';
+import DrawerSection from '@/modules/content/components/DrawerSection.vue';
 import { Cabinet } from '@macramejs/macrame-vue3';
 import { PropType } from 'vue';
 import { templates } from './templates';
-import { Drawers, sections } from '@/modules/content';
+import { Drawers, sections, Sections, hideSections } from '@/modules/content';
 import { SectionBlocks, DrawerBlocks } from '@/modules/blocks';
-import { IconExpand, IconCollapse } from '@/ui/icons';
+import IconExpand from '@/ui/Icons/IconExpand.vue';
+import IconCollapse from '@/ui/Icons/IconCollapse.vue';
 import { Page } from '@/types/resources';
-import { PageContentForm } from '@/types/forms';
+import { PageForm } from '@/types/forms';
 import { ref } from 'vue';
 
 const props = defineProps({
@@ -56,7 +51,7 @@ const props = defineProps({
         // required: true,
     },
     form: {
-        type: Object as PropType<PageContentForm>,
+        type: Object as PropType<PageForm>,
         // required: true,
     },
 });

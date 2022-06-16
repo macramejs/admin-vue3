@@ -26,13 +26,13 @@
                                     <IconDraggable class="w-2.5 h-2.5" />
                                 </InteractionButton>
                                 <div class="text-lg font-semibold">
-                                    {{ element.name || "Logo" }}
+                                    {{ element.name || 'Logo' }}
                                 </div>
                             </div>
                             <ContextMenu placement="left">
                                 <template #button>
                                     <InteractionButton class="cursor-pointer">
-                                        <IconMoreHorizontal class="w-4 h-4" />
+                                        <IconMoreHoriz class="w-4 h-4" />
                                     </InteractionButton>
                                 </template>
                                 <ContextMenuItem
@@ -63,36 +63,33 @@
     </BaseSection>
 </template>
 <script setup lang="ts">
+import BaseSection from './BaseSection.vue';
 import {
     Card,
-    Section as BaseSection,
     InteractionButton,
     Input,
     Header,
     ContextMenu,
     ContextMenuItem,
-} from "@/ui";
-import {
-    IconDraggable,
-    IconTrash,
-    IconMoreHorizontal,
-} from "@/ui/icons";
-import { watch, reactive } from "vue";
-import DrawerLogoWall from "../drawers/DrawerLogoWall.vue";
-import AddItem from "./components/AddItem.vue";
-import Draggable from "vuedraggable";
-import Link from "./components/Link.vue";
-import SelectImage from "./components/SelectImage.vue";
-import { v4 as uuid } from "uuid";
+} from '@/ui';
+import IconMoreHoriz from '@/ui/Icons/IconMoreHoriz.vue';
+import IconDraggable from '@/ui/Icons/custom/IconDraggable.vue';
+import IconTrash from '@/ui/Icons/IconTrash.vue';
+import DrawerLogoWall from '../drawers/DrawerLogoWall.vue';
+import AddItem from './components/AddItem.vue';
+import Draggable from 'vuedraggable';
+import Link from './components/Link.vue';
+import SelectImage from './components/SelectImage.vue';
+import { v4 as uuid } from 'uuid';
 
-const emit = defineEmits(["update:modelValue"]);
+const emit = defineEmits(['update:modelValue']);
 
 const props = defineProps({
     modelValue: {
         type: Object,
         required: true,
         default: () => ({
-            headline: "",
+            headline: '',
             items: [],
         }),
     },
@@ -100,24 +97,24 @@ const props = defineProps({
 
 const model = reactive({
     headline: props.modelValue.headline,
-    items: props.modelValue.items.map((item) => {
+    items: props.modelValue.items.map(item => {
         return { ...item, _draggableKey: uuid() };
     }),
 });
 
 function addItem() {
     model.items.push({
-        name: "",
+        name: '',
         _draggableKey: uuid(),
         link: {
-            link: "",
-            text: "",
+            link: '',
+            text: '',
             new_tab: false,
         },
         image: {
             id: null,
-            title: "",
-            alt: "",
+            title: '',
+            alt: '',
         },
     });
 }
@@ -129,13 +126,13 @@ function removeItem(index) {
 watch(
     () => model,
     () => {
-        let items = JSON.parse(JSON.stringify(model.items)).map((item) => {
+        let items = JSON.parse(JSON.stringify(model.items)).map(item => {
             delete item._draggableKey;
 
             return item;
         });
 
-        emit("update:modelValue", {
+        emit('update:modelValue', {
             ...model,
             items,
         });

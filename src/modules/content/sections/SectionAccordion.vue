@@ -31,7 +31,7 @@
                             <ContextMenu placement="left">
                                 <template #button>
                                     <InteractionButton class="cursor-pointer">
-                                        <IconMoreHorizontal class="w-4 h-4" />
+                                        <IconMoreHoriz class="w-4 h-4" />
                                     </InteractionButton>
                                 </template>
                                 <ContextMenuItem
@@ -63,33 +63,31 @@
 <script setup lang="ts">
 import {
     Card,
-    Section as BaseSection,
     InteractionButton,
     Input,
     Textarea,
     Header,
     ContextMenu,
     ContextMenuItem,
-} from "@/ui";
-import {
-    IconDraggable,
-    IconTrash,
-    IconMoreHorizontal,
-} from '@/ui/icons'
-import { watch, reactive } from "vue";
-import AddItem from "./components/AddItem.vue";
-import Draggable from "vuedraggable";
-import { v4 as uuid } from "uuid";
-import DrawerAccordion from "../drawers/DrawerAccordion.vue";
+} from '@/ui';
+import BaseSection from './BaseSection.vue';
+import IconMoreHoriz from '@/ui/Icons/IconMoreHoriz.vue';
+import IconDraggable from '@/ui/Icons/custom/IconDraggable.vue';
+import IconTrash from '@/ui/Icons/IconTrash.vue';
+import { watch, reactive } from 'vue';
+import AddItem from './components/AddItem.vue';
+import Draggable from 'vuedraggable';
+import { v4 as uuid } from 'uuid';
+import DrawerAccordion from '../drawers/DrawerAccordion.vue';
 
-const emit = defineEmits(["update:modelValue"]);
+const emit = defineEmits(['update:modelValue']);
 
 const props = defineProps({
     modelValue: {
         type: Object,
         required: true,
         default: () => ({
-            headline: "",
+            headline: '',
             items: [],
         }),
     },
@@ -97,15 +95,15 @@ const props = defineProps({
 
 const model = reactive({
     headline: props.modelValue.headline,
-    items: props.modelValue.items.map((item) => {
+    items: props.modelValue.items.map(item => {
         return { ...item, _draggableKey: uuid() };
     }),
 });
 
 function addItem() {
     model.items.push({
-        title: "",
-        text: "",
+        title: '',
+        text: '',
         // _draggableKey: uuid(),
     });
 }
@@ -117,13 +115,13 @@ function removeItem(index) {
 watch(
     () => model,
     () => {
-        let items = JSON.parse(JSON.stringify(model.items)).map((item) => {
+        let items = JSON.parse(JSON.stringify(model.items)).map(item => {
             delete item._draggableKey;
 
             return item;
         });
 
-        emit("update:modelValue", {
+        emit('update:modelValue', {
             ...model,
             items,
         });
