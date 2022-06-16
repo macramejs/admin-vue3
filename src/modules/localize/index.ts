@@ -3,14 +3,13 @@ import SelectLocale from './SelectLocale.vue';
 
 const locale = ref('de');
 
-
 const localize = reactive({
     languages: {
         de: 'Deutsch',
         en: 'Englisch',
     },
-    getLanguage(locale: string) {
-        return this.languages[locale as keyof typeof this.languages];
+    getLanguage(l: string) {
+        return this.languages[l as keyof typeof this.languages];
     }
 });
 

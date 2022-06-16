@@ -38,26 +38,10 @@
 </template>
 
 <script setup lang="ts">
-import { login } from '@/modules/api';
 import { GuestLayout } from '@/layout';
 import { CheckboxSwitch, Button, Input } from '@/ui';
-import { useRouter } from 'vue-router';
-import { LoginFormData, LoginForm } from '@/types/forms';
-import { useForm } from '@macramejs/macrame-vue3';
+import { useLoginForm } from '@/modules/forms';
+import { LoginForm } from '@/types/forms';
 
-const router = useRouter();
-
-const form: LoginForm = useForm<LoginFormData>({
-    data: {
-        email: '',
-        password: '',
-        remember: false,
-    },
-    submit: async data => {
-        try {
-            await login(data);
-            router.push('/');
-        } catch (error) {}
-    },
-});
+const form: LoginForm = useLoginForm({});
 </script>

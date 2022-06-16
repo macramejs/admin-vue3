@@ -21,7 +21,7 @@ export const useMediaIndex = () => {
             },
             types: {
                 toggle(type) {
-                    let i = index.filters.types.value.indexOf(type);
+                    const i = index.filters.types.value.indexOf(type);
                     if (i !== -1) {
                         index.filters.types.value.splice(i, 1);
                     } else {
@@ -43,7 +43,7 @@ export const mediaIndex = useMediaIndex();
 export const getMediaById = async (id: number) => {
     const { data } = await (await get(`/admin/media/items/${id}`)).json();
 
-    return <Media>data;
+    return data as Media;
 };
 
 export const deleteFile = async (file: Media) => {

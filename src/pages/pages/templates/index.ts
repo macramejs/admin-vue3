@@ -4,7 +4,7 @@ const templates = {
     default: DefaultTemplate
 };
 
-let templateOptions = [
+const templateOptions = [
     {
         label: 'Standard',
         value: 'default',

@@ -12,7 +12,7 @@ type SidebarNavigationLink = {
     link?: RouterLinkProps
 };
 
-export const sidebarLinks = <(SidebarNavigationLink)[]>[
+export const sidebarLinks: SidebarNavigationLink[] = [
     {
         title: 'Dashboard',
         link: { to: '/' }
@@ -25,18 +25,18 @@ sidebarLinks.push({
     title: "Medien",
     link: { to: '/media' }
     // icon: IconMediaImageFolder,
-}); 
+});
 
 // Pages links
 sidebarLinks.push({
     title: "Seiten",
     link: { to: '/pages' }
     // icon: IconPages
-}); 
+});
 
 // Navigation links
 sidebarLinks.push({
     title: "Navigation",
     href: "/admin/nav",
     // icon: IconList,
-}); 
+});

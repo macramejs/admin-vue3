@@ -1,8 +1,8 @@
 import { RouteRecordRaw } from 'vue-router';
 
 const routes: RouteRecordRaw[] = [
-    { 
-        path: 'pages', 
+    {
+        path: 'pages',
         component: () => import('./layouts/PagesLayout.vue'),
         children: [
             { path: '', component: () => import('./Index.vue') },

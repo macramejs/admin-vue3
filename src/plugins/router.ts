@@ -9,8 +9,8 @@ const routes: RouteRecordRaw[] = [
     // guest
     ...authRoutes,
     // authed
-    { 
-        path: '/', 
+    {
+        path: '/',
         component: () => import('@/layout/AppRouterView.vue'),
         children: [
             ...homeRoutes,
@@ -26,4 +26,3 @@ const router = createRouter({
 })
 
 export { router };
-  

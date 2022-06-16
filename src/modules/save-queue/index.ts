@@ -4,7 +4,7 @@ const saveQueue: SaveQueue = useSaveQueue();
 
 const saveKeyboardShortcut = () => {
     document.addEventListener('keydown', (e) => {
-        let modifier = window.navigator.platform.match('Mac')
+        const modifier = window.navigator.platform.match('Mac')
             ? e.metaKey
             : e.ctrlKey;
 

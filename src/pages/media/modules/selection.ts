@@ -9,15 +9,19 @@ export interface Selection {
     delete: () => void;
 }
 
-const useSelection = function (files: Media[]) {
+const useSelection = (files: Media[]) => {
     const sel = reactive<Selection>({
         files,
-        addToCollection() {},
-        delete() {},
+        addToCollection() {
+            // TODO:
+        },
+        delete() {
+            // TODO:
+        },
     });
 
     sel.addToCollection = collection => {
-        if (sel.files.length == 0) {
+        if (sel.files.length === 0) {
             return;
         }
 

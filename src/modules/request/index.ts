@@ -2,7 +2,7 @@
 type TRequestInit = RequestInit | { body: {[k:string]: any}};
 
 function request(url: RequestInfo, options: TRequestInit = {}) {
-    const token = (<HTMLInputElement>document.querySelector('input[name="_token"]')).value;
+    const token = (document.querySelector('input[name="_token"]') as HTMLInputElement).value;
     const headers = {
         "Content-Type": "application/json",
         "Accept": "application/json",
@@ -14,7 +14,7 @@ function request(url: RequestInfo, options: TRequestInit = {}) {
         options.body = JSON.stringify(options.body)
     }
 
-    return fetch(url, { headers, ...<RequestInit>options  });
+    return fetch(url, { headers, ...options as RequestInit  });
 }
 
 const get = (url: RequestInfo, options: TRequestInit = {}) => request(url, { ...options, method: 'GET'});

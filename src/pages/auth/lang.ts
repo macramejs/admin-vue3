@@ -5,7 +5,7 @@ export const messages = {
             email: 'Email',
             password: 'Passwort',
             remember: 'Passwort speichern',
-            forgot_password: 'Passwort vergessen',   
+            forgot_password: 'Passwort vergessen',
         }
     },
 }

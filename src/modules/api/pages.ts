@@ -1,48 +1,29 @@
-
-import { useForm, Form } from '@macramejs/macrame-vue3';
-import { 
+import {
     Page,
-    PageForm,
     PageFormData,
     PageResource
 } from '@/types';
 import {client} from './index';
-import { usePage } from '@inertiajs/inertia-vue3';
+import { AxiosResponse } from 'axios';
+import { Load, UpdateOrCreate, Delete } from './types';
 
-const loadPage: (id: number) => Promise<PageResource>  = async (id) => {
-    return (await client.get(`pages/${id}`)).data;
+type Test = {
+    foo: string,
 }
 
-const deletePage: (page: Page) => Promise<void>  = (id) => {
-    return client.delete(`pages/${id}`)
+const loadPage: Load<PageResource> = async (id) => {
+    const foo = (await client.get(`pages/${id}`));
+    const bar = new Promise(() => null);
+
+    return foo;
 }
 
-export type UsePageForm = (data: Partial<PageFormData>, id?: number|null) => PageForm;
-
-const usePageForm: UsePageForm = ({
-    name = '',
-    content = [],
-    attributes = {},
-    is_live = false,
-    publish_at = null,
-    meta = {
-        title: '',
-        description: ''
-    }
-}, id = null) => {
-    return useForm({
-        data: {
-            name, 
-            content, 
-            attributes, 
-            is_live, 
-            publish_at, 
-            meta
-        },
-        submit: (data) => {
-            return client[id ? 'put' : 'post'](`pages/${id}`, data)
-        }
-    });
+const updateOrCreatePage: UpdateOrCreate<PageFormData>  = (data, id = null) => {
+    return client[id ? 'put' : 'post'](`pages/${id}`, data)
 }
 
-export { loadPage, deletePage, usePageForm };
+const deletePage: Delete<Page>  = (page) => {
+    return client.delete(`pages/${page.id}`)
+}
+
+export { loadPage, deletePage, updateOrCreatePage };
