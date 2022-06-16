@@ -1,17 +1,35 @@
 import { RouteRecordRaw } from 'vue-router';
 
-import Show from './Show.vue';
-
 const routes: RouteRecordRaw[] = [
     { 
-        path: '/pages', 
-        component: () => import('./PagesLayout.vue'),
+        path: 'pages', 
+        component: () => import('./layouts/PagesLayout.vue'),
         children: [
             { path: '', component: () => import('./Index.vue') },
-            { path: ':id', component: () => import('./Show.vue') },
+            {
+                path: ':id',
+                component: () => import('./layouts/PageLayout.vue'),
+                children: [
+                    {
+                        path: '',
+                        component: () => import('./Content.vue'),
+                    },
+                    {
+                        path: 'meta',
+                        component: () => import('./Meta.vue'),
+                    },
+                    {
+                        path: 'settings',
+                        component: () => import('./Settings.vue'),
+                    },
+                    {
+                        path: 'audits',
+                        component: () => import('./Audits.vue'),
+                    },
+                ]
+            },
         ]
     },
-    // { path: '/pages/:id', component: () => import('./Show.vue') },
 ];
 
 export { routes };

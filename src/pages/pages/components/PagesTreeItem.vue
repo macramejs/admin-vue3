@@ -1,5 +1,5 @@
 <template>
-    <TreeItem
+    <!-- <TreeItem
         :item="page"
         :children="children"
         :is-active="isActive"
@@ -30,7 +30,7 @@
         <template v-slot:disclosure>
             <PagesTree :tree="children" />
         </template>
-    </TreeItem>
+    </TreeItem> -->
 </template>
 
 <script lang="ts" setup>

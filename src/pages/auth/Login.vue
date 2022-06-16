@@ -1,45 +1,36 @@
 <template>
     <GuestLayout>
-        <form @submit.prevent="form.submit" class="space-y-4">
+        <form @submit.prevent="form.submit()" class="w-1/2 space-y-4">
             <Input
                 autofocus
-                :label="lang.email"
+                :label="$t('auth.email')"
                 required
                 type="email"
                 autocomplete="username"
                 v-model="form.email"
-                :errors="form.errors?.email"
             />
             <Input
                 required
                 type="password"
-                :label="lang.password"
+                :label="$t('auth.password')"
                 autocomplete="username"
                 v-model="form.password"
-                :errors="form.errors?.password"
             />
+
             <div class="flex items-center justify-between mt-5">
                 <CheckboxSwitch
                     sm
-                    :label="lang.remember"
+                    :label="$t('auth.remember')"
                     v-model="form.remember"
                     class="text-sm uppercase"
                 />
-                <Button
-                    v-if="forgotPasswordRoute"
-                    :href="forgotPasswordRoute"
-                    text
-                    class="mt-1 text-right"
-                >
-                    {{ lang.forgot_password }}
+                <Button href="/forgot" text class="mt-1 text-right">
+                    {{ $t('auth.forgot_password') }}
                 </Button>
             </div>
             <div class="flex items-center justify-center mt-5">
-                <Button
-                    :class="{ 'opacity-25': form.processing }"
-                    :disabled="form.processing"
-                >
-                    {{ lang.login }}
+                <Button>
+                    {{ $t('auth.login') }}
                 </Button>
             </div>
         </form>
@@ -47,56 +38,26 @@
 </template>
 
 <script setup lang="ts">
-import { PropType } from 'vue';
-import { useForm } from '@macramejs/macrame-vue3';
-import { CheckboxSwitch, Button } from '@macramejs/admin-vue3';
-import { GuestLayout, GuestLayoutInput as Input } from '@macramejs/admin-vue3';
 import { login } from '@/modules/api';
+import { GuestLayout } from '@/layout';
+import { CheckboxSwitch, Button, Input } from '@macramejs/admin-vue3';
 import { useRouter } from 'vue-router';
-
-interface Lang {
-    login: string;
-    email: string;
-    password: string;
-    remember: string;
-    forgot_password: string;
-}
-
-const props = defineProps({
-    submitRoute: {
-        type: String,
-        required: true,
-    },
-    forgotPasswordRoute: {
-        type: String,
-    },
-    lang: {
-        type: Object as PropType<Lang>,
-        default: {
-            login: 'Login',
-            email: 'Email',
-            password: 'Password',
-            remember: 'Remember Me',
-            forgot_password: 'Forgot your password?',
-        },
-    },
-});
+import { LoginFormData, LoginForm } from '@/types/forms';
+import { useForm } from '@macramejs/macrame-vue3';
 
 const router = useRouter();
 
-const form = useForm({
-    route: props.submitRoute,
-    data: { email: '', password: '', remember: false },
-    method: 'post',
-});
-
-const submit = () => {
-    login(form)
-        .then(() => {
+const form: LoginForm = useForm<LoginFormData>({
+    data: {
+        email: '',
+        password: '',
+        remember: false,
+    },
+    submit: async data => {
+        try {
+            await login(data);
             router.push('/');
-        })
-        .catch(() => {
-            //
-        });
-};
+        } catch (error) {}
+    },
+});
 </script>

@@ -10,10 +10,12 @@ export type ExampleForm = Form<Example>;
 
 // Auth
 
-export type LoginForm = {
+export type LoginFormData = {
     email: string,
-    password: string
+    password: string,
+    remember: boolean,
 }
+export type LoginForm = Form<LoginFormData>;
 
 // Page
 
