@@ -13,6 +13,7 @@
 import { PropType } from 'vue';
 import { PageTreeCollectionResource } from '@/types';
 import { Tabs, Tab, Topbar } from '@/layout';
+import { pageForm } from '@/modules/forms';
 
 const props = defineProps({
     pages: {
@@ -20,4 +21,6 @@ const props = defineProps({
         required: true,
     },
 });
+
+pageForm.load(1);
 </script>
