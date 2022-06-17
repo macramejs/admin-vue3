@@ -70,6 +70,7 @@ export type Page = {
     is_live: boolean;
     publish_at: string;
     has_been_published: boolean;
+    preview_key: string;
     meta: {
         title: string;
         description: string;

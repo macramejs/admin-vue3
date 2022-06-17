@@ -3,7 +3,7 @@
         @click="isOpen = true"
         class="p-1 bg-white text-gray hover:bg-black rounded-xs group-hover:opacity-100 hover:text-white"
     >
-        <IconEditPencil />
+        <IconEditPencil class="w-4 h-4" />
     </button>
     <Modal lg v-model:open="isOpen" title="Edit Slug">
         <div class="space-y-3">
@@ -22,16 +22,25 @@
 
 <script lang="ts" setup>
 import { ref, PropType } from 'vue';
-import { Modal, Input, Button, IconEditPencil } from '@/ui';
+import { Modal, Input, Button } from '@/ui';
+import IconEditPencil from '@/ui/Icons/IconEditPencil.vue';
 import { slugify } from '@/modules/helpers';
-import { PageContentForm } from '@/types/forms';
-
-const isOpen = ref<boolean>(false);
+import { usePageSlugForm } from '@/modules/forms';
+import { Page } from '@/types';
 
 const props = defineProps({
-    form: {
-        type: Object as PropType<PageContentForm>,
-        required: false,
+    page: {
+        type: Object as PropType<Page>,
+        required: true,
     },
 });
+
+const form = usePageSlugForm(
+    {
+        slug: props.page.slug,
+    },
+    props.page?.id
+);
+
+const isOpen = ref<boolean>(false);
 </script>

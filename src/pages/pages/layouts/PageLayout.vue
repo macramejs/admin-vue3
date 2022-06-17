@@ -1,7 +1,7 @@
 <template>
     <Topbar>
-        <div>Foo</div>
-        <PagesTopbarRight> </PagesTopbarRight>
+        <PagesTopbarLeft />
+        <PagesTopbarRight />
     </Topbar>
     <Tabs>
         <Tab :to="`/pages/${pageId}`">Content</Tab>
@@ -13,22 +13,29 @@
 </template>
 
 <script setup lang="ts">
-import { PropType, computed, onMounted } from 'vue';
+import { PropType, computed, onMounted, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import PagesTopbarRight from './components/PagesTopbarRight.vue';
+import PagesTopbarLeft from './components/PagesTopbarLeft.vue';
 import { Tabs, Tab, Topbar } from '@/layout';
 import { pageForm } from '@/modules/forms';
 import { PageTreeCollectionResource } from '@/types';
 
 const route = useRoute();
 
-onMounted(() => {
-    pageForm.load(route.params.page as string);
-});
-
 const pageId = computed(() => {
     return route.params.page as string;
 });
+
+watch(
+    () => pageId.value,
+    id => {
+        pageForm.load(id);
+    },
+    {
+        immediate: true,
+    }
+);
 
 defineProps({
     pages: {

@@ -24,13 +24,15 @@ import { Main, MainBody, MainSidebar } from '@/ui';
 import DrawerSection from '@/modules/content/components/DrawerSection.vue';
 import { Drawers, sections, Sections } from '@/modules/content';
 import { SectionBlocks, DrawerBlocks } from '@/modules/blocks';
-import { pageForm, template } from '@/modules/forms';
+import { pageForm, pageModel } from '@/modules/forms';
 import ToggleSections from './components/ToggleSections.vue';
 import { templates } from './templates';
 
 const getComponent = () => {
-    if (template.value) {
-        return template.value in templates ? templates[template.value] : 'div';
+    if (pageModel.value?.template) {
+        return pageModel.value?.template in templates
+            ? templates[pageModel.value?.template]
+            : 'div';
     }
 };
 

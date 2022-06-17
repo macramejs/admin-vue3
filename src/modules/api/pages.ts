@@ -3,7 +3,8 @@ import {
     PageFormData,
     PageResource,
     PageCollectionIndexResource,
-    PageTreeCollectionResource
+    PageTreeCollectionResource,
+    PageSlugFormData
 } from '@/types';
 import {client} from './index';
 import { AxiosResponse } from 'axios';
@@ -19,8 +20,12 @@ const updateOrCreatePage: UpdateOrCreate<PageFormData>  = (data, id = null) => {
     return client[id ? 'put' : 'post'](`pages/${id}`, data)
 }
 
+const updatePageSlug: UpdateOrCreate<PageSlugFormData>  = (data, id) => {
+    return client.put(`pages/${id}`, data)
+}
+
 const deletePage: Delete<Page>  = (page) => {
     return client.delete(`pages/${page.id}`)
 }
 
-export { loadPage, loadPages, loadPagesTree, deletePage, updateOrCreatePage };
+export { loadPage, loadPages, loadPagesTree, deletePage, updateOrCreatePage, updatePageSlug };

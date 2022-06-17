@@ -1,11 +1,11 @@
 import { useForm } from '@macramejs/macrame-vue3';
-import { loadPage, updateOrCreatePage } from '@/modules/api';
-import { PageForm, PageFormData } from '@/types';
+import { loadPage, updateOrCreatePage, updatePageSlug } from '@/modules/api';
+import { Page, PageForm, PageFormData, PageSlugForm, PageSlugFormData } from '@/types';
 import { ref } from 'vue';
 
 export type UsePageForm = (data: Partial<PageFormData>, id?: number|null) => PageForm;
 
-export const template = ref<string>()
+export const pageModel = ref<Page>()
 
 const usePageForm: UsePageForm = ({
     name = '',
@@ -23,7 +23,7 @@ const usePageForm: UsePageForm = ({
         submit: (data) => updateOrCreatePage(data, id),
         load: async (id) => {
             let page = (await loadPage(id as number)).data.data;
-            template.value = page.template
+            pageModel.value = page
             return {
                 name: page.name,
                 content: page.content,
@@ -38,4 +38,23 @@ const usePageForm: UsePageForm = ({
 
 const pageForm = usePageForm({});
 
-export { usePageForm, pageForm };
+
+export type UsePageSlugForm = (data: Partial<PageSlugFormData>, id?: number|null) => PageSlugForm;
+const usePageSlugForm: UsePageSlugForm = ({
+    slug = '',
+}, id) => {
+    return useForm({
+        data: { slug },
+        submit: (data) => updatePageSlug(data, id),
+        load: async (id) => {
+            let page = (await loadPage(id as number)).data.data;
+            return {
+                slug: page.slug
+            };
+        }
+    });
+}
+
+const pageSlugForm = usePageSlugForm({});
+
+export { usePageForm, pageForm, usePageSlugForm, pageSlugForm };

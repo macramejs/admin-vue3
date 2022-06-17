@@ -1,6 +1,10 @@
 <template>
     <div class="flex items-center space-x-6">
-        <!-- <PagesTopbarRightLivetime :page="page" :form="form" /> -->
+        <PagesTopbarRightLivetime
+            :page="pageModel"
+            :form="pageForm"
+            v-if="pageModel"
+        />
 
         <div class="flex items-center space-x-2">
             <SelectLocale />
@@ -8,24 +12,8 @@
     </div>
 </template>
 <script lang="ts" setup>
-// imports
-import { PropType, ref, watch } from 'vue';
-import PagesTopbarRightLivetime from '../../components./layouts/components./layouts/components/PagesTopbarRightLivetime.vue';
+import PagesTopbarRightLivetime from './PagesTopbarRightLivetime.vue';
 import { SelectLocale } from '@/modules/localize';
+import { pageForm, pageModel } from '@/modules/forms';
 import 'v-calendar/dist/style.css';
-
-// types
-import { Page } from '@/types/resources';
-// import { PageContentForm } from '@/types/forms';
-
-// const props = defineProps({
-//     page: {
-//         type: Object as PropType<Page>,
-//         required: true,
-//     },
-//     form: {
-//         type: Object as PropType<PageContentForm>,
-//         required: true,
-//     },
-// });
 </script>

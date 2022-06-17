@@ -32,6 +32,11 @@ export interface PageFormData {
 }
 export type PageForm = Form<PageFormData>;
 
+export interface PageSlugFormData {
+    slug: string,
+}
+export type PageSlugForm = Form<PageSlugFormData>;
+
 // NavItem
 export type NavItemForm = Form<NavItem>;
 
