@@ -1,6 +1,7 @@
 import { useForm } from '@macramejs/macrame-vue3';
-import { updateOrCreatePage } from '@/modules/api';
+import { loadPage, updateOrCreatePage } from '@/modules/api';
 import { PageForm, PageFormData } from '@/types';
+import { ref } from 'vue';
 
 export type UsePageForm = (data: Partial<PageFormData>, id?: number|null) => PageForm;
 
@@ -17,7 +18,22 @@ const usePageForm: UsePageForm = ({
 }, id = null) => {
     return useForm({
         data: { name, content, attributes, is_live, publish_at, meta },
-        submit: (data) => updateOrCreatePage(data, id)
+        submit: (data) => updateOrCreatePage(data, id),
+        load: async (id) => {
+            let page = (await loadPage(id as number)).data.data;
+
+            return {
+                name: page.name,
+                content: page.content,
+                attributes: page.attributes,
+                is_live: page.is_live,
+                publish_at: page.publish_at,
+                meta: page.meta,
+            };
+        }
     });
 }
-export { usePageForm };
+
+const pageForm = usePageForm({});
+
+export { usePageForm, pageForm };

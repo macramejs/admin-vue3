@@ -2,22 +2,18 @@ import {
     Page,
     PageFormData,
     PageResource,
-    PageTreeResource
+    PageCollectionIndexResource,
+    PageTreeCollectionResource
 } from '@/types';
 import {client} from './index';
-import { Load, UpdateOrCreate, Delete } from './types';
+import { AxiosResponse } from 'axios';
+import { LoadOne, LoadMany, UpdateOrCreate, Delete } from './types';
 
+const loadPage: LoadOne<PageResource> = (id) => client.get(`pages/${id}`) as Promise<AxiosResponse<PageResource>>;
 
-const loadPage: Load<PageResource> = async (id) => {
-    const { data } = (await client.get(`pages/${id}`));
+const loadPages: LoadMany<PageCollectionIndexResource> = (params) => client.get(`pages`, { params });
 
-    return data;
-}
-const loadPagesTree: Load<PageTreeResource> = async () => {
-    const { data } = (await client.get(`pages`));
-
-    return data;
-}
+const loadPagesTree: LoadMany<PageTreeCollectionResource, {}> = () => client.get(`pages/tree`);
 
 const updateOrCreatePage: UpdateOrCreate<PageFormData>  = (data, id = null) => {
     return client[id ? 'put' : 'post'](`pages/${id}`, data)
@@ -27,4 +23,4 @@ const deletePage: Delete<Page>  = (page) => {
     return client.delete(`pages/${page.id}`)
 }
 
-export { loadPage, deletePage, updateOrCreatePage, loadPagesTree };
+export { loadPage, loadPages, loadPagesTree, deletePage, updateOrCreatePage };

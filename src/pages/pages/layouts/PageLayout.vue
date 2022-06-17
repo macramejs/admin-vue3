@@ -15,6 +15,7 @@
 import { PropType, computed } from 'vue';
 import { PageTreeCollectionResource } from '@/types';
 import { Tabs, Tab, Topbar } from '@/layout';
+import { pageForm } from '@/modules/forms';
 
 import { usePage } from '../temp';
 
@@ -26,4 +27,6 @@ defineProps({
         required: true,
     },
 });
+
+pageForm.load(1);
 </script>
