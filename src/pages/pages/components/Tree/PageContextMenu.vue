@@ -21,7 +21,7 @@
             <template #button="{ open }">
                 <ContextMenuItem @click="open">
                     <template #icon>
-                        <IconDuplicatePage class="w-4 h-4" />
+                        <IconCopy class="w-4 h-4" />
                     </template>
                     Duplizieren
                 </ContextMenuItem>
@@ -45,13 +45,13 @@ import { ContextMenu, ContextMenuItem } from '@/ui';
 import IconMoreHoriz from '@/ui/Icons/IconMoreHoriz.vue';
 import IconTrash from '@/ui/Icons/IconTrash.vue';
 import IconPlus from '@/ui/Icons/IconPlus.vue';
-import IconDuplicatePage from '@/ui/Icons/IconDuplicatePage.vue';
+import IconCopy from '@/ui/Icons/IconCopy.vue';
 
 import { PropType } from 'vue';
 import { Page } from '@/types/resources';
 import { deletePage } from '@/modules/page';
-import AddPageModal from './AddPageModal.vue';
-import DuplicatePageModal from './DuplicatePageModal.vue';
+import AddPageModal from '../AddPageModal.vue';
+import DuplicatePageModal from '../DuplicatePageModal.vue';
 
 const props = defineProps({
     page: {

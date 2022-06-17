@@ -1,6 +1,6 @@
 <template>
-    <div class="relative flex justify-between w-full">
+    <main class="relative flex justify-between w-full">
         <slot />
-    </div>
+    </main>
 </template>
 <script lang="ts" setup></script>

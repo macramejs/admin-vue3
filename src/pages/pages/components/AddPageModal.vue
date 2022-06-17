@@ -29,16 +29,10 @@
 
 <script lang="ts" setup>
 import { ref, PropType, watch } from 'vue';
-import {
-    Modal,
-    Input,
-    Select,
-    ButtonRound,
-    Button,
-    IconPlus,
-} from '@/ui';
+import { Modal, Input, Select, ButtonRound, Button } from '@/ui';
+import IconPlus from '@/ui/Icons/IconPlus.vue';
 import { useForm } from '@macramejs/macrame-vue3';
-import { templateOptions } from './templates';
+import { templateOptions } from '../templates';
 import { Page } from '@/types/resources';
 import { slugify } from '@/modules/helpers';
 import { Inertia } from '@inertiajs/inertia';

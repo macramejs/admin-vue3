@@ -10,13 +10,13 @@
 import { locale } from '@/modules/localize';
 import { Input } from '@/ui';
 import { translatable } from '@macramejs/macrame-vue3';
-import { PageContentForm } from '@/types/forms';
+import { PageFormData } from '@/types';
 import { PropType } from 'vue';
-// import SelectImage from '@admin/modules/content/sections/components/SelectImage.vue';
+import SelectImage from '@/modules/media/SelectImage.vue';
 
 const props = defineProps({
     form: {
-        type: Object as PropType<PageContentForm>,
+        type: Object as PropType<PageFormData>,
         required: true,
     },
 });

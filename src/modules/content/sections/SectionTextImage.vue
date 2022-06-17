@@ -29,7 +29,7 @@ import { watch, reactive } from 'vue';
 import { translatable } from '@macramejs/macrame-vue3';
 import { locale } from '@/modules/localize';
 import DrawerTextImage from './../drawers/DrawerTextImage.vue';
-import SelectImage from './components/SelectImage.vue';
+import SelectImage from '@/modules/media/SelectImage.vue';
 const emit = defineEmits(['update:modelValue']);
 
 const props = defineProps({

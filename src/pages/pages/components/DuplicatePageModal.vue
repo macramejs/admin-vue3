@@ -1,6 +1,6 @@
 <template>
     <slot name="button" :open="() => (isOpen = true)">
-        <IconDuplicatePage class="w-4 h-4"></IconDuplicatePage>
+        <IconCopy class="w-4 h-4" />
     </slot>
     <Modal lg v-model:open="isOpen" title="Duplicate Page">
         <form @submit.prevent="form.submit()">
@@ -17,7 +17,8 @@
 
 <script lang="ts" setup>
 import { ref, PropType } from 'vue';
-import { Modal, Input, Button, IconDuplicatePage } from '@/ui';
+import { Modal, Input, Button } from '@/ui';
+import IconCopy from '@/ui/Icons/IconCopy.vue';
 import { useForm } from '@macramejs/macrame-vue3';
 import { Page } from '@/types/resources';
 import { Inertia } from '@inertiajs/inertia';

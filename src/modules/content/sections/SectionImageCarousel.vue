@@ -79,7 +79,7 @@ import IconTrash from '@/ui/Icons/IconTrash.vue';
 import { watch, reactive } from 'vue';
 import AddItem from './components/AddItem.vue';
 import Draggable from 'vuedraggable';
-import SelectImage from './components/SelectImage.vue';
+import SelectImage from '@/modules/media/SelectImage.vue';
 import { v4 as uuid } from 'uuid';
 import DrawerImageCarousel from '../drawers/DrawerImageCarousel.vue';
 
@@ -96,7 +96,7 @@ const props = defineProps({
 });
 
 const model = reactive({
-    items: props.modelValue.items.map(item => {
+    items: props.modelValue.items.map((item: any) => {
         return { ...item, _draggableKey: uuid() };
     }),
 });
@@ -114,14 +114,14 @@ function addItem() {
     });
 }
 
-function removeItem(index) {
+function removeItem(index: any) {
     model.items.splice(index, 1);
 }
 
 watch(
     () => model,
     () => {
-        let items = JSON.parse(JSON.stringify(model.items)).map(item => {
+        let items = JSON.parse(JSON.stringify(model.items)).map((item: any) => {
             delete item._draggableKey;
 
             return item;

@@ -85,7 +85,7 @@ import { watch, reactive } from 'vue';
 import AddItem from './components/AddItem.vue';
 import Link from './components/Link.vue';
 import Draggable from 'vuedraggable';
-import SelectImage from './components/SelectImage.vue';
+import SelectImage from '@/modules/media/SelectImage.vue';
 import { v4 as uuid } from 'uuid';
 import DrawerCards from '../drawers/DrawerCards.vue';
 
@@ -104,7 +104,7 @@ const props = defineProps({
 
 const model = reactive({
     headline: props.modelValue.headline,
-    items: props.modelValue.items.map(item => {
+    items: props.modelValue.items.map((item: any) => {
         return { ...item, _draggableKey: uuid() };
     }),
 });
@@ -126,14 +126,14 @@ function addItem() {
     });
 }
 
-function removeItem(index) {
+function removeItem(index: any) {
     model.items.splice(index, 1);
 }
 
 watch(
     () => model,
     () => {
-        let items = JSON.parse(JSON.stringify(model.items)).map(item => {
+        let items = JSON.parse(JSON.stringify(model.items)).map((item: any) => {
             delete item._draggableKey;
 
             return item;

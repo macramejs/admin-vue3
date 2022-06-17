@@ -27,7 +27,7 @@ import { Card } from '@/ui';
 import BaseSection from './BaseSection.vue';
 import { watch, reactive } from 'vue';
 import DrawerGridGallery from '../drawers/DrawerGridGallery.vue';
-import SelectImage from './components/SelectImage.vue';
+import SelectImage from '@/modules/media/SelectImage.vue';
 import AddItem from './components/AddItem.vue';
 import { v4 as uuid } from 'uuid';
 

@@ -12,7 +12,7 @@ import BaseSection from './BaseSection.vue';
 import { FormFieldLabel } from '@/ui';
 import { watch, ref } from 'vue';
 import DrawerImageFull from './../drawers/DrawerImageFull.vue';
-import SelectImage from './components/SelectImage.vue';
+import SelectImage from '@/modules/media/SelectImage.vue';
 
 const emit = defineEmits(['update:modelValue']);
 

@@ -95,7 +95,7 @@ const props = defineProps({
 
 const model = reactive({
     headline: props.modelValue.headline,
-    items: props.modelValue.items.map(item => {
+    items: props.modelValue.items.map((item: any) => {
         return { ...item, _draggableKey: uuid() };
     }),
 });
@@ -108,14 +108,14 @@ function addItem() {
     });
 }
 
-function removeItem(index) {
+function removeItem(index: any) {
     model.items.splice(index, 1);
 }
 
 watch(
     () => model,
     () => {
-        let items = JSON.parse(JSON.stringify(model.items)).map(item => {
+        let items = JSON.parse(JSON.stringify(model.items)).map((item: any) => {
             delete item._draggableKey;
 
             return item;

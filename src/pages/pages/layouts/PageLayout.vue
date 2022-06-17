@@ -1,20 +1,26 @@
 <template>
-    <Topbar> </Topbar>
+    <Topbar>
+        {{ pageId }}
+    </Topbar>
     <Tabs>
-        <Tab to="/pages/1">Content</Tab>
-        <Tab to="/pages/1/meta">Meta</Tab>
-        <Tab to="/pages/1/settings">Settings</Tab>
-        <Tab to="/pages/1/audits">Versionen</Tab>
+        <Tab :to="`/pages/${page.pageId}`">Content</Tab>
+        <Tab :to="`/pages/${page.pageId}/meta`">Meta</Tab>
+        <Tab :to="`/pages/${page.pageId}/settings`">Settings</Tab>
+        <Tab :to="`/pages/${page.pageId}/audits`">Versionen</Tab>
     </Tabs>
     <router-view />
 </template>
 
 <script setup lang="ts">
-import { PropType } from 'vue';
+import { PropType, computed } from 'vue';
 import { PageTreeCollectionResource } from '@/types';
 import { Tabs, Tab, Topbar } from '@/layout';
 
-const props = defineProps({
+import { usePage } from '../temp';
+
+const page = usePage();
+
+defineProps({
     pages: {
         type: Object as PropType<PageTreeCollectionResource>,
         required: true,

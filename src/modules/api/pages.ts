@@ -1,21 +1,22 @@
 import {
     Page,
     PageFormData,
-    PageResource
+    PageResource,
+    PageTreeResource
 } from '@/types';
 import {client} from './index';
-import { AxiosResponse } from 'axios';
 import { Load, UpdateOrCreate, Delete } from './types';
 
-type Test = {
-    foo: string,
-}
 
 const loadPage: Load<PageResource> = async (id) => {
-    const foo = (await client.get(`pages/${id}`));
-    const bar = new Promise(() => null);
+    const { data } = (await client.get(`pages/${id}`));
 
-    return foo;
+    return data;
+}
+const loadPagesTree: Load<PageTreeResource> = async () => {
+    const { data } = (await client.get(`pages`));
+
+    return data;
 }
 
 const updateOrCreatePage: UpdateOrCreate<PageFormData>  = (data, id = null) => {
@@ -26,4 +27,4 @@ const deletePage: Delete<Page>  = (page) => {
     return client.delete(`pages/${page.id}`)
 }
 
-export { loadPage, deletePage, updateOrCreatePage };
+export { loadPage, deletePage, updateOrCreatePage, loadPagesTree };

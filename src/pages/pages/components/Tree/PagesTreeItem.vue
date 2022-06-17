@@ -1,13 +1,13 @@
 <template>
-    <!-- <TreeItem
+    <TreeItem
         :item="page"
         :children="children"
         :is-active="isActive"
         background
     >
-        <Link
+        <router-link
             class="flex-1 py-1 cursor-pointer"
-            :href="`/admin/pages/${page.id}`"
+            :to="`/pages/${page.id}`"
         >
             <span
                 :class="{
@@ -16,7 +16,7 @@
             >
                 {{ page.name }}
             </span>
-        </Link>
+        </router-link>
         <div
             class="w-2 h-2 mr-2 rounded-full"
             :class="{
@@ -30,17 +30,17 @@
         <template v-slot:disclosure>
             <PagesTree :tree="children" />
         </template>
-    </TreeItem> -->
+    </TreeItem>
 </template>
 
 <script lang="ts" setup>
 import { Tree } from '@macramejs/macrame-vue3';
 import { Page } from '@/types';
 import { TreeItem } from '@/ui';
-import { Link } from '@inertiajs/inertia-vue3';
 import PagesTree from './PagesTree.vue';
 import PageContextMenu from './PageContextMenu.vue';
 import { computed, PropType } from 'vue';
+import { useRoute } from 'vue-router';
 
 const props = defineProps({
     page: {
@@ -53,7 +53,12 @@ const props = defineProps({
     },
 });
 
-const isActive = computed(
-    () => `/admin/pages/${props.page.id}` == window.location.pathname
-);
+const route = useRoute();
+
+const isActive = computed(() => {
+    if (!Array.isArray(route.params.page)) {
+        let pageId = parseInt(route.params.page);
+        return props.page.id == pageId;
+    }
+});
 </script>

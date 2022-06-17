@@ -5,8 +5,6 @@ export const hideSections = ref<boolean>(false)
 export { default as Sections } from './Sections.vue';
 export { default as Drawers } from './Drawers.vue';
 
-// Components
-export { default as SelectImage } from './sections/components/SelectImage.vue';
 
 // Drawers
 export { default as DrawerAccordion } from './drawers/DrawerAccordion.vue';

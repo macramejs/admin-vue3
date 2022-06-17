@@ -1,7 +1,11 @@
 <template>
     <Main>
         <MainBody>
-            <component :is="getComponent()" :form="form" v-if="form">
+            <component
+                :is="getComponent()"
+                :form="page.form"
+                v-if="page.form && page.page"
+            >
                 <div class="flex justify-end mb-4">
                     <button
                         @click="hideSections = !hideSections"
@@ -17,7 +21,7 @@
                         </template>
                     </button>
                 </div>
-                <Sections v-model="form.content" :sections="sections" />
+                <Sections v-model="page.form.content" :sections="sections" />
             </component>
         </MainBody>
         <MainSidebar v-model:open="isOpen">
@@ -32,33 +36,23 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted, ref } from 'vue';
 import { Main, MainBody, MainSidebar } from '@/ui';
 import DrawerSection from '@/modules/content/components/DrawerSection.vue';
 import { Cabinet } from '@macramejs/macrame-vue3';
-import { PropType } from 'vue';
-import { templates } from './templates';
 import { Drawers, sections, Sections, hideSections } from '@/modules/content';
 import { SectionBlocks, DrawerBlocks } from '@/modules/blocks';
 import IconExpand from '@/ui/Icons/IconExpand.vue';
 import IconCollapse from '@/ui/Icons/IconCollapse.vue';
-import { Page } from '@/types/resources';
-import { PageForm } from '@/types/forms';
-import { ref } from 'vue';
 
-const props = defineProps({
-    page: {
-        type: Object as PropType<Page>,
-        // required: true,
-    },
-    form: {
-        type: Object as PropType<PageForm>,
-        // required: true,
-    },
-});
+import { usePage } from './temp';
+import { templates } from './templates';
+
+const page = usePage();
 
 const getComponent = () => {
-    return props.page?.template in templates
-        ? templates[props.page.template]
+    return page.page?.template in templates
+        ? templates[page.page?.template]
         : 'div';
 };
 

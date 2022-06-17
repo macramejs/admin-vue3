@@ -48,11 +48,9 @@
     </div>
 </template>
 <script lang="ts" setup>
-import { computed, useSlots } from 'vue';
-
 const emit = defineEmits(['update:open']);
 
-const props = defineProps({
+defineProps({
     topPosition: {
         type: [String, Number],
         default: '110',
@@ -61,10 +59,9 @@ const props = defineProps({
         type: Boolean,
         default: true,
     },
+    title: {
+        type: String,
+        default: null,
+    },
 });
-
-const toggle = function () {
-    console.log({ open: props.open });
-    emit('update:open', !props.open);
-};
 </script>

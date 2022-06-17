@@ -20,8 +20,8 @@ import { Tree } from '@macramejs/macrame-vue3';
 
 const props = defineProps({
     tree: {
-        required: true,
         type: Object as PropType<Tree>,
+        required: true,
     },
 });
 </script>
