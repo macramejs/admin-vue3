@@ -1,7 +1,10 @@
 <template>
     <Header>
-        <span class="inline-block text-xl font-medium">
-            {{ title }}
+        <span class="inline-block text-lg font-medium">
+            <slot name="icon" />
+            <slot name="title">
+                {{ title }}
+            </slot>
         </span>
         <slot />
     </Header>

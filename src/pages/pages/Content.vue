@@ -1,27 +1,9 @@
 <template>
     <Main>
         <MainBody>
-            <component
-                :is="getComponent()"
-                :form="page.form"
-                v-if="page.form && page.page"
-            >
-                <div class="flex justify-end mb-4">
-                    <button
-                        @click="hideSections = !hideSections"
-                        class="flex space-x-2 hover:font-semibold"
-                    >
-                        <template v-if="hideSections">
-                            <span class="text-xs uppercase">show all</span>
-                            <IconExpand class="w-4 h-4" />
-                        </template>
-                        <template v-if="!hideSections">
-                            <span class="text-xs uppercase">collapse all</span>
-                            <IconCollapse class="w-4 h-4" />
-                        </template>
-                    </button>
-                </div>
-                <Sections v-model="page.form.content" :sections="sections" />
+            <component :is="getComponent()" :form="pageForm">
+                <ToggleSections />
+                <Sections v-model="pageForm.content" :sections="sections" />
             </component>
         </MainBody>
         <MainSidebar v-model:open="isOpen">
@@ -36,28 +18,27 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
+import { ref } from 'vue';
+import { Cabinet } from '@macramejs/macrame-vue3';
 import { Main, MainBody, MainSidebar } from '@/ui';
 import DrawerSection from '@/modules/content/components/DrawerSection.vue';
-import { Cabinet } from '@macramejs/macrame-vue3';
-import { Drawers, sections, Sections, hideSections } from '@/modules/content';
+import { Drawers, sections, Sections } from '@/modules/content';
 import { SectionBlocks, DrawerBlocks } from '@/modules/blocks';
-import IconExpand from '@/ui/Icons/IconExpand.vue';
-import IconCollapse from '@/ui/Icons/IconCollapse.vue';
-
-import { usePage } from './temp';
+import { pageForm, template } from '@/modules/forms';
+import ToggleSections from './components/ToggleSections.vue';
 import { templates } from './templates';
 
-const page = usePage();
-
 const getComponent = () => {
-    return page.page?.template in templates
-        ? templates[page.page?.template]
-        : 'div';
+    if (template.value) {
+        return template.value in templates ? templates[template.value] : 'div';
+    }
 };
 
 // allow drawing all registered sections
-let drawsSections = {};
+type DrawsSections = {
+    [k: string]: boolean;
+};
+let drawsSections: DrawsSections = {};
 for (let key in sections) drawsSections[key] = true;
 
 const isOpen = ref(true);

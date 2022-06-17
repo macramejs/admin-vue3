@@ -5,6 +5,8 @@ import { ref } from 'vue';
 
 export type UsePageForm = (data: Partial<PageFormData>, id?: number|null) => PageForm;
 
+export const template = ref<string>()
+
 const usePageForm: UsePageForm = ({
     name = '',
     content = [],
@@ -21,7 +23,7 @@ const usePageForm: UsePageForm = ({
         submit: (data) => updateOrCreatePage(data, id),
         load: async (id) => {
             let page = (await loadPage(id as number)).data.data;
-
+            template.value = page.template
             return {
                 name: page.name,
                 content: page.content,

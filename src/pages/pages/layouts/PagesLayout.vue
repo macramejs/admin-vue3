@@ -1,6 +1,11 @@
 <template>
     <SidebarSecondary>
-        <PagesTree :tree="p.tree" v-if="p.tree" />
+        <template v-slot:header>
+            <SidebarSecondaryHeader title="Seiten">
+                <AddPageModal />
+            </SidebarSecondaryHeader>
+        </template>
+        <PagesTree :tree="tree" />
     </SidebarSecondary>
     <Main>
         <router-view />
@@ -9,32 +14,35 @@
 
 <script setup lang="ts">
 import SidebarSecondary from '@/layout/components/SidebarSecondary/SidebarSecondary.vue';
+import SidebarSecondaryHeader from '@/layout/components/SidebarSecondary/SidebarSecondaryHeader.vue';
 import Main from '@/layout/components/Main.vue';
 import PagesTree from '../components/Tree/PagesTree.vue';
-import { reactive } from 'vue';
+import { ref, watch } from 'vue';
 import { loadPagesTree } from '@/modules/api';
-import { Page, PageTreeResource } from '@/types';
-import { Tree, useTree } from '@macramejs/macrame-vue3';
+import { useOriginal, useTree } from '@macramejs/macrame-vue3';
+import AddPageModal from '../components/AddPageModal.vue';
 
-const usePageTree = () => {
-    interface PageTree {
-        tree: Tree<Page> | null;
-        loadTree(): void;
-        setPagesTree(data: PageTreeResource): void;
-    }
-    let tree = reactive<PageTree>({
-        tree: null,
-        loadTree() {
-            loadPagesTree().then((data: any) => this.setPagesTree(data));
+const tree = ref();
+
+loadPagesTree().then(response => {
+    tree.value = useTree(response.data.data);
+
+    // TODO:
+    // tree.value.updateOnChange(() => props.pages);
+
+    let originalOrder = useOriginal(tree.value.getOrder());
+
+    watch(
+        tree,
+        () => {
+            const order = tree.value.getOrder();
+
+            if (!originalOrder.matches(order)) {
+                originalOrder.update(order);
+                // post('/admin/pages/order', { body: { order: order } });
+            }
         },
-        setPagesTree(data: any) {
-            this.tree = useTree<Page>(data.data);
-        },
-    });
-
-    return tree;
-};
-
-const p = usePageTree();
-p.loadTree();
+        { immediate: true, deep: true }
+    );
+});
 </script>

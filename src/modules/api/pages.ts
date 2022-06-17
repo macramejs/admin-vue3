@@ -13,7 +13,7 @@ const loadPage: LoadOne<PageResource> = (id) => client.get(`pages/${id}`) as Pro
 
 const loadPages: LoadMany<PageCollectionIndexResource> = (params) => client.get(`pages`, { params });
 
-const loadPagesTree: LoadMany<PageTreeCollectionResource, {}> = () => client.get(`pages/tree`);
+const loadPagesTree: LoadMany<PageTreeCollectionResource, {}> = () => client.get(`page-tree`);
 
 const updateOrCreatePage: UpdateOrCreate<PageFormData>  = (data, id = null) => {
     return client[id ? 'put' : 'post'](`pages/${id}`, data)

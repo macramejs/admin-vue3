@@ -1,7 +1,12 @@
+import { DefineComponent } from 'vue';
 import DefaultTemplate from './DefaultTemplate.vue';
 
-const templates = {
-    default: DefaultTemplate
+type Template = {
+    [k: string]: DefineComponent<{}, {}, any>
+}
+
+const templates: Template = {
+    default: DefaultTemplate,
 };
 
 const templateOptions = [
@@ -10,4 +15,5 @@ const templateOptions = [
         value: 'default',
     },
 ]
+
 export { DefaultTemplate, templateOptions, templates }
