@@ -16,4 +16,9 @@
 import SidebarPrimary from './components/SidebarPrimary/SidebarPrimary.vue';
 import Link from './components/SidebarPrimary/Link.vue';
 import IconPage from '@/ui/icons/IconPage.vue';
+import { onMounted } from 'vue';
+
+onMounted(() => {
+    console.log('check auth');
+});
 </script>

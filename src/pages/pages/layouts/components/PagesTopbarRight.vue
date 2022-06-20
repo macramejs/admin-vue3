@@ -15,5 +15,4 @@
 import PagesTopbarRightLivetime from './PagesTopbarRightLivetime.vue';
 import { SelectLocale } from '@/modules/localize';
 import { pageForm, pageModel } from '@/modules/forms';
-import 'v-calendar/dist/style.css';
 </script>

@@ -84,7 +84,7 @@ import 'v-calendar/dist/style.css';
 
 // types
 import { Page } from '@/types/resources';
-import { PageContentForm } from '@/types/forms';
+import { PageFormData } from '@/types/forms';
 
 const props = defineProps({
     page: {
@@ -92,7 +92,7 @@ const props = defineProps({
         required: true,
     },
     form: {
-        type: Object as PropType<PageContentForm>,
+        type: Object as PropType<PageFormData>,
         required: true,
     },
 });
