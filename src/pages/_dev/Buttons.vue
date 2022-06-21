@@ -1,0 +1,51 @@
+<template>
+    <Main>
+        <MainBody class="mx-auto max-w-7xl">
+            <ButtonPrimarySection />
+            <ButtonOutlineSection />
+            <ButtonTextLinkSection />
+            <ButtonMidGraySection />
+            <ButtonRoundSection />
+            <div
+                class="grid grid-cols-2 gap-5 pb-10 mb-10 border-b border-gray-400"
+            >
+                <div class="col-span-full md:col-span-1">
+                    <h2 class="mb-4 text-xl font-semibold">
+                        ContextButton.vue
+                    </h2>
+                    <div class="flex gap-5 mb-10">
+                        <ContextButton>Test</ContextButton>
+                        <ContextButton disabled>Test</ContextButton>
+                    </div>
+                </div>
+                <div class="col-span-full md:col-span-1">
+                    <CopyString
+                        value="<ContextButton>Test</ContextButton>"
+                        label="Template"
+                    />
+                </div>
+            </div>
+            <InteractionButtonSection />
+        </MainBody>
+    </Main>
+</template>
+
+<script setup lang="ts">
+import CopyString from './CopyString.vue';
+import {
+    Main,
+    MainBody,
+    ButtonMidGray,
+    ButtonRound,
+    ContextButton,
+    InteractionButton,
+} from '@/ui';
+import {
+    ButtonPrimarySection,
+    ButtonOutlineSection,
+    ButtonTextLinkSection,
+    ButtonMidGraySection,
+    ButtonRoundSection,
+    InteractionButtonSection,
+} from './sections';
+</script>
