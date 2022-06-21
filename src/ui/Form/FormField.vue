@@ -12,11 +12,11 @@
         >
             {{ hint }}
         </div>
-        <div class="text-right" v-if="errors">
+        <div class="flex flex-col mt-1 text-right" v-if="errors">
             <span
                 v-for="(error, key) in errorList"
                 :key="key"
-                class="inline-block mt-1 text-xs text-red"
+                class="inline-block text-xs text-red"
             >
                 {{ error }}
             </span>

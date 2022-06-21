@@ -121,4 +121,17 @@ input.has-errors + div > .input-section-2 {
 input.has-errors + div > .input-section-3 {
     border-color: #f74b6d;
 }
+input:disabled + div > .input-section-1 {
+    border-color: #afaeb9;
+}
+input:disabled + div > .input-section-2 {
+    border-bottom-color: #afaeb9;
+    border-top-color: #afaeb9;
+}
+input:disabled + div > .input-section-2 > label {
+    color: #afaeb9;
+}
+input:disabled + div > .input-section-3 {
+    border-color: #afaeb9;
+}
 </style>

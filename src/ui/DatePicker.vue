@@ -5,12 +5,14 @@
         class="relative"
         is-dark
         color="orange"
+        :disabled="disabled"
     >
         <Input
             :modelValue="inputValue"
             v-on="inputEvents"
             :errors="errors"
             :label="label"
+            :disabled="disabled"
         />
     </DatePicker>
 </template>

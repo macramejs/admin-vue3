@@ -4,6 +4,7 @@
         :columns="2"
         is-range
         is-dark
+        :disabled="disabled"
         color="orange"
         class="z-10 w-full"
     >
@@ -13,6 +14,7 @@
                     <Input
                         :modelValue="inputValue.start"
                         :errors="errors"
+                        :disabled="disabled"
                         v-on="inputEvents.start"
                         label="Start"
                     />
@@ -34,6 +36,7 @@
                     <Input
                         :modelValue="inputValue.end"
                         :errors="errors"
+                        :disabled="disabled"
                         v-on="inputEvents.end"
                         label="Ende"
                     />

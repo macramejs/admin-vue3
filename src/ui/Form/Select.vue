@@ -5,7 +5,7 @@
         :disabled="disabled"
         v-model="selectedItem"
     >
-        <div class="relative">
+        <div class="relative w-full">
             <ListboxButton
                 class="px-[18px] mcr-select-button z-10 w-full transition-colors duration-200 bg-transparent focus:outline-none focus:input-focused text-indigo-900 py-[22px]"
                 :class="{
@@ -233,5 +233,19 @@ watch(selectedItem, () => {
 }
 .mcr-select-button.has-errors > div > .input-section-3 {
     border-color: #f74b6d;
+}
+.mcr-select-button:disabled .mcr-select-arrow {
+    color: #afaeb9;
+}
+.mcr-select-button:disabled > div > .input-section-1 {
+    border-color: #afaeb9;
+}
+.mcr-select-button:disabled > div > .input-section-2 {
+    border-bottom-color: #afaeb9;
+    border-top-color: #afaeb9;
+    color: #afaeb9;
+}
+.mcr-select-button:disabled > div > .input-section-3 {
+    border-color: #afaeb9;
 }
 </style>
