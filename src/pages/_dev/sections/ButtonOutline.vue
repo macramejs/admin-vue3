@@ -24,7 +24,7 @@
             <tbody>
                 <tr class="border-b border-orange-300">
                     <td class="py-5 pl-5">square</td>
-                    <td class="py-5">false</td>
+                    <td class="py-5 font-code">false</td>
                     <td class="py-5 pr-5">
                         Makes the button squared for icons
                     </td>
