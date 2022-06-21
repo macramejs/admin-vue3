@@ -5,9 +5,11 @@
             <div class="flex gap-5 mb-10">
                 <Toggle v-model="toggle" label="Test" />
                 <Toggle v-model="toggle" disabled label="Test" />
-                <div>
-                    {{ toggle }}
-                </div>
+            </div>
+            <div
+                class="bg-orange-100 border w-fit border-orange-300 text-darkorange font-code px-3 py-1.5"
+            >
+                value: {{ toggle }}
             </div>
         </div>
         <div class="col-span-full md:col-span-1">

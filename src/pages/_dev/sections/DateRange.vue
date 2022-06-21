@@ -4,9 +4,11 @@
             <h2 class="mb-4 text-xl font-semibold">DateRange.vue</h2>
             <div class="flex flex-wrap gap-5 mb-10">
                 <DateRange v-model="daterange" label="Test" hint="Test Hint" />
-                <div class="p-1">
-                    {{ daterange }}
-                </div>
+            </div>
+            <div
+                class="bg-orange-100 border w-fit border-orange-300 text-darkorange font-code px-3 py-1.5"
+            >
+                value: {{ daterange }}
             </div>
         </div>
         <div class="col-span-full md:col-span-1">

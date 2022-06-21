@@ -15,9 +15,11 @@
                         :errors="['Test', 'Test 2']"
                     />
                 </FormField>
-                <div>
-                    {{ input }}
-                </div>
+            </div>
+            <div
+                class="bg-orange-100 border w-fit border-orange-300 text-darkorange font-code px-3 py-1.5"
+            >
+                value: {{ input }}
             </div>
         </div>
         <div class="col-span-full md:col-span-1">

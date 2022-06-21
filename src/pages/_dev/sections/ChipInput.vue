@@ -4,9 +4,11 @@
             <h2 class="mb-4 text-xl font-semibold">ChipInput.vue</h2>
             <div class="flex gap-5 mb-10">
                 <ChipInput v-model="chipInput" label="Test" />
-                <div class="p-1">
-                    {{ chipInput }}
-                </div>
+            </div>
+            <div
+                class="bg-orange-100 border w-fit border-orange-300 text-darkorange font-code px-3 py-1.5"
+            >
+                value: {{ chipInput }}
             </div>
         </div>
         <div class="col-span-full md:col-span-1">

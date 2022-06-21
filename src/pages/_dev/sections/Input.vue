@@ -5,9 +5,11 @@
             <div class="flex gap-5 mb-10">
                 <Input v-model="input" label="Test" hint="Test" />
                 <Input v-model="input" disabled label="Test" hint="Test" />
-                <div>
-                    {{ input }}
-                </div>
+            </div>
+            <div
+                class="bg-orange-100 border w-fit border-orange-300 text-darkorange font-code px-3 py-1.5"
+            >
+                value: {{ input }}
             </div>
         </div>
         <div class="col-span-full md:col-span-1">

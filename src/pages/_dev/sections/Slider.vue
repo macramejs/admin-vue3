@@ -10,9 +10,11 @@
                     label="Test"
                     hint="Test"
                 />
-                <div>
-                    {{ slider }}
-                </div>
+            </div>
+            <div
+                class="bg-orange-100 border w-fit border-orange-300 text-darkorange font-code px-3 py-1.5"
+            >
+                value: {{ slider }}
             </div>
         </div>
         <div class="col-span-full md:col-span-1">

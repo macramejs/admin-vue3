@@ -5,9 +5,11 @@
             <div class="flex gap-5 mb-10">
                 <DatePicker v-model="datepicker" label="Test" />
                 <DatePicker v-model="datepicker" label="Test" disabled />
-                <div class="p-1">
-                    {{ datepicker }}
-                </div>
+            </div>
+            <div
+                class="bg-orange-100 border w-fit border-orange-300 text-darkorange font-code px-3 py-1.5"
+            >
+                value: {{ datepicker }}
             </div>
         </div>
         <div class="col-span-full md:col-span-1">
@@ -34,20 +36,27 @@
                 <tr class="border-b border-orange-300">
                     <td class="py-5 pl-5">label</td>
                     <td class="py-5"></td>
-                    <td class="py-5 pr-5">Label of the Datepicker Input</td>
+                    <td class="py-5 pr-5">label of the Datepicker Input</td>
                 </tr>
                 <tr class="border-b border-orange-300">
                     <td class="py-5 pl-5">disabled</td>
                     <td class="py-5 font-code">false</td>
                     <td class="py-5 pr-5">
-                        Sets the disabled state of the datepicker
+                        sets the disabled state of the datepicker
+                    </td>
+                </tr>
+                <tr class="border-b border-orange-300">
+                    <td class="py-5 pl-5">withTime</td>
+                    <td class="py-5 font-code">false</td>
+                    <td class="py-5 pr-5">
+                        enables the time selection for a date
                     </td>
                 </tr>
                 <tr class="border-b border-orange-300">
                     <td class="py-5 pl-5">errors</td>
                     <td class="py-5 font-code">[]</td>
                     <td class="py-5 pr-5">
-                        Array that holds the errors of the field as strings
+                        array that holds the errors of the field as strings
                     </td>
                 </tr>
             </tbody>

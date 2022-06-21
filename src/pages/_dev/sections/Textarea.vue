@@ -4,9 +4,11 @@
             <h2 class="mb-4 text-xl font-semibold">Textarea.vue</h2>
             <div class="flex gap-5 mb-10">
                 <Textarea v-model="textarea" label="Test" hint="Test" />
-                <div>
-                    {{ textarea }}
-                </div>
+            </div>
+            <div
+                class="bg-orange-100 border w-fit border-orange-300 text-darkorange font-code px-3 py-1.5"
+            >
+                value: {{ textarea }}
             </div>
         </div>
         <div class="col-span-full md:col-span-1">

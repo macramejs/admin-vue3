@@ -4,6 +4,8 @@
         v-slot="{ inputValue, inputEvents }"
         class="relative"
         is-dark
+        :mode="withTime ? 'dateTime' : 'date'"
+        is24hr
         color="orange"
         :disabled="disabled"
     >
@@ -22,7 +24,7 @@ import { DatePicker } from 'v-calendar';
 import 'v-calendar/dist/style.css';
 import Input from './Form/Input.vue';
 
-defineProps({
+const props = defineProps({
     label: {
         type: String,
         default: null,
@@ -32,6 +34,10 @@ defineProps({
         default: null,
     },
     disabled: {
+        type: Boolean,
+        default: false,
+    },
+    withTime: {
         type: Boolean,
         default: false,
     },
