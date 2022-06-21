@@ -18,12 +18,31 @@
 </template>
 
 <script lang="ts" setup>
+import { PropType } from 'vue';
 import Popper from 'vue3-popper';
 import IconMoreHoriz from './Icons/IconMoreHoriz.vue';
 
+type PopperPlacement =
+    | 'bottom'
+    | 'auto'
+    | 'auto-start'
+    | 'auto-end'
+    | 'top'
+    | 'top-start'
+    | 'top-end'
+    | 'bottom-start'
+    | 'bottom-end'
+    | 'right'
+    | 'right-start'
+    | 'right-end'
+    | 'left'
+    | 'left-start'
+    | 'left-end'
+    | undefined;
+
 defineProps({
     placement: {
-        type: String,
+        type: String as PropType<PopperPlacement>,
         default: 'bottom',
     },
 });
