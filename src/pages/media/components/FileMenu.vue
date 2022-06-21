@@ -7,7 +7,7 @@
             <template #icon>
                 <IconTrash class="origin-left scale-75" />
             </template>
-            <span>Delete</span>
+            <span>{{ $t('media.delete') }}</span>
         </ContextMenuItem>
     </ContextMenu>
 </template>
@@ -16,11 +16,7 @@
 import { Media } from '@/types/resources';
 import { deleteFile } from '@/modules/media';
 import { PropType } from 'vue';
-import {
-    ContextMenu,
-    ContextMenuItem,
-    ContextMenuDivider,
-} from '@/ui';
+import { ContextMenu, ContextMenuItem, ContextMenuDivider } from '@/ui';
 import { IconTrash } from '@/ui/icons';
 
 const props = defineProps({

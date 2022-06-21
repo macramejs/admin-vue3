@@ -6,12 +6,12 @@
         <SidebarLink
             secondary
             :active="!collection"
-            class="flex-1 py-1 cursor-pointer pr-4"
+            class="flex-1 py-1 pr-4 cursor-pointer"
             to="/media"
             key="all"
         >
             <div class="flex justify-between">
-                All
+                {{ $t('media.all') }}
                 <span class="text-gray-300"> {{ mediaIndex.totalItems }}</span>
             </div>
         </SidebarLink>
@@ -20,7 +20,7 @@
             :key="c.id"
             secondary
             :active="c.id == collection?.id"
-            class="flex-1 py-1 cursor-pointer pr-4"
+            class="flex-1 py-1 pr-4 cursor-pointer"
             :to="c.id == collection?.id ? `/media` : `/media/${c.id}`"
         >
             <div class="flex justify-between">
