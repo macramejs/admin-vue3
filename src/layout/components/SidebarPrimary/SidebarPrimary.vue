@@ -4,7 +4,7 @@
         @mouseover="expanded = true"
         @mouseleave="expanded = false"
         :class="{
-            'w-[77px]': !showSidebar,
+            'w-[72px]': !showSidebar,
             'w-[250px] show-sidebar': showSidebar,
         }"
     >
@@ -14,13 +14,18 @@
         </nav>
         <slot name="footer">
             <div class="mt-auto">
-                <SidebarSection :title="authedUser?.name">
+                {{ showSidebar }}
+                <SidebarSection
+                    :title="authedUser?.name"
+                    :expanded="showSidebar"
+                >
                     <Logout :expanded="expanded || showSidebar" />
                 </SidebarSection>
             </div>
         </slot>
         <SidebarSection
             class="border-t border-gray-800 hover:bg-opacity-10 hover:bg-orange"
+            :expanded="showSidebar"
         >
             <Lock :expanded="expanded || showSidebar" v-model="locked" />
         </SidebarSection>

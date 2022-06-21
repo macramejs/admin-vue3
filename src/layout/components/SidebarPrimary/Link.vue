@@ -18,6 +18,7 @@
             :class="{
                 ' text-orange': isActive && !secondary,
                 ' text-gray-100': !isActive,
+                'max-w-[44px]': hideTitle,
             }"
         >
             <slot name="icon" />

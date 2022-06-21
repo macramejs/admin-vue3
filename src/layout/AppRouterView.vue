@@ -2,8 +2,8 @@
     <div class="flex w-screen h-screen max-h-screen" v-if="isAuthenticated">
         <SidebarPrimary :locked="locked">
             <template v-slot="{ expanded }">
-                <SidebarSection title="CMS">
-                    <router-link to="/pages" custom v-slot="{ isActive }">
+                <SidebarSection title="CMS" :expanded="expanded">
+                    <router-link to="/pages" v-slot="{ isActive }">
                         <Link :hide-title="!expanded" :active="isActive">
                             <template v-slot:icon>
                                 <IconPage class="w-4 h-4" />
@@ -12,8 +12,8 @@
                         </Link>
                     </router-link>
                 </SidebarSection>
-                <SidebarSection class="mt-auto">
-                    <router-link to="/settings" custom v-slot="{ isActive }">
+                <SidebarSection class="mt-auto" :expanded="expanded">
+                    <router-link to="/settings" v-slot="{ isActive }">
                         <Link :hide-title="!expanded" :active="isActive">
                             <template v-slot:icon>
                                 <IconSettings class="w-4 h-4" />
