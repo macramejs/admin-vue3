@@ -7,6 +7,12 @@
                 </template>
                 Pages
             </Link>
+            <Link to="/dev">
+                <template v-slot:icon>
+                    <IconTestTube class="w-4 h-4" />
+                </template>
+                Dev
+            </Link>
         </SidebarPrimary>
         <router-view />
     </div>
@@ -15,6 +21,7 @@
 <script lang="ts" setup>
 import SidebarPrimary from './components/SidebarPrimary/SidebarPrimary.vue';
 import Link from './components/SidebarPrimary/Link.vue';
+import IconTestTube from '@/ui/icons/IconTestTube.vue';
 import IconPage from '@/ui/icons/IconPage.vue';
 import { onMounted } from 'vue';
 
