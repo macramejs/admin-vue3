@@ -2,12 +2,31 @@
     <div class="grid grid-cols-2 gap-5 pb-10 mb-10 border-b border-gray-400">
         <h2 class="mb-4 text-xl font-semibold col-span-full">Badge.vue</h2>
         <div class="col-span-full md:col-span-1">
-            <div class="flex flex-wrap gap-5">
-                <Badge purple>Test</Badge>
+            <div class="flex gap-5">
+                <Badge v-if="variant == 'primary'">Test</Badge>
+                <Badge v-if="variant == 'gray'" gray>Test</Badge>
+                <Badge v-if="variant == 'pink'" pink>Test</Badge>
+                <Badge v-if="variant == 'purple'" purple>Test</Badge>
+                <Badge v-if="variant == 'blue'" blue>Test</Badge>
+                <Badge v-if="variant == 'lightblue'" lightblue>Test</Badge>
+                <Badge v-if="variant == 'orange'" orange>Test</Badge>
+                <Badge v-if="variant == 'lightorange'" lightorange>Test</Badge>
+                <Badge v-if="variant == 'red'" red>Test</Badge>
+                <Badge v-if="variant == 'green'" green>Test</Badge>
+                <Badge v-if="variant == 'turkise'" turkise>Test</Badge>
             </div>
+            <Select
+                class="mt-8"
+                label="Variant"
+                v-model="variant"
+                :options="variantOptions"
+            />
         </div>
         <div class="col-span-full md:col-span-1">
-            <CopyString value="<Badge purple>Test</Badge>" label="Template" />
+            <CopyString
+                :value="`<Badge ${variant}>Test</Badge>`"
+                label="Template"
+            />
         </div>
         <table
             class="table p-5 mt-10 bg-orange-100 border border-orange-300 col-span-full"
@@ -83,6 +102,22 @@
 </template>
 
 <script lang="ts" setup>
-import { Badge } from '@/ui';
+import { Badge, Select } from '@/ui';
+import { ref } from 'vue';
 import CopyString from '../CopyString.vue';
+
+const variant = ref('primary');
+const variantOptions = [
+    { value: 'primary', label: 'Primary' },
+    { value: 'gray', label: 'Gray' },
+    { value: 'purple', label: 'Purple' },
+    { value: 'blue', label: 'Blue' },
+    { value: 'lightblue', label: 'Light Blue' },
+    { value: 'turkise', label: 'Turkise' },
+    { value: 'green', label: 'green' },
+    { value: 'orange', label: 'orange' },
+    { value: 'lightorange', label: 'Light Orange' },
+    { value: 'red', label: 'Red' },
+    { value: 'pink', label: 'Pink' },
+];
 </script>

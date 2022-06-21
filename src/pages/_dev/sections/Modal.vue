@@ -3,16 +3,16 @@
         <h2 class="mb-4 text-xl font-semibold col-span-full">Modal.vue</h2>
         <div class="col-span-full md:col-span-1">
             <div class="flex flex-wrap gap-5 mb-10">
-                <ButtonPrimary @click="modalSM = true"
+                <ButtonPrimary v-if="variant == 'sm'" @click="modalSM = true"
                     >Open Modal sm</ButtonPrimary
                 >
-                <ButtonPrimary @click="modalMD = true"
+                <ButtonPrimary v-if="variant == 'md'" @click="modalMD = true"
                     >Open Modal MD</ButtonPrimary
                 >
-                <ButtonPrimary @click="modalLG = true"
+                <ButtonPrimary v-if="variant == 'lg'" @click="modalLG = true"
                     >Open Modal LG</ButtonPrimary
                 >
-                <ButtonPrimary @click="modalXL = true"
+                <ButtonPrimary v-if="variant == 'xl'" @click="modalXL = true"
                     >Open Modal XL</ButtonPrimary
                 >
                 <Modal v-model:open="modalSM" title="Test SM" sm> Test </Modal>
@@ -20,18 +20,24 @@
                 <Modal v-model:open="modalLG" title="Test LG" lg> Test </Modal>
                 <Modal v-model:open="modalXL" title="Test XL" xl> Test </Modal>
             </div>
+            <Select
+                class="mt-8"
+                label="Variant"
+                v-model="variant"
+                :options="variantOptions"
+            />
         </div>
         <div class="col-span-full md:col-span-1">
             <CopyString
-                value='<ButtonPrimary @click="modalSM = true">
-    Open Modal SM
+                :value="`<ButtonPrimary @click=&quot;modal = true&quot;>
+    Open Modal
 </ButtonPrimary>
-<Modal v-model:open="modalSM" title="Test SM" sm>
+<Modal v-model:open=&quot;modal&quot; title=&quot;Test&quot; ${variant}>
     Test
-</Modal>'
+</Modal>`"
                 label="Template"
             />
-            <CopyString value="const modalSM = ref(false);" label="Script" />
+            <CopyString :value="`const modal = ref(false);`" label="Script" />
         </div>
         <table
             class="table p-5 mt-10 bg-orange-100 border border-orange-300 col-span-full"
@@ -75,12 +81,35 @@
 </template>
 
 <script lang="ts" setup>
-import { Modal, ButtonPrimary } from '@/ui';
-import { ref } from 'vue';
+import { Modal, ButtonPrimary, Select } from '@/ui';
+import { computed, ref } from 'vue';
 import CopyString from '../CopyString.vue';
 
 const modalSM = ref(false);
 const modalMD = ref(false);
 const modalLG = ref(false);
 const modalXL = ref(false);
+
+const variant = ref('lg');
+const variantOptions = [
+    { value: 'sm', label: 'SM' },
+    { value: 'md', label: 'MD' },
+    { value: 'lg', label: 'LG' },
+    { value: 'xl', label: 'XL' },
+];
+
+const shownSize = computed(() => {
+    if (variant.value == 'sm') {
+        return 'SM';
+    }
+    if (variant.value == 'md') {
+        return 'MD';
+    }
+    if (variant.value == 'lg') {
+        return 'LG';
+    }
+    if (variant.value == 'xl') {
+        return 'XL';
+    }
+});
 </script>
