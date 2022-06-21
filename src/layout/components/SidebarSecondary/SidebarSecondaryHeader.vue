@@ -1,9 +1,11 @@
 <template>
     <Header>
-        <span class="inline-block text-lg font-medium">
+        <span class="inline-flex items-center space-x-4 text-lg font-medium">
             <slot name="icon" />
             <slot name="title">
-                {{ title }}
+                <div>
+                    {{ title }}
+                </div>
             </slot>
         </span>
         <slot />

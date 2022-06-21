@@ -1,20 +1,28 @@
 import { client } from './index';
 import { LoginFormData } from '@/types/forms';
-import { UserResource } from '@/types/resources';
+import { User } from '@/types/resources';
 import { AxiosResponse } from 'axios';
 
-async function login(payload: LoginFormData) : Promise<AxiosResponse> {
-    await client.get('sanctum/csrf-cookie',{ baseURL: import.meta.env.VITE_APP_URL as string })
-    return await client.post('/login', payload, { baseURL: import.meta.env.VITE_APP_URL as string })
+async function login(payload: LoginFormData): Promise<AxiosResponse> {
+    await client.get('sanctum/csrf-cookie', {
+        baseURL: import.meta.env.VITE_APP_URL as string,
+    });
+    return await client.post('/login', payload, {
+        baseURL: import.meta.env.VITE_APP_URL as string,
+    });
 }
 
 async function logout() {
-    return await client.post('/logout', {}, { baseURL: import.meta.env.VITE_APP_URL as string });
+    return await client.post(
+        '/logout',
+        {},
+        { baseURL: import.meta.env.VITE_APP_URL as string }
+    );
 }
 
-async function loadUser(): Promise<UserResource> {
+async function loadUser(): Promise<User> {
     const { data } = await client.get('user');
-    return data
+    return data;
 }
 
 export { login, logout, loadUser };

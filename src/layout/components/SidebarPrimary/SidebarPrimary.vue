@@ -1,6 +1,6 @@
 <template>
     <div
-        class="flex flex-col justify-between h-screen transition-all bg-gray-900 border-r border-gray-800"
+        class="flex flex-col justify-between h-screen overflow-y-scroll transition-all bg-gray-900 border-r border-gray-800"
         @mouseover="expanded = true"
         @mouseleave="expanded = false"
         :class="{
@@ -9,14 +9,21 @@
         }"
     >
         <Header />
-        <nav class="flex flex-col flex-1 px-4">
+        <nav class="flex flex-col flex-1">
             <slot v-bind:expanded="showSidebar" />
         </nav>
         <slot name="footer">
-            <footer class="p-4 space-y-2">
-                <Lock v-model="locked" :expanded="showSidebar" />
-            </footer>
+            <div class="mt-auto">
+                <SidebarSection :title="authedUser?.name">
+                    <Logout :expanded="expanded || showSidebar" />
+                </SidebarSection>
+            </div>
         </slot>
+        <SidebarSection
+            class="border-t border-gray-800 hover:bg-opacity-10 hover:bg-orange"
+        >
+            <Lock :expanded="expanded || showSidebar" v-model="locked" />
+        </SidebarSection>
     </div>
 </template>
 
@@ -25,6 +32,9 @@ import { ref } from 'vue';
 import { computed } from 'vue';
 import Header from './Header.vue';
 import Lock from './Lock.vue';
+import Logout from './Logout.vue';
+import { authedUser } from '@/modules/auth';
+import SidebarSection from './SidebarSection.vue';
 
 const props = defineProps({
     locked: {

@@ -14,7 +14,7 @@ const auth = ({ next, router }: MiddlewareParams) => {
     loadUser()
         .then(response => {
             isAuthenticated.value = true;
-            authedUser.value = response.data;
+            authedUser.value = response;
             return next();
         })
         .catch(error => {
@@ -31,7 +31,7 @@ const guest = ({ next, router }: MiddlewareParams) => {
             .then(response => {
                 // not a guest, go home!
                 isAuthenticated.value = true;
-                authedUser.value = response.data;
+                authedUser.value = response;
                 return router.push('/');
             })
             .catch(() => {
