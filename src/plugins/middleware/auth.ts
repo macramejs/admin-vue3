@@ -1,43 +1,46 @@
-import { loadUser } from "@/modules/api";
-import { isAuthenticated, authedUser } from "@/modules/auth";
+import { loadUser } from '@/modules/api';
+import { isAuthenticated, authedUser } from '@/modules/auth';
+import { NavigationGuardNext, Router } from 'vue-router';
 
-const auth = ({ next, router }) => {
-  if(isAuthenticated.value){
-    return next();
-  }
-  loadUser()
-    .then(response => {
-      isAuthenticated.value = true 
-      authedUser.value = response.data 
-      return next()
-    })
-    .catch((error)=>{
-      console.log('please login', {error});
-      isAuthenticated.value = false
-      return router.push('/login');
-    })
-        
-        return next();
+interface MiddlewareParams {
+    next: NavigationGuardNext;
+    router: Router;
 }
 
-const guest = ({ next, router }) => {
-  if(isAuthenticated.value){
+const auth = ({ next, router }: MiddlewareParams) => {
+    if (isAuthenticated.value) {
+        return next();
+    }
     loadUser()
-      .then(response => {
-        // not a guest, go home!
-            isAuthenticated.value = true 
-            authedUser.value = response.data 
-        return router.push('/');
-      })
-      .catch(()=>{
-        // is a guest, continue…
-            isAuthenticated.value = false
-        return next();
-      })
-  }
-  return next()
-  
-    
-}
+        .then(response => {
+            isAuthenticated.value = true;
+            authedUser.value = response.data;
+            return next();
+        })
+        .catch(error => {
+            isAuthenticated.value = false;
+            return router.push('/login');
+        });
 
-export {auth, guest}
+    return next();
+};
+
+const guest = ({ next, router }: MiddlewareParams) => {
+    if (isAuthenticated.value) {
+        loadUser()
+            .then(response => {
+                // not a guest, go home!
+                isAuthenticated.value = true;
+                authedUser.value = response.data;
+                return router.push('/');
+            })
+            .catch(() => {
+                // is a guest, continue…
+                isAuthenticated.value = false;
+                return next();
+            });
+    }
+    return next();
+};
+
+export { auth, guest };
