@@ -1,7 +1,6 @@
 <template>
     <component
         :is="as"
-        :to="to"
         :href="href"
         :class="{
             // primary
@@ -43,10 +42,6 @@ const props = defineProps({
         type: String,
         default: null,
     },
-    to: {
-        type: String,
-        default: null,
-    },
     hideTitle: {
         type: Boolean,
         default: false,
@@ -81,6 +76,6 @@ const isActive = computed(() => {
 });
 
 const as = computed(() => {
-    return props.to ? 'router-link' : 'a';
+    return props.href ? 'a' : 'div';
 });
 </script>

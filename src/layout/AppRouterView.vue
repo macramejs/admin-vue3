@@ -3,20 +3,24 @@
         <SidebarPrimary :locked="locked">
             <template v-slot="{ expanded }">
                 <SidebarSection title="CMS">
-                    <Link to="/pages" :hide-title="!expanded">
-                        <template v-slot:icon>
-                            <IconPage class="w-4 h-4" />
-                        </template>
-                        Seiten
-                    </Link>
+                    <router-link to="/pages" custom v-slot="{ isActive }">
+                        <Link :hide-title="!expanded" :active="isActive">
+                            <template v-slot:icon>
+                                <IconPage class="w-4 h-4" />
+                            </template>
+                            Seiten
+                        </Link>
+                    </router-link>
                 </SidebarSection>
                 <SidebarSection class="mt-auto">
-                    <Link to="/settings" :hide-title="!expanded">
-                        <template v-slot:icon>
-                            <IconSettings class="w-4 h-4" />
-                        </template>
-                        Einstellungen
-                    </Link>
+                    <router-link to="/settings" custom v-slot="{ isActive }">
+                        <Link :hide-title="!expanded" :active="isActive">
+                            <template v-slot:icon>
+                                <IconSettings class="w-4 h-4" />
+                            </template>
+                            Einstellungen
+                        </Link>
+                    </router-link>
                 </SidebarSection>
             </template>
         </SidebarPrimary>

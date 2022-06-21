@@ -11,7 +11,7 @@
                     'opacity-0': !isExpanded,
                 }"
             >
-                <span class="inline-block">
+                <span class="inline-block px-4">
                     {{ title }}
                 </span>
                 <svg
