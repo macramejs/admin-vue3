@@ -8,7 +8,7 @@
         </MainBody>
         <MainSidebar v-model:open="isOpen">
             <Drawers :sections="drawsSections" />
-            <DrawerSection title="Blöcke">
+            <DrawerSection :title="$t('pages.blocks')">
                 <Cabinet>
                     <DrawerBlocks :draws="SectionBlocks" />
                 </Cabinet>

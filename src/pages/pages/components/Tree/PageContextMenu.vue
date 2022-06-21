@@ -13,7 +13,7 @@
                     <template #icon>
                         <IconPlus class="w-4 h-4" />
                     </template>
-                    Unterseite
+                    {{ $t('pages.sub_page') }}
                 </ContextMenuItem>
             </template>
         </AddPageModal>
@@ -23,7 +23,7 @@
                     <template #icon>
                         <IconCopy class="w-4 h-4" />
                     </template>
-                    Duplizieren
+                    {{ $t('pages.duplicate') }}
                 </ContextMenuItem>
             </template>
         </DuplicatePageModal>
@@ -34,7 +34,7 @@
             <template #icon>
                 <IconTrash class="origin-left scale-75" />
             </template>
-            <span>Löschen</span>
+            <span>{{ $t('pages.delete') }}</span>
         </ContextMenuItem>
     </ContextMenu>
 </template>

@@ -2,7 +2,7 @@
     <Main>
         <MainBody>
             <span class="inline-block pb-8 text-xl font-medium">
-                Meta Informationen
+                {{ $t('pages.meta_information') }}
             </span>
             <div class="grid grid-cols-12 gap-6">
                 <div class="col-span-full md:col-span-9">
@@ -15,7 +15,9 @@
                             />
                         </FormField>
                         <FormField>
-                            <FormFieldLabel>Beschreibung</FormFieldLabel>
+                            <FormFieldLabel>{{
+                                $t('pages.description')
+                            }}</FormFieldLabel>
                             <Textarea
                                 placeholder="Description"
                                 v-model="pageForm.meta.description"
@@ -23,7 +25,7 @@
                         </FormField>
                         <div class="mt-4 max-w-[600px]">
                             <span class="inline-block pb-4 text-lg">
-                                Vorschau
+                                {{ $t('pages.preview') }}
                             </span>
 
                             <div class="text-base flex text-[#202124]">

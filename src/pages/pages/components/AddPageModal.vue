@@ -4,7 +4,7 @@
             <IconPlus class="w-4 h-4" />
         </ButtonRound>
     </slot>
-    <Modal lg v-model:open="isOpen" title="New Page">
+    <Modal lg v-model:open="isOpen" :title="$t('pages.new_page')">
         <form @submit.prevent="submit">
             <div class="space-y-3">
                 <Input label="Name" v-model="form.name" />
@@ -22,7 +22,7 @@
             <input type="submit" class="hidden" />
         </form>
         <template v-slot:footer>
-            <Button @click="submit"> Save </Button>
+            <Button @click="submit"> {{ $t('pages.save') }} </Button>
         </template>
     </Modal>
 </template>

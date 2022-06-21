@@ -1,7 +1,7 @@
 <template>
     <SidebarSecondary>
         <template v-slot:header>
-            <SidebarSecondaryHeader title="Seiten">
+            <SidebarSecondaryHeader :title="$t('pages.pages')">
                 <AddPageModal />
             </SidebarSecondaryHeader>
         </template>

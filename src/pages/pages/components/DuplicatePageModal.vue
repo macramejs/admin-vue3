@@ -2,15 +2,17 @@
     <slot name="button" :open="() => (isOpen = true)">
         <IconCopy class="w-4 h-4" />
     </slot>
-    <Modal lg v-model:open="isOpen" title="Duplicate Page">
+    <Modal lg v-model:open="isOpen" :title="$t('pages.duplicate_page')">
         <form @submit.prevent="form.submit()">
             <div class="space-y-3">
-                <Input label="New Page Name" v-model="form.name" />
+                <Input :label="$t('pages.new_page_name')" v-model="form.name" />
             </div>
             <input type="submit" class="hidden" />
         </form>
         <template v-slot:footer>
-            <Button @click="form.submit()"> Duplizieren </Button>
+            <Button @click="form.submit()">
+                {{ $t('pages.duclicate') }}
+            </Button>
         </template>
     </Modal>
 </template>

@@ -5,7 +5,7 @@
     >
         <IconEditPencil class="w-4 h-4" />
     </button>
-    <Modal lg v-model:open="isOpen" title="Edit Slug">
+    <Modal lg v-model:open="isOpen" :title="$t('pages.edit_slug')">
         <div class="space-y-3">
             <Input
                 label="Slug"

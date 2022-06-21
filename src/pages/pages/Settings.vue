@@ -1,14 +1,16 @@
 <template>
-    <span class="inline-block pb-8 text-xl font-medium"> Page Settings </span>
+    <span class="inline-block pb-8 text-xl font-medium">
+        {{ $t('pages.page_settings') }}
+    </span>
     <div class="grid grid-cols-12 gap-6">
         <div class="col-span-full md:col-span-9">
             <Card class="flex gap-5">
                 <FormField no-label class="w-2/3">
-                    <Input label="Page Name" v-model="form.name" />
+                    <Input :label="$t('pages.page_name')" v-model="form.name" />
                 </FormField>
                 <FormField no-label class="w-1/3">
                     <Input
-                        label="Page Slug"
+                        :label="$t('pages.page_slug')"
                         v-model="form.slug"
                         @update:modelValue="slug => (form.slug = slugify(slug))"
                     />
@@ -20,7 +22,7 @@
                 @click="deletePage(page.data)"
             >
                 <IconTrash class="w-4 h-4 mr-2" />
-                Delete Page
+                {{ $t('pages.delete_page') }}
             </Button>
         </div>
     </div>
