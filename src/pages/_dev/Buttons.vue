@@ -4,6 +4,7 @@
             <ButtonPrimarySection />
             <ButtonOutlineSection />
             <ButtonTextLinkSection />
+            <LinkSection />
             <ButtonMidGraySection />
             <ButtonRoundSection />
             <div
@@ -43,5 +44,6 @@ import {
     ButtonMidGraySection,
     ButtonRoundSection,
     InteractionButtonSection,
+    LinkSection,
 } from './sections';
 </script>

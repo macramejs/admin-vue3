@@ -13,6 +13,7 @@ export { default as ImageSection } from './Image.vue';
 export { default as ButtonPrimarySection } from './ButtonPrimary.vue';
 export { default as ButtonOutlineSection } from './ButtonOutline.vue';
 export { default as ButtonTextLinkSection } from './ButtonTextLink.vue';
+export { default as LinkSection } from './Link.vue';
 export { default as ButtonMidGraySection } from './ButtonMidGray.vue';
 export { default as ButtonRoundSection } from './ButtonRound.vue';
 export { default as InteractionButtonSection } from './InteractionButton.vue';

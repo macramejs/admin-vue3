@@ -10,7 +10,6 @@
             <Tab :to="`/dev/form`">Form</Tab>
             <Tab :to="`/dev/icons`">icons</Tab>
             <Tab :to="`/dev/table`">table</Tab>
-            <Tab :to="`/dev/tree`">tree</Tab>
         </Tabs>
         <router-view />
     </Main>
