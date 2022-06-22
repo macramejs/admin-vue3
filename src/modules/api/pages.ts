@@ -20,7 +20,11 @@ const loadPagesTree: LoadMany<PageTreeCollectionResource, {}> = () =>
     client.get(`page-tree`);
 
 const updateOrCreatePage: UpdateOrCreate<PageFormData> = (data, id = null) => {
-    return client[id ? 'put' : 'post'](`pages${id ? '/' + id : ''}`, data);
+    if(id){
+        return client.put(`pages/${id}`, data);
+    }
+
+    return client.post(`pages`, data);
 };
 
 const updatePageSlug: UpdateOrCreate<PageSlugFormData> = (data, id) => {
@@ -28,6 +32,7 @@ const updatePageSlug: UpdateOrCreate<PageSlugFormData> = (data, id) => {
 };
 
 const deletePage: Delete<Page> = page => {
+    console.log('test');
     return client.delete(`pages/${page.id}`);
 };
 
