@@ -10,7 +10,7 @@
             <div
                 class="absolute top-0 flex items-center justify-center w-full h-full text-gray"
             >
-                <slot name="drag-text"> Drag your content here </slot>
+                <slot name="drag-text"> {{ $t('content.drag_here') }} </slot>
             </div>
         </template>
         <Sections v-bind="$attrs" style="min-height: calc(100vh - 150px)" />

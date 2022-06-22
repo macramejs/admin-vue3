@@ -19,20 +19,19 @@
                     <IconAddMediaImage class="w-4 h-4" />
                 </div>
                 <div class="text-sm text-center uppercase" v-if="busy">
-                    Loading ...
+                    {{ $t('ui.loading') }}
                 </div>
                 <div
                     class="text-sm text-center uppercase"
                     v-if="!busy && isDragActive"
                 >
-                    Drop the files here ...
+                    {{ $t('ui.drop_here') }}
                 </div>
                 <div
                     class="text-sm text-center uppercase"
                     v-if="!busy && !isDragActive"
-                >
-                    Drag & Drop<br />or <span class="underline">browse</span>
-                </div>
+                    v-html="$t('ui.drag_and_drop')"
+                ></div>
             </div>
         </div>
     </div>

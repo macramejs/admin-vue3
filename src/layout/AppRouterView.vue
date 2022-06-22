@@ -5,7 +5,7 @@
                 <template v-slot:icon>
                     <IconPage class="w-4 h-4" />
                 </template>
-                Pages
+                {{ $t('layout.pages') }}
             </Link>
             <Link to="/dev">
                 <template v-slot:icon>

@@ -5,14 +5,14 @@
                 class="flex flex-col items-center justify-center w-full rounded cursor-pointer bg-gray-50 hover:bg-gray-200 h-28 text-gray"
             >
                 <IconAddMediaImage class="w-12 h-12" />
-                Bild auswählen
+                {{ $t('media.select_image') }}
             </div>
         </slot>
     </div>
     <Modal
         v-model:open="isOpen"
         @close="isOpen = false"
-        title="Bild auswählen"
+        :title="$t('media.select_image')"
         class="media-modal-wrapper"
     >
         <div class="grid grid-cols-12 gap-4 media-modal">

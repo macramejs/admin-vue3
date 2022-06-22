@@ -10,6 +10,7 @@ export const messages = {
             all: 'Alle',
             files: 'Dateien',
             edit_selection: 'Auswahl bearbeiten',
+            select_image: 'Bild auswählen',
         },
     },
     en: {
@@ -23,6 +24,7 @@ export const messages = {
             all: 'All',
             files: 'Files',
             edit_selection: 'Edit Selection',
+            select_image: 'Select Image',
         },
     },
 };
