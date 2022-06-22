@@ -44,7 +44,7 @@ import SidebarSection from './components/SidebarPrimary/SidebarSection.vue';
 import Link from './components/SidebarPrimary/Link.vue';
 import IconPage from '@/ui/Icons/IconPage.vue';
 import IconSettings from '@/ui/Icons/IconSettings.vue';
-import { isAuthenticated } from '@/modules/auth';
+import { isAuthenticated } from '@/modules/state';
 import IconMediaImageFolder from '@/ui/Icons/IconMediaImageFolder.vue';
 import IconList from '@/ui/Icons/IconList.vue';
 import IconReportColumns from '@/ui/Icons/IconReportColumns.vue';

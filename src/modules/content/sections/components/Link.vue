@@ -37,7 +37,7 @@
 <script lang="ts" setup>
 import { PropType, ref, watch } from 'vue';
 import { Input, Button, Modal, Select, Toggle } from '@/ui';
-import { linkOptions } from '@/modules/links';
+import { linkOptions } from '@/modules/state';
 
 const emit = defineEmits(['update:modelValue']);
 

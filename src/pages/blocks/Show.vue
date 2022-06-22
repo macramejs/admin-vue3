@@ -1,18 +1,18 @@
 <template>
-    <Main>
-        <MainBody>
+    <MainBody>
+        <MainContent>
             <Sections v-model="form.content" :sections="sections" />
-        </MainBody>
+        </MainContent>
         <MainSidebar v-model:open="isOpen">
             <Drawers :sections="drawsSections" />
         </MainSidebar>
-    </Main>
+    </MainBody>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import { MainBody, MainContent, MainSidebar } from '@/layout';
 import { Drawers, sections, Sections } from '@/modules/content';
-import { Main, MainBody, MainSidebar } from '@/ui';
 import { useBlockForm } from '@/modules/forms';
 import { useRoute } from 'vue-router';
 

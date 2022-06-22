@@ -38,7 +38,7 @@ import { computed } from 'vue';
 import Header from './Header.vue';
 import Lock from './Lock.vue';
 import Logout from './Logout.vue';
-import { authedUser } from '@/modules/auth';
+import { authedUser } from '@/modules/state';
 import SidebarSection from './SidebarSection.vue';
 
 const props = defineProps({

@@ -1,5 +1,5 @@
 import { loadUser } from '@/modules/api';
-import { isAuthenticated, authedUser } from '@/modules/auth';
+import { isAuthenticated, authedUser } from '@/modules/state';
 import { NavigationGuardNext, Router } from 'vue-router';
 
 interface MiddlewareParams {

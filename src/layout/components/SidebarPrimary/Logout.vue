@@ -12,7 +12,7 @@ import { useRouter } from 'vue-router';
 import Link from './Link.vue';
 import IconLogOut from '@/ui/icons/IconLogOut.vue';
 import { logout } from '@/modules/api';
-import { isAuthenticated } from '@/modules/auth';
+import { isAuthenticated } from '@/modules/state';
 
 defineProps({
     expanded: {

@@ -7,3 +7,4 @@ export { default as SectionCards } from './SectionCards.vue';
 export { default as SectionAccordion } from './SectionAccordion.vue';
 export { default as SectionLogoWall } from './SectionLogoWall.vue';
 export { default as SectionImageCarousel } from './SectionImageCarousel.vue';
+export { default as SectionBlock } from './SectionBloc.vue';

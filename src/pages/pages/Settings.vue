@@ -28,6 +28,7 @@
 
 <script lang="ts" setup>
 import { PropType } from 'vue';
+import { MainBody, MainContent } from '@/layout';
 import { PageResource } from '@/types/resources';
 import { PageFormData } from '@/types/forms';
 import { deletePage } from '@/modules/page';

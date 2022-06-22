@@ -28,8 +28,11 @@ const isOpen = ref<boolean>(false);
 
 const form: BlockForm = useBlockForm({});
 
-const submit = function () {
-    form.submit();
+const submit = () => {
+    console.log('start');
+    form.submit().then(() => {
+        console.log('done');
+    });
 };
 
 // const emit = defineEmits(['blockAdded', 'close']);
