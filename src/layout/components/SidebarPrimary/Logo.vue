@@ -1,5 +1,5 @@
 <template>
-    <div class="logo-container ml-2.5 transition-all duration-100">
+    <div class="logo-container ml-2.5 transition-all duration-500">
         <svg
             class="h-5"
             v-bind="$attrs"
