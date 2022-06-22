@@ -1,11 +1,10 @@
 import { createI18n } from 'vue-i18n';
 import { merge } from 'lodash';
 import { messages as auth } from '@/pages/auth/lang';
-import { messages as dev } from '@/pages/_dev/lang';
 import { messages as pages } from '@/pages/pages/lang';
 import { messages as media } from '@/pages/media/lang';
 
-const translations = [auth, dev, pages, media];
+const translations = [auth, pages, media];
 
 let messages = {};
 
