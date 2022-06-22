@@ -39,7 +39,7 @@ import { isAuthenticated } from '@/modules/auth';
 
 const locked = computed(() => {
     if (localStorage.hasOwnProperty('sideBarLocked')) {
-        return JSON.parse(localStorage.getItem('sideBarLocked'));
+        return JSON.parse(localStorage.getItem('sideBarLocked') as string);
     }
     return false;
 });

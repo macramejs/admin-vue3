@@ -16,35 +16,27 @@
     </button>
 </template>
 
-<script lang="ts">
-import { Switch, SwitchGroup, SwitchLabel } from '@headlessui/vue';
-
-export default {
-    components: { Switch, SwitchGroup, SwitchLabel },
-    props: {
-        label: {
-            type: String,
-            default: null,
-        },
-        disabled: {
-            type: Boolean,
-            default: false,
-        },
-        modelValue: {
-            type: Boolean,
-            default: false,
-        },
+<script lang="ts" setup>
+const props = defineProps({
+    label: {
+        type: String,
+        default: null,
     },
-
-    setup({ disabled }, { emit }) {
-        const update = value => {
-            if (disabled) {
-                return;
-            }
-            emit('update:modelValue', value);
-        };
-
-        return { update };
+    disabled: {
+        type: Boolean,
+        default: false,
     },
+    modelValue: {
+        type: Boolean,
+        default: false,
+    },
+});
+const emit = defineEmits(['update:modelValue']);
+
+const update = (value: any) => {
+    if (props.disabled) {
+        return;
+    }
+    emit('update:modelValue', value);
 };
 </script>

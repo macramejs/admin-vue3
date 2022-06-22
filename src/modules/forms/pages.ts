@@ -23,6 +23,8 @@ const usePageForm: UsePageForm = (
         attributes = {},
         is_live = false,
         publish_at = null,
+        template = '',
+        slug = '',
         meta = {
             title: '',
             description: '',
@@ -31,7 +33,16 @@ const usePageForm: UsePageForm = (
     id = null
 ) => {
     return useForm({
-        data: { name, content, attributes, is_live, publish_at, meta },
+        data: {
+            name,
+            content,
+            attributes,
+            is_live,
+            publish_at,
+            template,
+            slug,
+            meta,
+        },
         submit: data => updateOrCreatePage(data, id),
         load: async id => {
             let page = (await loadPage(id as number)).data.data;

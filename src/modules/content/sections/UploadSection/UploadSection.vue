@@ -24,7 +24,8 @@
                 {{ form.progress.percentage }}%
             </progress>
         </div>
-        <FileExplorer :files="pages.files" v-model="model.file">
+        <!-- TODO: -->
+        <!-- <FileExplorer :files="pages.files" v-model="model.file">
             <div v-if="selectedFile">
                 <img :src="`/storage/files/${selectedFile}`" class="rounded" />
             </div>
@@ -35,7 +36,7 @@
                     class="my-4"
                 />
             </template>
-        </FileExplorer>
+        </FileExplorer> -->
     </Modal>
 </template>
 

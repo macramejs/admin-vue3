@@ -120,11 +120,6 @@ import {
     ListboxOption,
 } from '@headlessui/vue';
 
-interface Option {
-    value: string;
-    label: string;
-}
-
 const emit = defineEmits(['update:modelValue', 'change']);
 
 type SelectedType = string | number | boolean | Record<string, any> | undefined;
@@ -134,7 +129,7 @@ const props = defineProps({
         type: [String, Number, Boolean] as PropType<SelectedType>,
     },
     options: {
-        type: Array as PropType<Option[]>,
+        type: Array as PropType<any[]>,
         required: true,
     },
     label: {

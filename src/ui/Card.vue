@@ -13,32 +13,26 @@
     </component>
 </template>
 
-<script lang="ts">
-import { defineComponent, computed } from 'vue';
+<script lang="ts" setup>
 import { getVariant, variants } from './_props/variant';
 import { getSize, sizes } from './_props/size';
 
-export default defineComponent({
-    props: {
-        as: {
-            type: String,
-            default: 'div',
-        },
-        variant: variants.variant,
-        white: {
-            type: Boolean,
-            default: false,
-        },
-        gray: variants.gray,
-        size: sizes.size,
-        sm: sizes.sm,
-        md: sizes.md,
+const props = defineProps({
+    as: {
+        type: String,
+        default: 'div',
     },
-    setup(props, { attrs }) {
-        let variant_ = getVariant(props, { DEFAULT: 'white' });
-        let size_ = getSize(props, { only: ['sm', 'md'] });
-
-        return { variant_, size_ };
+    variant: variants.variant,
+    white: {
+        type: Boolean,
+        default: false,
     },
+    gray: variants.gray,
+    size: sizes.size,
+    sm: sizes.sm,
+    md: sizes.md,
 });
+
+let variant_ = getVariant(props, { DEFAULT: 'white' });
+let size_ = getSize(props, { only: ['sm', 'md'] });
 </script>

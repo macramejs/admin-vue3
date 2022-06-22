@@ -1,7 +1,14 @@
 import { useForm } from '@macramejs/macrame-vue3';
-import { LoginFormData, LoginForm } from '@/types/forms';
+import {
+    LoginFormData,
+    LoginForm,
+    ForgotFormData,
+    ForgotForm,
+    ResetFormData,
+    ResetForm,
+} from '@/types/forms';
 import { useRouter } from 'vue-router';
-import { login, loadUser } from '@/modules/api';
+import { login, loadUser, forgot, resetPassword } from '@/modules/api';
 import { isAuthenticated, authedUser } from '../auth';
 
 export type UseLoginForm = (data: Partial<LoginFormData>) => LoginForm;
@@ -32,4 +39,34 @@ const useLoginForm: UseLoginForm = ({
     return form;
 };
 
-export { useLoginForm };
+export type UseForgotForm = (data: Partial<ForgotFormData>) => ForgotForm;
+const useForgotForm: UseForgotForm = ({ email = '' }) => {
+    const form = useForm<ForgotFormData>({
+        data: { email },
+        submit: data => {
+            const result = forgot(data);
+            return result;
+        },
+    });
+
+    return form;
+};
+
+export type UseResetForm = (data: Partial<ResetFormData>) => ResetForm;
+const useResetForm: UseResetForm = ({
+    email = '',
+    password = '',
+    password_confirmation = '',
+}) => {
+    const form = useForm<ResetFormData>({
+        data: { email, password, password_confirmation },
+        submit: data => {
+            const result = resetPassword(data);
+            return result;
+        },
+    });
+
+    return form;
+};
+
+export { useLoginForm, useForgotForm, useResetForm };

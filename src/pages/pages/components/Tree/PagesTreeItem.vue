@@ -48,7 +48,7 @@ const props = defineProps({
         required: true,
     },
     children: {
-        type: Object as PropType<Tree<Page>>,
+        type: Object as PropType<Tree>,
         required: true,
     },
 });
