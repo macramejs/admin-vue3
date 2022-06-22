@@ -1,5 +1,5 @@
 <template>
-    <div class="flex w-screen h-screen max-h-screen" v-if="isAuthenticated">
+    <div class="flex w-screen h-screen max-h-screen" v-if="true">
         <SidebarPrimary :locked="locked">
             <template v-slot="{ expanded }">
                 <SidebarSection
@@ -27,7 +27,7 @@
                             <template v-slot:icon>
                                 <IconSettings class="w-4 h-4" />
                             </template>
-                            Einstellungen
+                            {{ $t('layout.settings') }}
                         </Link>
                     </router-link>
                 </SidebarSection>
@@ -49,6 +49,10 @@ import IconMediaImageFolder from '@/ui/Icons/IconMediaImageFolder.vue';
 import IconList from '@/ui/Icons/IconList.vue';
 import IconReportColumns from '@/ui/Icons/IconReportColumns.vue';
 import IconLayoutLeft from '@/ui/Icons/IconLayoutLeft.vue';
+import IconTestTube from '@/ui/Icons/IconTestTube.vue';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 const locked = computed(() => {
     if (localStorage.hasOwnProperty('sideBarLocked')) {
@@ -72,27 +76,32 @@ const sidebarPrimarySections: SidebarSection[] = [
         title: 'CMS',
         items: [
             {
-                title: 'Seiten',
+                title: 'Dev',
+                to: '/dev',
+                icon: IconTestTube,
+            },
+            {
+                title: t('layout.pages'),
                 to: '/pages',
                 icon: IconPage,
             },
             {
-                title: 'Medien',
+                title: t('layout.media'),
                 to: '/media',
                 icon: IconMediaImageFolder,
             },
             {
-                title: 'Navigation',
+                title: t('layout.navigations'),
                 to: '/menus',
                 icon: IconList,
             },
             {
-                title: 'Blöcke',
+                title: t('layout.blocks'),
                 to: '/blocks',
                 icon: IconReportColumns,
             },
             {
-                title: 'Bereiche',
+                title: t('layout.sections'),
                 to: '/partials',
                 icon: IconLayoutLeft,
             },
