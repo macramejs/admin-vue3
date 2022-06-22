@@ -51,28 +51,6 @@ defineProps({
     },
 });
 
-// const form = useForm({
-//     route: `/admin/pages`,
-//     data: {
-//         parent: props.parent?.id,
-//         name: '',
-//         template: 'default',
-//         slug: '',
-//     },
-//     method: 'post',
-//     onSuccess(response) {
-//         emit('pageAdded', this);
-//         isOpen.value = false;
-//         form.reset();
-
-//         // Visit the recently created page, to refresh the Page/Show component
-//         // when currently already on a page.
-//         Inertia.visit(`/admin/pages/${response.props.page.data.id}`, {
-//             only: ['page'],
-//         });
-//     },
-// });
-
 const isSlugEdited = ref(false);
 
 const submit = function () {

@@ -7,9 +7,9 @@
         v-bind="$attrs"
     >
         <component
-            :is="href ? Link : 'button'"
+            :is="href ? 'a' : 'button'"
             :href="href"
-            class="px-3 py-1 text-sm tracking-widest uppercase transition-colors duration-200 cursor-pointer focus:outline-none flex items-center"
+            class="flex items-center px-3 py-1 text-sm tracking-widest uppercase transition-colors duration-200 cursor-pointer focus:outline-none"
             :class="{
                 'text-black bg-gray-200 border-b border-indigo-900':
                     selected && !disabled,
@@ -26,7 +26,6 @@
 
 <script setup lang="ts">
 import { Tab } from '@headlessui/vue';
-import { Link } from '@inertiajs/inertia-vue3';
 
 defineProps({
     disabled: {

@@ -1,5 +1,5 @@
 <template>
-    <div class="logo-container ml-2.5">
+    <div class="logo-container ml-2.5 transition-all duration-100">
         <svg
             class="h-5"
             v-bind="$attrs"
@@ -128,5 +128,9 @@ defineProps({
 }
 .show-sidebar .hide-logo-letters {
     opacity: 1;
+}
+.show-sidebar .logo-container {
+    transform: scale(1.3);
+    margin-left: 48px !important;
 }
 </style>

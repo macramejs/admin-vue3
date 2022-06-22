@@ -55,11 +55,11 @@ export type NavItemForm = Form<NavItem>;
 
 // Block
 
-export type BlockContentFormData = {
+export type BlockFormData = {
     name: string;
     content: { [k: string]: any }[];
 };
-export type BlockContentForm = Form<BlockContentFormData>;
+export type BlockForm = Form<BlockFormData>;
 
 // // Partials
 
