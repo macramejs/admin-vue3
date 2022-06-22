@@ -1,18 +1,18 @@
 <template>
-    <Main>
-        <MainBody topPosition="80">
+    <MainBody>
+        <MainContent topPosition="80">
             <FilesGrid :collection="collection" :collections="collections" />
-        </MainBody>
+        </MainContent>
         <MainSidebar v-model:open="isSidebarOpen" topPosition="80">
             <FilesFilters />
         </MainSidebar>
-    </Main>
+    </MainBody>
 </template>
 
 <script lang="ts" setup>
 import { PropType, ref } from 'vue';
 import { MediaCollection } from '@/types';
-import { Main, MainBody, MainSidebar } from '@/ui';
+import { MainBody, MainContent, MainSidebar } from '@/layout';
 import FilesGrid from './FilesGrid.vue';
 import FilesFilters from './FilesFilters.vue';
 

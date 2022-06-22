@@ -120,17 +120,16 @@ import {
     ListboxOption,
 } from '@headlessui/vue';
 
-interface Option {
-    value: string;
-    label: string;
-}
-
 const emit = defineEmits(['update:modelValue', 'change']);
 
+type SelectedType = string | number | boolean | Record<string, any> | undefined;
+
 const props = defineProps({
-    modelValue: {},
+    modelValue: {
+        type: [String, Number, Boolean] as PropType<SelectedType>,
+    },
     options: {
-        type: Array as PropType<Option[]>,
+        type: Array as PropType<any[]>,
         required: true,
     },
     label: {
@@ -187,7 +186,7 @@ const itemLabel = computed(() => {
     return props.modelValue;
 });
 
-const selectedItem = ref(props.modelValue);
+const selectedItem = ref<SelectedType>(props.modelValue);
 
 watch(selectedItem, () => {
     emit('update:modelValue', selectedItem.value);

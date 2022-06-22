@@ -86,14 +86,14 @@ const props = defineProps({
     ...sizes,
 });
 
-const size_ = getSize(props, { DEFAULT: null });
+const size_ = getSize(props, {});
 
 const close = (closing: boolean) => {
     emit('close', closing);
     emit('update:open', !closing);
 };
 
-const closeHandler = evt => {
+const closeHandler = (evt: KeyboardEvent) => {
     if (evt.key == 'Escape') {
         close(true);
     }

@@ -21,8 +21,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, PropType, watch, computed } from 'vue';
-import { Modal, Input, Select, Button, ContextMenuItem } from '@/ui';
+import { ref, PropType, computed } from 'vue';
+import { Modal, Select, Button, ContextMenuItem } from '@/ui';
 import { Selection } from '../modules';
 import { MediaCollection } from '@/types/resources';
 

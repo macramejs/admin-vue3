@@ -28,28 +28,25 @@
     </table>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import { Component } from '@macramejs/macrame';
-import { defineComponent, PropType } from 'vue';
+import { PropType } from 'vue';
 import { Index } from '@macramejs/macrame-vue3';
 import Th from './Th.vue';
 import Td from './Td.vue';
 
-export default defineComponent({
-    components: { Th, Td },
-    props: {
-        selectable: {
-            type: Boolean,
-            default: false,
-        },
-        table: {
-            type: Object as PropType<Index>,
-            required: true,
-        },
-        schema: {
-            type: Array as PropType<Component[]>,
-            required: false,
-        },
+defineProps({
+    selectable: {
+        type: Boolean,
+        default: false,
+    },
+    table: {
+        type: Object as PropType<Index>,
+        required: true,
+    },
+    schema: {
+        type: Array as PropType<Component[]>,
+        required: false,
     },
 });
 </script>

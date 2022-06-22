@@ -1,9 +1,9 @@
 <template>
-    <Main>
-        <MainBody class="mx-auto max-w-7xl"> table </MainBody>
-    </Main>
+    <MainBody>
+        <MainContent class="mx-auto max-w-7xl"> table </MainContent>
+    </MainBody>
 </template>
 
 <script setup lang="ts">
-import { Main, MainBody } from '@/ui';
+import { MainContent, MainBody } from '@/layout';
 </script>

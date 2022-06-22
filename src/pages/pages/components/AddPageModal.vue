@@ -31,52 +31,36 @@
 import { ref, PropType, watch } from 'vue';
 import { Modal, Input, Select, ButtonRound, Button } from '@/ui';
 import IconPlus from '@/ui/Icons/IconPlus.vue';
-import { useForm } from '@macramejs/macrame-vue3';
-import { templateOptions } from '../templates';
+import { templateOptions } from '@/modules/content/templates';
 import { Page } from '@/types/resources';
 import { slugify } from '@/modules/helpers';
-import { Inertia } from '@inertiajs/inertia';
+
+import { usePageForm } from '@/modules/forms';
+import { PageForm } from '@/types';
+
+const form: PageForm = usePageForm({});
 
 const isOpen = ref<boolean>(false);
 
 const emit = defineEmits(['pageAdded', 'close']);
 
-const props = defineProps({
+defineProps({
     parent: {
         type: Object as PropType<Page>,
         required: false,
     },
 });
 
-const form = useForm({
-    route: `/admin/pages`,
-    data: {
-        parent: props.parent?.id,
-        name: '',
-        template: 'default',
-        slug: '',
-    },
-    method: 'post',
-    onSuccess(response) {
-        emit('pageAdded', this);
-        isOpen.value = false;
-        form.reset();
-
-        // Visit the recently created page, to refresh the Page/Show component
-        // when currently already on a page.
-        Inertia.visit(`/admin/pages/${response.props.page.data.id}`, {
-            only: ['page'],
-        });
-    },
-});
-
 const isSlugEdited = ref(false);
 
 const submit = function () {
-    form.submit();
+    form.submit().then(() => {
+        emit('pageAdded');
+        isOpen.value = false;
+    });
 };
 
-const updateSlug = function (value) {
+const updateSlug = function (value: string) {
     form.slug = slugify(value);
     isSlugEdited.value = true;
 };

@@ -3,40 +3,40 @@
 // import { IconMediaImageFolder } from '@/ui';
 // import { IconDashboard } from '@/ui';
 
-import { RouterLinkProps } from "vue-router";
+import { RouterLinkProps } from 'vue-router';
 
 type SidebarNavigationLink = {
     title: string;
     href?: string;
     icon?: string;
-    link?: RouterLinkProps
+    link?: RouterLinkProps;
 };
 
 export const sidebarLinks: SidebarNavigationLink[] = [
     {
         title: 'Dashboard',
-        link: { to: '/' }
+        link: { to: '/' },
         // icon: IconDashboard,
     },
 ];
 
 // Media links
 sidebarLinks.push({
-    title: "Medien",
-    link: { to: '/media' }
+    title: 'Medien',
+    link: { to: '/media' },
     // icon: IconMediaImageFolder,
 });
 
 // Pages links
 sidebarLinks.push({
-    title: "Seiten",
-    link: { to: '/pages' }
+    title: 'Seiten',
+    link: { to: '/pages' },
     // icon: IconPages
 });
 
 // Navigation links
 sidebarLinks.push({
-    title: "Navigation",
-    href: "/admin/nav",
+    title: 'Navigation',
+    href: '/admin/nav',
     // icon: IconList,
 });

@@ -1,5 +1,5 @@
 <template>
-    <header class="flex items-center justify-between h-[80px] px-4 py-7">
+    <header class="flex items-center justify-between h-[80px] px-3.5 py-7">
         <div class="relative flex items-center w-full h-10 overflow-hidden">
             <a href="/">
                 <div class="w-[154px]">

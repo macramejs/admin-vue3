@@ -30,8 +30,9 @@
 
 <script lang="ts" setup>
 import { PropType } from 'vue';
+import { MainBody, MainContent } from '@/layout';
 import { PageResource } from '@/types/resources';
-import { PageContentForm } from '@/types/forms';
+import { PageFormData } from '@/types/forms';
 import { deletePage } from '@/modules/page';
 import { Card, FormField, Input, Button } from '@/ui';
 import IconTrash from '@/ui/Icons/IconTrash.vue';
@@ -43,7 +44,7 @@ const props = defineProps({
         required: true,
     },
     form: {
-        type: Object as PropType<PageContentForm>,
+        type: Object as PropType<PageFormData>,
         required: true,
     },
 });

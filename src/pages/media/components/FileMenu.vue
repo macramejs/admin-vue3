@@ -16,8 +16,8 @@
 import { Media } from '@/types/resources';
 import { deleteFile } from '@/modules/media';
 import { PropType } from 'vue';
-import { ContextMenu, ContextMenuItem, ContextMenuDivider } from '@/ui';
-import { IconTrash } from '@/ui/icons';
+import { ContextMenu, ContextMenuItem } from '@/ui';
+import IconTrash from '@/ui/Icons/IconTrash.vue';
 
 const props = defineProps({
     file: {

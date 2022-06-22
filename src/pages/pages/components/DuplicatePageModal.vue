@@ -21,9 +21,7 @@
 import { ref, PropType } from 'vue';
 import { Modal, Input, Button } from '@/ui';
 import IconCopy from '@/ui/Icons/IconCopy.vue';
-import { useForm } from '@macramejs/macrame-vue3';
 import { Page } from '@/types/resources';
-import { Inertia } from '@inertiajs/inertia';
 
 const isOpen = ref<boolean>(false);
 
@@ -34,21 +32,22 @@ const props = defineProps({
     },
 });
 
-const form = useForm({
-    route: `/admin/pages/${props.page.id}/duplicate`,
-    data: {
-        name: props.page.name,
-    },
-    method: 'post',
-    onSuccess(response) {
-        isOpen.value = false;
-        form.reset();
+// TODO:
+// const form = useForm({
+//     route: `/admin/pages/${props.page.id}/duplicate`,
+//     data: {
+//         name: props.page.name,
+//     },
+//     method: 'post',
+//     onSuccess(response) {
+//         isOpen.value = false;
+//         form.reset();
 
-        // // Visit the recently created page, to refresh the Page/Show component
-        // // when currently already on a page.
-        Inertia.visit(`/admin/pages/${response.props.page.data.id}`, {
-            only: ['page'],
-        });
-    },
-});
+//         // // Visit the recently created page, to refresh the Page/Show component
+//         // // when currently already on a page.
+//         Inertia.visit(`/admin/pages/${response.props.page.data.id}`, {
+//             only: ['page'],
+//         });
+//     },
+// });
 </script>

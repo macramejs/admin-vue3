@@ -7,11 +7,11 @@
                 v-slot="slot"
                 class="flex items-center justify-between w-full mb-3 text-sm tracking-widest uppercase transition-opacity text-gray"
                 :class="{
-                    'opacity-100': isExpanded,
-                    'opacity-0': !isExpanded,
+                    'opacity-100': expanded,
+                    'opacity-0': !expanded,
                 }"
             >
-                <span class="inline-block">
+                <span class="inline-block px-4">
                     {{ title }}
                 </span>
                 <svg
@@ -38,7 +38,6 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue';
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue';
 
 const props = defineProps({
@@ -55,6 +54,4 @@ const props = defineProps({
         default: false,
     },
 });
-
-const isExpanded = computed(() => !props.expandable || props.expanded);
 </script>

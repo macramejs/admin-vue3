@@ -24,8 +24,8 @@
                         class="absolute z-20 mt-2 w-full focus:outline-none focus:ring-4 focus:ring-orange-100 rounded-[8px] overflow-auto bg-gray-100 max-h-40"
                     >
                         <ListboxOption
-                            v-for="heading in headings"
-                            :key="heading.value"
+                            v-for="(heading, key) in headings"
+                            :key="key"
                             :value="heading"
                         >
                             <li
@@ -41,7 +41,7 @@
                 </div>
             </Listbox>
             <button
-                @click="editor.chain().focus().toggleItalic().run()"
+                @click="editor?.chain().focus().toggleItalic().run()"
                 class="p-1 flex items-center focus:outline-none focus:ring-4 focus:ring-orange-100 justify-center w-8 h-8 rounded-[8px]"
                 :class="{
                     'bg-orange-100 text-orange': editor.isActive('italic'),
@@ -61,7 +61,7 @@
                 </svg>
             </button>
             <button
-                @click="editor.chain().focus().toggleBold().run()"
+                @click="editor?.chain().focus().toggleBold().run()"
                 class="p-1 flex items-center focus:outline-none focus:ring-4 focus:ring-orange-100 justify-center w-8 h-8 rounded-[8px]"
                 :class="{
                     'bg-orange-100 text-orange': editor.isActive('bold'),
@@ -81,7 +81,7 @@
                 </svg>
             </button>
             <button
-                @click="editor.chain().focus().toggleCode().run()"
+                @click="editor?.chain().focus().toggleCode().run()"
                 class="p-1 flex items-center focus:outline-none focus:ring-4 focus:ring-orange-100 justify-center w-8 h-8 rounded-[8px]"
                 :class="{
                     'bg-orange-100 text-orange': editor.isActive('code'),
@@ -121,7 +121,7 @@
                 </svg>
             </button>
             <button
-                @click="editor.chain().focus().toggleBulletList().run()"
+                @click="editor?.chain().focus().toggleBulletList().run()"
                 class="p-1 flex items-center focus:outline-none focus:ring-4 focus:ring-orange-100 justify-center w-8 h-8 rounded-[8px]"
                 :class="{
                     'bg-orange-100 text-orange': editor.isActive('bulletList'),
@@ -141,7 +141,7 @@
                 </svg>
             </button>
             <button
-                @click="editor.chain().focus().toggleUnderline().run()"
+                @click="editor?.chain().focus().toggleUnderline().run()"
                 class="p-1 flex items-center focus:outline-none focus:ring-4 focus:ring-orange-100 justify-center w-8 h-8 rounded-[8px]"
                 :class="{
                     'bg-orange-100 text-orange': editor.isActive('underline'),
@@ -193,7 +193,7 @@
                     <button
                         @click="
                             editor
-                                .chain()
+                                ?.chain()
                                 .focus()
                                 .insertTable({
                                     rows: 2,
@@ -217,7 +217,7 @@
                         </svg>
                     </button>
                     <button
-                        @click="editor.chain().focus().addColumnBefore().run()"
+                        @click="editor?.chain().focus().addColumnBefore().run()"
                         aria-label="add column before"
                         class="p-1 flex items-center focus:outline-none focus:ring-4 focus:ring-orange-100 justify-center w-8 h-8 rounded-[8px] text-indigo-900 hover:bg-gray-200"
                     >
@@ -233,7 +233,7 @@
                         </svg>
                     </button>
                     <button
-                        @click="editor.chain().focus().addColumnAfter().run()"
+                        @click="editor?.chain().focus().addColumnAfter().run()"
                         aria-label="add column after"
                         class="p-1 flex items-center focus:outline-none focus:ring-4 focus:ring-orange-100 justify-center w-8 h-8 rounded-[8px] text-indigo-900 hover:bg-gray-200"
                     >
@@ -249,7 +249,7 @@
                         </svg>
                     </button>
                     <button
-                        @click="editor.chain().focus().addRowBefore().run()"
+                        @click="editor?.chain().focus().addRowBefore().run()"
                         aria-label="add row before"
                         class="p-1 flex items-center focus:outline-none focus:ring-4 focus:ring-orange-100 justify-center w-8 h-8 rounded-[8px] text-indigo-900 hover:bg-gray-200"
                     >
@@ -265,7 +265,7 @@
                         </svg>
                     </button>
                     <button
-                        @click="editor.chain().focus().addRowAfter().run()"
+                        @click="editor?.chain().focus().addRowAfter().run()"
                         aria-label="add row after"
                         class="p-1 flex items-center focus:outline-none focus:ring-4 focus:ring-orange-100 justify-center w-8 h-8 rounded-[8px] text-indigo-900 hover:bg-gray-200"
                     >
@@ -281,7 +281,7 @@
                         </svg>
                     </button>
                     <button
-                        @click="editor.chain().focus().deleteTable().run()"
+                        @click="editor?.chain().focus().deleteTable().run()"
                         aria-label="delete table"
                         class="p-1 flex items-center focus:outline-none focus:ring-4 focus:ring-orange-100 justify-center w-8 h-8 rounded-[8px] text-red-signal hover:bg-red hover:bg-opacity-20"
                     >
@@ -297,7 +297,7 @@
                         </svg>
                     </button>
                     <button
-                        @click="editor.chain().focus().deleteColumn().run()"
+                        @click="editor?.chain().focus().deleteColumn().run()"
                         aria-label="add column before"
                         class="p-1 flex items-center focus:outline-none focus:ring-4 focus:ring-orange-100 justify-center w-8 h-8 rounded-[8px] text-red-signal hover:bg-red hover:bg-opacity-20"
                     >
@@ -313,7 +313,7 @@
                         </svg>
                     </button>
                     <button
-                        @click="editor.chain().focus().deleteRow().run()"
+                        @click="editor?.chain().focus().deleteRow().run()"
                         aria-label="add column after"
                         class="p-1 flex items-center focus:outline-none focus:ring-4 focus:ring-orange-100 justify-center w-8 h-8 rounded-[8px] text-red-signal hover:bg-red hover:bg-opacity-20"
                     >
@@ -394,7 +394,7 @@ const editor = useEditor({
         }),
     ],
     onUpdate: () => {
-        emit('update:modelValue', editor.value.getHTML());
+        emit('update:modelValue', editor.value?.getHTML());
     },
 });
 
@@ -410,22 +410,22 @@ const headings = [
 const selectedHeading = ref(headings[0]);
 
 const activeStyle = computed(() => {
-    if (editor.value.isActive('paragraph')) {
+    if (editor.value?.isActive('paragraph')) {
         return 'Paragraph';
     }
-    if (editor.value.isActive('heading', { level: 1 })) {
+    if (editor.value?.isActive('heading', { level: 1 })) {
         return 'Headline 1';
     }
-    if (editor.value.isActive('heading', { level: 2 })) {
+    if (editor.value?.isActive('heading', { level: 2 })) {
         return 'Headline 2';
     }
-    if (editor.value.isActive('heading', { level: 3 })) {
+    if (editor.value?.isActive('heading', { level: 3 })) {
         return 'Headline 3';
     }
 });
 
 const setLink = () => {
-    const previousUrl = editor.value.getAttributes('link').href;
+    const previousUrl = editor.value?.getAttributes('link').href;
     const url = window.prompt('URL', previousUrl);
 
     // cancelled
@@ -435,14 +435,14 @@ const setLink = () => {
 
     // empty
     if (url === '') {
-        editor.value.chain().focus().extendMarkRange('link').unsetLink().run();
+        editor.value?.chain().focus().extendMarkRange('link').unsetLink().run();
 
         return;
     }
 
     // update link
     editor.value
-        .chain()
+        ?.chain()
         .focus()
         .extendMarkRange('link')
         .setLink({ href: url })
@@ -451,18 +451,18 @@ const setLink = () => {
 
 watch(selectedHeading, () => {
     if (selectedHeading.value.value == 1) {
-        editor.value.commands.setHeading({ level: 1 });
+        editor.value?.commands.setHeading({ level: 1 });
         return;
     }
     if (selectedHeading.value.value == 2) {
-        editor.value.commands.setHeading({ level: 2 });
+        editor.value?.commands.setHeading({ level: 2 });
         return;
     }
     if (selectedHeading.value.value == 3) {
-        editor.value.commands.setHeading({ level: 3 });
+        editor.value?.commands.setHeading({ level: 3 });
         return;
     }
-    editor.value.commands.setParagraph();
+    editor.value?.commands.setParagraph();
 });
 </script>
 

@@ -1,6 +1,6 @@
 <template>
-    <Main>
-        <MainBody> tree </MainBody>
+    <MainBody>
+        <MainContent> tree </MainContent>
         <!-- <MainSidebar v-model:open="isOpen">
             <Drawers :sections="drawsSections" />
             <DrawerSection title="Blöcke">
@@ -9,9 +9,9 @@
                 </Cabinet>
             </DrawerSection>
         </MainSidebar> -->
-    </Main>
+    </MainBody>
 </template>
 
 <script setup lang="ts">
-import { Main, MainBody, MainSidebar } from '@/ui';
+import { MainBody, MainContent } from '@/layout';
 </script>

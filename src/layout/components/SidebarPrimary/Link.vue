@@ -1,7 +1,6 @@
 <template>
     <component
         :is="as"
-        :to="to"
         :href="href"
         :class="{
             // primary
@@ -19,6 +18,7 @@
             :class="{
                 ' text-orange': isActive && !secondary,
                 ' text-gray-100': !isActive,
+                'max-w-[44px]': hideTitle,
             }"
         >
             <slot name="icon" />
@@ -40,10 +40,6 @@ import { computed } from 'vue';
 
 const props = defineProps({
     href: {
-        type: String,
-        default: null,
-    },
-    to: {
         type: String,
         default: null,
     },
@@ -81,6 +77,6 @@ const isActive = computed(() => {
 });
 
 const as = computed(() => {
-    return props.to ? 'router-link' : 'a';
+    return props.href ? 'a' : 'div';
 });
 </script>

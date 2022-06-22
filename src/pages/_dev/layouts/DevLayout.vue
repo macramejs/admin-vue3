@@ -19,7 +19,7 @@
 <script setup lang="ts">
 import { PropType, computed, onMounted, watch } from 'vue';
 import { useRoute } from 'vue-router';
-import Main from '@/layout/components/Main.vue';
+import { Main } from '@/layout';
 import { Tabs, Tab, Topbar } from '@/layout';
 // import { pageForm } from '@/modules/forms';
 import { PageTreeCollectionResource } from '@/types';

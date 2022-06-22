@@ -1,6 +1,6 @@
 <template>
-    <Main>
-        <MainBody>
+    <MainBody>
+        <MainContent>
             <span class="inline-block pb-8 text-xl font-medium">
                 {{ $t('pages.meta_information') }}
             </span>
@@ -48,23 +48,16 @@
                     </Card>
                 </div>
             </div>
-        </MainBody>
-    </Main>
+        </MainContent>
+    </MainBody>
 </template>
 
 <script setup lang="ts">
 import { PropType, computed } from 'vue';
+import { MainBody, MainContent } from '@/layout';
 import { PageResource } from '@/types/resources';
 import { PageForm } from '@/types/forms';
-import {
-    Card,
-    FormField,
-    FormFieldLabel,
-    Input,
-    Textarea,
-    Main,
-    MainBody,
-} from '@/ui';
+import { Card, FormField, FormFieldLabel, Input, Textarea } from '@/ui';
 import { pageForm } from '@/modules/forms';
 
 const props = defineProps({

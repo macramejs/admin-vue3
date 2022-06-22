@@ -18,7 +18,7 @@ import Draggable from 'vuedraggable';
 import { PropType } from 'vue';
 import { Tree } from '@macramejs/macrame-vue3';
 
-const props = defineProps({
+defineProps({
     tree: {
         type: Object as PropType<Tree>,
         required: true,

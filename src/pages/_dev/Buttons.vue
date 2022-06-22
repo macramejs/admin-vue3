@@ -1,6 +1,6 @@
 <template>
-    <Main>
-        <MainBody class="mx-auto max-w-7xl">
+    <MainBody>
+        <MainContent class="mx-auto max-w-7xl">
             <ButtonPrimarySection />
             <ButtonOutlineSection />
             <ButtonTextLinkSection />
@@ -26,20 +26,16 @@
                 </div>
             </div>
             <InteractionButtonSection />
-        </MainBody>
-    </Main>
+        </MainContent>
+    </MainBody>
 </template>
 
 <script setup lang="ts">
 import CopyString from './CopyString.vue';
-import {
-    Main,
-    MainBody,
-    ButtonMidGray,
-    ButtonRound,
-    ContextButton,
-    InteractionButton,
-} from '@/ui';
+import { ContextButton } from '@/ui';
+
+import { MainContent, MainBody } from '@/layout';
+
 import {
     ButtonPrimarySection,
     ButtonOutlineSection,
