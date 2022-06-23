@@ -32,7 +32,6 @@ const updatePageSlug: UpdateOrCreate<PageSlugFormData> = (data, id) => {
 };
 
 const deletePage: Delete<Page> = page => {
-    console.log('test');
     return client.delete(`pages/${page.id}`);
 };
 

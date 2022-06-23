@@ -1,7 +1,7 @@
 <template>
     <BaseSection>
         <template v-slot:title>
-            <DrawerBlocks preview />
+            <DrawerBlock preview />
         </template>
         <Card>
             <Select
@@ -17,7 +17,7 @@
 <script setup lang="ts">
 import BaseSection from './BaseSection.vue';
 import { Card, Select } from '@/ui';
-import DrawerBlocks from '../../blocks/DrawerBlocks.vue';
+import DrawerBlock from '../drawers/DrawerBlock.vue';
 import { watch, reactive, ref } from 'vue';
 
 // TODO:
