@@ -1,7 +1,7 @@
 <template>
     <MainBody>
         <MainContent>
-            <component :is="getComponent()" :form="pageForm">
+            <component :is="getComponent()">
                 <ToggleSections />
                 <Sections v-model="pageForm.content" :sections="sections" />
             </component>
@@ -25,15 +25,13 @@ import DrawerSection from '@/modules/content/components/DrawerSection.vue';
 import { templates } from '@/modules/content/templates';
 import { Drawers, sections, Sections } from '@/modules/content';
 // import { SectionBlocks, DrawerBlocks } from '@/modules/blocks';
-import { pageForm, pageModel } from '@/modules/forms';
+import { pageForm } from '@/modules/forms';
 import ToggleSections from './components/ToggleSections.vue';
 
 const getComponent = () => {
-    if (pageModel.value?.template) {
-        return pageModel.value?.template in templates
-            ? templates[pageModel.value?.template]
-            : 'div';
-    }
+    return pageForm.template in templates
+        ? templates[pageForm.template]
+        : 'div';
 };
 
 // allow drawing all registered sections

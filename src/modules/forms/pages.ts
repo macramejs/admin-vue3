@@ -45,16 +45,11 @@ const usePageForm: UsePageForm = (
         },
         submit: data => updateOrCreatePage(data, id),
         load: async id => {
-            let page = (await loadPage(id as number)).data.data;
-            pageModel.value = page;
-            return {
-                name: page.name,
-                content: page.content,
-                attributes: page.attributes,
-                is_live: page.is_live,
-                publish_at: page.publish_at,
-                meta: page.meta,
-            };
+            let response = await loadPage(id as number);
+            if (Array.isArray(response.data.data.attributes)) {
+                response.data.data.attributes = {};
+            }
+            return response;
         },
     });
 };

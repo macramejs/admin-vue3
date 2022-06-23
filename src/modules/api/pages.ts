@@ -20,7 +20,7 @@ const loadPagesTree: LoadMany<PageTreeCollectionResource, {}> = () =>
     client.get(`pages/tree`);
 
 const updateOrCreatePage: UpdateOrCreate<PageFormData> = (data, id = null) => {
-    if(id){
+    if (id) {
         return client.put(`pages/${id}`, data);
     }
 
