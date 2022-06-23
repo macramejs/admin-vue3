@@ -8,8 +8,6 @@
 
         <div class="flex items-center space-x-2">
             <SelectLocale />
-
-            <Button @click="pageForm.submit">Save</Button>
         </div>
     </div>
 </template>
@@ -17,5 +15,4 @@
 import PagesTopbarRightLivetime from './PagesTopbarRightLivetime.vue';
 import { SelectLocale } from '@/modules/localize';
 import { pageForm, pageModel } from '@/modules/forms';
-import { saveQueue } from '@/modules/save-queue';
 </script>
