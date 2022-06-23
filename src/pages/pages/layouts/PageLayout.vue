@@ -30,6 +30,8 @@ const pageId = computed(() => {
 watch(
     () => pageId.value,
     id => {
+        console.log('load page');
+
         pageForm.load(id);
     },
     {

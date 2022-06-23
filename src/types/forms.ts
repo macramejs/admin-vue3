@@ -38,6 +38,8 @@ export interface PageFormData {
     publish_at: string | null;
     template: string;
     slug: string;
+    full_slug: string;
+    preview_key: string;
     meta: {
         title: string;
         description: string;

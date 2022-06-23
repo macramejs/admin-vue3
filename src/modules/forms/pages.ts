@@ -25,6 +25,8 @@ const usePageForm: UsePageForm = (
         publish_at = null,
         template = '',
         slug = '',
+        full_slug = '',
+        preview_key = '',
         meta = {
             title: '',
             description: '',
@@ -41,6 +43,8 @@ const usePageForm: UsePageForm = (
             publish_at,
             template,
             slug,
+            full_slug,
+            preview_key,
             meta,
         },
         submit: (data, id) => updateOrCreatePage(data, id as number),

@@ -34,15 +34,16 @@ import IconPlus from '@/ui/Icons/IconPlus.vue';
 import { templateOptions } from '@/modules/content/templates';
 import { Page } from '@/types/resources';
 import { slugify } from '@/modules/helpers';
-
-import { usePageForm } from '@/modules/forms';
 import { PageForm } from '@/types';
+
+// FORM
+import { usePageForm } from '@/modules/forms';
+import { useRouter } from 'vue-router';
+import { usePageTree } from '@/modules/state';
 
 const form: PageForm = usePageForm({});
 
 const isOpen = ref<boolean>(false);
-
-const emit = defineEmits(['pageAdded', 'close']);
 
 defineProps({
     parent: {
@@ -53,9 +54,11 @@ defineProps({
 
 const isSlugEdited = ref(false);
 
+const router = useRouter();
 const submit = function () {
-    form.submit().then(() => {
-        emit('pageAdded');
+    form.submit().then(response => {
+        usePageTree().load();
+        router.push(`/pages/${response.data.data.id}`);
         isOpen.value = false;
     });
 };
