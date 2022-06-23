@@ -17,10 +17,14 @@ const loadPages: LoadMany<PageCollectionIndexResource> = params =>
     client.get(`pages`, { params });
 
 const loadPagesTree: LoadMany<PageTreeCollectionResource, {}> = () =>
-    client.get(`page-tree`);
+    client.get(`pages/tree`);
 
 const updateOrCreatePage: UpdateOrCreate<PageFormData> = (data, id = null) => {
-    return client[id ? 'put' : 'post'](`pages${id ? '/' + id : ''}`, data);
+    if(id){
+        return client.put(`pages/${id}`, data);
+    }
+
+    return client.post(`pages`, data);
 };
 
 const updatePageSlug: UpdateOrCreate<PageSlugFormData> = (data, id) => {
