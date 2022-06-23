@@ -46,6 +46,7 @@ export type Media = {
     url?: string,
 }
 export type MediaResource = Resource<File>;
+export type MediaCollectionIndexResource = IndexResource<File>;
 
 // MediaCollection
 
