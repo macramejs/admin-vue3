@@ -5,6 +5,7 @@ import {
     PageCollectionIndexResource,
     PageTreeCollectionResource,
     PageSlugFormData,
+    Order,
 } from '@/types';
 import { client } from './index';
 import { AxiosResponse } from 'axios';
@@ -18,6 +19,8 @@ const loadPages: LoadMany<PageCollectionIndexResource> = params =>
 
 const loadPagesTree: LoadMany<PageTreeCollectionResource, {}> = () =>
     client.get(`pages/tree`);
+
+const orderPages = (data: Order) => client.post(`pages/order`, data);
 
 const updateOrCreatePage: UpdateOrCreate<PageFormData> = (data, id = null) => {
     if (id) {
@@ -38,6 +41,7 @@ export {
     loadPage,
     loadPages,
     loadPagesTree,
+    orderPages,
     deletePage,
     updateOrCreatePage,
     updatePageSlug,

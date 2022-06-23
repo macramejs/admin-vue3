@@ -24,6 +24,7 @@
     <DatePicker
         v-model="publishAt"
         v-slot="{ togglePopover }"
+        :model-config="modelConfig"
         class="relative"
         is-dark
         color="orange"
@@ -85,15 +86,25 @@ import { pageForm } from '@/modules/forms';
 import { DatePicker } from 'v-calendar';
 import 'v-calendar/dist/style.css';
 
-// types
-import { Page } from '@/types/resources';
-import { PageFormData } from '@/types/forms';
-
 const hasBeenPublished = ref(pageForm.has_been_published);
 
-const publishAt = ref<Date | null>(
-    pageForm.publish_at ? new Date(pageForm.publish_at) : new Date()
+const publishAt = ref<Date | null>(null);
+
+watch(
+    () => pageForm.isBusyLoading,
+    val => {
+        if (!val) {
+            publishAt.value = pageForm.publish_at
+                ? new Date(pageForm.publish_at)
+                : new Date();
+        }
+    }
 );
+
+const modelConfig = {
+    type: 'string',
+    mask: 'iso',
+};
 
 watch(
     () => publishAt.value,

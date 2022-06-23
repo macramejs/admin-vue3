@@ -13,8 +13,7 @@
             <slot v-bind:expanded="showSidebar" />
         </nav>
         <slot name="footer">
-            <div class="mt-auto">
-                {{ showSidebar }}
+            <div class="mt-auto border-t border-gray-800">
                 <SidebarSection
                     :title="authedUser?.name"
                     :expanded="showSidebar"
