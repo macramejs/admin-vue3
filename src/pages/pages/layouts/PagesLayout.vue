@@ -18,7 +18,7 @@
 <script setup lang="ts">
 import SidebarSecondary from '@/layout/components/SidebarSecondary/SidebarSecondary.vue';
 import SidebarSecondaryHeader from '@/layout/components/SidebarSecondary/SidebarSecondaryHeader.vue';
-import Main from '@/layout/components/Main.vue';
+import { Main } from '@/layout';
 import PagesTree from '../components/Tree/PagesTree.vue';
 import { ref, watch } from 'vue';
 import { loadPagesTree } from '@/modules/api';

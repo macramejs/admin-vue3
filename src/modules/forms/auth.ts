@@ -9,7 +9,7 @@ import {
 } from '@/types/forms';
 import { useRouter } from 'vue-router';
 import { login, loadUser, forgot, resetPassword } from '@/modules/api';
-import { isAuthenticated, authedUser } from '../auth';
+import { isAuthenticated, authedUser } from '@/modules/state';
 
 export type UseLoginForm = (data: Partial<LoginFormData>) => LoginForm;
 
