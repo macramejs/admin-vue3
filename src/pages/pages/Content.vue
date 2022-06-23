@@ -1,8 +1,6 @@
 <template>
     <MainBody>
         <MainContent>
-            <pre>{{ pageForm.publish_at }}</pre>
-            <pre>{{ pageForm.is_live }}</pre>
             <component :is="getComponent" v-if="!pageForm.isBusyLoading">
                 <ToggleSections />
                 <Sections v-model="pageForm.content" :sections="sections" />
