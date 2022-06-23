@@ -7,16 +7,16 @@ async function login(payload: LoginFormData): Promise<AxiosResponse> {
     await client.get('sanctum/csrf-cookie', {
         baseURL: import.meta.env.VITE_APP_URL as string,
     });
-    return await client.post('/login', payload, {
+    return await client.post('/admin/login', payload, {
         baseURL: import.meta.env.VITE_APP_URL as string,
     });
 }
 
 async function logout() {
     return await client.post(
-        '/logout',
+        '/logout',      
         {},
-        { baseURL: import.meta.env.VITE_APP_URL as string }
+       { baseURL: import.meta.env.VITE_APP_URL as string }
     );
 }
 async function forgot(payload: ForgotFormData): Promise<AxiosResponse> {

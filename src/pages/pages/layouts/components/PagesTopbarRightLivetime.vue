@@ -1,20 +1,22 @@
 <template>
     <div class="flex items-center space-x-2">
         <span class="text-xs uppercase">
-            <template v-if="!form.is_live">offline</template>
-            <template v-else-if="!form.publish_at || hasBeenPublished"
+            <template v-if="!pageForm.is_live">offline</template>
+            <template v-else-if="!pageForm.publish_at || hasBeenPublished"
                 >online</template
             >
             <template v-else>{{ $t('pages.planned') }}</template>
         </span>
         <Toggle
-            :modelValue="form.is_live && (!form.publish_at || hasBeenPublished)"
+            :modelValue="
+                pageForm.is_live && (!pageForm.publish_at || hasBeenPublished)
+            "
             @update:modelValue="
                 () => {
-                    if (form.publish_at) {
+                    if (pageForm.publish_at) {
                         publishAt = null;
                     }
-                    form.is_live = !form.is_live;
+                    pageForm.is_live = !pageForm.is_live;
                 }
             "
         />
@@ -22,6 +24,7 @@
     <DatePicker
         v-model="publishAt"
         v-slot="{ togglePopover }"
+        :model-config="modelConfig"
         class="relative"
         is-dark
         color="orange"
@@ -36,7 +39,7 @@
         >
             <div
                 class="absolute top-0 right-0 w-3 h-3 -mt-1 -mr-1 border-2 border-gray-100 rounded-full bg-orange"
-                v-if="form.publish_at"
+                v-if="pageForm.publish_at"
             ></div>
             <svg
                 class="w-4 h-4"
@@ -77,38 +80,38 @@
 </template>
 <script lang="ts" setup>
 // imports
-import { PropType, ref, watch } from 'vue';
+import { ref, watch } from 'vue';
 import { Toggle } from '@/ui';
+import { pageForm } from '@/modules/forms';
 import { DatePicker } from 'v-calendar';
 import 'v-calendar/dist/style.css';
 
-// types
-import { Page } from '@/types/resources';
-import { PageFormData } from '@/types/forms';
+const hasBeenPublished = ref(pageForm.has_been_published);
 
-const props = defineProps({
-    page: {
-        type: Object as PropType<Page>,
-        required: true,
-    },
-    form: {
-        type: Object as PropType<PageFormData>,
-        required: true,
-    },
-});
+const publishAt = ref<Date | null>(null);
 
-const hasBeenPublished = ref(props.page.has_been_published);
-
-const publishAt = ref<Date | null>(
-    props.page.publish_at ? new Date(props.page.publish_at) : new Date()
+watch(
+    () => pageForm.isBusyLoading,
+    val => {
+        if (!val) {
+            publishAt.value = pageForm.publish_at
+                ? new Date(pageForm.publish_at)
+                : new Date();
+        }
+    }
 );
+
+const modelConfig = {
+    type: 'string',
+    mask: 'iso',
+};
 
 watch(
     () => publishAt.value,
     date => {
         if (date) {
-            props.form.publish_at = date.toString();
-            if (date != null) props.form.is_live = true;
+            pageForm.publish_at = date.toString();
+            if (date != null) pageForm.is_live = true;
             hasBeenPublished.value = false;
         }
     }

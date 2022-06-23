@@ -1,9 +1,9 @@
 <template>
     <MainBody>
-        <MainContent topPosition="80">
+        <MainContent>
             <FilesGrid :collection="collection" :collections="collections" />
         </MainContent>
-        <MainSidebar v-model:open="isSidebarOpen" topPosition="80">
+        <MainSidebar v-model:open="isSidebarOpen">
             <FilesFilters />
         </MainSidebar>
     </MainBody>

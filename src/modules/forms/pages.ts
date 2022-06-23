@@ -23,8 +23,11 @@ const usePageForm: UsePageForm = (
         attributes = {},
         is_live = false,
         publish_at = null,
+        has_been_published = false,
         template = '',
         slug = '',
+        full_slug = '',
+        preview_key = '',
         meta = {
             title: '',
             description: '',
@@ -39,22 +42,20 @@ const usePageForm: UsePageForm = (
             attributes,
             is_live,
             publish_at,
+            has_been_published,
             template,
             slug,
+            full_slug,
+            preview_key,
             meta,
         },
-        submit: data => updateOrCreatePage(data, id),
+        submit: (data, id) => updateOrCreatePage(data, id as number),
         load: async id => {
-            let page = (await loadPage(id as number)).data.data;
-            pageModel.value = page;
-            return {
-                name: page.name,
-                content: page.content,
-                attributes: page.attributes,
-                is_live: page.is_live,
-                publish_at: page.publish_at,
-                meta: page.meta,
-            };
+            let response = await loadPage(id as number);
+            if (Array.isArray(response.data.data.attributes)) {
+                response.data.data.attributes = {};
+            }
+            return response;
         },
     });
 };

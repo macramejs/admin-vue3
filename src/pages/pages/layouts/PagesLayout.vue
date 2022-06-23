@@ -8,7 +8,7 @@
                 <AddPageModal />
             </SidebarSecondaryHeader>
         </template>
-        <PagesTree :tree="tree" />
+        <PagesTree :tree="pageTree" />
     </SidebarSecondary>
     <Main>
         <router-view />
@@ -16,37 +16,17 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted } from 'vue';
 import SidebarSecondary from '@/layout/components/SidebarSecondary/SidebarSecondary.vue';
 import SidebarSecondaryHeader from '@/layout/components/SidebarSecondary/SidebarSecondaryHeader.vue';
 import { Main } from '@/layout';
 import PagesTree from '../components/Tree/PagesTree.vue';
-import { ref, watch } from 'vue';
-import { loadPagesTree } from '@/modules/api';
 import IconPage from '@/ui/Icons/IconPage.vue';
-import { useOriginal, useTree } from '@macramejs/macrame-vue3';
 import AddPageModal from '../components/AddPageModal.vue';
 
-const tree = ref();
+import { pageTree, usePageTree } from '@/modules/state';
 
-loadPagesTree().then(response => {
-    tree.value = useTree(response.data.data);
-
-    // TODO:
-    // tree.value.updateOnChange(() => props.pages);
-
-    let originalOrder = useOriginal(tree.value.getOrder());
-
-    watch(
-        tree,
-        () => {
-            const order = tree.value.getOrder();
-
-            if (!originalOrder.matches(order)) {
-                originalOrder.update(order);
-                // post('/admin/pages/order', { body: { order: order } });
-            }
-        },
-        { immediate: true, deep: true }
-    );
+onMounted(() => {
+    usePageTree().load();
 });
 </script>

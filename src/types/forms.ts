@@ -36,8 +36,11 @@ export interface PageFormData {
     attributes: { [k: string]: any };
     is_live: boolean;
     publish_at: string | null;
+    has_been_published: boolean;
     template: string;
     slug: string;
+    full_slug: string;
+    preview_key: string;
     meta: {
         title: string;
         description: string;

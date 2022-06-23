@@ -7,12 +7,13 @@
     </button>
     <Modal lg v-model:open="isOpen" :title="$t('pages.edit_slug')">
         <div class="space-y-3">
-            <Input
+            TODO
+            <!-- <Input
                 label="Slug"
                 :modelValue="form.slug"
                 @update:modelValue="slug => (form.slug = slugify(slug))"
                 @keyup.enter="isOpen = false"
-            />
+            /> -->
         </div>
         <template #footer>
             <Button @click="isOpen = false">Ok</Button>
@@ -28,19 +29,12 @@ import { slugify } from '@/modules/helpers';
 import { usePageSlugForm } from '@/modules/forms';
 import { Page } from '@/types';
 
-const props = defineProps({
-    page: {
-        type: Object as PropType<Page>,
-        required: true,
-    },
-});
-
-const form = usePageSlugForm(
-    {
-        slug: props.page.slug,
-    },
-    props.page?.id
-);
+// const form = usePageSlugForm(
+//     {
+//         slug: props.page.slug,
+//     },
+//     props.page?.id
+// );
 
 const isOpen = ref<boolean>(false);
 </script>

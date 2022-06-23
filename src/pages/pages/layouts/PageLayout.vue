@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import { PropType, computed, onMounted, watch } from 'vue';
+import { PropType, computed, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import PagesTopbarRight from './components/PagesTopbarRight.vue';
 import PagesTopbarLeft from './components/PagesTopbarLeft.vue';
@@ -30,6 +30,8 @@ const pageId = computed(() => {
 watch(
     () => pageId.value,
     id => {
+        console.log('load page');
+
         pageForm.load(id);
     },
     {

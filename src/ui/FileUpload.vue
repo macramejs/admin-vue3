@@ -49,8 +49,7 @@
 import IconAddMediaImage from './Icons/IconAddMediaImage.vue';
 import { ref, computed } from 'vue';
 import { useDropzone } from 'vue3-dropzone';
-import axios from 'axios';
-
+import { client } from '@/modules/api';
 const props = defineProps({
     modelValue: Array,
     accept: {
@@ -91,7 +90,7 @@ const saveFiles = files => {
     }
 
     // post the formData to your backend where storage is processed. In the backend, you will need to loop through the array and save each file through the loop.
-    axios
+    client
         .post(props.url, formData, {
             headers: {
                 'Content-Type': 'multipart/form-data',

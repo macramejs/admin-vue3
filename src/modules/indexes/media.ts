@@ -1,34 +1,57 @@
-import { useIndex } from '@macramejs/macrame-vue3';
-import { Media } from '@/types/resources';
+
+import { useIndex, Index, IndexFilter } from "@macramejs/macrame-vue3";
+import { Media } from "@/types/resources";
+import { reactive } from "vue";
+import { loadMediaItems } from "../api/media";
+
+type MediaIndexSortByKeys = "id";
+
+type MediaIndexCollectionFilter = {
+    update(collection: {key: string}): void,
+    value: null|string
+};
+type MediaIndexTypesFilter = {
+    toggle(type: string): void,
+    value: string[]
+};
+type MediaIndexFilters = {
+    collection: MediaIndexCollectionFilter,
+    types: MediaIndexTypesFilter
+}
 
 export const useMediaIndex = () => {
-    // TODO:
-    // const index = useIndex<Media>({
-    //     route: 'http://bar.test/admin/media/items',
-    //     syncUrl: true,
-    //     sortBy: [],
-    //     filters: {
-    //         collection: {
-    //             update(collection) {
-    //                 index.filters.collection.value = collection
-    //                     ? collection.key
-    //                     : null;
-    //             },
-    //             value: null,
-    //         },
-    //         types: {
-    //             toggle(type) {
-    //                 const i = index.filters.types.value.indexOf(type);
-    //                 if (i !== -1) {
-    //                     index.filters.types.value.splice(i, 1);
-    //                 } else {
-    //                     index.filters.types.value.push(type);
-    //                 }
-    //             },
-    //             value: [],
-    //         },
-    //     },
-    // });
-    // index.reloadOnChange(index.filters);
-    // return index;
+
+    const collectionFilter = reactive<MediaIndexCollectionFilter>({
+        update(collection) {
+            this.value = collection
+                ? collection.key
+                : null;
+        },
+        value: null,
+    });
+
+    const typesFilter = reactive<MediaIndexTypesFilter>({
+        toggle(type) {
+            const i = this.value.indexOf(type);
+            if (i !== -1) this.value.splice(i, 1);
+            else this.value.push(type);
+        },
+        value: [],
+    });
+
+    const index = useIndex<
+        Media,
+        MediaIndexSortByKeys,
+        MediaIndexFilters
+    >({
+        load: (params) => loadMediaItems(params),
+        filters: {
+            collection: collectionFilter,
+            types: typesFilter,
+        },
+    });
+
+    index.reloadOnChange(index.filters);
+
+    return index;
 };

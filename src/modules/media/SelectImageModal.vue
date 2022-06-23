@@ -54,7 +54,7 @@ const props = defineProps({
     },
 });
 
-mediaIndex.loadItems();
+mediaIndex.load();
 
 const selectImage = image => {
     emit('update:modelValue', image);

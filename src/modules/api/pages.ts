@@ -5,6 +5,7 @@ import {
     PageCollectionIndexResource,
     PageTreeCollectionResource,
     PageSlugFormData,
+    Order,
 } from '@/types';
 import { client } from './index';
 import { AxiosResponse } from 'axios';
@@ -17,10 +18,15 @@ const loadPages: LoadMany<PageCollectionIndexResource> = params =>
     client.get(`pages`, { params });
 
 const loadPagesTree: LoadMany<PageTreeCollectionResource, {}> = () =>
-    client.get(`page-tree`);
+    client.get(`pages/tree`);
+
+const orderPages = (data: Order) => client.post(`pages/order`, data);
 
 const updateOrCreatePage: UpdateOrCreate<PageFormData> = (data, id = null) => {
-    return client[id ? 'put' : 'post'](`pages${id ? '/' + id : ''}`, data);
+    if (id) {
+        return client.put(`pages/${id}`, data);
+    }
+    return client.post(`pages`, data);
 };
 
 const updatePageSlug: UpdateOrCreate<PageSlugFormData> = (data, id) => {
@@ -35,6 +41,7 @@ export {
     loadPage,
     loadPages,
     loadPagesTree,
+    orderPages,
     deletePage,
     updateOrCreatePage,
     updatePageSlug,
