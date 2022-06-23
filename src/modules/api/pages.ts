@@ -17,7 +17,7 @@ const loadPages: LoadMany<PageCollectionIndexResource> = params =>
     client.get(`pages`, { params });
 
 const loadPagesTree: LoadMany<PageTreeCollectionResource, {}> = () =>
-    client.get(`page-tree`);
+    client.get(`pages/tree`);
 
 const updateOrCreatePage: UpdateOrCreate<PageFormData> = (data, id = null) => {
     if(id){
