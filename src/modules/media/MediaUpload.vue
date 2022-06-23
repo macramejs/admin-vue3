@@ -22,7 +22,7 @@ const success = function () {
     emit('uploaded');
 };
 
-const url = props.collection
-    ? `/admin/media/${props.collection.id}/upload`
-    : `/admin/media/upload`;
+const url = (props.collection
+    ? `/media/${props.collection.id}/upload`
+    : `/media/upload`);
 </script>
