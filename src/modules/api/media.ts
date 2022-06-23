@@ -12,7 +12,7 @@ import { LoadOne, LoadMany, UpdateOrCreate, Delete } from './types';
 
 const loadMediaItem: LoadOne<MediaResource> = (id) => client.get(`media/${id}`) as Promise<AxiosResponse<MediaResource>>;
 
-const loadMediaItems: LoadMany<MediaCollectionIndexResource> = (params) => client.get(`media`, { params });
+const loadMediaItems: LoadMany<MediaCollectionIndexResource> = (params) => client.get(`media/items`, { params });
 
 const updateOrCreatePage: UpdateOrCreate<PageFormData>  = (data, id = null) => {
     return client[id ? 'put' : 'post'](`pages/${id}`, data)
