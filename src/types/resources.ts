@@ -45,7 +45,8 @@ export type Media = {
     size: number;
     url?: string;
 };
-export type MediaResource = Resource<File>;
+export type MediaResource = Resource<Media>;
+export type MediaCollectionIndexResource = IndexResource<Media>;
 
 // MediaCollection
 
