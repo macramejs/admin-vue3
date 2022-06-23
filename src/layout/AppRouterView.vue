@@ -76,11 +76,6 @@ const sidebarPrimarySections: SidebarSection[] = [
         title: 'CMS',
         items: [
             {
-                title: 'Dev',
-                to: '/dev',
-                icon: IconTestTube,
-            },
-            {
                 title: t('layout.pages'),
                 to: '/pages',
                 icon: IconPage,
@@ -104,6 +99,16 @@ const sidebarPrimarySections: SidebarSection[] = [
                 title: t('layout.sections'),
                 to: '/partials',
                 icon: IconLayoutLeft,
+            },
+        ],
+    },
+    {
+        title: 'Dev',
+        items: [
+            {
+                title: 'Dev',
+                to: '/dev',
+                icon: IconTestTube,
             },
         ],
     },
