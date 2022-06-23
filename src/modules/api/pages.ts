@@ -23,7 +23,6 @@ const updateOrCreatePage: UpdateOrCreate<PageFormData> = (data, id = null) => {
     if (id) {
         return client.put(`pages/${id}`, data);
     }
-
     return client.post(`pages`, data);
 };
 

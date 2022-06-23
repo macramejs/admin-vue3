@@ -1,18 +1,18 @@
 <template>
     <div class="flex items-center space-x-6">
-        <PagesTopbarRightLivetime
-            :page="pageModel"
-            :form="pageForm"
-            v-if="pageModel"
-        />
+        <PagesTopbarRightLivetime />
 
         <div class="flex items-center space-x-2">
             <SelectLocale />
         </div>
+        <Button @click="pageForm.submit" :disabled="!pageForm.isDirty">
+            save
+        </Button>
     </div>
 </template>
 <script lang="ts" setup>
 import PagesTopbarRightLivetime from './PagesTopbarRightLivetime.vue';
 import { SelectLocale } from '@/modules/localize';
-import { pageForm, pageModel } from '@/modules/forms';
+import { pageForm } from '@/modules/forms';
+import { Button } from '@/ui';
 </script>

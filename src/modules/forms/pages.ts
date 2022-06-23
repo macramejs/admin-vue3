@@ -43,7 +43,7 @@ const usePageForm: UsePageForm = (
             slug,
             meta,
         },
-        submit: data => updateOrCreatePage(data, id),
+        submit: (data, id) => updateOrCreatePage(data, id as number),
         load: async id => {
             let response = await loadPage(id as number);
             if (Array.isArray(response.data.data.attributes)) {
