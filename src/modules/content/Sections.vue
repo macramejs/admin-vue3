@@ -13,7 +13,11 @@
                 <slot name="drag-text"> Drag your content here </slot>
             </div>
         </template>
-        <Sections v-bind="$attrs" style="min-height: calc(100vh - 150px)" />
+        <component
+            :is="Sections"
+            v-bind="$attrs"
+            style="min-height: calc(100vh - 150px)"
+        />
     </div>
 </template>
 
@@ -23,6 +27,6 @@ import { computed, useAttrs } from 'vue';
 
 const attrs = useAttrs();
 const hasChildren = computed(() => {
-    return Object.keys(attrs.modelValue).length > 0;
+    return Object.keys(attrs.modelValue as Object).length > 0;
 });
 </script>

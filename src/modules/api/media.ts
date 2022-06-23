@@ -26,4 +26,4 @@ const deletePage: Delete<Page>  = (page) => {
     return client.delete(`pages/${page.id}`)
 }
 
-export { loadMediaItem, deletePage, updateOrCreatePage, updatePageSlug };
+export { loadMediaItem, loadMediaItems, deletePage, updateOrCreatePage, updatePageSlug };

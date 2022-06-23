@@ -1,13 +1,13 @@
 <template>
     <BaseSection>
         <template v-slot:title>
-            <DrawerBlocks preview />
+            <DrawerBlock preview />
         </template>
         <Card>
             <Select
                 label="Block"
                 v-model="model.block"
-                :options="blocks.items"
+                :options="blockOptions"
                 label-key="name"
                 value-key="id"
             />
@@ -15,12 +15,16 @@
     </BaseSection>
 </template>
 <script setup lang="ts">
-import BaseSection from '../content/sections/BaseSection.vue';
+import BaseSection from './BaseSection.vue';
 import { Card, Select } from '@/ui';
-import DrawerBlocks from './DrawerBlocks.vue';
-import { watch, reactive } from 'vue';
+import DrawerBlock from '../drawers/DrawerBlock.vue';
+import { watch, reactive, ref } from 'vue';
 
-import { blocks } from './index';
+// TODO:
+// import { blocks } from '../../blocks/index';
+// blocks.perPage = 99999999;
+// blocks.loadItems();
+const blockOptions = ref([]);
 
 const emit = defineEmits(['update:modelValue']);
 
@@ -35,9 +39,6 @@ const props = defineProps({
 });
 
 const model = reactive(props.modelValue);
-
-blocks.perPage = 99999999;
-blocks.loadItems();
 
 watch(
     () => model,

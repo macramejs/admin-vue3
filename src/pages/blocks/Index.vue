@@ -1,7 +1,7 @@
 <template>
     <div class="flex items-center justify-center w-full h-screen px-10">
         <div class="max-w-xl p-8 bg-white rounded">
-            <h2 class="pb-6 text-lg font-bold">Seiten</h2>
+            <h2 class="pb-6 text-lg font-bold">Blöcke</h2>
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
                 consequatur aut est. Tenetur nostrum saepe minima quisquam

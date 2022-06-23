@@ -3,8 +3,9 @@ import { auth } from './middleware/auth';
 
 import { routes as authRoutes } from '@/pages/auth/routes';
 import { routes as homeRoutes } from '@/pages/home/routes';
-// import { routes as mediaRoutes } from '@/pages/media/routes';
+import { routes as mediaRoutes } from '@/pages/media/routes';
 import { routes as pagesRoutes } from '@/pages/pages/routes';
+import { routes as blocksRoutes } from '@/pages/blocks/routes';
 
 const routes: RouteRecordRaw[] = [
     // guest
@@ -18,8 +19,9 @@ const routes: RouteRecordRaw[] = [
         },
         children: [
             ...homeRoutes,
-            // ...mediaRoutes,
+            ...mediaRoutes,
             ...pagesRoutes,
+            ...blocksRoutes,
         ],
     },
 ];

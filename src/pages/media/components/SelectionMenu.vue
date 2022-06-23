@@ -27,13 +27,8 @@
     </ContextMenu>
 </template>
 <script lang="ts" setup>
-import {
-    Button,
-    ContextMenu,
-    ContextMenuItem,
-    ContextMenuDivider,
-} from '@/ui';
-import { IconTrash } from '@/ui/icons';
+import { Button, ContextMenu, ContextMenuItem, ContextMenuDivider } from '@/ui';
+import IconTrash from '@/ui/Icons/IconTrash.vue';
 import { PropType } from 'vue';
 import { Selection } from '../modules';
 import AddToCollectionModal from './AddToCollectionModal.vue';

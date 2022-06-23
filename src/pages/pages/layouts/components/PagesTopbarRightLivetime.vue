@@ -99,16 +99,18 @@ const props = defineProps({
 
 const hasBeenPublished = ref(props.page.has_been_published);
 
-const publishAt = ref(
+const publishAt = ref<Date | null>(
     props.page.publish_at ? new Date(props.page.publish_at) : new Date()
 );
 
 watch(
     () => publishAt.value,
     date => {
-        props.form.publish_at = date;
-        if (date != null) props.form.is_live = true;
-        hasBeenPublished.value = false;
+        if (date) {
+            props.form.publish_at = date.toString();
+            if (date != null) props.form.is_live = true;
+            hasBeenPublished.value = false;
+        }
     }
 );
 </script>

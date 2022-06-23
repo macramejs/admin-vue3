@@ -1,10 +1,9 @@
-import {ref} from 'vue'
+import { ref } from 'vue';
 
-export const hideSections = ref<boolean>(false)
+export const hideSections = ref<boolean>(false);
 
 export { default as Sections } from './Sections.vue';
 export { default as Drawers } from './Drawers.vue';
-
 
 // Drawers
 export { default as DrawerAccordion } from './drawers/DrawerAccordion.vue';
@@ -16,6 +15,7 @@ export { default as DrawerInfoBox } from './drawers/DrawerInfoBox.vue';
 export { default as DrawerLogoWall } from './drawers/DrawerLogoWall.vue';
 export { default as DrawerTextFull } from './drawers/DrawerTextFull.vue';
 export { default as DrawerTextImage } from './drawers/DrawerTextImage.vue';
+export { default as DrawerBlock } from './drawers/DrawerBlock.vue';
 
 // Sections
 export { default as SectionAccordion } from './sections/SectionAccordion.vue';
@@ -27,8 +27,8 @@ export { default as SectionInfoBox } from './sections/SectionInfoBox.vue';
 export { default as SectionLogoWall } from './sections/SectionLogoWall.vue';
 export { default as SectionTextFull } from './sections/SectionTextFull.vue';
 export { default as SectionTextImage } from './sections/SectionTextImage.vue';
+export { default as SectionBlock } from './sections/SectionBlock.vue';
 
-import { SectionBlocks } from '@/modules/blocks';
 import SectionTextFull from './sections/SectionTextFull.vue';
 import SectionTextImage from './sections/SectionTextImage.vue';
 import SectionInfoBox from './sections/SectionInfoBox.vue';
@@ -38,9 +38,9 @@ import SectionCards from './sections/SectionCards.vue';
 import SectionAccordion from './sections/SectionAccordion.vue';
 import SectionLogoWall from './sections/SectionLogoWall.vue';
 import SectionImageCarousel from './sections/SectionImageCarousel.vue';
+import SectionBlock from './sections/SectionBlock.vue';
 
 const sections = {
-    block: SectionBlocks,
     text_full: SectionTextFull,
     image_full: SectionImageFull,
     image_carousel: SectionImageCarousel,
@@ -50,6 +50,7 @@ const sections = {
     text_image: SectionTextImage,
     accordion: SectionAccordion,
     logo_wall: SectionLogoWall,
+    block: SectionBlock,
 };
 
 export { sections };

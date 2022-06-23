@@ -8,7 +8,7 @@
     >
         <slot />
 
-        <template v-if="isSortable">
+        <template v-if="isSortable && table && sortBy">
             <span v-if="table.isSortedBy(sortBy, 'desc')"> DESC </span>
             <span v-if="table.isSortedBy(sortBy, 'asc')"> ASC </span>
         </template>
@@ -34,6 +34,12 @@ const isSortable = computed(() => !!props.sortBy && !!props.table);
 
 const applySort = () => {
     if (!isSortable) {
+        return;
+    }
+    if (!props.table) {
+        return;
+    }
+    if (!props.sortBy) {
         return;
     }
 

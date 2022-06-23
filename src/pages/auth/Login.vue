@@ -24,9 +24,10 @@
                     v-model="form.remember"
                     class="text-sm uppercase"
                 />
-                <Button href="/forgot" text class="mt-1 text-right">
+
+                <Link href="/forgot">
                     {{ $t('auth.forgot_password') }}
-                </Button>
+                </Link>
             </div>
             <div class="flex items-center justify-center mt-5">
                 <Button>
@@ -39,7 +40,7 @@
 
 <script setup lang="ts">
 import { GuestLayout } from '@/layout';
-import { CheckboxSwitch, Button, Input } from '@/ui';
+import { CheckboxSwitch, Button, Input, Link } from '@/ui';
 import { useLoginForm } from '@/modules/forms';
 import { LoginForm } from '@/types/forms';
 

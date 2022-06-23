@@ -1,6 +1,6 @@
 import { computed } from 'vue';
 
-export function getVariant(props, { DEFAULT = 'primary' }) {
+export function getVariant(props: any, { DEFAULT = 'primary' }) {
     return computed(() => {
         if (props.variant) {
             return props.variant;

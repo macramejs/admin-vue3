@@ -37,7 +37,7 @@
 <script lang="ts" setup>
 import { PropType, ref, watch } from 'vue';
 import { Input, Button, Modal, Select, Toggle } from '@/ui';
-import { linkOptions } from '@/modules/links';
+import { linkOptions } from '@/modules/state';
 
 const emit = defineEmits(['update:modelValue']);
 
@@ -50,10 +50,13 @@ interface Link {
 const props = defineProps({
     modelValue: {
         type: Object as PropType<Link>,
+        required: true,
     },
 });
 
 const external = ref<boolean>(props.modelValue.link?.startsWith('http'));
+const model = ref<Link>();
+
 watch(
     () => external.value,
     val => {
@@ -61,7 +64,6 @@ watch(
     }
 );
 
-const model = ref<Link>();
 const isOpen = ref<boolean>(false);
 
 const init = () => {
