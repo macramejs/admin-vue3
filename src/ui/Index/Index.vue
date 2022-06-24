@@ -29,8 +29,8 @@
     </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, PropType } from 'vue';
+<script lang="ts" setup>
+import { PropType } from 'vue';
 import { Index } from '@macramejs/macrame-vue3';
 import Pagination from './Pagination.vue';
 import Search from './Search.vue';
@@ -39,28 +39,17 @@ type IndexProps = {
     table: Index;
 };
 
-export default defineComponent({
-    components: {
-        Pagination,
-        Search,
+defineProps({
+    table: {
+        type: Object as PropType<Index>,
+        required: true,
     },
-    props: {
-        table: {
-            type: Object as PropType<Index>,
-            required: true,
-        },
-        searchPlaceholder: {
-            type: String,
-        },
-        isTable: {
-            type: Boolean,
-            default: true,
-        },
+    searchPlaceholder: {
+        type: String,
     },
-    setup({}: IndexProps, {}) {
-        //
-
-        return {};
+    isTable: {
+        type: Boolean,
+        default: true,
     },
 });
 </script>

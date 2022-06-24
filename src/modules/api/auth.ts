@@ -13,11 +13,7 @@ async function login(payload: LoginFormData): Promise<AxiosResponse> {
 }
 
 async function logout() {
-    return await client.post(
-        '/logout',      
-        {},
-       { baseURL: import.meta.env.VITE_APP_URL as string }
-    );
+    return await client.post('/logout');
 }
 async function forgot(payload: ForgotFormData): Promise<AxiosResponse> {
     return await client.post('/forgot', payload, {

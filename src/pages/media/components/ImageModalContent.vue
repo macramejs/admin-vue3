@@ -1,5 +1,5 @@
 <template>
-    <Index :table="allFiles" :isTable="false">
+    <Index :table="mediaIndex.items" :isTable="false">
         <div class="grid grid-cols-12 gap-5">
             <div
                 class="flex items-center justify-center col-span-full lg:col-span-6 xl:col-span-3"
@@ -16,7 +16,7 @@
                 </div>
             </div>
             <div
-                v-for="file in allFiles.items"
+                v-for="(file, index) in mediaIndex.items"
                 class="flex items-center justify-center cursor-pointer col-span-full lg:col-span-6 xl:col-span-3"
             >
                 <label
@@ -24,7 +24,7 @@
                 >
                     <input
                         type="checkbox"
-                        :id="file.id"
+                        :id="file.id ? `${file.id}` : `${index}`"
                         class="absolute opacity-0"
                         :value="file"
                         v-model="selected"
@@ -58,7 +58,7 @@
                         <div
                             class="absolute btn-wrapper hidden right-4 bottom-2.5"
                         >
-                            <FileMenu />
+                            <FileMenu :file="file" />
                         </div>
                     </div>
                     <img
@@ -119,13 +119,14 @@ const props = defineProps({
 mediaIndex.loadItems();
 
 const reload = () => {
-    mediaIndex.reload();
+    // TODO:
+    // mediaIndex.reload();
 };
 
 const selected = ref([]);
 const { modelValue } = toRefs(props);
 
-watch(modelValue, () => {
+watch(props.modelValue, () => {
     selected.value = modelValue.value;
 });
 
