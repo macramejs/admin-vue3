@@ -59,12 +59,13 @@
             </Draggable>
         </div>
         <div class="flex justify-center">
-            <AddItem @click="addItem"> Bild hinzufügen </AddItem>
+            <AddItemButton @click="addItem"> Bild hinzufügen </AddItemButton>
         </div>
     </BaseSection>
 </template>
 <script setup lang="ts">
 import {
+    AddItemButton,
     Card,
     InteractionButton,
     Input,
@@ -77,7 +78,6 @@ import IconMoreHoriz from '@/ui/Icons/IconMoreHoriz.vue';
 import IconDraggable from '@/ui/Icons/custom/IconDraggable.vue';
 import IconTrash from '@/ui/Icons/IconTrash.vue';
 import { watch, reactive } from 'vue';
-import AddItem from './components/AddItem.vue';
 import Draggable from 'vuedraggable';
 import SelectImage from '@/modules/media/SelectImage.vue';
 import { v4 as uuid } from 'uuid';

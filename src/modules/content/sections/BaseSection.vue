@@ -8,6 +8,7 @@
                 class="absolute w-[0%] h-full ml-2 transition-all duration-300 pl-11"
                 :class="{
                     '!w-full': collapsed,
+                    'pr-2': !collapsed,
                 }"
             >
                 <div class="w-full h-full bg-white rounded-sm"></div>
@@ -17,7 +18,7 @@
                     <IconDraggable class="w-2.5 h-2.5 fill-gray-700" />
                 </InteractionButton>
 
-                <div @click="collapsed = !collapsed" class="cursor-pointer">
+                <div @click="collapsed = !collapsed">
                     <slot name="title">
                         <span class="text-lg font-medium"> {{ title }} </span>
                     </slot>

@@ -45,10 +45,13 @@
                         >
                             <DialogTitle
                                 as="h3"
-                                class="pb-6 text-lg font-bold"
-                                v-if="title"
+                                class="flex items-center justify-between pb-6 text-lg font-bold"
+                                v-if="title || localize"
                             >
-                                {{ title }}
+                                <div>
+                                    {{ title }}
+                                </div>
+                                <SelectLocale />
                             </DialogTitle>
                             <slot />
                             <div class="flex justify-end pt-4 space-x-3">
@@ -72,6 +75,7 @@ import {
     DialogTitle,
 } from '@headlessui/vue';
 import { getSize, sizes } from './_props/size';
+import SelectLocale from '@/modules/localize/SelectLocale.vue';
 
 const emit = defineEmits(['close', 'update:open']);
 const props = defineProps({
@@ -82,6 +86,10 @@ const props = defineProps({
     title: {
         type: [String, Number],
         default: null,
+    },
+    localize: {
+        type: Boolean,
+        default: false,
     },
     ...sizes,
 });

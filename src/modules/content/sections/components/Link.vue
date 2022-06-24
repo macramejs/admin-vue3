@@ -1,8 +1,16 @@
 <template>
     <div>
-        <Button @click="init()">Link</Button>
-        <Modal v-model:open="isOpen" sm>
-            <div class="mb-4 space-y-5">
+        <ButtonMidGray @click="init()">
+            {{ $t('content.chose_link') }}
+        </ButtonMidGray>
+
+        <Modal
+            v-model:open="isOpen"
+            sm
+            :title="$t('content.chose_link')"
+            localize
+        >
+            <FormGroup>
                 <Input v-model="model.text" class="w-full" label="Linktext" />
 
                 <div class="flex items-center space-x-2">
@@ -12,7 +20,7 @@
                     v-if="!external"
                     label="Link"
                     v-model="model.link"
-                    :options="linkOptions.data"
+                    :options="linkOptions"
                     label-key="title"
                     value-key="link"
                 />
@@ -28,15 +36,27 @@
                     <span> In neuem Tab öffnen </span>
                     <Toggle v-model="model.new_tab" />
                 </div>
-            </div>
-            <Button @click="submit()">Übernehmen</Button>
+            </FormGroup>
+            <template v-slot:footer>
+                <Button @click="submit()">
+                    {{ $t('content.confirm') }}
+                </Button>
+            </template>
         </Modal>
     </div>
 </template>
 
 <script lang="ts" setup>
 import { PropType, ref, watch } from 'vue';
-import { Input, Button, Modal, Select, Toggle } from '@/ui';
+import {
+    Input,
+    Button,
+    ButtonMidGray,
+    Modal,
+    Select,
+    Toggle,
+    FormGroup,
+} from '@/ui';
 import { linkOptions } from '@/modules/state';
 
 const emit = defineEmits(['update:modelValue']);
@@ -55,12 +75,12 @@ const props = defineProps({
 });
 
 const external = ref<boolean>(props.modelValue.link?.startsWith('http'));
-const model = ref<Link>();
+const model = ref<Link>(props.modelValue);
 
 watch(
     () => external.value,
     val => {
-        model.value.link = null;
+        model.value.link = '';
     }
 );
 

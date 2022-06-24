@@ -41,6 +41,11 @@
             />
         </Cabinet>
     </DrawerSection>
+    <DrawerSection :title="$t('content.blocks')">
+        <Cabinet>
+            <DrawerBlock :draws="SectionBlock" v-if="sections.block" />
+        </Cabinet>
+    </DrawerSection>
 </template>
 
 <script lang="ts" setup>
@@ -57,6 +62,7 @@ import {
     SectionCards,
     SectionAccordion,
     SectionLogoWall,
+    SectionBlock,
 } from './index';
 import {
     DrawerTextFull,
@@ -68,6 +74,7 @@ import {
     DrawerCards,
     DrawerAccordion,
     DrawerLogoWall,
+    DrawerBlock,
 } from './index';
 
 defineProps({

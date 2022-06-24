@@ -1,12 +1,12 @@
 <template>
     <component
         :is="as"
-        class="p-6 rounded-sm"
+        class="rounded-sm"
         :class="{
             'bg-white': variant_ == 'white',
             'bg-gray-300': variant_ == 'gray',
-            'p-12': size_ == 'md',
-            'p-8': size_ == 'sm',
+            'p-8': size_ == 'md',
+            'p-4': size_ == 'sm',
         }"
     >
         <slot />

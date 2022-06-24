@@ -2,7 +2,7 @@
     <ContextMenu>
         <template #button>
             <div
-                class="relative flex items-center justify-center p-2 h-8 bg-gray-200 rounded cursor-pointer hover:bg-gray-300"
+                class="relative flex items-center justify-center h-8 p-2 font-normal bg-gray-200 rounded cursor-pointer hover:bg-gray-300"
             >
                 {{ localize.getLanguage(locale) }}
             </div>

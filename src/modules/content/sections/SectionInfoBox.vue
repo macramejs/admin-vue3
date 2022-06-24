@@ -4,19 +4,17 @@
             <DrawerInfoBox preview />
         </template>
         <Card>
-            <div class="pb-5">
-                <FormFieldLabel> Überschrift </FormFieldLabel>
+            <FormGroup>
                 <Input v-model="model.title" class="w-full" label="Titel" />
-            </div>
-            <FormFieldLabel> Text </FormFieldLabel>
-            <Textarea v-model="model.text" class="w-full" label="Text" />
-            <Link v-model="model.link" />
+                <Textarea v-model="model.text" class="w-full" label="Text" />
+                <Link v-model="model.link" />
+            </FormGroup>
         </Card>
     </BaseSection>
 </template>
 <script setup lang="ts">
 import BaseSection from './BaseSection.vue';
-import { Card, Textarea, Input, FormFieldLabel } from '@/ui';
+import { Card, Textarea, Input, FormGroup } from '@/ui';
 import DrawerInfoBox from './../drawers/DrawerInfoBox.vue';
 import { watch, reactive } from 'vue';
 import Link from './components/Link.vue';

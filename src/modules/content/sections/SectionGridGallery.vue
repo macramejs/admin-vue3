@@ -17,18 +17,17 @@
             </Draggable>
         </Card>
         <div class="flex justify-center mt-6">
-            <AddItem @click="addItem"> Bild hinzufügen </AddItem>
+            <AddItemButton @click="addItem"> Bild hinzufügen </AddItemButton>
         </div>
     </BaseSection>
 </template>
 <script setup lang="ts">
 import Draggable from 'vuedraggable';
-import { Card } from '@/ui';
+import { Card, AddItemButton } from '@/ui';
 import BaseSection from './BaseSection.vue';
 import { watch, reactive } from 'vue';
 import DrawerGridGallery from '../drawers/DrawerGridGallery.vue';
 import SelectImage from '@/modules/media/SelectImage.vue';
-import AddItem from './components/AddItem.vue';
 import { v4 as uuid } from 'uuid';
 
 const emit = defineEmits(['update:modelValue']);

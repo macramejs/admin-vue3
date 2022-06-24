@@ -1,5 +1,4 @@
-import { LinkOption } from "@/types";
-import { ref } from "vue";
+import { LinkOption } from '@/types';
+import { ref } from 'vue';
 
-export const linkOptions = ref<LinkOption[]>();
-
+export const linkOptions = ref<LinkOption[]>([]);
