@@ -1,18 +1,18 @@
-import { Menu, MenuItem, MenuItemTreeCollectionResource } from '@/types';
+import { MenuItemFormData, Menu, MenuItem } from '@/types';
 import {client} from './index';
 import { AxiosResponse } from 'axios';
 import { LoadOne, LoadMany, UpdateOrCreate, Delete, Update, Create } from './types';
 
-const loadMenuItemTree: LoadMany<
-    MenuItemTreeCollectionResource, [Menu], {}
-> = (menu) => client.get(`menus/${menu.id}/items/tree`);
+const createMenuItem: Create<
+    MenuItemFormData, [Menu]
+> = (menu, data) => client.post(`menus/${menu.id}/items`, data);
 
-const updateMenuItemsOrder: Update<
-    MenuItem, [Menu]
-> = (menu, data, id) => client.post(`menus/${id}/items/order`, data);
+const updateMenuItem: Update<
+    MenuItemFormData, [Menu]
+> = (menu, data, id) => client.put(`menus/${menu.id}/items/${id}`, data);
 
-const createMenuItem: Update<
-    MenuItem, [Menu]
-> = (menu, data) => client.post(`menus/${menu.id}/items/order`, data);
+const deleteMenuItem: Delete<
+    [Menu]
+> = (menu, id) => client.delete(`menus/${menu.id}/items/${id}`);
 
-export { loadMenuItemTree, updateMenuItemsOrder }
+export { createMenuItem, updateMenuItem, deleteMenuItem }

@@ -86,17 +86,24 @@ export type PageCollectionIndexResource = IndexResource<Page>;
 export type PageTreeResource = Resource<PageTreeItem>;
 export type PageTreeCollectionResource = CollectionResource<PageTreeItem>;
 
-// Nav
+// Menu
 
-export type NavItem = {
-    id?: number;
+export type Menu = {
+    id: number,
+    label: string,
+    value: string
+};
+export type MenuCollectionResource = CollectionResource<Menu>;
+
+export type MenuItem = {
+    id: number;
     title: string;
     link: string;
-    children: NavItem[];
+    children: MenuItem[];
 };
-export type NavItemTreeItem = RawTreeItem<NavItem>;
-export type NavItemTreeResource = Resource<NavItemTreeItem>;
-export type NavItemTreeCollectionResource = CollectionResource<NavItemTreeItem>;
+export type MenuItemTreeItem = RawTreeItem<MenuItem>;
+export type MenuItemTreeResource = Resource<MenuItemTreeItem>;
+export type MenuItemTreeCollectionResource = CollectionResource<MenuItemTreeItem>;
 
 export type LinkOption = {
     link: string;

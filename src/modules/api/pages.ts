@@ -17,12 +17,12 @@ const loadPage: LoadOne<PageResource> = id =>
 const loadPages: LoadMany<PageCollectionIndexResource> = params =>
     client.get(`pages`, { params });
 
-const loadPagesTree: LoadMany<PageTreeCollectionResource, {}> = () =>
+const loadPagesTree: LoadMany<PageTreeCollectionResource> = () =>
     client.get(`pages/tree`);
 
 const orderPages = (data: Order) => client.post(`pages/order`, data);
 
-const updateOrCreatePage: UpdateOrCreate<PageFormData> = (data, id = null) => {
+const updateOrCreatePage: UpdateOrCreate<PageFormData> = (data, id = undefined) => {
     if (id) {
         return client.put(`pages/${id}`, data);
     }
@@ -33,8 +33,8 @@ const updatePageSlug: UpdateOrCreate<PageSlugFormData> = (data, id) => {
     return client.put(`pages/${id}`, data);
 };
 
-const deletePage: Delete<Page> = page => {
-    return client.delete(`pages/${page.id}`);
+const deletePage: Delete = pageId => {
+    return client.delete(`pages/${pageId}`);
 };
 
 export {

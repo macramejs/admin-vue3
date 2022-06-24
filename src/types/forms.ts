@@ -1,5 +1,5 @@
 import { NavItem } from './resources';
-import { Form } from '@macramejs/macrame-vue3';
+import { Form, RawTree } from '@macramejs/macrame-vue3';
 
 // Example
 
@@ -53,8 +53,11 @@ export interface PageSlugFormData {
 }
 export type PageSlugForm = Form<PageSlugFormData>;
 
-// NavItem
-export type NavItemForm = Form<NavItem>;
+// MenuItem
+export interface MenuItemFormData {
+
+}
+export type MenuItemForm = Form<MenuItemFormData>;
 
 // Block
 
