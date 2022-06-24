@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import { auth } from './middleware/auth';
 
+import { routes as devRoutes } from '@/pages/_dev/routes';
 import { routes as authRoutes } from '@/pages/auth/routes';
 import { routes as homeRoutes } from '@/pages/home/routes';
 import { routes as mediaRoutes } from '@/pages/media/routes';
@@ -18,6 +19,8 @@ const routes: RouteRecordRaw[] = [
             middleware: [auth],
         },
         children: [
+            // dev
+            ...devRoutes,
             ...homeRoutes,
             ...mediaRoutes,
             ...pagesRoutes,

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="w-full">
         <div class="flex flex-wrap gap-3 mb-5" v-if="editor">
             <Listbox v-model="selectedHeading">
                 <div class="relative min-w-[101px]">

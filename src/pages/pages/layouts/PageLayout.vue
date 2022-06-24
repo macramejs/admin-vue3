@@ -4,10 +4,10 @@
         <PagesTopbarRight />
     </Topbar>
     <Tabs>
-        <Tab :to="`/pages/${pageId}`">Content</Tab>
+        <Tab :to="`/pages/${pageId}`">{{ $t('pages.content') }}</Tab>
         <Tab :to="`/pages/${pageId}/meta`">Meta</Tab>
-        <Tab :to="`/pages/${pageId}/settings`">Settings</Tab>
-        <Tab :to="`/pages/${pageId}/audits`">Versionen</Tab>
+        <Tab :to="`/pages/${pageId}/settings`">{{ $t('pages.settings') }}</Tab>
+        <Tab :to="`/pages/${pageId}/audits`">{{ $t('pages.versions') }}</Tab>
     </Tabs>
     <router-view />
 </template>
@@ -30,8 +30,6 @@ const pageId = computed(() => {
 watch(
     () => pageId.value,
     id => {
-        console.log('load page');
-
         pageForm.load(id);
     },
     {

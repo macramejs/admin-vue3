@@ -5,6 +5,9 @@
                 <template v-slot:icon>
                     <IconPage class="w-5 h-5" />
                 </template>
+                <template v-slot:help>
+                    <PagesHelp />
+                </template>
                 <AddPageModal />
             </SidebarSecondaryHeader>
         </template>
@@ -25,6 +28,7 @@ import IconPage from '@/ui/Icons/IconPage.vue';
 import AddPageModal from '../components/AddPageModal.vue';
 
 import { pageTree, usePageTree } from '@/modules/state';
+import PagesHelp from './components/PagesHelp.vue';
 
 onMounted(() => {
     usePageTree().load();

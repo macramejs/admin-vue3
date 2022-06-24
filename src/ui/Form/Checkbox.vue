@@ -5,7 +5,7 @@
             type="checkbox"
             :checked="checked"
             :id="fieldId"
-            class="absolute mr-2 opacity-0"
+            class="w-0 h-0 mr-2 opacity-0"
             v-bind="$attrs"
         />
         <div

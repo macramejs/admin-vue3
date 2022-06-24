@@ -1,5 +1,5 @@
 <template>
-    <Drawer title="Block" hint="wiedervewendbare Blöcke" color="blue">
+    <Drawer title="Block" :hint="$t('blocks.reusable_blocks')" color="blue">
         <svg
             class="w-4 h-4"
             width="24"

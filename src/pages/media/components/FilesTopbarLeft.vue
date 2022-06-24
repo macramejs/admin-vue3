@@ -1,6 +1,6 @@
 <template>
     <div>
-        <span>Files</span>
+        <span>{{ $t('media.files') }}</span>
 
         <Badge v-if="mediaIndex.filters.collection.value" class="ml-2">
             {{ mediaIndex.filters.collection.value }}

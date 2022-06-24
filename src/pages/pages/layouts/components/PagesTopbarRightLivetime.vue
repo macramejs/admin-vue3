@@ -5,7 +5,7 @@
             <template v-else-if="!pageForm.publish_at || hasBeenPublished"
                 >online</template
             >
-            <template v-else>geplant</template>
+            <template v-else>{{ $t('pages.planned') }}</template>
         </span>
         <Toggle
             :modelValue="

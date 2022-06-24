@@ -5,11 +5,15 @@
             class="flex space-x-2 hover:font-semibold"
         >
             <template v-if="hideSections">
-                <span class="text-xs uppercase">show all</span>
+                <span class="text-xs uppercase">{{
+                    $t('pages.show_all')
+                }}</span>
                 <IconExpand class="w-4 h-4" />
             </template>
             <template v-if="!hideSections">
-                <span class="text-xs uppercase">collapse all</span>
+                <span class="text-xs uppercase">{{
+                    $t('pages.collapse_all')
+                }}</span>
                 <IconCollapse class="w-4 h-4" />
             </template>
         </button>

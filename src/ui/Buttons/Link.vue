@@ -4,6 +4,7 @@
         :disabled="disabled"
         v-bind="$attrs"
         class="underline text-orange hover:text-orange-700"
+        :class="{ '!text-gray': disabled }"
     >
         <slot />
     </component>

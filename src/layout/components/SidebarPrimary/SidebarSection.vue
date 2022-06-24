@@ -5,7 +5,7 @@
                 v-if="title"
                 :is="expandable ? DisclosureButton : 'div'"
                 v-slot="slot"
-                class="flex items-center justify-between w-full mb-3 text-sm tracking-widest uppercase transition-opacity text-gray"
+                class="flex items-center justify-between w-full mb-3 text-sm tracking-widest uppercase transition-opacity duration-500 text-gray"
                 :class="{
                     'opacity-100': expanded,
                     'opacity-0': !expanded,

@@ -1,5 +1,5 @@
 <template>
-    <DrawerSection title="Inhalt">
+    <DrawerSection :title="$t('content.content')">
         <Cabinet>
             <DrawerTextFull
                 :draws="SectionTextFull"
@@ -16,7 +16,7 @@
             />
         </Cabinet>
     </DrawerSection>
-    <DrawerSection title="Bildgalerien">
+    <DrawerSection :title="$t('content.image_galleries')">
         <Cabinet>
             <DrawerGridGallery
                 :draws="SectionGridGallery"
@@ -28,7 +28,7 @@
             />
         </Cabinet>
     </DrawerSection>
-    <DrawerSection title="Abschnitte">
+    <DrawerSection :title="$t('content.sections')">
         <Cabinet>
             <DrawerCards :draws="SectionCards" v-if="sections.cards" />
             <DrawerLogoWall

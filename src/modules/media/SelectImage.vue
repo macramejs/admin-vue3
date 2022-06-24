@@ -35,7 +35,7 @@
                     <template #icon>
                         <IconTrash class="origin-left scale-75" />
                     </template>
-                    <span>Löschen</span>
+                    <span>{{ $t('media.delete') }}</span>
                 </ContextMenuItem>
             </ContextMenu>
         </div>

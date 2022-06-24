@@ -3,7 +3,7 @@
         <template #button>
             <slot name="button">
                 <Button secondary :disabled="selection.files.length == 0">
-                    Edit Selection
+                    {{ $t('media.edit_selection') }}
                 </Button>
             </slot>
         </template>
@@ -22,7 +22,7 @@
             <template #icon>
                 <IconTrash class="origin-left scale-75" />
             </template>
-            <span>Delete</span>
+            <span>{{ $t('media.delete') }}</span>
         </ContextMenuItem>
     </ContextMenu>
 </template>
