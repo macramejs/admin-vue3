@@ -28,7 +28,7 @@
             </template>
         </DuplicatePageModal>
         <ContextMenuItem
-            class="hover:bg-red-signal text-red-signal"
+            class="hover:bg-red-signal hover:text-white text-red-signal"
             @click="deletePage(page)"
         >
             <template #icon>

@@ -1,10 +1,20 @@
 <template>
     <MainBody>
         <MainContent>
-            <component :is="getComponent" v-if="!pageForm.isBusyLoading">
-                <ToggleSections />
-                <Sections v-model="pageForm.content" :sections="sections" />
-            </component>
+            <TransitionSlideFade>
+                <div v-if="!pageForm.isBusyLoading">
+                    <component
+                        :is="getComponent"
+                        v-if="!pageForm.isBusyLoading"
+                    >
+                        <ToggleSections />
+                        <Sections
+                            v-model="pageForm.content"
+                            :sections="sections"
+                        />
+                    </component>
+                </div>
+            </TransitionSlideFade>
         </MainContent>
         <MainSidebar v-model:open="isOpen">
             <Drawers :sections="drawsSections" />
@@ -19,6 +29,7 @@ import { templates } from '@/modules/content/templates';
 import { Drawers, sections, Sections } from '@/modules/content';
 import { pageForm } from '@/modules/forms';
 import ToggleSections from './components/ToggleSections.vue';
+import { TransitionSlideFade } from '@/ui';
 
 const getComponent = computed(() => {
     return pageForm.template in templates

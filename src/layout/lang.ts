@@ -7,6 +7,7 @@ export const messages = {
             blocks: 'Blöcke',
             sections: 'Bereiche',
             settings: 'Einstellungen',
+            help: 'Brauchst du Hilfe?',
         },
     },
     en: {
@@ -17,6 +18,7 @@ export const messages = {
             blocks: 'Blocks',
             sections: 'Sections',
             settings: 'Settings',
+            help: 'Need help?',
         },
     },
 };
