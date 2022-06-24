@@ -6,7 +6,9 @@
                 <div class="relative">
                     {{ title }}
                     <div class="absolute -mt-1">
-                        <slot name="help" />
+                        <Help>
+                            <slot name="help" />
+                        </Help>
                     </div>
                 </div>
             </slot>
@@ -18,6 +20,7 @@
 </template>
 
 <script lang="ts" setup>
+import Help from './Help.vue';
 import { Header } from '@/ui';
 
 defineProps({

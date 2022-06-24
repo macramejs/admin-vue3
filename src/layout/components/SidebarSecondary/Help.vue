@@ -5,7 +5,7 @@
                 {{ $t('layout.help') }}
             </button>
         </template>
-        <div>
+        <div class="p-4">
             <slot />
         </div>
     </ContextMenu>

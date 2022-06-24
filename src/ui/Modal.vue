@@ -45,7 +45,7 @@
                         >
                             <DialogTitle
                                 as="h3"
-                                class="mb-6 text-xl font-medium leading-6 text-gray-800"
+                                class="pb-6 text-lg font-bold"
                                 v-if="title"
                             >
                                 {{ title }}

@@ -3,18 +3,17 @@ import path from 'path';
 import fs from 'fs';
 import { fileURLToPath } from 'url';
 
-// dirs to work
-let paths = ['../src/ui', '../src/layout'];
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const directoryPath = dir => path.join(__dirname, dir);
+// dirs to work
+let paths = [
+    { path: '../src/ui', split: '/ui/' },
+    { path: '../src/layout', split: '/layout/' },
+];
 
-let indexPath = path.join(directoryPath, 'index.ts');
-fs.truncate(indexPath, 0, function () {});
-
-const getFilesRecursively = directory => {
+const getFilesRecursively = (directory, indexPath, split) => {
+    console.log(directory);
     const filesInDirectory = fs.readdirSync(directory);
     // console.log(filesInDirectory);
     for (const file of filesInDirectory) {
@@ -24,12 +23,12 @@ const getFilesRecursively = directory => {
             if (absolute.split('/').pop() == 'Icons') {
                 continue;
             }
-            getFilesRecursively(absolute);
+            getFilesRecursively(absolute, indexPath, split);
         } else {
             if (!absolute.endsWith('vue')) {
                 continue;
             }
-            let relativePath = absolute.split('/ui/').pop();
+            let relativePath = absolute.split(split).pop();
 
             let indexLine = `export { default as ${relativePath
                 .split('/')
@@ -42,5 +41,14 @@ const getFilesRecursively = directory => {
         }
     }
 };
+const directoryPath = dir => path.join(__dirname, dir);
 
-for (p in paths) getFilesRecursively(directoryPath(p));
+const work = p => {
+    let indexPath = path.join(directoryPath(p.path), 'index.ts');
+    fs.truncate(indexPath, 0, function () {});
+    getFilesRecursively(directoryPath(p.path), indexPath, p.split);
+};
+
+paths.forEach(p => {
+    work(p);
+});
