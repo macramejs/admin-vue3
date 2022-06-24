@@ -1,4 +1,3 @@
-
 import { useIndex, Index, IndexFilter } from "@macramejs/macrame-vue3";
 import { Media } from "@/types/resources";
 import { reactive } from "vue";
@@ -44,7 +43,7 @@ export const useMediaIndex = () => {
         MediaIndexSortByKeys,
         MediaIndexFilters
     >({
-        load: (params) => loadMediaItems(params),
+        load: () => loadMediaItems(),
         filters: {
             collection: collectionFilter,
             types: typesFilter,

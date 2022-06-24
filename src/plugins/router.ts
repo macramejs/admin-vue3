@@ -7,6 +7,7 @@ import { routes as homeRoutes } from '@/pages/home/routes';
 import { routes as mediaRoutes } from '@/pages/media/routes';
 import { routes as pagesRoutes } from '@/pages/pages/routes';
 import { routes as blocksRoutes } from '@/pages/blocks/routes';
+import { routes as partialsRoutes } from '@/pages/partials/routes';
 
 const routes: RouteRecordRaw[] = [
     // guest
@@ -25,6 +26,7 @@ const routes: RouteRecordRaw[] = [
             ...mediaRoutes,
             ...pagesRoutes,
             ...blocksRoutes,
+            ...partialsRoutes,
         ],
     },
 ];
