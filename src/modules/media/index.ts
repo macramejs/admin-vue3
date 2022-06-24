@@ -1,7 +1,8 @@
 import { useIndex, Index } from '@macramejs/macrame-vue3';
 import { Media } from '@/types/resources';
 import { get, post } from '../request';
-import { loadMediaItems } from '../api/media';
+import { loadMediaItem, loadMediaItems } from '../api/media';
+import { client } from '../api';
 export { default as MediaUpload } from './MediaUpload.vue';
 
 export type MediaIndex = Index<Media>;
@@ -43,9 +44,8 @@ export const useMediaIndex = () => {
 export const mediaIndex = useMediaIndex();
 
 export const getMediaById = async (id: number) => {
-    // TODO:
-    // const { data } = await (await get(`/admin/media/items/${id}`)).json();
-    // return data as Media;
+    let media = (await loadMediaItem(id)).data.data;
+    return media as Media;
 };
 
 export const deleteFile = async (file: Media) => {
