@@ -24,6 +24,8 @@
                     'h-8 rounded-lg': size_ == 'lg',
                     'h-[18px] rounded-md': size_ == 'md' || size_ == null,
                     'h-4 rounded-sm': size_ == 'sm',
+
+                    'bg-gray-400 focus:!ring-transparent': disabled,
                 }"
                 class="relative inline-flex items-center transition-all rounded-full focus:outline-none focus:ring-4 focus:ring-orange-100"
             >

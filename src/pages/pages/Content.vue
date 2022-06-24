@@ -1,38 +1,41 @@
 <template>
     <MainBody>
         <MainContent>
-            <component :is="getComponent()">
-                <ToggleSections />
-                <Sections v-model="pageForm.content" :sections="sections" />
-            </component>
+            <TransitionSlideFade>
+                <div v-if="!pageForm.isBusyLoading">
+                    <component
+                        :is="getComponent"
+                        v-if="!pageForm.isBusyLoading"
+                    >
+                        <ToggleSections />
+                        <Sections
+                            v-model="pageForm.content"
+                            :sections="sections"
+                        />
+                    </component>
+                </div>
+            </TransitionSlideFade>
         </MainContent>
         <MainSidebar v-model:open="isOpen">
             <Drawers :sections="drawsSections" />
-            <!-- <DrawerSection title="Blöcke">
-                <Cabinet>
-                    <DrawerBlocks :draws="SectionBlocks" />
-                </Cabinet>
-            </DrawerSection> -->
         </MainSidebar>
     </MainBody>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import { Cabinet } from '@macramejs/macrame-vue3';
+import { ref, computed } from 'vue';
 import { MainBody, MainContent, MainSidebar } from '@/layout';
-import DrawerSection from '@/modules/content/components/DrawerSection.vue';
 import { templates } from '@/modules/content/templates';
 import { Drawers, sections, Sections } from '@/modules/content';
-// import { SectionBlocks, DrawerBlocks } from '@/modules/blocks';
 import { pageForm } from '@/modules/forms';
 import ToggleSections from './components/ToggleSections.vue';
+import { TransitionSlideFade } from '@/ui';
 
-const getComponent = () => {
+const getComponent = computed(() => {
     return pageForm.template in templates
         ? templates[pageForm.template]
         : 'div';
-};
+});
 
 // allow drawing all registered sections
 type DrawsSections = {

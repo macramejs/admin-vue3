@@ -7,6 +7,7 @@
         "build": "vue-tsc --noEmit && vite build",
         "preview": "vite preview",
         "ui": "node ./bin/ui.mjs",
+        "exports": "node ./bin/exports.mjs",
         "lint": "tslint -c tslint.json 'src/**/*.ts'"
     },
     "dependencies": {

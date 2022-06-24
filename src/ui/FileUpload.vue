@@ -19,20 +19,19 @@
                     <IconAddMediaImage class="w-4 h-4" />
                 </div>
                 <div class="text-sm text-center uppercase" v-if="busy">
-                    Loading ...
+                    {{ $t('ui.loading') }}
                 </div>
                 <div
                     class="text-sm text-center uppercase"
                     v-if="!busy && isDragActive"
                 >
-                    Drop the files here ...
+                    {{ $t('ui.drop_here') }}
                 </div>
                 <div
                     class="text-sm text-center uppercase"
                     v-if="!busy && !isDragActive"
-                >
-                    Drag & Drop<br />or <span class="underline">browse</span>
-                </div>
+                    v-html="$t('ui.drag_and_drop')"
+                ></div>
             </div>
         </div>
     </div>
@@ -50,8 +49,7 @@
 import IconAddMediaImage from './Icons/IconAddMediaImage.vue';
 import { ref, computed } from 'vue';
 import { useDropzone } from 'vue3-dropzone';
-import axios from 'axios';
-
+import { client } from '@/modules/api';
 const props = defineProps({
     modelValue: Array,
     accept: {
@@ -92,7 +90,7 @@ const saveFiles = files => {
     }
 
     // post the formData to your backend where storage is processed. In the backend, you will need to loop through the array and save each file through the loop.
-    axios
+    client
         .post(props.url, formData, {
             headers: {
                 'Content-Type': 'multipart/form-data',

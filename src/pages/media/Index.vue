@@ -11,8 +11,163 @@
             :collections="collections?.data || []"
             :collection="collection?.data"
         /> -->
+
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Vitae accusantium optio, voluptates, tempore doloremque
+                    dignissimos suscipit itaque amet dolor enim doloribus non.
+                    Temporibus, quos fugit nostrum soluta repellat voluptates
+                    odit.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Vitae accusantium optio, voluptates, tempore doloremque
+                    dignissimos suscipit itaque amet dolor enim doloribus non.
+                    Temporibus, quos fugit nostrum soluta repellat voluptates
+                    odit.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Vitae accusantium optio, voluptates, tempore doloremque
+                    dignissimos suscipit itaque amet dolor enim doloribus non.
+                    Temporibus, quos fugit nostrum soluta repellat voluptates
+                    odit.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Vitae accusantium optio, voluptates, tempore doloremque
+                    dignissimos suscipit itaque amet dolor enim doloribus non.
+                    Temporibus, quos fugit nostrum soluta repellat voluptates
+                    odit.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Vitae accusantium optio, voluptates, tempore doloremque
+                    dignissimos suscipit itaque amet dolor enim doloribus non.
+                    Temporibus, quos fugit nostrum soluta repellat voluptates
+                    odit.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Vitae accusantium optio, voluptates, tempore doloremque
+                    dignissimos suscipit itaque amet dolor enim doloribus non.
+                    Temporibus, quos fugit nostrum soluta repellat voluptates
+                    odit.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Vitae accusantium optio, voluptates, tempore doloremque
+                    dignissimos suscipit itaque amet dolor enim doloribus non.
+                    Temporibus, quos fugit nostrum soluta repellat voluptates
+                    odit.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Vitae accusantium optio, voluptates, tempore doloremque
+                    dignissimos suscipit itaque amet dolor enim doloribus non.
+                    Temporibus, quos fugit nostrum soluta repellat voluptates
+                    odit.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Vitae accusantium optio, voluptates, tempore doloremque
+                    dignissimos suscipit itaque amet dolor enim doloribus non.
+                    Temporibus, quos fugit nostrum soluta repellat voluptates
+                    odit.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Vitae accusantium optio, voluptates, tempore doloremque
+                    dignissimos suscipit itaque amet dolor enim doloribus non.
+                    Temporibus, quos fugit nostrum soluta repellat voluptates
+                    odit.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Vitae accusantium optio, voluptates, tempore doloremque
+                    dignissimos suscipit itaque amet dolor enim doloribus non.
+                    Temporibus, quos fugit nostrum soluta repellat voluptates
+                    odit.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Vitae accusantium optio, voluptates, tempore doloremque
+                    dignissimos suscipit itaque amet dolor enim doloribus non.
+                    Temporibus, quos fugit nostrum soluta repellat voluptates
+                    odit.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Vitae accusantium optio, voluptates, tempore doloremque
+                    dignissimos suscipit itaque amet dolor enim doloribus non.
+                    Temporibus, quos fugit nostrum soluta repellat voluptates
+                    odit.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Vitae accusantium optio, voluptates, tempore doloremque
+                    dignissimos suscipit itaque amet dolor enim doloribus non.
+                    Temporibus, quos fugit nostrum soluta repellat voluptates
+                    odit.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Vitae accusantium optio, voluptates, tempore doloremque
+                    dignissimos suscipit itaque amet dolor enim doloribus non.
+                    Temporibus, quos fugit nostrum soluta repellat voluptates
+                    odit.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Vitae accusantium optio, voluptates, tempore doloremque
+                    dignissimos suscipit itaque amet dolor enim doloribus non.
+                    Temporibus, quos fugit nostrum soluta repellat voluptates
+                    odit.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Vitae accusantium optio, voluptates, tempore doloremque
+                    dignissimos suscipit itaque amet dolor enim doloribus non.
+                    Temporibus, quos fugit nostrum soluta repellat voluptates
+                    odit.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Vitae accusantium optio, voluptates, tempore doloremque
+                    dignissimos suscipit itaque amet dolor enim doloribus non.
+                    Temporibus, quos fugit nostrum soluta repellat voluptates
+                    odit.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Vitae accusantium optio, voluptates, tempore doloremque
+                    dignissimos suscipit itaque amet dolor enim doloribus non.
+                    Temporibus, quos fugit nostrum soluta repellat voluptates
+                    odit.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Vitae accusantium optio, voluptates, tempore doloremque
+                    dignissimos suscipit itaque amet dolor enim doloribus non.
+                    Temporibus, quos fugit nostrum soluta repellat voluptates
+                    odit.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Vitae accusantium optio, voluptates, tempore doloremque
+                    dignissimos suscipit itaque amet dolor enim doloribus non.
+                    Temporibus, quos fugit nostrum soluta repellat voluptates
+                    odit.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Vitae accusantium optio, voluptates, tempore doloremque
+                    dignissimos suscipit itaque amet dolor enim doloribus non.
+                    Temporibus, quos fugit nostrum soluta repellat voluptates
+                    odit.
+                </p>
             </MainContent>
-            <MainSidebar v-model:open="isOpen" :topPosition="80">
+            <MainSidebar v-model:open="isOpen">
                 <!-- <FilesSidebar
             :collections="collections?.data || []"
             :collection="collection?.data"

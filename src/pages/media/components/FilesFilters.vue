@@ -2,14 +2,17 @@
     <div class="p-4">
         <Input v-model.debounce="mediaIndex.search" />
         <div class="pt-4">
-            <Checkbox v-model="mediaIndex.filters.types.value" value="images">
-                Images
+            <Checkbox
+                v-model="mediaIndex.filters.types.value"
+                :value="$t('media.images')"
+            >
+                {{ $t('media.images') }}
             </Checkbox>
             <Checkbox
                 v-model="mediaIndex.filters.types.value"
-                value="documents"
+                :value="$t('media.documents')"
             >
-                Documents
+                {{ $t('media.documents') }}
             </Checkbox>
         </div>
     </div>

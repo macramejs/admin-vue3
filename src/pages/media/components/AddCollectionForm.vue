@@ -3,7 +3,7 @@
         <Input
             v-model="form.title"
             @keyup.enter="form.submit"
-            placeholder="Enter new name"
+            :placeholder="$t('media.enter_new_name')"
             class="!text-gray-100"
         />
     </form>

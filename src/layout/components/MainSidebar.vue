@@ -1,7 +1,6 @@
 <template>
     <div
         class="sticky flex flex-col transition-all duration-300 bg-white shadow"
-        :style="`height: calc(100vh - ${topPosition}px); top: ${topPosition}px;`"
         :class="{
             'w-[233px]': open,
             'w-[60px]': !open,
@@ -51,10 +50,6 @@
 const emit = defineEmits(['update:open']);
 
 defineProps({
-    topPosition: {
-        type: [String, Number],
-        default: '110',
-    },
     open: {
         type: Boolean,
         default: true,

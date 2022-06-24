@@ -10,7 +10,7 @@
             'items-center h-[36px] flex-auto': secondary,
             'bg-gray-50 bg-opacity-10': isActive && secondary,
         }"
-        class="flex items-center text-base font-light rounded cursor-pointer group hover:bg-white hover:bg-opacity-10"
+        class="flex items-center text-base font-light transition-opacity duration-500 rounded cursor-pointer group hover:bg-white hover:bg-opacity-10"
     >
         <div
             v-if="$slots.icon"
@@ -23,15 +23,24 @@
         >
             <slot name="icon" />
         </div>
-        <div
-            v-if="!hideTitle"
-            class="flex-1 pl-3 tracking-wider text-gray-100"
-            :class="{
-                'group-hover:text-orange': isActive && !secondary,
-            }"
+        <transition
+            enter-active-class="transition duration-500"
+            enter-from-class="opacity-0"
+            enter-to-class="opacity-100"
+            leave-active-class="transition duration-500"
+            leave-from-class="opacity-100"
+            leave-to-class="opacity-0"
         >
-            <slot />
-        </div>
+            <div
+                v-if="!hideTitle"
+                class="flex-1 pl-3 tracking-wider text-gray-100"
+                :class="{
+                    'group-hover:text-orange': isActive && !secondary,
+                }"
+            >
+                <slot />
+            </div>
+        </transition>
     </component>
 </template>
 

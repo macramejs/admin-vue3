@@ -1,6 +1,6 @@
 <template>
     <div
-        class="flex flex-col justify-between h-screen overflow-y-scroll transition-all bg-gray-900 border-r border-gray-800"
+        class="flex flex-col justify-between h-screen overflow-y-scroll transition-all duration-500 bg-gray-900 border-r border-gray-800"
         @mouseover="expanded = true"
         @mouseleave="expanded = false"
         :class="{
@@ -13,8 +13,7 @@
             <slot v-bind:expanded="showSidebar" />
         </nav>
         <slot name="footer">
-            <div class="mt-auto">
-                {{ showSidebar }}
+            <div class="mt-auto border-t border-gray-800">
                 <SidebarSection
                     :title="authedUser?.name"
                     :expanded="showSidebar"

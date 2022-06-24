@@ -4,9 +4,9 @@
             <IconPlus class="w-4 h-4" />
         </ButtonRound>
     </slot>
-    <Modal lg v-model:open="isOpen" title="New Page">
+    <Modal lg v-model:open="isOpen" :title="$t('pages.new_page')">
         <form @submit.prevent="submit">
-            <div class="space-y-3">
+            <FormGroup>
                 <Input label="Name" v-model="form.name" />
                 <Input
                     label="Slug"
@@ -18,31 +18,33 @@
                     :options="templateOptions"
                     v-model="form.template"
                 />
-            </div>
+            </FormGroup>
+
             <input type="submit" class="hidden" />
         </form>
         <template v-slot:footer>
-            <Button @click="submit"> Save </Button>
+            <Button @click="submit"> {{ $t('pages.save') }} </Button>
         </template>
     </Modal>
 </template>
 
 <script lang="ts" setup>
 import { ref, PropType, watch } from 'vue';
-import { Modal, Input, Select, ButtonRound, Button } from '@/ui';
+import { Modal, Input, Select, ButtonRound, Button, FormGroup } from '@/ui';
 import IconPlus from '@/ui/Icons/IconPlus.vue';
 import { templateOptions } from '@/modules/content/templates';
 import { Page } from '@/types/resources';
 import { slugify } from '@/modules/helpers';
-
-import { usePageForm } from '@/modules/forms';
 import { PageForm } from '@/types';
+
+// FORM
+import { usePageForm } from '@/modules/forms';
+import { useRouter } from 'vue-router';
+import { usePageTree } from '@/modules/state';
 
 const form: PageForm = usePageForm({});
 
 const isOpen = ref<boolean>(false);
-
-const emit = defineEmits(['pageAdded', 'close']);
 
 defineProps({
     parent: {
@@ -53,9 +55,11 @@ defineProps({
 
 const isSlugEdited = ref(false);
 
+const router = useRouter();
 const submit = function () {
-    form.submit().then(() => {
-        emit('pageAdded');
+    form.submit().then(response => {
+        usePageTree().load();
+        router.push(`/pages/${response.data.data.id}`);
         isOpen.value = false;
     });
 };

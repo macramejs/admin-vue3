@@ -1,10 +1,10 @@
 <template>
     <slot name="button" :open="() => (isOpen = true)">
         <ContextMenuItem @click="isOpen = true">
-            Add to collection
+            {{ $t('media.add_to_collection') }}
         </ContextMenuItem>
     </slot>
-    <Modal lg v-model:open="isOpen" title="Add To Collection">
+    <Modal lg v-model:open="isOpen" :title="$t('media.add_to_collection')">
         <div class="space-y-3">
             <Select
                 label="Collection"
@@ -14,7 +14,7 @@
         </div>
         <template v-slot:footer>
             <Button @click="addToCollection" :disabled="!collection">
-                Add
+                {{ $t('media.add') }}
             </Button>
         </template>
     </Modal>

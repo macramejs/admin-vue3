@@ -4,16 +4,16 @@
         <PagesTopbarRight />
     </Topbar>
     <Tabs>
-        <Tab :to="`/pages/${pageId}`">Content</Tab>
+        <Tab :to="`/pages/${pageId}`">{{ $t('pages.content') }}</Tab>
         <Tab :to="`/pages/${pageId}/meta`">Meta</Tab>
-        <Tab :to="`/pages/${pageId}/settings`">Settings</Tab>
-        <Tab :to="`/pages/${pageId}/audits`">Versionen</Tab>
+        <Tab :to="`/pages/${pageId}/settings`">{{ $t('pages.settings') }}</Tab>
+        <Tab :to="`/pages/${pageId}/audits`">{{ $t('pages.versions') }}</Tab>
     </Tabs>
     <router-view />
 </template>
 
 <script setup lang="ts">
-import { PropType, computed, onMounted, watch } from 'vue';
+import { PropType, computed, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import PagesTopbarRight from './components/PagesTopbarRight.vue';
 import PagesTopbarLeft from './components/PagesTopbarLeft.vue';

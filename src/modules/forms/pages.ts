@@ -23,8 +23,11 @@ const usePageForm: UsePageForm = (
         attributes = {},
         is_live = false,
         publish_at = null,
+        has_been_published = false,
         template = '',
         slug = '',
+        full_slug = '',
+        preview_key = '',
         meta = {
             title: '',
             description: '',
@@ -39,11 +42,14 @@ const usePageForm: UsePageForm = (
             attributes,
             is_live,
             publish_at,
+            has_been_published,
             template,
             slug,
+            full_slug,
+            preview_key,
             meta,
         },
-        submit: data => updateOrCreatePage(data, id),
+        submit: (data, id) => updateOrCreatePage(data, id as number),
         load: async id => {
             let response = await loadPage(id as number);
             if (Array.isArray(response.data.data.attributes)) {
