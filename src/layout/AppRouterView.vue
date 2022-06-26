@@ -1,5 +1,9 @@
 <template>
-    <div class="flex w-screen h-screen max-h-screen" v-if="true">
+    <div
+        class="flex w-screen h-screen max-h-screen"
+        v-if="true"
+        :class="{ filedrag: fileDrag }"
+    >
         <SidebarPrimary :locked="locked">
             <template v-slot="{ expanded }">
                 <SidebarSection
@@ -38,7 +42,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import SidebarPrimary from './components/SidebarPrimary/SidebarPrimary.vue';
 import SidebarSection from './components/SidebarPrimary/SidebarSection.vue';
 import Link from './components/SidebarPrimary/Link.vue';
@@ -59,6 +63,17 @@ const locked = computed(() => {
         return JSON.parse(localStorage.getItem('sideBarLocked') as string);
     }
     return false;
+});
+
+const fileDrag = ref<boolean>(false);
+
+window.addEventListener('dragover', (event: Event) => {
+    fileDrag.value = true;
+    event.preventDefault();
+});
+window.addEventListener('dragleave', (event: Event) => {
+    fileDrag.value = false;
+    event.preventDefault();
 });
 
 type SidebarSection = {

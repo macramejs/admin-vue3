@@ -1,31 +1,27 @@
+import { useIndex, Index, IndexFilter } from '@macramejs/macrame-vue3';
+import { Media } from '@/types/resources';
+import { reactive } from 'vue';
+import { loadMediaItems } from '../api/media';
 
-import { useIndex, Index, IndexFilter } from "@macramejs/macrame-vue3";
-import { Media } from "@/types/resources";
-import { reactive } from "vue";
-import { loadMediaItems } from "../api/media";
-
-type MediaIndexSortByKeys = "id";
+type MediaIndexSortByKeys = 'id';
 
 type MediaIndexCollectionFilter = {
-    update(collection: {key: string}): void,
-    value: null|string
+    update(collection: { key: string }): void;
+    value: null | string;
 };
 type MediaIndexTypesFilter = {
-    toggle(type: string): void,
-    value: string[]
+    toggle(type: string): void;
+    value: string[];
 };
 type MediaIndexFilters = {
-    collection: MediaIndexCollectionFilter,
-    types: MediaIndexTypesFilter
-}
+    collection: MediaIndexCollectionFilter;
+    types: MediaIndexTypesFilter;
+};
 
 export const useMediaIndex = () => {
-
     const collectionFilter = reactive<MediaIndexCollectionFilter>({
         update(collection) {
-            this.value = collection
-                ? collection.key
-                : null;
+            this.value = collection ? collection.key : null;
         },
         value: null,
     });
@@ -39,12 +35,8 @@ export const useMediaIndex = () => {
         value: [],
     });
 
-    const index = useIndex<
-        Media,
-        MediaIndexSortByKeys,
-        MediaIndexFilters
-    >({
-        load: (params) => loadMediaItems(params),
+    const index = useIndex<Media, MediaIndexSortByKeys, MediaIndexFilters>({
+        load: params => loadMediaItems(params),
         filters: {
             collection: collectionFilter,
             types: typesFilter,
@@ -55,3 +47,5 @@ export const useMediaIndex = () => {
 
     return index;
 };
+
+export const mediaIndex = useMediaIndex();

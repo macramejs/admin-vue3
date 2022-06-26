@@ -1,5 +1,6 @@
 <template>
-    <Index :table="mediaIndex.items" :isTable="false">
+    <!-- TODO @cbl -->
+    <Index :table="mediaIndex" :isTable="false">
         <div class="grid grid-cols-12 gap-5">
             <div
                 class="flex items-center justify-center col-span-full lg:col-span-6 xl:col-span-3"
@@ -99,10 +100,10 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, toRefs, watch } from 'vue';
+import { ref, watch } from 'vue';
 import { FileUpload, Index } from '@/ui';
 import FileMenu from './FileMenu.vue';
-import { mediaIndex } from '@/modules/media';
+import { mediaIndex } from '@/modules/indexes';
 
 const emit = defineEmits(['update:modelValue']);
 
@@ -116,7 +117,7 @@ const props = defineProps({
     },
 });
 
-mediaIndex.loadItems();
+mediaIndex.load();
 
 const reload = () => {
     // TODO:
@@ -124,11 +125,6 @@ const reload = () => {
 };
 
 const selected = ref([]);
-const { modelValue } = toRefs(props);
-
-watch(props.modelValue, () => {
-    selected.value = modelValue.value;
-});
 
 watch(selected, () => {
     emit('update:modelValue', selected.value);

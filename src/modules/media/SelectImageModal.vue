@@ -37,7 +37,8 @@
 import IconAddMediaImage from '@/ui/Icons/IconAddMediaImage.vue';
 import { Modal } from '@/ui';
 import { PropType, ref } from 'vue';
-import { mediaIndex, MediaUpload } from '@/modules/media';
+import { mediaIndex } from '@/modules/indexes';
+import { MediaUpload } from '@/modules/media';
 import { Media } from '@/types/resources';
 
 const isOpen = ref<boolean>(false);

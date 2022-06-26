@@ -6,7 +6,7 @@
 import { MediaCollection } from '@/types';
 import { FileUpload } from '@/ui';
 import { PropType } from 'vue';
-import { mediaIndex } from '@/modules/media';
+import { mediaIndex } from '@/modules/indexes';
 
 const emit = defineEmits(['uploaded']);
 
@@ -18,11 +18,11 @@ const props = defineProps({
 });
 
 const success = function () {
-    mediaIndex.reload();
+    mediaIndex.load();
     emit('uploaded');
 };
 
-const url = (props.collection
+const url = props.collection
     ? `/media/${props.collection.id}/upload`
-    : `/media/upload`);
+    : `/media/upload`;
 </script>

@@ -1,5 +1,5 @@
 <template>
-    <DrawerSection :title="$t('content.content')">
+    <MainSidebarSection :title="$t('content.content')">
         <Cabinet>
             <DrawerTextFull
                 :draws="SectionTextFull"
@@ -15,8 +15,8 @@
                 v-if="sections.image_full"
             />
         </Cabinet>
-    </DrawerSection>
-    <DrawerSection :title="$t('content.image_galleries')">
+    </MainSidebarSection>
+    <MainSidebarSection :title="$t('content.image_galleries')">
         <Cabinet>
             <DrawerGridGallery
                 :draws="SectionGridGallery"
@@ -27,8 +27,8 @@
                 v-if="sections.image_carousel"
             />
         </Cabinet>
-    </DrawerSection>
-    <DrawerSection :title="$t('content.sections')">
+    </MainSidebarSection>
+    <MainSidebarSection :title="$t('content.sections')">
         <Cabinet>
             <DrawerCards :draws="SectionCards" v-if="sections.cards" />
             <DrawerLogoWall
@@ -40,16 +40,16 @@
                 v-if="sections.accordion"
             />
         </Cabinet>
-    </DrawerSection>
-    <DrawerSection :title="$t('content.blocks')">
+    </MainSidebarSection>
+    <MainSidebarSection :title="$t('content.blocks')">
         <Cabinet>
             <DrawerBlock :draws="SectionBlock" v-if="sections.block" />
         </Cabinet>
-    </DrawerSection>
+    </MainSidebarSection>
 </template>
 
 <script lang="ts" setup>
-import DrawerSection from './components/DrawerSection.vue';
+import { MainSidebarSection } from '@/layout';
 import { Cabinet } from '@macramejs/macrame-vue3';
 
 import {

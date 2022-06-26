@@ -4,5 +4,4 @@
 
 <script lang="ts" setup>
 //
-console.log('macrame app');
 </script>
