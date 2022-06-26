@@ -56,7 +56,8 @@ export type PageSlugForm = Form<PageSlugFormData>;
 
 // MenuItem
 export interface MenuItemFormData {
-
+    title: string,
+    link: string
 }
 export type MenuItemForm = Form<MenuItemFormData>;
 

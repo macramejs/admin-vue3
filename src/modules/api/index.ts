@@ -9,6 +9,7 @@ export * from './menu-item-tree';
 export * from './pages';
 export * from './page-tree';
 export * from './partials';
+export * from './links';
 
 const client = axios.create({
     baseURL: import.meta.env.VITE_API_URL as string,

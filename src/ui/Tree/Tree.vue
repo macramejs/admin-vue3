@@ -20,7 +20,7 @@ import { Tree } from '@macramejs/macrame-vue3';
 
 defineProps({
     tree: {
-        type: Object as PropType<Tree>,
+        type: Object as PropType<Tree<any, any>>,
         required: true,
     },
 });

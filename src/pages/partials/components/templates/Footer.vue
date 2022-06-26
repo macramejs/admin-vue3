@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts" setup>
-// import { Input } from "@macramejs/admin-vue3";
+// import { Input } from "@/ui";
 // import { PartialForm } from "@admin/types/forms";
 import { PropType } from "vue";
 

@@ -91,27 +91,27 @@ export type PageTreeResource = TreeResource<Page>;
 
 export type Menu = {
     id: number,
-    label: string,
-    value: string
+    title: string,
+    type: string
 };
+export type MenuResource = Resource<Menu>;
 export type MenuCollectionResource = CollectionResource<Menu>;
 
-export type MenuItem = {
+export interface MenuItem {
     id: number;
     title: string;
     link: string;
-    children: MenuItem[];
+    is_public: boolean;
 };
-export type MenuItemTreeItem = RawTreeItem<MenuItem>;
-export type MenuItemTreeResource = Resource<MenuItemTreeItem>;
-export type MenuItemTreeCollectionResource = CollectionResource<MenuItemTreeItem>;
 
-export type LinkOption = {
+export type MenuItemTreeResource = TreeResource<MenuItem>;
+
+export type Link = {
     link: string;
     title: string;
 };
-export type LinkOptionResource = Resource<LinkOption>;
-export type LinkOptionCollectionResource = CollectionResource<LinkOption>;
+export type LinkResource = Resource<Link>;
+export type LinkCollectionResource = CollectionResource<Link>;
 
 // Block
 export type Block = {

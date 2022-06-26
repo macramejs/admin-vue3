@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import { Sections, ContentBody } from '@macramejs/admin-vue3';
+import { Sections, ContentBody } from '@/ui';
 import { PropType } from 'vue';
 import { sections } from '@admin/modules/content';
 import { Block } from '@admin/types/resources';

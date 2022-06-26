@@ -4,12 +4,12 @@ import { AxiosResponse } from 'axios';
 import { LoadOne, LoadMany, UpdateOrCreate, Delete, Update, Create } from './types';
 import { TreeOrder } from '@macramejs/macrame-vue3';
 
-const loadMenuItemsTree: LoadMany<
+const loadMenuItemTree: LoadMany<
     MenuItemTreeCollectionResource, [Menu]
 > = (menu) => client.get(`menus/${menu.id}/item-tree`);
 
-const updateMenuItemsTree: Update<
-    TreeOrder, [Menu]
+const updateMenuItemTree: Update<
+    {order: TreeOrder}, [Menu]
 > = (menu, data) => client.put(`menus/${menu.id}/item-tree`, data);
 
-export { loadMenuItemsTree, updateMenuItemsTree }
+export { loadMenuItemTree, updateMenuItemTree }
