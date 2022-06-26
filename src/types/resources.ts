@@ -135,3 +135,7 @@ export interface Partial {
 }
 export type PartialResource = Resource<Partial>;
 export type PartialCollectionResource = CollectionResource<Partial>;
+
+// Stored
+
+export type StoredResource = Resource<{id: number}>;

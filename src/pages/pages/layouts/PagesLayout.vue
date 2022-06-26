@@ -27,10 +27,10 @@ import PagesTree from '../components/Tree/PagesTree.vue';
 import IconPage from '@/ui/Icons/IconPage.vue';
 import AddPageModal from '../components/AddPageModal.vue';
 
-import { pageTree, usePageTree } from '@/modules/state';
+import { pageTree } from '@/modules/state';
 import PagesHelp from './components/PagesHelp.vue';
 
 onMounted(() => {
-    usePageTree().load();
+    pageTree.load();
 });
 </script>

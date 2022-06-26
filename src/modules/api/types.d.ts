@@ -1,4 +1,4 @@
-import { Resource, CollectionResource } from '@/types/resources'
+import { Resource, CollectionResource, StoredResource } from '@/types/resources'
 import { AxiosResponse } from 'axios';
 
 type TModel = Record<string, any>;
@@ -26,10 +26,10 @@ export type UpdateOrCreate<
 
 // update
 export type Update<
-    FormData extends TModel = TModel,
+    FormData extends any = any,
     D extends TModel[] = []
 > = (
-    ...args: [...D, ...[FormData, number|undefined]]
+    ...args: [...D, ...[FormData, number|undefined]],
 ) => Promise<AxiosResponse>;
 
 // create
@@ -38,7 +38,7 @@ export type Create<
     D extends TModel[] = []
 > = (
     ...args: [...D, ...[FormData]]
-) => Promise<AxiosResponse>;
+) => Promise<AxiosResponse<StoredResource>>;
 
 // delete
 export type Delete<

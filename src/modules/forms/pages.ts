@@ -6,6 +6,7 @@ import {
     PageFormData,
 } from '@/types';
 import { ref } from 'vue';
+import { pageTree } from '../state';
 
 export type UsePageForm = (
     data: Partial<PageFormData>,
@@ -17,6 +18,7 @@ export const pageModel = ref<Page>();
 const usePageForm: UsePageForm = (
     {
         name = '',
+        parent_id = undefined,
         content = [],
         attributes = {},
         is_live = false,
@@ -36,6 +38,7 @@ const usePageForm: UsePageForm = (
     return useForm({
         data: {
             name,
+            parent_id,
             content,
             attributes,
             is_live,

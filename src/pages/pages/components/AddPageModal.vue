@@ -40,25 +40,28 @@ import { PageForm } from '@/types';
 // FORM
 import { usePageForm } from '@/modules/forms';
 import { useRouter } from 'vue-router';
-import { usePageTree } from '@/modules/state';
+import { pageTree } from '@/modules/state';
 
-const form: PageForm = usePageForm({});
-
-const isOpen = ref<boolean>(false);
-
-defineProps({
+const props = defineProps({
     parent: {
         type: Object as PropType<Page>,
         required: false,
     },
 });
 
+const isOpen = ref<boolean>(false);
+
+const form: PageForm = usePageForm({
+    parent_id: props.parent?.id
+});
+
 const isSlugEdited = ref(false);
 
 const router = useRouter();
+
 const submit = function () {
     form.submit().then(response => {
-        usePageTree().load();
+        pageTree.load();
         router.push(`/pages/${response.data.data.id}`);
         isOpen.value = false;
     });

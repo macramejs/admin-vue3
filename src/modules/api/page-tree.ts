@@ -15,7 +15,7 @@ import { TreeOrder } from '@macramejs/macrame-vue3';
 const loadPageTree: LoadMany<PageTreeResource> = () =>
     client.get(`page-tree`);
 
-const updatePageTree: Update<TreeOrder> = (data) => 
+const updatePageTree: Update<{order: TreeOrder}> = (data) => 
     client.put(`page-tree`, data);
 
 export {
