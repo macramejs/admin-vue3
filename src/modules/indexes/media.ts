@@ -36,7 +36,7 @@ export const useMediaIndex = () => {
     });
 
     const index = useIndex<Media, MediaIndexSortByKeys, MediaIndexFilters>({
-        load: params => loadMediaItems(params),
+        load: () => loadMediaItems(),
         filters: {
             collection: collectionFilter,
             types: typesFilter,

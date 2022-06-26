@@ -42,8 +42,7 @@ export type Create<
 
 // delete
 export type Delete<
-    Model extends TModel = TModel,
     D extends TModel[] = []
 > = (
-    ...args: [...D, ...[Model]]
+    ...args: [...D, ...[number]]
 ) => Promise<AxiosResponse>;

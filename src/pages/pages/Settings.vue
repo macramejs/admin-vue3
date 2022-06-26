@@ -6,12 +6,12 @@
         <div class="col-span-full md:col-span-9">
             <Card class="flex gap-5">
                 <FormField no-label class="w-2/3">
-                    <Input :label="$t('pages.page_name')" v-model="form.name" />
+                    <Input :label="$t('pages.page_name')" v-model="pageForm.name" />
                 </FormField>
                 <FormField no-label class="w-1/3">
                     <Input
                         :label="$t('pages.page_slug')"
-                        v-model="form.slug"
+                        v-model="pageForm.slug"
                         @update:modelValue="slug => (form.slug = slugify(slug))"
                     />
                 </FormField>
@@ -37,6 +37,7 @@ import { deletePage } from '@/modules/page';
 import { Card, FormField, Input, Button } from '@/ui';
 import IconTrash from '@/ui/Icons/IconTrash.vue';
 import { slugify } from '@/modules/helpers';
+import { pageForm } from '@/modules/forms';
 
 const props = defineProps({
     page: {
