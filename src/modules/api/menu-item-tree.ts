@@ -6,10 +6,10 @@ import { TreeOrder } from '@macramejs/macrame-vue3';
 
 const loadMenuItemsTree: LoadMany<
     MenuItemTreeCollectionResource, [Menu]
-> = (menu) => client.get(`menus/${menu.id}/items-tree`);
+> = (menu) => client.get(`menus/${menu.id}/item-tree`);
 
-const updateMenuItemsTreeOrder: Update<
+const updateMenuItemsTree: Update<
     TreeOrder, [Menu]
-> = (menu, data) => client.put(`menus/${menu.id}/items-tree`, data);
+> = (menu, data) => client.put(`menus/${menu.id}/item-tree`, data);
 
-export { loadMenuItemsTree, updateMenuItemsTreeOrder }
+export { loadMenuItemsTree, updateMenuItemsTree }

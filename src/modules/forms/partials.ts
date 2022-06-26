@@ -1,29 +1,17 @@
 import { useForm } from '@macramejs/macrame-vue3';
-import { loadPartial, updateOrCreatePartial } from '@/modules/api';
-import { PartialFormData, PartialForm  } from '@/types';
+import { loadPartial, updatePartial } from '@/modules/api';
+import { PartialForm  } from '@/types';
 
-export type UsePartialForm = (
-    data: Partial<PartialFormData>,
-    id?: number | null
-) => PartialForm;
+export type UsePartialForm = () => PartialForm;
 
-const usePartialForm: UsePartialForm = ({ name = '', attributes = [] }, id = null) => {
+const usePartialForm: UsePartialForm = () => {
     return useForm({
-        data: {
-            name,
-            attributes,
-        },
-        submit: data => updateOrCreatePartial(data, id),
-        load: async id => {
-            let partial = (await loadPartial(id as number)).data.data;
-            return {
-                name: partial.name,
-                attributes: partial.attributes,
-            };
-        },
+        data: { name: '', attributes: {} },
+        submit: (data, id) => updatePartial(data, id),
+        load: id => loadPartial(id as number),
     });
 };
 
-const partialForm = usePartialForm({});
+const partialForm = usePartialForm();
 
 export { usePartialForm, partialForm };

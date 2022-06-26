@@ -1,24 +1,18 @@
-import { OrderItem } from '@/types';
-import { useOriginal, useTree } from '@macramejs/macrame-vue3';
+import { OrderItem, Page, PageTreeResource } from '@/types';
+import { Tree, useOriginal, useTree } from '@macramejs/macrame-vue3';
 import { reactive, ref, watch } from 'vue';
-import { loadPagesTree, orderPages } from '../api';
+import { loadPageTree, updatePageTree } from '../api';
 
 export const pageTree = ref();
 
-export const usePageTree = () => {
-    let tree = reactive({
-        load() {
-            loadPagesTree().then(response => {
-                pageTree.value = useTree(response.data.data, {
-                    onOrderChange,
-                });
-            });
-        },
+export type UsePageTree = () => Tree<Page, PageTreeResource>;
+
+export const usePageTree: UsePageTree = () => {
+    const tree = useTree<Page>({
+        load: () => loadPageTree()
     });
 
-    return tree;
-};
+    tree.onOrderChange(order => updatePageTree({ order }));
 
-const onOrderChange = (order: OrderItem[]) => {
-    orderPages({ order });
+    return tree;
 };

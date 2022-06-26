@@ -1,4 +1,4 @@
-import { RawTreeItem, IndexResource } from '@macramejs/macrame-vue3';
+import { RawTreeItem, IndexResource, TreeResource } from '@macramejs/macrame-vue3';
 export type Resource<Model> = { data: Model };
 export type CollectionResource<Model> = { data: Model[] };
 
@@ -79,12 +79,13 @@ export type Page = {
     };
 };
 
-export type PageTreeItem = RawTreeItem<Page>;
 export type PageResource = Resource<Page>;
 export type PageCollectionResource = CollectionResource<Page>;
 export type PageCollectionIndexResource = IndexResource<Page>;
-export type PageTreeResource = Resource<PageTreeItem>;
-export type PageTreeCollectionResource = CollectionResource<PageTreeItem>;
+
+// PageTree
+export type PageTreeItem = RawTreeItem<Page>;
+export type PageTreeResource = TreeResource<Page>;
 
 // Menu
 

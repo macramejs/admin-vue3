@@ -6,17 +6,14 @@ import {
 } from '@/types';
 import { client } from './index';
 import { Axios, AxiosResponse } from 'axios';
-import { LoadOne, LoadMany, UpdateOrCreate, Delete } from './types';
+import { LoadOne, LoadMany, UpdateOrCreate, Delete, Update } from './types';
 
-const loadPartial: LoadOne<PartialResource> = id =>
-    client.get(`partial/${id}`) as Promise<AxiosResponse<PartialResource>>;
+const loadPartial: LoadOne<PartialResource> = template =>
+    client.get(`partials/${template}`);
 
-// const loadPartials: LoadMany<PartialollectionIndexResource> = params =>
-    // client.get(`partials`, { params });
+const updatePartial: Update<PartialFormData> = (data, id) => 
+    client.put(`partials/${id}`, data);
 
-const loadPartialByTemplateName: LoadOne<PartialResource> = template => {
-    client.get(`partial/${template}`) as Promise<AxiosResponse<PartialResource>>;
-}
 
 // if templates include template
-export { loadPartial };
+export { loadPartial, updatePartial };

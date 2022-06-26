@@ -1,4 +1,4 @@
-import { NavItem } from './resources';
+import { NavItem, PartialResource } from './resources';
 import { Form, RawTree } from '@macramejs/macrame-vue3';
 
 // Example
@@ -73,4 +73,4 @@ export type PartialFormData = {
     name: string;
     attributes: { [k: string]: any };
 };
-export type PartialForm = Form<PartialFormData>;
+export type PartialForm = Form<PartialFormData, PartialResource>;
