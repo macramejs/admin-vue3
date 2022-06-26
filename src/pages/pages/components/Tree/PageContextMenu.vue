@@ -29,7 +29,7 @@
         </DuplicatePageModal>
         <ContextMenuItem
             class="hover:bg-red-signal hover:text-white text-red-signal"
-            @click="deletePage(page)"
+            @click="deletePage(page.id)"
         >
             <template #icon>
                 <IconTrash class="origin-left scale-75" />
@@ -49,7 +49,7 @@ import IconCopy from '@/ui/Icons/IconCopy.vue';
 
 import { PropType } from 'vue';
 import { Page } from '@/types/resources';
-import { deletePage } from '@/modules/page';
+import { deletePage } from '@/modules/api';
 import AddPageModal from '../AddPageModal.vue';
 import DuplicatePageModal from '../DuplicatePageModal.vue';
 

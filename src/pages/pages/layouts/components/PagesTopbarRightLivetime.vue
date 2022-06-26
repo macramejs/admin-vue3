@@ -2,19 +2,24 @@
     <div class="flex items-center space-x-2">
         <span class="text-xs uppercase">
             <template v-if="!pageForm.is_live">offline</template>
-            <template v-else-if="!pageForm.publish_at || hasBeenPublished"
+            <template
+                v-else-if="
+                    !pageForm.publish_at || pageState.value.has_been_published
+                "
                 >online</template
             >
             <template v-else>{{ $t('pages.planned') }}</template>
         </span>
         <Toggle
             :modelValue="
-                pageForm.is_live && (!pageForm.publish_at || hasBeenPublished)
+                pageForm.is_live &&
+                (!pageForm.publish_at || pageState.value.has_been_published)
             "
             @update:modelValue="
                 () => {
                     if (pageForm.publish_at) {
                         publishAt = null;
+                        pageForm.publish_at = null;
                     }
                     pageForm.is_live = !pageForm.is_live;
                 }
@@ -82,21 +87,21 @@
 // imports
 import { ref, watch } from 'vue';
 import { Toggle } from '@/ui';
+import { Page } from '@/types';
 import { pageForm } from '@/modules/forms';
+import { pageState } from '@/modules/state';
 import { DatePicker } from 'v-calendar';
 import 'v-calendar/dist/style.css';
-
-const hasBeenPublished = ref(pageForm.has_been_published);
 
 const publishAt = ref<Date | null>(null);
 
 watch(
-    () => pageForm.isBusyLoading,
+    () => pageForm.value.isLoading,
     val => {
         if (!val) {
-            publishAt.value = pageForm.publish_at
-                ? new Date(pageForm.publish_at)
-                : new Date();
+            publishAt.value = pageForm.value.publish_at
+                ? new Date(pageForm.value.publish_at)
+                : null;
         }
     }
 );
@@ -110,9 +115,9 @@ watch(
     () => publishAt.value,
     date => {
         if (date) {
-            pageForm.publish_at = date.toString();
-            if (date != null) pageForm.is_live = true;
-            hasBeenPublished.value = false;
+            pageForm.value.publish_at = date.toString();
+            if (date != null) pageForm.value.is_live = true;
+            pageState.value.has_been_published = false;
         }
     }
 );

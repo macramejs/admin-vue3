@@ -20,12 +20,11 @@
 
 <script setup lang="ts">
 import { onMounted } from 'vue';
-import SidebarSecondary from '@/layout/components/SidebarSecondary/SidebarSecondary.vue';
-import SidebarSecondaryHeader from '@/layout/components/SidebarSecondary/SidebarSecondaryHeader.vue';
+import { SidebarSecondary, SidebarSecondaryHeader } from '@/layout';
 import { Main } from '@/layout';
-import PagesTree from '../components/Tree/PagesTree.vue';
 import IconPage from '@/ui/Icons/IconPage.vue';
-import AddPageModal from '../components/AddPageModal.vue';
+import PagesTree from './../components/Tree/PagesTree.vue';
+import AddPageModal from './../components/AddPageModal.vue';
 
 import { pageTree } from '@/modules/state';
 import PagesHelp from './components/PagesHelp.vue';

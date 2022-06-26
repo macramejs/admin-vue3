@@ -1,6 +1,11 @@
 <template>
     <slot name="button" :open="() => (isOpen = true)">
-        <Button square secondary @click="isOpen = true" @keyup.esc="isOpen = false">
+        <Button
+            square
+            secondary
+            @click="isOpen = true"
+            @keyup.esc="isOpen = false"
+        >
             <IconPlus class="w-5 h-5" />
         </Button>
     </slot>
@@ -25,14 +30,8 @@
 </template>
 
 <script lang="ts" setup>
-import { PropType, ref } from 'vue';
-import {
-    Modal,
-    Input,
-    Select,
-    Button,
-    FormField,
-} from '@/ui';
+import { PropType, ref, Ref } from 'vue';
+import { Modal, Input, Select, Button, FormField } from '@/ui';
 import IconPlus from '@/ui/Icons/IconPlus.vue';
 import { useMenuItemForm } from '@/modules/forms';
 import { Menu, MenuItem } from '@/types';
@@ -43,13 +42,13 @@ const isOpen = ref<boolean>(false);
 const props = defineProps({
     menu: {
         type: Object as PropType<Menu>,
-        required: true
+        required: true,
     },
     menuItem: {
         type: Object as PropType<MenuItem>,
         required: false,
-        default: () => ({})
-    }
+        default: () => ({}),
+    },
 });
 
 links.loadIfNotLoaded();
@@ -59,6 +58,6 @@ const form = useMenuItemForm(props.menu, {});
 const submit = () => {
     form.submit().then(() => {
         isOpen.value = false;
-    })
-}
+    });
+};
 </script>

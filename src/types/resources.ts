@@ -1,4 +1,8 @@
-import { RawTreeItem, IndexResource, TreeResource } from '@macramejs/macrame-vue3';
+import {
+    RawTreeItem,
+    IndexResource,
+    TreeResource,
+} from '@macramejs/macrame-vue3';
 export type Resource<Model> = { data: Model };
 export type CollectionResource<Model> = { data: Model[] };
 
@@ -64,7 +68,7 @@ export type MediaCollectionCollectionResource =
 export type Page = {
     content: { [key: string]: any }[];
     attributes: { [key: string]: any };
-    id?: number;
+    id: number;
     name: string;
     slug: string;
     template: string;
@@ -90,9 +94,9 @@ export type PageTreeResource = TreeResource<Page>;
 // Menu
 
 export type Menu = {
-    id: number,
-    title: string,
-    type: string
+    id: number;
+    title: string;
+    type: string;
 };
 export type MenuResource = Resource<Menu>;
 export type MenuCollectionResource = CollectionResource<Menu>;
@@ -102,7 +106,7 @@ export interface MenuItem {
     title: string;
     link: string;
     is_public: boolean;
-};
+}
 
 export type MenuItemTreeResource = TreeResource<MenuItem>;
 
@@ -138,4 +142,4 @@ export type PartialCollectionResource = CollectionResource<Partial>;
 
 // Stored
 
-export type StoredResource = Resource<{id: number}>;
+export type StoredResource = Resource<{ id: number }>;

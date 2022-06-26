@@ -32,16 +32,13 @@ export type ResetForm = Form<ResetFormData>;
 
 export interface PageFormData {
     name: string;
-    parent_id?: number|undefined,
+    parent_id: number | undefined;
     content: { [k: string]: any }[];
     attributes: { [k: string]: any };
     is_live: boolean;
     publish_at: string | null;
-    has_been_published: boolean;
     template: string;
     slug: string;
-    full_slug: string;
-    preview_key: string;
     meta: {
         title: string;
         description: string;
@@ -56,8 +53,8 @@ export type PageSlugForm = Form<PageSlugFormData>;
 
 // MenuItem
 export interface MenuItemFormData {
-    title: string,
-    link: string
+    title: string;
+    link: string;
 }
 export type MenuItemForm = Form<MenuItemFormData>;
 

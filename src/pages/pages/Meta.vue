@@ -56,30 +56,16 @@
 import { PropType, computed } from 'vue';
 import { MainBody, MainContent } from '@/layout';
 import { PageResource } from '@/types/resources';
-import { PageForm } from '@/types/forms';
 import { Card, FormField, FormFieldLabel, Input, Textarea } from '@/ui';
 import { pageForm } from '@/modules/forms';
-
-const props = defineProps({
-    page: {
-        type: Object as PropType<PageResource>,
-        required: true,
-    },
-    form: {
-        type: Object as PropType<PageForm>,
-        required: true,
-    },
-    fullSlug: {
-        type: String,
-        required: true,
-    },
-});
 
 const origin = window.location.origin;
 
 const descriptionPreview = computed(() => {
-    if (pageForm.meta.description?.length > 160) {
-        let trimmed = pageForm.meta.description?.substr(0, 160).substr(0, 160);
+    if (pageForm.value.meta.description?.length > 160) {
+        let trimmed = pageForm.value.meta.description
+            ?.substr(0, 160)
+            .substr(0, 160);
 
         // re-trim if we are in the middle of a word
         trimmed = trimmed.substr(
@@ -90,6 +76,6 @@ const descriptionPreview = computed(() => {
         return `${trimmed} \u2026`;
     }
 
-    return pageForm.meta.description;
+    return pageForm.value.meta.description;
 });
 </script>

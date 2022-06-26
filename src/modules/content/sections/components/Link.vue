@@ -19,7 +19,7 @@
                 v-if="!external"
                 label="Link"
                 v-model="model.link"
-                :options="linkOptions"
+                :options="links.value"
                 label-key="title"
                 value-key="link"
             />
@@ -55,7 +55,7 @@ import {
     Toggle,
     FormGroup,
 } from '@/ui';
-import { linkOptions } from '@/modules/state';
+import { links } from '@/modules/state';
 import IconArrowRight from '@/ui/Icons/IconArrowRight.vue';
 
 const emit = defineEmits(['update:modelValue']);

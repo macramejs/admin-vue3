@@ -35,10 +35,10 @@ import IconPlus from '@/ui/Icons/IconPlus.vue';
 import { templateOptions } from '@/modules/content/templates';
 import { Page } from '@/types/resources';
 import { slugify } from '@/modules/helpers';
-import { PageForm } from '@/types';
 
 // FORM
 import { usePageForm } from '@/modules/forms';
+import { PageForm } from '@/types';
 import { useRouter } from 'vue-router';
 import { pageTree } from '@/modules/state';
 
@@ -52,7 +52,7 @@ const props = defineProps({
 const isOpen = ref<boolean>(false);
 
 const form: PageForm = usePageForm({
-    parent_id: props.parent?.id
+    parent_id: props.parent?.id,
 });
 
 const isSlugEdited = ref(false);

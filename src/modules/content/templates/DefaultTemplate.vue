@@ -17,7 +17,7 @@ import { pageForm } from '@/modules/forms';
 
 const h1 = translatable<string>(
     locale,
-    pageForm.attributes.h1,
-    value => (pageForm.attributes.h1 = value)
+    pageForm.value.attributes.h1,
+    value => (pageForm.value.attributes.h1 = value)
 );
 </script>

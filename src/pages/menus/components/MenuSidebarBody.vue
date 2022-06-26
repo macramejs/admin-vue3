@@ -1,11 +1,11 @@
 <template>
     <SidebarSecondarySection>
         <SidebarSecondaryLink
-            v-for="menu in menus.value"
+            v-for="menu in menusState.value"
             :key="menu.id"
-            :title="menu.title" 
+            :title="menu.title"
             :to="`/media/${menu.id}`"
-            secondary 
+            secondary
             class="cursor-pointer"
         />
     </SidebarSecondarySection>
@@ -13,5 +13,5 @@
 
 <script lang="ts" setup>
 import { SidebarSecondarySection, SidebarSecondaryLink } from '@/layout';
-import { menus } from '@/modules/state';
+import { menusState } from '@/modules/state';
 </script>

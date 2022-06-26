@@ -3,13 +3,22 @@
         <template v-slot:header>
             <SidebarSecondaryHeader title="Menus">
                 <template v-slot:icon>
-                    <!-- TODO -->
+                    <IconList class="w-5 h-5" />
                 </template>
                 <template v-slot:help>
                     <!-- TODO -->
                 </template>
             </SidebarSecondaryHeader>
         </template>
+        <SidebarSecondarySection>
+            <SidebarSecondaryLink
+                v-for="menu in menusState.value"
+                :key="menu.id"
+                :title="menu.title"
+                :to="`/menus/${menu.id}`"
+                class="cursor-pointer"
+            />
+        </SidebarSecondarySection>
     </SidebarSecondary>
     <Main>
         <router-view />
@@ -18,12 +27,19 @@
 
 <script setup lang="ts">
 import { onMounted } from 'vue';
-import { SidebarSecondaryHeader, SidebarSecondary } from '@/layout';
+import {
+    SidebarSecondaryHeader,
+    SidebarSecondary,
+    SidebarSecondarySection,
+    SidebarSecondaryLink,
+} from '@/layout';
+
 import { Main } from '@/layout';
-import { menus } from '@/modules/state';
+import { menusState } from '@/modules/state';
+import IconList from '@/ui/Icons/IconList.vue';
 
 onMounted(() => {
     // TODO:
-    menus.load();
+    menusState.load();
 });
 </script>

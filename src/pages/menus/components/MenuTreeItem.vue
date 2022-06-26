@@ -1,8 +1,8 @@
 <template>
     <Disclosure v-slot="{ open }" defaultOpen>
         <div class="flex items-center">
-            <div class="w-full bg-white p-4 rounded flex items-center">
-                <div class="cursor-move handle px-4">
+            <div class="flex items-center w-full p-4 bg-white rounded">
+                <div class="px-4 cursor-move handle">
                     <IconDraggable class="w-2.5 h-2.5" />
                 </div>
                 <div class="text-lg font-semibold">
@@ -10,7 +10,7 @@
                 </div>
                 <div>
                     <svg
-                        class="w-6 h-6 text-gray mx-3"
+                        class="w-6 h-6 mx-3 text-gray"
                         width="24"
                         height="24"
                         stroke-width="1.5"
@@ -27,23 +27,22 @@
                     </svg>
                 </div>
                 <a
-                    class="text-gray flex space-x-2 items-center"
+                    class="flex items-center space-x-2 text-gray"
                     :href="pageLink"
                 >
                     {{
-                        links.value.find(
-                            (option) => option.link == menuItem.link
-                        )?.title
+                        links.value.find(option => option.link == menuItem.link)
+                            ?.title
                     }}
                     <div
-                        class="w-2 h-2 rounded-full mr-4 ml-2"
+                        class="w-2 h-2 ml-2 mr-4 rounded-full"
                         :class="{
                             'bg-green': menuItem.is_public,
                             'bg-red': !menuItem.is_public,
                         }"
                     ></div>
                 </a>
-                <div class="flex-1 flex justify-end items-center">
+                <div class="flex items-center justify-end flex-1">
                     <div class="mr-4">
                         <svg
                             v-if="!live || !menuItem.is_public"
@@ -88,7 +87,7 @@
                         </template>
                         <AddOrEditItemModal
                             :menu-item="menuItem"
-                            :menu="menu"
+                            :menu="menuState.value"
                         >
                             <template #button="{ open }">
                                 <ContextMenuItem @click="open">
@@ -99,7 +98,9 @@
 
                         <ContextMenuItem
                             class="hover:bg-red-signal text-red-signal"
-                            @click="deleteMenuItem(menu, menuItem.id)"
+                            @click="
+                                deleteMenuItem(menuState.value, menuItem.id)
+                            "
                         >
                             <template #icon>
                                 <IconTrash class="origin-left scale-75" />
@@ -109,7 +110,7 @@
                     </ContextMenu>
                 </div>
             </div>
-            <div class="w-16 mr-16 flex justify-center">
+            <div class="flex justify-center w-16 mr-16">
                 <DisclosureButton
                     class="p-1 hover:bg-black rounded-xs"
                     :class="{
@@ -117,37 +118,30 @@
                     }"
                     v-if="children?.items.length > 0"
                 >
-                    <IconCaret class="w-3 h-3" />
+                    <IconNavArrowDown class="w-3 h-3" />
                 </DisclosureButton>
             </div>
         </div>
         <DisclosurePanel class="pl-12 mt-3">
-            <MenuTree
-                :tree="children"
-                :live="live && menuItem.is_public"
-            />
+            <MenuTree :tree="children" :live="live && menuItem.is_public" />
         </DisclosurePanel>
     </Disclosure>
 </template>
 
 <script lang="ts" setup>
-import { Tree } from "@macramejs/macrame-vue3";
-import { MenuItem } from "@/types";
-import {
-    ContextMenu,
-    ContextMenuItem,
-    ContextButton,
-} from "@/ui";
+import { Tree } from '@macramejs/macrame-vue3';
+import { MenuItem } from '@/types';
+import { ContextMenu, ContextMenuItem, ContextButton } from '@/ui';
 import IconTrash from '@/ui/Icons/IconTrash.vue';
-import IconCaret from '@/ui/Icons/IconCaret.vue';
-import IconDraggable from '@/ui/Icons/IconDraggable.vue';
-import NavTree from "./NavTree.vue";
-import { computed, PropType } from "vue";
-import AddOrEditItemModal from "./AddOrEditItemModal.vue";
-import { deleteMenuItem } from "@/modules/api";
-import { menu, links } from "@/modules/state";
+import IconNavArrowDown from '@/ui/Icons/IconNavArrowDown.vue';
+import IconDraggable from '@/ui/Icons/custom/IconDraggable.vue';
+import { computed, PropType } from 'vue';
+import AddOrEditItemModal from './AddOrEditItemModal.vue';
+import MenuTree from './MenuTree.vue';
+import { deleteMenuItem } from '@/modules/api';
+import { menuState, links } from '@/modules/state';
 
-import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/vue";
+import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue';
 
 const props = defineProps({
     menuItem: {
@@ -166,8 +160,8 @@ const props = defineProps({
 
 const pageLink = computed(() => {
     let pageId = links.value
-        .find((option) => option.link == props.menuItem.link)
-        ?.link.split(".")
+        .find(option => option.link == props.menuItem.link)
+        ?.link.split('.')
         .pop();
 
     return `/admin/pages/${pageId}`;

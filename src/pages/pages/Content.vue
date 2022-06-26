@@ -3,6 +3,10 @@
         <MainContent>
             <TransitionSlideFade>
                 <div v-if="!pageForm.isBusyLoading">
+                    <div class="grid grid-cols-2">
+                        <pre>{{ pageForm }}</pre>
+                        <pre>{{ pageForm.original.raw }}</pre>
+                    </div>
                     <component
                         :is="getComponent"
                         v-if="!pageForm.isBusyLoading"
@@ -32,8 +36,8 @@ import ToggleSections from './components/ToggleSections.vue';
 import { TransitionSlideFade } from '@/ui';
 
 const getComponent = computed(() => {
-    return pageForm.template in templates
-        ? templates[pageForm.template]
+    return pageForm.value.template in templates
+        ? templates[pageForm.value.template]
         : 'div';
 });
 

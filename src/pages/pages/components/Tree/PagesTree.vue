@@ -15,7 +15,7 @@ import PagesTreeItem from './PagesTreeItem.vue';
 
 defineProps({
     tree: {
-        type: Object as PropType<Tree>,
+        type: Object as PropType<Tree<Page>>,
         required: true,
     },
 });

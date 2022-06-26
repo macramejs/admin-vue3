@@ -8,16 +8,13 @@ const routes: RouteRecordRaw[] = [
         component: () => import('./layouts/MenusLayout.vue'),
         children: [
             { path: '', component: () => import('./Index.vue') },
-        ]
-    },
-    {
-        path: '/menus/:menu',
-        component: () => import('./layouts/MenuLayout.vue'),
-        children: [
-            { path: '', component: () => import('./Show.vue') },
-        ]
+            {
+                path: ':menu',
+                component: () => import('./layouts/MenuLayout.vue'),
+                children: [{ path: '', component: () => import('./Show.vue') }],
+            },
+        ],
     },
 ];
 
 export { routes };
-

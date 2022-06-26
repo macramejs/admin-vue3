@@ -9,21 +9,23 @@
 </template>
 <script lang="ts" setup>
 import { computed } from 'vue';
-import { pageForm, pageModel } from '@/modules/forms';
+import { pageForm } from '@/modules/forms';
+import { pageState } from '@/modules/state';
+import { Page } from '@/types';
 import EditSlugModal from '../../components/EditSlugModal.vue';
 
 const fullSlug = computed(() => {
-    if (pageForm.full_slug) {
-        let parts = pageForm?.full_slug.split('/').filter(p => p);
+    if (pageState.value.full_slug) {
+        let parts = pageState.value.full_slug.split('/').filter(p => p);
         parts.pop();
-        return `${parts.join(' > ')} > <strong>${pageForm?.slug}</strong>`;
+        return `${parts.join(' > ')} > <strong>${pageForm.value.slug}</strong>`;
     }
 });
 const pageUrl = computed(() => {
-    if (pageForm?.full_slug) {
-        let parts = pageForm?.full_slug.split('/').filter(p => p);
+    if (pageState.value.full_slug) {
+        let parts = pageState.value.full_slug.split('/').filter(p => p);
         return `${window.location.origin}/${parts.join('/')}?preview=${
-            pageForm?.preview_key
+            pageState.value.preview_key
         }`;
     }
 });

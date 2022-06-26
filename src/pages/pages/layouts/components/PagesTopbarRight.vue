@@ -16,7 +16,7 @@ import { Button } from '@/ui';
 import { usePageTree } from '@/modules/state';
 
 const save = async () => {
-    await pageForm.submit();
+    await pageForm.value.submit();
     usePageTree().load();
 };
 </script>
