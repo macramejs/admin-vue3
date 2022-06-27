@@ -1,13 +1,17 @@
 import { useForm } from '@macramejs/macrame-vue3';
 import { loadBlock, updateOrCreateBlock } from '@/modules/api';
 import { BlockForm, BlockFormData } from '@/types';
+import { Ref, ref } from 'vue';
 
 export type UseBlockForm = (
-    data: Partial<BlockFormData>,
-    id?: number | null
+    data: Partial<BlockFormData> & { id?: number | undefined }
 ) => BlockForm;
 
-const useBlockForm: UseBlockForm = ({ name = '', content = [] }, id = null) => {
+const useBlockForm: UseBlockForm = ({
+    name = '',
+    content = [],
+    id = undefined,
+}) => {
     return useForm({
         data: {
             name,
@@ -15,15 +19,13 @@ const useBlockForm: UseBlockForm = ({ name = '', content = [] }, id = null) => {
         },
         submit: data => updateOrCreateBlock(data, id),
         load: async id => {
-            let block = (await loadBlock(id as number)).data.data;
-            return {
-                name: block.name,
-                content: block.content,
-            };
+            let response = await loadBlock(id as number);
+
+            return response;
         },
     });
 };
 
-const blockForm = useBlockForm({});
+const blockForm = ref<BlockForm>() as Ref<BlockForm>;
 
 export { useBlockForm, blockForm };

@@ -1,7 +1,7 @@
 <template>
     <MainBody>
         <MainContent>
-            <Sections v-model="form.content" :sections="sections" />
+            <Sections v-model="blockForm.content" :sections="sections" />
         </MainContent>
         <MainSidebar v-model:open="isOpen">
             <Drawers :sections="drawsSections" />
@@ -13,13 +13,7 @@
 import { ref } from 'vue';
 import { MainBody, MainContent, MainSidebar } from '@/layout';
 import { Drawers, sections, Sections } from '@/modules/content';
-import { useBlockForm } from '@/modules/forms';
-import { useRoute } from 'vue-router';
-
-const route = useRoute();
-const blockId: number = route.params.block as number;
-
-const form = useBlockForm({}, blockId);
+import { blockForm } from '@/modules/forms';
 
 // allow drawing all registered sections
 type DrawsSections = {

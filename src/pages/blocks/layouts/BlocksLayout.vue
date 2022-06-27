@@ -8,6 +8,15 @@
                 <AddBlockModal />
             </SidebarSecondaryHeader>
         </template>
+        <SidebarSecondarySection>
+            <SidebarSecondaryLink
+                v-for="block in blocksState.value"
+                :key="block.id"
+                :title="block.name"
+                :to="`/blocks/${block.id}`"
+                class="cursor-pointer"
+            />
+        </SidebarSecondarySection>
     </SidebarSecondary>
     <Main>
         <router-view />
@@ -15,9 +24,19 @@
 </template>
 
 <script setup lang="ts">
-import SidebarSecondary from '@/layout/components/SidebarSecondary/SidebarSecondary.vue';
-import SidebarSecondaryHeader from '@/layout/components/SidebarSecondary/SidebarSecondaryHeader.vue';
+import {
+    SidebarSecondaryHeader,
+    SidebarSecondary,
+    SidebarSecondarySection,
+    SidebarSecondaryLink,
+} from '@/layout';
 import Main from '@/layout/components/Main.vue';
 import IconReportColumns from '@/ui/Icons/IconReportColumns.vue';
 import AddBlockModal from '../components/AddBlockModal.vue';
+import { onMounted } from 'vue';
+import { blocksState } from '@/modules/state';
+
+onMounted(() => {
+    blocksState.load();
+});
 </script>

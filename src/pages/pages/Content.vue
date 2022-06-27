@@ -3,10 +3,10 @@
         <MainContent>
             <TransitionSlideFade>
                 <div v-if="!pageForm.isBusyLoading">
-                    <div class="grid grid-cols-2">
+                    <!-- <div class="grid grid-cols-2">
                         <pre>{{ pageForm }}</pre>
                         <pre>{{ pageForm.original.raw }}</pre>
-                    </div>
+                    </div> -->
                     <component
                         :is="getComponent"
                         v-if="!pageForm.isBusyLoading"

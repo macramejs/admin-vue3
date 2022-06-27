@@ -39,7 +39,6 @@ import { menusState } from '@/modules/state';
 import IconList from '@/ui/Icons/IconList.vue';
 
 onMounted(() => {
-    // TODO:
     menusState.load();
 });
 </script>

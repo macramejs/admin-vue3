@@ -18,13 +18,17 @@
 import BaseSection from './BaseSection.vue';
 import { Card, Select } from '@/ui';
 import DrawerBlock from '../drawers/DrawerBlock.vue';
-import { watch, reactive, ref } from 'vue';
+import { watch, reactive, computed } from 'vue';
+import { blocksState } from '@/modules/state';
 
-// TODO:
-// import { blocks } from '../../blocks/index';
-// blocks.perPage = 99999999;
-// blocks.loadItems();
-const blockOptions = ref([]);
+const blockOptions = computed(() => {
+    return blocksState.value?.map(block => {
+        return {
+            id: block.id,
+            name: block.name,
+        };
+    });
+});
 
 const emit = defineEmits(['update:modelValue']);
 
