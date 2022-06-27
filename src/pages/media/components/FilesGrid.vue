@@ -4,9 +4,9 @@
             <div
                 class="flex justify-center col-span-full lg:col-span-6 xl:col-span-3"
             >
-                <MediaUpload />
+                <MediaUpload :collection="collection" />
             </div>
-            <FilesGridTable />
+            <FilesGridTable :collections="collections" />
         </div>
     </div>
 </template>
@@ -14,6 +14,18 @@
 <script lang="ts" setup>
 import FilesGridTable from './FilesGridTable.vue';
 import { MediaUpload } from '@/modules/media';
+import { MediaCollection } from '@/types';
+import { PropType } from 'vue';
+
+defineProps({
+    collection: {
+        type: Object as PropType<MediaCollection>,
+    },
+    collections: {
+        type: Array as PropType<MediaCollection[]>,
+        required: true,
+    },
+});
 </script>
 
 <style scoped>

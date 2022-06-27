@@ -22,6 +22,7 @@ export * from './media/media.index';
 
 // media-collection
 export * from './media-collections/api';
+export * from './media-collections/media-collection.form';
 export * from './media-collections/media-collection.index';
 
 // menu-items

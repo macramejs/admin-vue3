@@ -60,6 +60,13 @@ import SelectionMenu from './SelectionMenu.vue';
 import { selection, useSelection } from '../modules';
 import { mediaIndex } from '@/entities';
 import { MediaCollection } from '@/types/resources';
+
+const props = defineProps({
+    collections: {
+        type: Array as PropType<MediaCollection[]>,
+        required: true,
+    },
+});
 </script>
 
 <style scoped>
