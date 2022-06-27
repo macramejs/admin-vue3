@@ -50,14 +50,14 @@
     </SwitchGroup>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import { Switch, SwitchGroup, SwitchLabel } from '@headlessui/vue';
 import { getSize, sizes } from '../_props/size';
 import { getVariant, variants } from '../_props/variant';
 
-export default {
-    components: { Switch, SwitchGroup, SwitchLabel },
-    props: {
+const emit = defineEmits(['update:modelValue']);
+
+const props = defineProps({
         label: {
             type: String,
             default: null,
@@ -72,20 +72,15 @@ export default {
         },
         ...sizes,
         ...variants,
-    },
+    });
+    
+const size_ = getSize(props, {});
+const variant_ = getVariant(props, {});
 
-    setup({ disabled, ...props }, { emit }) {
-        const size_ = getSize(props, {});
-        const variant_ = getVariant(props, {});
-
-        const update = value => {
-            if (disabled) {
-                return;
-            }
-            emit('update:modelValue', value);
-        };
-
-        return { update, size_, variant_ };
-    },
+const update = (value: any) => {
+    if (props.disabled) {
+        return;
+    }
+    emit('update:modelValue', value);
 };
 </script>

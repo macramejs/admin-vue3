@@ -82,7 +82,7 @@ export default defineComponent({
             return option[props.valueKey];
         };
 
-        const optionLabel = (option) => {
+        const optionLabel = (option: any) => {
             if (props.labelKey === null) {
                 return option;
             }
@@ -90,7 +90,7 @@ export default defineComponent({
             return option[props.labelKey];
         };
 
-        const isDisabled = (option) => {
+        const isDisabled = (option: any) => {
             if (props.disabledKey === null) {
                 return false;
             }

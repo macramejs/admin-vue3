@@ -34,14 +34,9 @@
 </template>
 
 <script lang="ts" setup>
-import { PropType } from 'vue';
-import { MainBody, MainContent } from '@/layout';
-import { PageResource } from '@/types/resources';
-import { deletePage } from '@/modules/api';
-import { pageState } from '@/modules/state';
-import { Page } from '@/types';
+import { pageState, deletePage } from '@/entities';
 import { Card, FormField, Input, Button } from '@/ui';
 import IconTrash from '@/ui/Icons/IconTrash.vue';
 import { slugify } from '@/modules/helpers';
-import { pageForm } from '@/modules/forms';
+import { pageForm } from '@/entities';
 </script>

@@ -21,7 +21,7 @@
 import { ref } from 'vue';
 import { Modal, Input, ButtonRound, Button } from '@/ui';
 import IconPlus from '@/ui/Icons/IconPlus.vue';
-import { useBlockForm } from '@/modules/forms';
+import { useBlockForm } from '@/entities';
 import { BlockForm } from '@/types';
 
 const isOpen = ref<boolean>(false);

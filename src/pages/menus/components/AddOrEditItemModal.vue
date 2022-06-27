@@ -19,7 +19,7 @@
                 <Select
                     :label="$t('menus.link')"
                     v-model="form.link"
-                    :options="links.value"
+                    :options="linksState.value"
                     label-key="title"
                     value-key="link"
                 />
@@ -33,9 +33,8 @@
 import { PropType, ref, Ref } from 'vue';
 import { Modal, Input, Select, Button, FormField } from '@/ui';
 import IconPlus from '@/ui/Icons/IconPlus.vue';
-import { useMenuItemForm } from '@/modules/forms';
+import { useMenuItemForm, linksState } from '@/entities';
 import { Menu, MenuItem } from '@/types';
-import { links } from '@/modules/state';
 
 const isOpen = ref<boolean>(false);
 
@@ -50,8 +49,6 @@ const props = defineProps({
         default: () => ({}),
     },
 });
-
-links.loadIfNotLoaded();
 
 const form = useMenuItemForm(props.menu, {});
 

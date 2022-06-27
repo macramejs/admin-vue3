@@ -32,7 +32,7 @@
                                 <span class="inline-block">
                                     {{ origin }}
                                 </span>
-                                <span class="inline-block" v-html="fullSlug" />
+                                <span class="inline-block" v-html="pageState.value.full_slug" />
                             </div>
                             <div class="text-[20px] text-[#1a0dab]">
                                 {{ pageForm.meta.title }}
@@ -53,11 +53,10 @@
 </template>
 
 <script setup lang="ts">
-import { PropType, computed } from 'vue';
+import { computed } from 'vue';
 import { MainBody, MainContent } from '@/layout';
-import { PageResource } from '@/types/resources';
 import { Card, FormField, FormFieldLabel, Input, Textarea } from '@/ui';
-import { pageForm } from '@/modules/forms';
+import { pageForm, pageState } from '@/entities';
 
 const origin = window.location.origin;
 

@@ -13,8 +13,8 @@
 <script setup lang="ts">
 import { Topbar } from '@/layout';
 import { Button } from '@/ui';
-import { blockForm, useBlockForm } from '@/modules/forms';
-import { blockState } from '@/modules/state';
+import { blockForm, useBlockForm } from '@/entities';
+import { blockState } from '@/entities';
 import { computed, watch } from 'vue';
 import { useRoute } from 'vue-router';
 

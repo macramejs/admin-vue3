@@ -2,14 +2,14 @@
     <MainBody>
         <MainContent>
             <TransitionSlideFade>
-                <div v-if="!pageForm.isBusyLoading">
+                <div v-if="!pageForm.isLoading">
                     <!-- <div class="grid grid-cols-2">
                         <pre>{{ pageForm }}</pre>
                         <pre>{{ pageForm.original.raw }}</pre>
                     </div> -->
                     <component
                         :is="getComponent"
-                        v-if="!pageForm.isBusyLoading"
+                        v-if="!pageForm.isLoading"
                     >
                         <ToggleSections />
                         <Sections
@@ -31,7 +31,7 @@ import { ref, computed } from 'vue';
 import { MainBody, MainContent, MainSidebar } from '@/layout';
 import { templates } from '@/modules/content/templates';
 import { Drawers, sections, Sections } from '@/modules/content';
-import { pageForm } from '@/modules/forms';
+import { pageForm } from '@/entities';
 import ToggleSections from './components/ToggleSections.vue';
 import { TransitionSlideFade } from '@/ui';
 

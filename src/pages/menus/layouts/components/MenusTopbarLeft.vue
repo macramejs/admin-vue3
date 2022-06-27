@@ -4,5 +4,5 @@
     </div>
 </template>
 <script lang="ts" setup>
-import { menuState } from '@/modules/state';
+import { menuState } from '@/entities';
 </script>

@@ -13,7 +13,7 @@ import { translatable } from '@macramejs/macrame-vue3';
 import { PropType } from 'vue';
 import SelectImage from '@/modules/media/SelectImage.vue';
 
-import { pageForm } from '@/modules/forms';
+import { pageForm } from '@/entities';
 
 const h1 = translatable<string>(
     locale,

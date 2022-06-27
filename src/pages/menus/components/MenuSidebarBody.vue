@@ -13,5 +13,5 @@
 
 <script lang="ts" setup>
 import { SidebarSecondarySection, SidebarSecondaryLink } from '@/layout';
-import { menusState } from '@/modules/state';
+import { menusState } from '@/entities';
 </script>

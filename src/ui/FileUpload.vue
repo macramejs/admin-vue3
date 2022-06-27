@@ -81,7 +81,7 @@ const emit = defineEmits(['success', 'failed']);
 
 const busy = ref(false);
 
-const saveFiles = files => {
+const saveFiles = (files: any) => {
     busy.value = true;
     const formData = new FormData(); // pass data as a form
     for (var x = 0; x < files.length; x++) {
@@ -130,7 +130,7 @@ const {
     isDragReject,
 } = useDropzone({
     onDrop,
-    accept: props.accept,
+    accept: props.accept as any,
     disabled: props.disabled,
     maxSize: maxSize.value,
     multiple: props.multiple,

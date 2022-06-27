@@ -120,7 +120,7 @@ export type LinkCollectionResource = CollectionResource<Link>;
 // Block
 export type Block = {
     id?: number;
-    content: { [key: string]: any };
+    content: { [key: string]: any }[];
     name: string;
 };
 

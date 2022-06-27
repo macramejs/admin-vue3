@@ -31,7 +31,7 @@
                     :href="pageLink"
                 >
                     {{
-                        links.value.find(option => option.link == menuItem.link)
+                        linksState.value.find(option => option.link == menuItem.link)
                             ?.title
                     }}
                     <div
@@ -138,8 +138,7 @@ import IconDraggable from '@/ui/Icons/custom/IconDraggable.vue';
 import { computed, PropType } from 'vue';
 import AddOrEditItemModal from './AddOrEditItemModal.vue';
 import MenuTree from './MenuTree.vue';
-import { deleteMenuItem } from '@/modules/api';
-import { menuState, links } from '@/modules/state';
+import { menuState, linksState, deleteMenuItem } from '@/entities';
 
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue';
 
@@ -159,7 +158,7 @@ const props = defineProps({
 });
 
 const pageLink = computed(() => {
-    let pageId = links.value
+    let pageId = linksState.value
         .find(option => option.link == props.menuItem.link)
         ?.link.split('.')
         .pop();

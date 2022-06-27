@@ -1,4 +1,4 @@
-import { NavItem, PartialResource } from './resources';
+import { PartialResource } from './resources';
 import { Form, RawTree } from '@macramejs/macrame-vue3';
 
 // Example

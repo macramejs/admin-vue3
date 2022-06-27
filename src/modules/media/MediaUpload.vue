@@ -6,7 +6,7 @@
 import { MediaCollection } from '@/types';
 import { FileUpload } from '@/ui';
 import { PropType } from 'vue';
-import { mediaIndex } from '@/modules/indexes';
+import { mediaIndex } from '@/entities';
 
 const emit = defineEmits(['uploaded']);
 

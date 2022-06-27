@@ -20,7 +20,7 @@ import { PropType, computed, onMounted, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { Main } from '@/layout';
 import { Tabs, Tab, Topbar } from '@/layout';
-// import { pageForm } from '@/modules/forms';
+import { pageForm } from '@/entities';
 import { PageTreeCollectionResource } from '@/types';
 
 const route = useRoute();

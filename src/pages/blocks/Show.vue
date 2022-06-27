@@ -13,7 +13,7 @@
 import { ref } from 'vue';
 import { MainBody, MainContent, MainSidebar } from '@/layout';
 import { Drawers, sections, Sections } from '@/modules/content';
-import { blockForm } from '@/modules/forms';
+import { blockForm } from '@/entities';
 
 // allow drawing all registered sections
 type DrawsSections = {

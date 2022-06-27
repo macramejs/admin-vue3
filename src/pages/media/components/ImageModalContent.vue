@@ -103,7 +103,7 @@
 import { ref, watch } from 'vue';
 import { FileUpload, Index } from '@/ui';
 import FileMenu from './FileMenu.vue';
-import { mediaIndex } from '@/modules/indexes';
+import { mediaIndex } from '@/entities';
 
 const emit = defineEmits(['update:modelValue']);
 

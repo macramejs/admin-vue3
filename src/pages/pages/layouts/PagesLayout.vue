@@ -26,7 +26,7 @@ import IconPage from '@/ui/Icons/IconPage.vue';
 import PagesTree from './../components/Tree/PagesTree.vue';
 import AddPageModal from './../components/AddPageModal.vue';
 
-import { blocksState, pageTree } from '@/modules/state';
+import { blocksState, pageTree } from '@/entities';
 import PagesHelp from './components/PagesHelp.vue';
 
 onBeforeMount(() => {

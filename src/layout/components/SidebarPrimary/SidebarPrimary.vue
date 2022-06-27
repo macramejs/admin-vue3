@@ -15,7 +15,7 @@
         <slot name="footer">
             <div class="mt-auto border-t border-gray-800">
                 <SidebarSection
-                    :title="authedUser?.name"
+                    :title="authedUser.value?.name"
                     :expanded="showSidebar"
                 >
                     <Logout :expanded="expanded || showSidebar" />
@@ -37,7 +37,7 @@ import { computed } from 'vue';
 import Header from './Header.vue';
 import Lock from './Lock.vue';
 import Logout from './Logout.vue';
-import { authedUser } from '@/modules/state';
+import { authedUser } from '@/entities';
 import SidebarSection from './SidebarSection.vue';
 
 const props = defineProps({

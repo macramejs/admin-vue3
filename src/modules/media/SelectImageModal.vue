@@ -37,7 +37,7 @@
 import IconAddMediaImage from '@/ui/Icons/IconAddMediaImage.vue';
 import { Modal } from '@/ui';
 import { PropType, ref, watch } from 'vue';
-import { mediaIndex } from '@/modules/indexes';
+import { mediaIndex } from '@/entities';
 import { MediaUpload } from '@/modules/media';
 import { Media } from '@/types/resources';
 

@@ -7,7 +7,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 import { MainBody, MainContent, MainSidebar } from '@/layout';
-import { usePartialForm } from '@/modules/forms';
+import { usePartialForm } from '@/entities';
 import { useRoute } from 'vue-router';
 import { templates } from './components/templates';
 const route = useRoute();

@@ -57,7 +57,7 @@
                 <span
                     class="text-lg cursor-pointer"
                     v-if="
-                        table.currentPage == table.getLastPage() &&
+                        table.currentPage == table.lastPage &&
                         table.currentPage > 2
                     "
                     @click="table.setPage(table.currentPage - 2)"
@@ -76,21 +76,21 @@
                 </span>
                 <span
                     class="text-lg cursor-pointer"
-                    v-if="table.currentPage < table.getLastPage()"
+                    v-if="table.currentPage < table.lastPage"
                     @click="table.setPage(table.currentPage + 1)"
                 >
                     {{ table.currentPage + 1 }}
                 </span>
                 <span
                     class="text-lg cursor-pointer"
-                    v-if="table.currentPage == 1 && table.getLastPage() > 2"
+                    v-if="table.currentPage == 1 && table.lastPage > 2"
                     @click="table.setPage(table.currentPage + 2)"
                 >
                     {{ table.currentPage + 2 }}
                 </span>
                 <span
                     class="text-lg cursor-pointer"
-                    v-if="table.currentPage < table.getLastPage() - 1"
+                    v-if="table.currentPage < table.lastPage - 1"
                 >
                     ...
                 </span>
@@ -98,7 +98,7 @@
             <Button
                 secondary
                 square
-                :disabled="!(table.currentPage < table.getLastPage())"
+                :disabled="!(table.currentPage < table.lastPage)"
                 @click="table.setPage(table.currentPage + 1)"
             >
                 <svg
@@ -118,8 +118,8 @@
                 secondary
                 square
                 class="relative"
-                @click="table.lastPage()"
-                :disabled="!(table.currentPage < table.getLastPage())"
+                @click="table.setLastPage()"
+                :disabled="!(table.currentPage < table.lastPage)"
             >
                 <svg
                     class="absolute fill-current right-1"

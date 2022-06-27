@@ -36,7 +36,7 @@ import {
 } from '@/layout';
 
 import { Main } from '@/layout';
-import { menusState } from '@/modules/state';
+import { menusState } from '@/entities';
 import IconList from '@/ui/Icons/IconList.vue';
 import MenusHelp from './components/MenusHelp.vue';
 import AddMenuModal from '../components/AddMenuModal.vue';

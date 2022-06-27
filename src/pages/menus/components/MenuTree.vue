@@ -18,7 +18,7 @@ import { Tree } from '@macramejs/macrame-vue3';
 import { Tree as BaseTree } from '@/ui';
 import MenuTreeItem from './MenuTreeItem.vue';
 
-const props = defineProps({
+defineProps({
     tree: {
         type: Object as PropType<Tree<MenuItem>>,
         required: true,

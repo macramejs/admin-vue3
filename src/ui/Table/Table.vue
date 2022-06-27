@@ -29,7 +29,7 @@
 </template>
 
 <script lang="ts" setup>
-import { Component } from '@macramejs/macrame';
+// import { Component } from '@macramejs/macrame';
 import { PropType } from 'vue';
 import { Index } from '@macramejs/macrame-vue3';
 import Th from './Th.vue';
@@ -45,7 +45,7 @@ defineProps({
         required: true,
     },
     schema: {
-        type: Array as PropType<Component[]>,
+        type: Array,
         required: false,
     },
 });

@@ -1,9 +1,8 @@
 import { useIndex, Index } from '@macramejs/macrame-vue3';
 import { Media } from '@/types/resources';
-import { loadMediaItem, loadMediaItems } from '../api/media';
 import { client } from '../api';
 export { default as MediaUpload } from './MediaUpload.vue';
-import { useMediaIndex } from '../indexes';
+import { useMediaIndex, loadMediaItem } from '@/entities';
 export type MediaIndex = Index<Media>;
 
 export const mediaIndex = useMediaIndex();

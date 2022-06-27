@@ -90,8 +90,8 @@
 import { ref, watch } from 'vue';
 import { Toggle } from '@/ui';
 import { Page } from '@/types';
-import { pageForm } from '@/modules/forms';
-import { pageState } from '@/modules/state';
+import { pageForm } from '@/entities';
+import { pageState } from '@/entities';
 import { DatePicker } from 'v-calendar';
 import 'v-calendar/dist/style.css';
 

@@ -13,9 +13,9 @@
 <script lang="ts" setup>
 import PagesTopbarRightLivetime from './PagesTopbarRightLivetime.vue';
 import { SelectLocale } from '@/modules/localize';
-import { pageForm } from '@/modules/forms';
+import { pageForm } from '@/entities';
 import { Button } from '@/ui';
-import { usePageTree } from '@/modules/state';
+import { usePageTree } from '@/entities';
 
 const save = async () => {
     await pageForm.value.submit();
