@@ -3,14 +3,14 @@
         <IconCopy class="w-4 h-4" />
     </slot>
     <Modal lg v-model:open="isOpen" :title="$t('pages.duplicate_page')">
-        <form @submit.prevent="form.submit()">
+        <form @submit.prevent="submit()">
             <div class="space-y-3">
                 <Input :label="$t('pages.new_page_name')" v-model="form.name" />
             </div>
             <input type="submit" class="hidden" />
         </form>
         <template v-slot:footer>
-            <Button @click="form.submit()">
+            <Button @click="submit()">
                 {{ $t('pages.duclicate') }}
             </Button>
         </template>
@@ -32,22 +32,11 @@ const props = defineProps({
     },
 });
 
-// TODO:
-// const form = useForm({
-//     route: `/admin/pages/${props.page.id}/duplicate`,
-//     data: {
-//         name: props.page.name,
-//     },
-//     method: 'post',
-//     onSuccess(response) {
-//         isOpen.value = false;
-//         form.reset();
+// TODO: @cbl
+const form = ref({
+    name: '',
+});
 
-//         // // Visit the recently created page, to refresh the Page/Show component
-//         // // when currently already on a page.
-//         Inertia.visit(`/admin/pages/${response.props.page.data.id}`, {
-//             only: ['page'],
-//         });
-//     },
-// });
+// TODO: @cbl
+const submit = () => {};
 </script>

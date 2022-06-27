@@ -64,7 +64,7 @@ watch(
     }
 );
 
-const selectImage = image => {
+const selectImage = (image: any) => {
     emit('update:modelValue', image);
     isOpen.value = false;
 };

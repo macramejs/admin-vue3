@@ -22,7 +22,7 @@ import { computed } from 'vue';
 const props = defineProps({
     title: {
         type: String,
-        required: true,
+        required: false,
     },
     to: {
         type: String,

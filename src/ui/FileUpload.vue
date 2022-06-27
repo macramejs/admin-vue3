@@ -11,9 +11,9 @@
                     !isDragAccept &&
                     fileRejections.length == 0,
             }"
-            v-bind="getRootProps()"
+            v-bind="(getRootProps() as any)"
         >
-            <input v-bind="getInputProps()" />
+            <input v-bind="(getInputProps() as any)" />
             <div class="flex flex-col items-center justify-center">
                 <div class="text-orange">
                     <IconAddMediaImage class="w-4 h-4" />
@@ -37,7 +37,7 @@
     </div>
     <div class="ml-[18px]" v-if="fileRejections.length > 0">
         <span
-            v-for="error in fileRejections[0].errors"
+            v-for="error in errors"
             class="inline-block mt-1 text-xs text-red-signal"
         >
             {{ error.message }}
@@ -111,7 +111,7 @@ const saveFiles = (files: any) => {
         });
 };
 
-function onDrop(acceptFiles, rejectReasons) {
+function onDrop(acceptFiles: any, rejectReasons: any) {
     if (rejectReasons.length == 0) {
         saveFiles(acceptFiles);
     }
@@ -135,5 +135,9 @@ const {
     maxSize: maxSize.value,
     multiple: props.multiple,
     maxFiles: props.maxFiles,
+});
+
+const errors = computed(() => {
+    return fileRejections.value[0].errors as any;
 });
 </script>

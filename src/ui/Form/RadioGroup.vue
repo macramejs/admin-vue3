@@ -74,7 +74,7 @@ export default defineComponent({
     },
 
     setup(props, { attrs }) {
-        const optionValue = (option) => {
+        const optionValue = (option: any) => {
             if (props.valueKey === null) {
                 return option;
             }

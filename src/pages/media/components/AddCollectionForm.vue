@@ -10,16 +10,9 @@
 </template>
 
 <script lang="ts" setup>
-import { useForm } from '@macramejs/macrame-vue3';
+import { ref } from 'vue';
 import { Input } from '@/ui';
-import { MediaCollection } from '@/types';
 
-const form = useForm<MediaCollection>({
-    route: '/admin/media',
-    data: { title: '' },
-    method: 'post',
-    onSuccess: request => {
-        form.reset();
-    },
-});
+// TODO @cbl
+const form = ref();
 </script>

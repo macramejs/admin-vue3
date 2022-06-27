@@ -3,8 +3,7 @@
         <AddCollectionForm class="mb-4" />
     </SidebarSecondarySection>
     <SidebarSecondarySection>
-        <SidebarLink
-            secondary
+        <SidebarSecondaryLink
             :active="!collection"
             class="flex-1 py-1 pr-4 cursor-pointer"
             to="/media"
@@ -14,25 +13,24 @@
                 {{ $t('media.all') }}
                 <span class="text-gray-300"> {{ mediaIndex.totalItems }}</span>
             </div>
-        </SidebarLink>
-        <SidebarLink
+        </SidebarSecondaryLink>
+        <SidebarSecondaryLink
             v-for="c in collections"
             :key="c.id"
-            secondary
             :active="c.id == collection?.id"
             class="flex-1 py-1 pr-4 cursor-pointer"
             :to="c.id == collection?.id ? `/media` : `/media/${c.id}`"
         >
             <div class="flex justify-between">
                 {{ c.title }}
-                <span class="text-gray-300"> {{ c.files_count }}</span>
+                <!-- <span class="text-gray-300"> {{ c.files_count }}</span> -->
             </div>
-        </SidebarLink>
+        </SidebarSecondaryLink>
     </SidebarSecondarySection>
 </template>
 
 <script lang="ts" setup>
-import { SidebarLink, SidebarSecondarySection } from '@/ui';
+import { SidebarSecondaryLink, SidebarSecondarySection } from '@/layout';
 import { PropType } from 'vue';
 import { MediaCollection } from '@/types';
 

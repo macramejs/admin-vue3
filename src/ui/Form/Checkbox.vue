@@ -39,6 +39,7 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue';
+import { v4 as uuid } from 'uuid';
 
 const props = defineProps({
     value: {
@@ -48,9 +49,11 @@ const props = defineProps({
     label: {
         type: String,
     },
+    // TODO:
+    // what is this used for @christian
     fieldId: {
         type: String,
-        required: true,
+        default: () => uuid(),
     },
     modelValue: {
         type: Array,

@@ -5,12 +5,14 @@
             <Checkbox
                 v-model="mediaIndex.filters.types.value"
                 :value="$t('media.images')"
+                field-id="1"
             >
                 {{ $t('media.images') }}
             </Checkbox>
             <Checkbox
                 v-model="mediaIndex.filters.types.value"
                 :value="$t('media.documents')"
+                field-id="2"
             >
                 {{ $t('media.documents') }}
             </Checkbox>
