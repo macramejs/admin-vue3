@@ -19,7 +19,7 @@ import BaseSection from './BaseSection.vue';
 import { Card, Select } from '@/ui';
 import DrawerBlock from '../drawers/DrawerBlock.vue';
 import { watch, reactive, computed } from 'vue';
-import { blocksState } from '@/modules/state';
+import { blocksState } from '@/entities';
 
 const blockOptions = computed(() => {
     return blocksState.value?.map(block => {

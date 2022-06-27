@@ -41,7 +41,7 @@ type IndexProps = {
 
 defineProps({
     table: {
-        type: Object as PropType<Index>,
+        type: Object as PropType<Index<any, any, any>>,
         required: true,
     },
     searchPlaceholder: {

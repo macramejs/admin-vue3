@@ -63,7 +63,7 @@ const emit = defineEmits(['update:modelValue']);
 interface Link {
     link: string;
     text: string;
-    new_tab: string;
+    new_tab: boolean;
 }
 
 const props = defineProps({

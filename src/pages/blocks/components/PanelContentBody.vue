@@ -5,11 +5,11 @@
 </template>
 
 <script lang="ts" setup>
-import { Sections, ContentBody } from '@/ui';
+import { ContentBody } from '@/ui';
 import { PropType } from 'vue';
-import { sections } from '@/modules/content';
+import { Sections, sections } from '@/modules/content';
 import { Block } from '@/types/resources';
-import { BlockContentForm } from '@/types';
+import { BlockForm } from '@/types';
 
 const props = defineProps({
     block: {
@@ -17,7 +17,7 @@ const props = defineProps({
         required: true,
     },
     form: {
-        type: Object as PropType<BlockContentForm>,
+        type: Object as PropType<BlockForm>,
         required: true,
     },
 });

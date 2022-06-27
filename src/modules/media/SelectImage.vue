@@ -56,6 +56,7 @@ import {
 
 import IconMoreHoriz from '@/ui/Icons/IconMoreHoriz.vue';
 import IconTrash from '@/ui/Icons/IconTrash.vue';
+import { Media } from '@/types';
 
 const emit = defineEmits(['update:modelValue']);
 
@@ -72,7 +73,7 @@ const props = defineProps({
 });
 
 const model = ref(props.modelValue);
-const selectedImage = ref(null);
+const selectedImage = ref<Media|null>(null);
 
 onBeforeMount(async () => {
     selectedImage.value = props.modelValue?.id

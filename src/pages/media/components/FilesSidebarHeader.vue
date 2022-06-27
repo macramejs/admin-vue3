@@ -7,7 +7,9 @@
 </template>
 
 <script lang="ts" setup>
-import { SidebarSecondaryHeader, ButtonRound, IconPlus } from '@/ui';
+import { SidebarSecondaryHeader } from '@/layout';
+import { ButtonRound } from '@/ui';
+import IconPlus from '@/ui/Icons/IconPlus.vue';
 
 const emit = defineEmits(['update:showForm']);
 
