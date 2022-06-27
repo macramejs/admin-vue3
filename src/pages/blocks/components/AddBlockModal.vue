@@ -21,17 +21,23 @@
 import { ref } from 'vue';
 import { Modal, Input, ButtonRound, Button } from '@/ui';
 import IconPlus from '@/ui/Icons/IconPlus.vue';
-import { useBlockForm } from '@/entities';
+import { blocksState, useBlockForm } from '@/entities';
 import { BlockForm } from '@/types';
+import { useRouter } from 'vue-router';
 
 const isOpen = ref<boolean>(false);
 
 const form: BlockForm = useBlockForm({});
 
+const router = useRouter();
+
 const submit = () => {
-    console.log('start');
-    form.submit().then(() => {
-        console.log('done');
+    form.submit().then((response) => {
+        blocksState.load();
+        
+        router.push(`/blocks/${response.data.data.id}`);
+
+        isOpen.value = false;
     });
 };
 

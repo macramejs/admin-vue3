@@ -2,6 +2,7 @@ import { useForm } from '@macramejs/macrame-vue3';
 import { loadBlock, updateOrCreateBlock } from './api';
 import { BlockForm, BlockFormData } from '@/types';
 import { Ref, ref } from 'vue';
+import { blocksState } from './blocks.state';
 
 export type UseBlockForm = (
     data: Partial<BlockFormData> & { id?: number | undefined }
@@ -18,11 +19,7 @@ const useBlockForm: UseBlockForm = ({
             content,
         },
         submit: data => updateOrCreateBlock(data, id),
-        load: async id => {
-            let response = await loadBlock(id as number);
-
-            return response;
-        },
+        load: id => loadBlock(id as number),
     });
 };
 

@@ -2,7 +2,7 @@
     <template v-if="!isLoading && isLoaded">
         <Topbar>
             <div class="font-semibold">{{ blockForm.name }}</div>
-            <Button @click="save()" :disabled="!blockForm.isDirty">
+            <Button @click="submit()" :disabled="!blockForm.isDirty">
                 save
             </Button>
         </Topbar>
@@ -35,8 +35,8 @@ const loadData = () => {
         blockForm.value = useBlockForm(block);
     });
 };
-const save = async () => {
-    await blockForm.value.submit();
+const submit =() => {
+    blockForm.value.submit();
 };
 
 watch(() => blockId.value, loadData, { immediate: true });
