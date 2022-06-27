@@ -56,14 +56,6 @@ const props = defineProps({
 
 const route = useRoute();
 
-const pageId = computed(() => {
-    return props.page.id;
-});
-
-const routePageId = computed(() => {
-    return route.params.page;
-});
-
 const isActive = computed(() => {
     if (props.page.id) {
         return `${props.page.id}` == (route.params.page as string);

@@ -1,8 +1,6 @@
-import { OrderItem, Page, PageResource, PageTreeResource } from '@/types';
-import { State, Tree, useOriginal, useTree } from '@macramejs/macrame-vue3';
-import { reactive, ref, watch } from 'vue';
+import { Page, PageTreeResource } from '@/types';
+import { Tree, useTree, useState } from '@macramejs/macrame-vue3';
 import { loadPage, loadPageTree, updatePageTree } from '../api';
-import { useState } from '@macramejs/macrame-vue3';
 
 export type UsePageTree = () => Tree<Page, PageTreeResource>;
 

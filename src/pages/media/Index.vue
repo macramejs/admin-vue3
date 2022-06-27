@@ -1,6 +1,4 @@
 <template>
-    <!-- <FilesTopbarLeft />
-            <FilesTopbarRight :collections="collections?.data || []" /> -->
     <Main>
         <FileDropzone></FileDropzone>
         <Topbar>
@@ -8,25 +6,18 @@
         </Topbar>
         <MainBody>
             <MainContent>
-                <!-- <FilesContent
-            :collections="collections?.data || []"
-            :collection="collection?.data"
-        /> -->
+                <FilesGrid />
             </MainContent>
             <MainSidebar v-model:open="isOpen">
                 <MainSidebarSection title="Filter"> </MainSidebarSection>
                 <MainSidebarSection title="Collections"> </MainSidebarSection>
-                <!-- <FilesSidebar
-            :collections="collections?.data || []"
-            :collection="collection?.data"
-        /> -->
             </MainSidebar>
         </MainBody>
     </Main>
 </template>
 
 <script lang="ts" setup>
-import { PropType, watch, ref } from 'vue';
+import { ref } from 'vue';
 
 import { Topbar } from '@/layout';
 import {
@@ -37,38 +28,11 @@ import {
     MainSidebarSection,
 } from '@/layout';
 import { mediaIndex } from '@/modules/media';
-import {
-    MediaCollectionCollectionResource,
-    MediaCollectionResource,
-} from '@/types';
+
 import FileDropzone from './components/FileDropzone.vue';
-// import FilesSidebar from './components/FilesSidebar.vue';
-// import FilesTopbarLeft from './components/FilesTopbarLeft.vue';
-// import FilesTopbarRight from './components/FilesTopbarRight.vue';
-// import FilesContent from './components/FilesContent.vue';
-// import FilesFilters from './components/FilesFilters.vue';
+import FilesGrid from './components/FilesGrid.vue';
 
-// const props = defineProps({
-//     collections: {
-//         type: Object as PropType<MediaCollectionCollectionResource>,
-//         requried: true,
-//     },
-//     collection: {
-//         type: Object as PropType<MediaCollectionResource>,
-//         requried: false,
-//     },
-// });
-
-// mediaIndex.filters.collection.update(props.collection?.data);
-
-// watch(
-//     props.collection,
-//     () => mediaIndex.filters.collection.update(props.collection?.data),
-//     { immediate: true }
-// );
-
-// // initially load files.
-// mediaIndex.loadItems();
+mediaIndex.load();
 
 const isOpen = ref(true);
 </script>
