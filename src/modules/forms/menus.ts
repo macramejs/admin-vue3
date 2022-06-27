@@ -1,7 +1,35 @@
 import { useForm } from '@macramejs/macrame-vue3';
-import { Menu, MenuItemForm, MenuItemFormData } from '@/types';
-import { updateOrCreateMenuItem } from '../api';
-import { menuItemTree } from '../state';
+import {
+    Menu,
+    MenuForm,
+    MenuFormData,
+    MenuItemForm,
+    MenuItemFormData,
+} from '@/types';
+import { updateOrCreateMenuItem, updateOrCreateMenu } from '../api';
+import { menuItemTree, menusState } from '../state';
+
+export type UseMenuForm = (
+    data: Partial<MenuFormData> & { id?: number }
+) => MenuForm;
+
+const useMenuForm: UseMenuForm = ({
+    title = '',
+    type = '',
+    id = undefined,
+}) => {
+    const form = useForm({
+        data: { title, type },
+        submit: data =>
+            updateOrCreateMenu(data, id).then(response => {
+                menusState.load();
+
+                return response;
+            }),
+    });
+
+    return form;
+};
 
 export type UseMenuItemForm = (
     menu: Menu,
@@ -25,4 +53,4 @@ const useMenuItemForm: UseMenuItemForm = (
     return form;
 };
 
-export { useMenuItemForm };
+export { useMenuItemForm, useMenuForm };

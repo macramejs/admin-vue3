@@ -51,6 +51,13 @@ export interface PageSlugFormData {
 }
 export type PageSlugForm = Form<PageSlugFormData>;
 
+// Menu
+export interface MenuFormData {
+    title: string;
+    type: string;
+}
+export type MenuForm = Form<MenuFormData>;
+
 // MenuItem
 export interface MenuItemFormData {
     title: string;

@@ -36,7 +36,7 @@
 <script lang="ts" setup>
 import IconAddMediaImage from '@/ui/Icons/IconAddMediaImage.vue';
 import { Modal } from '@/ui';
-import { PropType, ref } from 'vue';
+import { PropType, ref, watch } from 'vue';
 import { mediaIndex } from '@/modules/indexes';
 import { MediaUpload } from '@/modules/media';
 import { Media } from '@/types/resources';
@@ -55,7 +55,14 @@ const props = defineProps({
     },
 });
 
-mediaIndex.load();
+watch(
+    () => isOpen.value,
+    open => {
+        if (open) {
+            mediaIndex.load();
+        }
+    }
+);
 
 const selectImage = image => {
     emit('update:modelValue', image);

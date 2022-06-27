@@ -19,17 +19,18 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue';
+import { onBeforeMount, onMounted } from 'vue';
 import { SidebarSecondary, SidebarSecondaryHeader } from '@/layout';
 import { Main } from '@/layout';
 import IconPage from '@/ui/Icons/IconPage.vue';
 import PagesTree from './../components/Tree/PagesTree.vue';
 import AddPageModal from './../components/AddPageModal.vue';
 
-import { pageTree } from '@/modules/state';
+import { blocksState, pageTree } from '@/modules/state';
 import PagesHelp from './components/PagesHelp.vue';
 
-onMounted(() => {
+onBeforeMount(() => {
     pageTree.load();
+    blocksState.load();
 });
 </script>

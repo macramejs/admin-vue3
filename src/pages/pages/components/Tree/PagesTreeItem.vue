@@ -20,8 +20,9 @@
         <div
             class="w-2 h-2 mr-2 rounded-full"
             :class="{
-                ' bg-green': page.is_live,
-                ' bg-red': !page.is_live,
+                ' bg-green': page.has_been_published, // live
+                ' bg-orange': page.is_live && !page.has_been_published, // scheduled
+                ' bg-red': !page.is_live && !page.publish_at, // not live && not scheduled
             }"
             :title="page.is_live ? $t('pages.online') : $t('pages.offline')"
         ></div>
@@ -54,14 +55,6 @@ const props = defineProps({
 });
 
 const route = useRoute();
-
-const pageId = computed(() => {
-    return props.page.id;
-});
-
-const routePageId = computed(() => {
-    return route.params.page;
-});
 
 const isActive = computed(() => {
     if (props.page.id) {

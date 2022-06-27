@@ -8,6 +8,7 @@
                 <template v-slot:help>
                     <MenusHelp />
                 </template>
+                <AddMenuModal />
             </SidebarSecondaryHeader>
         </template>
         <SidebarSecondarySection>
@@ -38,9 +39,9 @@ import { Main } from '@/layout';
 import { menusState } from '@/modules/state';
 import IconList from '@/ui/Icons/IconList.vue';
 import MenusHelp from './components/MenusHelp.vue';
+import AddMenuModal from '../components/AddMenuModal.vue';
 
 onMounted(() => {
-    // TODO:
     menusState.load();
 });
 </script>

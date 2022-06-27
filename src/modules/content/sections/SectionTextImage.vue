@@ -7,16 +7,20 @@
             <div class="grid grid-cols-2 gap-5">
                 <div class="col-span-1">
                     <FormFieldLabel> Text </FormFieldLabel>
-                    <Textarea v-model="model.text" label="foo" />
+                    <FormGroup>
+                        <Textarea v-model="model.text" label="foo" />
+                    </FormGroup>
                 </div>
 
                 <div class="col-span-1">
                     <FormFieldLabel> Bild </FormFieldLabel>
-                    <SelectImage v-model="model.image" />
-                    <div v-if="model.image?.id">
-                        <Input v-model="title" label="title" />
-                        <Input v-model="alt" label="alt" />
-                    </div>
+                    <FormGroup>
+                        <SelectImage v-model="model.image" />
+                        <template v-if="model.image?.id">
+                            <Input v-model="title" label="title" />
+                            <Input v-model="alt" label="alt" />
+                        </template>
+                    </FormGroup>
                 </div>
             </div>
         </Card>
@@ -30,6 +34,7 @@ import { translatable } from '@macramejs/macrame-vue3';
 import { locale } from '@/modules/localize';
 import DrawerTextImage from './../drawers/DrawerTextImage.vue';
 import SelectImage from '@/modules/media/SelectImage.vue';
+import FormGroup from '@/ui/Form/FormGroup.vue';
 const emit = defineEmits(['update:modelValue']);
 
 const props = defineProps({
