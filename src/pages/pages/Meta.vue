@@ -10,7 +10,7 @@
                         <FormField no-label>
                             <Input
                                 class="w-full"
-                                label="Title"
+                                :label="$t('pages.title')"
                                 v-model="pageForm.meta.title"
                             />
                         </FormField>
@@ -19,7 +19,7 @@
                                 $t('pages.description')
                             }}</FormFieldLabel>
                             <Textarea
-                                placeholder="Description"
+                                :placeholder="$t('pages.description')"
                                 v-model="pageForm.meta.description"
                             />
                         </FormField>

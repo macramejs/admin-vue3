@@ -1,7 +1,7 @@
 <template>
     <SidebarSecondary>
         <template v-slot:header>
-            <SidebarSecondaryHeader title="Seiten">
+            <SidebarSecondaryHeader :title="$t('pages.pages')">
                 <template v-slot:icon>
                     <IconPage class="w-5 h-5" />
                 </template>

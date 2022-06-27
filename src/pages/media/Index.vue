@@ -4,7 +4,7 @@
     <Main>
         <FileDropzone></FileDropzone>
         <Topbar>
-            <div class="font-semibold">Medien</div>
+            <div class="font-semibold">{{ $t('media.media') }}</div>
         </Topbar>
         <MainBody>
             <MainContent>
@@ -14,8 +14,10 @@
         /> -->
             </MainContent>
             <MainSidebar v-model:open="isOpen">
-                <MainSidebarSection title="Filter"> </MainSidebarSection>
-                <MainSidebarSection title="Collections"> </MainSidebarSection>
+                <MainSidebarSection :title="$t('media.filter')">
+                </MainSidebarSection>
+                <MainSidebarSection :title="$t('media.collections')">
+                </MainSidebarSection>
                 <!-- <FilesSidebar
             :collections="collections?.data || []"
             :collection="collection?.data"

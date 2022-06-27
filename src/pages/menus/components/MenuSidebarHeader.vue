@@ -1,5 +1,5 @@
 <template>
-    <SidebarSecondaryHeader title="Navigationen">
+    <SidebarSecondaryHeader :title="$t('menus.navigations')">
         <!-- // -->
     </SidebarSecondaryHeader>
 </template>

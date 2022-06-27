@@ -1,8 +1,8 @@
 <template>
-    <div>
-        <h2 class="pb-6 text-lg font-bold">{{ $t('pages.pages') }}</h2>
+    <div class="min-w-[265px]">
+        <h2 class="pb-6 text-lg font-bold">{{ $t('blocks.blocks') }}</h2>
         <p>
-            {{ $t('pages.help_text') }}
+            {{ $t('blocks.help_text') }}
         </p>
         <div class="flex justify-center pt-12">
             <svg
@@ -273,6 +273,4 @@
     </div>
 </template>
 
-<script lang="ts" setup>
-//
-</script>
+<script lang="ts" setup></script>

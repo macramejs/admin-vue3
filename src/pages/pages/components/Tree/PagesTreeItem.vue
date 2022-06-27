@@ -23,7 +23,7 @@
                 ' bg-green': page.is_live,
                 ' bg-red': !page.is_live,
             }"
-            :title="page.is_live ? 'online' : 'offline'"
+            :title="page.is_live ? $t('pages.online') : $t('pages.offline')"
         ></div>
         <PageContextMenu :page="page" />
 

@@ -1,12 +1,12 @@
 <template>
     <SidebarSecondary>
         <template v-slot:header>
-            <SidebarSecondaryHeader title="Menus">
+            <SidebarSecondaryHeader :title="$t('menus.menus')">
                 <template v-slot:icon>
                     <IconList class="w-5 h-5" />
                 </template>
                 <template v-slot:help>
-                    <!-- TODO -->
+                    <MenusHelp />
                 </template>
             </SidebarSecondaryHeader>
         </template>
@@ -37,6 +37,7 @@ import {
 import { Main } from '@/layout';
 import { menusState } from '@/modules/state';
 import IconList from '@/ui/Icons/IconList.vue';
+import MenusHelp from './components/MenusHelp.vue';
 
 onMounted(() => {
     // TODO:

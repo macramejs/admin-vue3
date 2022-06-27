@@ -1,9 +1,12 @@
 <template>
     <SidebarSecondary>
         <template v-slot:header>
-            <SidebarSecondaryHeader title="Bereiche">
+            <SidebarSecondaryHeader :title="$t('partials.partials')">
                 <template v-slot:icon>
                     <IconReportColumns class="w-5 h-5" />
+                </template>
+                <template v-slot:help>
+                    <PartialsHelp />
                 </template>
             </SidebarSecondaryHeader>
         </template>
@@ -29,5 +32,6 @@ import SidebarSecondaryHeader from '@/layout/components/SidebarSecondary/Sidebar
 import SidebarSecondarySection from '@/layout/components/SidebarSecondary/SidebarSecondarySection.vue';
 import Main from '@/layout/components/Main.vue';
 import IconReportColumns from '@/ui/Icons/IconReportColumns.vue';
+import PartialsHelp from './components/PartialsHelp.vue';
 import { templates } from './../components/templates';
 </script>

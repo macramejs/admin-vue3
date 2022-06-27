@@ -1,6 +1,6 @@
 <template>
     <Topbar>
-        <div class="font-semibold">Partials</div>
+        <div class="font-semibold">{{ $t('partials.partials') }}</div>
     </Topbar>
     <router-view />
 </template>
@@ -20,12 +20,11 @@ const pageId = computed(() => {
 watch(
     () => pageId.value,
     id => {
-        console.log(id)
+        console.log(id);
         // pageForm.load(id);
     },
     {
         immediate: true,
     }
 );
-
 </script>

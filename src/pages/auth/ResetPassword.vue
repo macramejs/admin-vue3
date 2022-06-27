@@ -7,7 +7,7 @@
                 type="email"
                 autocomplete="username"
                 v-model="form.email"
-                label="TODO"
+                :label="$t('auth.reset_password_username')"
                 readonly
             />
             <Input
@@ -15,17 +15,17 @@
                 type="password"
                 autocomplete="new-password"
                 v-model="form.password"
-                label="TODO"
+                :label="$t('auth.reset_password_password')"
             />
             <Input
                 required
                 type="password"
                 autocomplete="new-password"
                 v-model="form.password_confirmation"
-                label="TODO"
+                :label="$t('auth.reset_password_confirmation')"
             />
             <div class="flex justify-center mt-5">
-                <Button> TODO </Button>
+                <Button> {{ $t('auth.reset_password_button') }} </Button>
             </div>
         </form>
     </GuestLayout>

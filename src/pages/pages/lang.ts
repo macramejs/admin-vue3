@@ -3,6 +3,7 @@ export const messages = {
         pages: {
             pages: 'Seiten',
             blocks: 'Blöcke',
+            title: 'Titel',
             meta_information: 'Meta Informationen',
             description: 'Beschreibung',
             preview: 'Vorschau',
@@ -17,6 +18,9 @@ export const messages = {
             new_page_name: 'Neuer Seiten Name',
             edit_slug: 'Slug bearbeiten',
             show_all: 'Alle zeigen',
+            name: 'Name',
+            template: 'Template',
+            slug: 'Slug',
             collapse_all: 'Alle einklappen',
             sub_page: 'Unterseite',
             delete: 'Löschen',
@@ -24,12 +28,17 @@ export const messages = {
             settings: 'Einstellungen',
             versions: 'Versionen',
             planned: 'geplant',
+            offline: 'offline',
+            online: 'online',
+            help_text:
+                'Seiten sind die einzelnen per URL aufrufbaren Seiten der Website. Eine Seite basiert auf einem Template und wird aus einem Pool von frei kombinierbaren Content-Sektionen aufgebaut. Eine Seite verfügt immer über einen Slug, der Teil der URL ist. Seiten können hierarchisch verschachtelt werden, sodass sich die Slugs der verschachtelten Seiten entsprechend zur URL zusammensetzen.',
         },
     },
     en: {
         pages: {
             pages: 'Pages',
             blocks: 'Blocks',
+            title: 'Title',
             meta_information: 'Meta Informations',
             description: 'Description',
             preview: 'Preview',
@@ -42,7 +51,11 @@ export const messages = {
             duplicate: 'Duplicate',
             duplicate_page: 'Duplicate Page',
             new_page_name: 'New Page Name',
+            show_all: 'Show all',
             edit_slug: 'Edit Slug',
+            name: 'Name',
+            template: 'Template',
+            slug: 'Slug',
             collapse_all: 'Collapse all',
             sub_page: 'Sub Page',
             delete: 'Delete',
@@ -50,6 +63,10 @@ export const messages = {
             settings: 'Settings',
             versions: 'Versions',
             planned: 'planned',
+            offline: 'offline',
+            online: 'online',
+            help_text:
+                'Pages are the individual pages of the website that can be called up via URL. A page is based on a template and is built from a pool of freely combinable content sections. A page always has a slug that is part of the URL. Pages can be nested hierarchically, so that the slugs of the nested pages are composed according to the URL.',
         },
     },
 };
