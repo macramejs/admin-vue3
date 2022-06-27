@@ -7,14 +7,14 @@
     <Modal lg v-model:open="isOpen" :title="$t('pages.new_page')">
         <form @submit.prevent="submit">
             <FormGroup>
-                <Input label="Name" v-model="form.name" />
+                <Input :label="$t('pages.name')" v-model="form.name" />
                 <Input
-                    label="Slug"
+                    :label="$t('pages.slug')"
                     :modelValue="form.slug"
                     @update:modelValue="updateSlug"
                 />
                 <Select
-                    label="Template"
+                    :label="$t('pages.template')"
                     :options="templateOptions"
                     v-model="form.template"
                 />

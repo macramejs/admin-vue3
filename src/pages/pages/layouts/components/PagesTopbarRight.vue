@@ -5,7 +5,9 @@
         <div class="flex items-center space-x-2">
             <SelectLocale />
         </div>
-        <Button @click="save()" :disabled="!pageForm.isDirty"> save </Button>
+        <Button @click="save()" :disabled="!pageForm.isDirty">
+            {{ $t('pages.save') }}
+        </Button>
     </div>
 </template>
 <script lang="ts" setup>

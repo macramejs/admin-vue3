@@ -10,14 +10,14 @@
         </Button>
     </slot>
     <Modal :open="isOpen" @close="isOpen = false" v-bind="$attrs" md>
-        <h2>Add Navigation Item</h2>
+        <h2>{{ $t('menus.add_item') }}</h2>
         <div>
             <FormField>
-                <Input label="Title" v-model="form.title" />
+                <Input :label="$t('menus.title')" v-model="form.title" />
             </FormField>
             <FormField>
                 <Select
-                    label="Link"
+                    :label="$t('menus.link')"
                     v-model="form.link"
                     :options="links.value"
                     label-key="title"
@@ -25,7 +25,7 @@
                 />
             </FormField>
         </div>
-        <Button @click="submit"> Save </Button>
+        <Button @click="submit"> {{ $t('menus.save') }} </Button>
     </Modal>
 </template>
 

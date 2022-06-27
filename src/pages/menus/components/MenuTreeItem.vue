@@ -91,7 +91,7 @@
                         >
                             <template #button="{ open }">
                                 <ContextMenuItem @click="open">
-                                    Edit
+                                    {{ $t('menus.edit') }}
                                 </ContextMenuItem>
                             </template>
                         </AddOrEditItemModal>
@@ -105,7 +105,7 @@
                             <template #icon>
                                 <IconTrash class="origin-left scale-75" />
                             </template>
-                            <span>Delete</span>
+                            <span>{{ $t('menus.delete') }}</span>
                         </ContextMenuItem>
                     </ContextMenu>
                 </div>

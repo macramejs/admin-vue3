@@ -1,12 +1,14 @@
 <template>
     <div class="flex items-center space-x-2">
         <span class="text-xs uppercase">
-            <template v-if="!pageForm.is_live">offline</template>
+            <template v-if="!pageForm.is_live">{{
+                $t('pages.offline')
+            }}</template>
             <template
                 v-else-if="
                     !pageForm.publish_at || pageState.value.has_been_published
                 "
-                >online</template
+                >{{ $t('pages.online') }}</template
             >
             <template v-else>{{ $t('pages.planned') }}</template>
         </span>

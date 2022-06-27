@@ -36,7 +36,7 @@
             leave-to-class="opacity-0"
         >
             <div
-                class="flex items-center h-6 text-sm text-white uppercase"
+                class="flex items-center h-6 text-sm text-white uppercase delay-100"
                 v-if="expanded"
             >
                 <span v-if="modelValue"> locked </span>

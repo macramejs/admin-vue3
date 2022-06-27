@@ -5,13 +5,13 @@
                 autofocus
                 required
                 class=""
-                label="TODO"
+                :label="$t('auth.forgot_password_input')"
                 type="email"
                 autocomplete="username"
                 v-model="form.email"
             />
             <div class="flex justify-center mt-5">
-                <Button> TODO </Button>
+                <Button> {{ $t('auth.forgot_password_button') }} </Button>
             </div>
         </form>
     </GuestLayout>

@@ -24,7 +24,7 @@
                 ' bg-orange': page.is_live && !page.has_been_published, // scheduled
                 ' bg-red': !page.is_live && !page.publish_at, // not live && not scheduled
             }"
-            :title="page.is_live ? 'online' : 'offline'"
+            :title="page.is_live ? $t('pages.online') : $t('pages.offline')"
         ></div>
         <PageContextMenu :page="page" />
 

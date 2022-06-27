@@ -1,11 +1,8 @@
 <template>
-    <div>
-        <h2 class="pb-6 text-lg font-bold">Menus</h2>
+    <div class="min-w-[265px]">
+        <h2 class="pb-6 text-lg font-bold">{{ $t('menus.menus') }}</h2>
         <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-            consequatur aut est. Tenetur nostrum saepe minima quisquam officiis,
-            vitae ut sit provident architecto accusantium? Saepe fugit sapiente
-            aspernatur inventore in!
+            {{ $t('menus.help_text') }}
         </p>
         <div class="flex justify-center pt-12">
             <svg

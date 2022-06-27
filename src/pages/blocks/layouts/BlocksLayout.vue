@@ -5,6 +5,9 @@
                 <template v-slot:icon>
                     <IconReportColumns class="w-5 h-5" />
                 </template>
+                <template v-slot:help>
+                    <BlocksHelp />
+                </template>
                 <AddBlockModal />
             </SidebarSecondaryHeader>
         </template>
@@ -33,6 +36,7 @@ import {
 import Main from '@/layout/components/Main.vue';
 import IconReportColumns from '@/ui/Icons/IconReportColumns.vue';
 import AddBlockModal from '../components/AddBlockModal.vue';
+import BlocksHelp from './components/BlocksHelp.vue';
 import { onMounted } from 'vue';
 import { blocksState } from '@/modules/state';
 

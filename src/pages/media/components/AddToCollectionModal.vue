@@ -7,7 +7,7 @@
     <Modal lg v-model:open="isOpen" :title="$t('media.add_to_collection')">
         <div class="space-y-3">
             <Select
-                label="Collection"
+                :label="$t('media.collection')"
                 :options="collectionOptions"
                 v-model="collection"
             />

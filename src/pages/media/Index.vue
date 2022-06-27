@@ -2,15 +2,17 @@
     <Main>
         <FileDropzone></FileDropzone>
         <Topbar>
-            <div class="font-semibold">Medien</div>
+            <div class="font-semibold">{{ $t('media.media') }}</div>
         </Topbar>
         <MainBody>
             <MainContent>
                 <FilesGrid />
             </MainContent>
             <MainSidebar v-model:open="isOpen">
-                <MainSidebarSection title="Filter"> </MainSidebarSection>
-                <MainSidebarSection title="Collections"> </MainSidebarSection>
+                <MainSidebarSection :title="$t('media.filter')">
+                </MainSidebarSection>
+                <MainSidebarSection :title="$t('media.collections')">
+                </MainSidebarSection>
             </MainSidebar>
         </MainBody>
     </Main>
