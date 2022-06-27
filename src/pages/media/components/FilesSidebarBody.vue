@@ -11,7 +11,7 @@
         >
             <div class="flex justify-between">
                 {{ $t('media.all') }}
-                <span class="text-gray-300"> {{ mediaIndex.totalItems }}</span>
+                <!-- <span class="text-gray-300"> {{ mediaIndex.length }}</span> -->
             </div>
         </SidebarSecondaryLink>
         <SidebarSecondaryLink
@@ -34,7 +34,7 @@ import { SidebarSecondaryLink, SidebarSecondarySection } from '@/layout';
 import { PropType } from 'vue';
 import { MediaCollection } from '@/types';
 
-import { mediaIndex } from '@/modules/media';
+import { mediaIndex } from '@/entities';
 import AddCollectionForm from './AddCollectionForm.vue';
 
 const props = defineProps({

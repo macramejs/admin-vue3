@@ -21,7 +21,7 @@
 </template>
 <script lang="ts" setup>
 import { Input, Checkbox } from '@/ui';
-import { mediaIndex } from '@/modules/media';
+import { mediaIndex } from '@/entities';
 
 const props = defineProps();
 </script>

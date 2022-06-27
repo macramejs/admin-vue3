@@ -55,13 +55,15 @@ export type MediaCollectionIndexResource = IndexResource<Media>;
 // MediaCollection
 
 export type MediaCollection = {
-    id?: number;
+    id: number;
     title: string;
     key?: string;
 };
 export type MediaCollectionResource = Resource<MediaCollection>;
 export type MediaCollectionCollectionResource =
     CollectionResource<MediaCollection>;
+export type MediaCollectionCollectionIndexResource =
+    IndexResource<MediaCollection>;
 
 // Page
 

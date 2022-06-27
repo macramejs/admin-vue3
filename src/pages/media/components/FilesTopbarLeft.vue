@@ -18,5 +18,5 @@
 
 <script lang="ts" setup>
 import { Badge } from '@/ui';
-import { mediaIndex } from '@/modules/media';
+import { mediaIndex } from '@/entities';
 </script>

@@ -58,7 +58,7 @@ import { PropType } from 'vue';
 import { ContextButton } from '@/ui';
 import SelectionMenu from './SelectionMenu.vue';
 import { selection, useSelection } from '../modules';
-import { mediaIndex } from '@/modules/media';
+import { mediaIndex } from '@/entities';
 import { MediaCollection } from '@/types/resources';
 </script>
 

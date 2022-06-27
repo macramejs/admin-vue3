@@ -1,6 +1,5 @@
 import { Media, MediaCollection } from '@/types';
 import { reactive } from 'vue';
-import { mediaIndex } from '@/modules/media';
 
 export interface Selection {
     files: Media[];

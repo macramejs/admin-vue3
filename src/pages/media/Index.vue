@@ -10,8 +10,10 @@
             </MainContent>
             <MainSidebar v-model:open="isOpen">
                 <MainSidebarSection :title="$t('media.filter')">
+                    s
                 </MainSidebarSection>
                 <MainSidebarSection :title="$t('media.collections')">
+                    <pre>{{ mediaCollectionIndex }}</pre>
                 </MainSidebarSection>
             </MainSidebar>
         </MainBody>
@@ -29,12 +31,13 @@ import {
     MainSidebar,
     MainSidebarSection,
 } from '@/layout';
-import { mediaIndex } from '@/modules/media';
+import { mediaIndex, mediaCollectionIndex } from '@/entities';
 
 import FileDropzone from './components/FileDropzone.vue';
 import FilesGrid from './components/FilesGrid.vue';
 
 mediaIndex.load();
+mediaCollectionIndex.load();
 
 const isOpen = ref(true);
 </script>
