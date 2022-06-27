@@ -37,10 +37,10 @@ import { Page } from '@/types/resources';
 import { slugify } from '@/modules/helpers';
 
 // FORM
-import { usePageForm } from '@/modules/forms';
+import { usePageForm } from '@/entities';
 import { PageForm } from '@/types';
 import { useRouter } from 'vue-router';
-import { pageTree } from '@/modules/state';
+import { pageTree } from '@/entities';
 
 const props = defineProps({
     parent: {

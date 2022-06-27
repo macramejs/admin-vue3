@@ -15,22 +15,22 @@ import { useRoute } from 'vue-router';
 import MenusTopbarRight from './components/MenusTopbarRight.vue';
 import MenusTopbarLeft from './components/MenusTopbarLeft.vue';
 import { Topbar } from '@/layout';
-import { menuState, useMenuItemTree, menuItemTree } from '@/modules/state';
-import { updateMenuItemTree } from '@/modules/api';
+import { menuState, useMenuItemTree, menuItemTree, linksState, updateMenuItemTree } from '@/entities';
 
 const route = useRoute();
 
 const menuId = computed(() => parseInt(route.params.menu as string));
 
 const isLoading = computed(() => {
-    return menuState.isLoading;
+    return menuState.isLoading && linksState.isLoading;
 });
 
 const isLoaded = computed(() => {
-    return menuState.isLoaded && menuItemTree.value;
+    return menuState.isLoaded && menuItemTree.value && linksState.isLoaded;
 });
 
 const loadData = () => {
+    linksState.load();
     menuState.load(menuId.value).then(menu => {
         menuItemTree.value = useMenuItemTree(menu);
 

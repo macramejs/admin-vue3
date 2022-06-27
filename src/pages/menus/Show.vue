@@ -16,9 +16,8 @@ import { useOriginal } from '@macramejs/macrame-vue3';
 import MenuTree from './components/MenuTree.vue';
 import AddOrEditItemModal from './components/AddOrEditItemModal.vue';
 import { MainBody, MainContent, MainSidebar } from '@/layout';
-import { updateMenuItemTree } from '@/modules/api';
 import { saveQueue } from '@/modules/save-queue';
-import { menuItemTree, menuState } from '@/modules/state';
+import { menuItemTree, menuState, updateMenuItemTree } from '@/entities';
 
 const isOpen = ref<boolean>(false);
 </script>

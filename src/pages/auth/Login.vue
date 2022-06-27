@@ -41,7 +41,7 @@
 <script setup lang="ts">
 import { GuestLayout } from '@/layout';
 import { CheckboxSwitch, Button, Input, Link } from '@/ui';
-import { useLoginForm } from '@/modules/forms';
+import { useLoginForm } from '@/entities';
 import { LoginForm } from '@/types/forms';
 
 const form: LoginForm = useLoginForm({});

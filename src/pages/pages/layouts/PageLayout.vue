@@ -26,8 +26,8 @@ import { useRoute } from 'vue-router';
 import PagesTopbarRight from './components/PagesTopbarRight.vue';
 import PagesTopbarLeft from './components/PagesTopbarLeft.vue';
 import { Tabs, Tab, Topbar } from '@/layout';
-import { usePageForm, pageForm } from '@/modules/forms';
-import { pageState } from '@/modules/state';
+import { usePageForm, pageForm } from '@/entities';
+import { pageState } from '@/entities';
 
 const route = useRoute();
 

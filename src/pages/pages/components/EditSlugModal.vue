@@ -26,15 +26,7 @@ import { ref, PropType } from 'vue';
 import { Modal, Input, Button } from '@/ui';
 import IconEditPencil from '@/ui/Icons/IconEditPencil.vue';
 import { slugify } from '@/modules/helpers';
-import { usePageSlugForm } from '@/modules/forms';
 import { Page } from '@/types';
-
-// const form = usePageSlugForm(
-//     {
-//         slug: props.page.slug,
-//     },
-//     props.page?.id
-// );
 
 const isOpen = ref<boolean>(false);
 </script>

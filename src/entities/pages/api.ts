@@ -26,7 +26,7 @@ const updateOrCreatePage: UpdateOrCreate<PageFormData> = (
     return id ? client.put(`pages/${id}`, data) : client.post(`pages`, data);
 };
 
-const deletePage: Delete = pageId => client.delete(`pages/${pageId}`);
+const deletePage: Delete = id => client.delete(`pages/${id}`);
 
 // page tree
 

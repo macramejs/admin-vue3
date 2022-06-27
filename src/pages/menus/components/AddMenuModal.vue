@@ -25,7 +25,7 @@ import { Modal, Input, ButtonRound, Button, FormGroup } from '@/ui';
 import IconPlus from '@/ui/Icons/IconPlus.vue';
 
 // FORM
-import { useMenuForm } from '@/modules/forms';
+import { useMenuForm } from '@/entities';
 import { MenuForm } from '@/types';
 import { useRouter } from 'vue-router';
 

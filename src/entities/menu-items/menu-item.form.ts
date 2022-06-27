@@ -1,4 +1,4 @@
-import { menuItemTree } from '@/modules/state';
+import { menuItemTree } from '@/entities';
 import { Menu, MenuItemForm, MenuItemFormData } from '@/types';
 import { useForm } from '@macramejs/macrame-vue3';
 import { updateOrCreateMenuItem } from './api';

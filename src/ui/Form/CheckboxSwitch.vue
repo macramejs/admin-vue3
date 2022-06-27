@@ -66,7 +66,7 @@ export default defineComponent({
         const size_ = getSize(props, {});
         const variant_ = getVariant(props, {});
 
-        const update = value => {
+        const update = (value: any) => {
             if (disabled) {
                 return;
             }

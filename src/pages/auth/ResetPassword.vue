@@ -33,9 +33,9 @@
 
 <script lang="ts" setup>
 import { GuestLayout } from '@/layout';
-import { useResetForm } from '@/modules/forms';
+import { useResetPasswordForm } from '@/entities';
 import { ResetForm } from '@/types';
 import { Input, Button } from '@/ui';
 
-const form: ResetForm = useResetForm({});
+const form: ResetForm = useResetPasswordForm({});
 </script>

@@ -34,7 +34,7 @@ import Main from '@/layout/components/Main.vue';
 import IconReportColumns from '@/ui/Icons/IconReportColumns.vue';
 import AddBlockModal from '../components/AddBlockModal.vue';
 import { onMounted } from 'vue';
-import { blocksState } from '@/modules/state';
+import { blocksState } from '@/entities';
 
 onMounted(() => {
     blocksState.load();

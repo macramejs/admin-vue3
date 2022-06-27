@@ -1,15 +1,6 @@
 import { useForm } from '@macramejs/macrame-vue3';
-import {
-    LoginFormData,
-    LoginForm,
-    ForgotFormData,
-    ForgotForm,
-    ResetFormData,
-    ResetForm,
-} from '@/types/forms';
-import { useRouter } from 'vue-router';
-import { login, loadUser, forgot, resetPassword } from './api';
-import { isAuthenticated, authedUser } from '@/modules/state';
+import { ForgotFormData, ForgotForm } from '@/types/forms';
+import { forgot } from './api';
 
 export type UseForgotPasswordForm = (
     data: Partial<ForgotFormData>

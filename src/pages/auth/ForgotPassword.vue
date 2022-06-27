@@ -20,7 +20,7 @@
 <script lang="ts" setup>
 import { Input, Button } from '@/ui';
 import { ForgotForm } from '@/types';
-import { useForgotForm } from '@/modules/forms';
+import { useForgotPasswordForm } from '@/entities';
 
-const form: ForgotForm = useForgotForm({});
+const form: ForgotForm = useForgotPasswordForm({});
 </script>

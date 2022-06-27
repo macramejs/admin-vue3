@@ -1,5 +1,4 @@
-import { loadUser } from '@/modules/api';
-import { isAuthenticated, authedUser } from '@/modules/state';
+import { loadUser, isAuthenticated, authedUser } from '@/entities';
 import { NavigationGuardNext, Router } from 'vue-router';
 
 interface MiddlewareParams {
@@ -11,36 +10,37 @@ const auth = ({ next, router }: MiddlewareParams) => {
     if (isAuthenticated.value) {
         return next();
     }
-    loadUser()
+
+    return authedUser
+        .load()
         .then(response => {
             isAuthenticated.value = true;
-            authedUser.value = response;
+
             return next();
         })
-        .catch(error => {
+        .catch(e => {
             isAuthenticated.value = false;
-            return router.push('/login');
+            router.push('/login');
         });
-
-    return next();
 };
 
 const guest = ({ next, router }: MiddlewareParams) => {
-    if (isAuthenticated.value) {
-        loadUser()
-            .then(response => {
-                // not a guest, go home!
-                isAuthenticated.value = true;
-                authedUser.value = response;
-                return router.push('/');
-            })
-            .catch(() => {
-                // is a guest, continue…
-                isAuthenticated.value = false;
-                return next();
-            });
+    if (!isAuthenticated.value) {
+        return next();
     }
-    return next();
+
+    return authedUser
+        .load()
+        .then(response => {
+            // not a guest, go home!
+            isAuthenticated.value = true;
+            router.push('/');
+        })
+        .catch(e => {
+            // is a guest, continue…
+            isAuthenticated.value = false;
+            return next();
+        });
 };
 
 export { auth, guest };

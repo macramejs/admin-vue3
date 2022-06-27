@@ -49,7 +49,7 @@ import IconCopy from '@/ui/Icons/IconCopy.vue';
 
 import { PropType } from 'vue';
 import { Page } from '@/types/resources';
-import { deletePage } from '@/modules/api';
+import { deletePage } from '@/entities';
 import AddPageModal from '../AddPageModal.vue';
 import DuplicatePageModal from '../DuplicatePageModal.vue';
 

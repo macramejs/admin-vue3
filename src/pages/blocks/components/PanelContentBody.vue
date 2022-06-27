@@ -7,9 +7,9 @@
 <script lang="ts" setup>
 import { Sections, ContentBody } from '@/ui';
 import { PropType } from 'vue';
-import { sections } from '@admin/modules/content';
-import { Block } from '@admin/types/resources';
-import { BlockContentForm } from '@admin/types/forms';
+import { sections } from '@/modules/content';
+import { Block } from '@/types/resources';
+import { BlockContentForm } from '@/types';
 
 const props = defineProps({
     block: {

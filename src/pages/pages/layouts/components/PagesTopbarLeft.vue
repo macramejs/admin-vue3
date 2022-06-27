@@ -9,8 +9,8 @@
 </template>
 <script lang="ts" setup>
 import { computed } from 'vue';
-import { pageForm } from '@/modules/forms';
-import { pageState } from '@/modules/state';
+import { pageForm } from '@/entities';
+import { pageState } from '@/entities';
 import { Page } from '@/types';
 import EditSlugModal from '../../components/EditSlugModal.vue';
 

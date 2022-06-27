@@ -1,5 +1,5 @@
 import { client, Create, LoadOne, Update } from '@/modules/api';
-import { ForgotFormData, LoginFormData, ResetFormData } from '@/types/forms';
+import { ForgotFormData, LoginFormData, ResetFormData } from '@/types';
 import { User, UserResource } from '@/types/resources';
 import { AxiosResponse } from 'axios';
 
@@ -21,7 +21,7 @@ const forgot: Create<ForgotFormData> = data =>
         baseURL: import.meta.env.VITE_APP_URL as string,
     });
 
-const resetPassword: Update<ResetFormData> = data =>
+const resetPassword: Create<ResetFormData> = data =>
     client.post('/reset', data, {
         baseURL: import.meta.env.VITE_APP_URL as string,
     });
