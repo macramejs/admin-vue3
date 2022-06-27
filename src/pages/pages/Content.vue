@@ -3,14 +3,7 @@
         <MainContent>
             <TransitionSlideFade>
                 <div v-if="!pageForm.isLoading">
-                    <!-- <div class="grid grid-cols-2">
-                        <pre>{{ pageForm }}</pre>
-                        <pre>{{ pageForm.original.raw }}</pre>
-                    </div> -->
-                    <component
-                        :is="getComponent"
-                        v-if="!pageForm.isLoading"
-                    >
+                    <component :is="getComponent" v-if="!pageForm.isLoading">
                         <ToggleSections />
                         <Sections
                             v-model="pageForm.content"

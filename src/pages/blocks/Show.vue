@@ -1,7 +1,13 @@
 <template>
     <MainBody>
         <MainContent>
-            <Sections v-model="blockForm.content" :sections="sections" />
+            <div>
+                <Sections
+                    v-model="blockForm.content"
+                    :sections="sections"
+                    v-if="!blockState.isLoading"
+                />
+            </div>
         </MainContent>
         <MainSidebar v-model:open="isOpen">
             <Drawers :sections="drawsSections" />
@@ -13,7 +19,7 @@
 import { ref } from 'vue';
 import { MainBody, MainContent, MainSidebar } from '@/layout';
 import { Drawers, sections, Sections } from '@/modules/content';
-import { blockForm } from '@/entities';
+import { blockForm, blockState } from '@/entities';
 
 // allow drawing all registered sections
 type DrawsSections = {

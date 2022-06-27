@@ -14,7 +14,6 @@
             </div>
         </template>
         <Sections
-            v-else
             v-bind="($attrs as any)"
             style="min-height: calc(100vh - 150px)"
         />
