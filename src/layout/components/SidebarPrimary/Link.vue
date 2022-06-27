@@ -10,7 +10,7 @@
             'items-center h-[36px] flex-auto': secondary,
             'bg-gray-50 bg-opacity-10': isActive && secondary,
         }"
-        class="flex items-center text-base font-light transition-opacity duration-500 rounded cursor-pointer group hover:bg-white hover:bg-opacity-10"
+        class="flex items-center text-base font-light transition-opacity duration-500 delay-100 rounded cursor-pointer group hover:bg-white hover:bg-opacity-10"
     >
         <div
             v-if="$slots.icon"
@@ -33,7 +33,7 @@
         >
             <div
                 v-if="!hideTitle"
-                class="flex-1 pl-3 tracking-wider text-gray-100"
+                class="flex-1 pl-3 tracking-wider text-gray-100 delay-100"
                 :class="{
                     'group-hover:text-orange': isActive && !secondary,
                 }"
