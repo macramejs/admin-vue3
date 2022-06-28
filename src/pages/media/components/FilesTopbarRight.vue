@@ -1,17 +1,8 @@
 <template>
-    <SelectionMenu :selection="selection" :collections="collections" />
+    <SelectionMenu :selection="selection" />
 </template>
 
 <script lang="ts" setup>
 import SelectionMenu from './SelectionMenu.vue';
 import { selection } from '../modules';
-import { PropType } from 'vue';
-import { MediaCollection } from '@/types/resources';
-
-const props = defineProps({
-    collections: {
-        type: Array as PropType<MediaCollection[]>,
-        required: true,
-    },
-});
 </script>

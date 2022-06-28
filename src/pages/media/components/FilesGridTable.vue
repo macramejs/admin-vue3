@@ -38,7 +38,6 @@
                 <!-- <div class="absolute btn-wrapper hidden right-4 bottom-2.5">
                     <SelectionMenu
                         :selection="useSelection([file])"
-                        :collections="collections"
                     >
                         <template #button><ContextButton /></template>
                     </SelectionMenu>
@@ -54,19 +53,10 @@
 </template>
 
 <script lang="ts" setup>
-import { PropType } from 'vue';
 import { ContextButton } from '@/ui';
 import SelectionMenu from './SelectionMenu.vue';
 import { selection, useSelection } from '../modules';
 import { mediaIndex } from '@/entities';
-import { MediaCollection } from '@/types/resources';
-
-const props = defineProps({
-    collections: {
-        type: Array as PropType<MediaCollection[]>,
-        required: true,
-    },
-});
 </script>
 
 <style scoped>

@@ -105,7 +105,7 @@ export type MediaCollectionRemoveForm = Form<
 >;
 
 export type MediaCollectionAddFormData = {
-    files: any[];
+    ids: number[];
 };
 export type MediaCollectionAddForm = Form<
     MediaCollectionAddFormData,
