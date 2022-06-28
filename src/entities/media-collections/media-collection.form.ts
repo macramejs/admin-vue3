@@ -7,10 +7,8 @@ export type UseMediaCollectionForm = (
     data: Partial<MediaCollectionFormData> & { id?: number | undefined }
 ) => MediaCollectionForm;
 
-const useMediaCollectionForm: UseMediaCollectionForm = ({
-    title = '',
-    id = undefined,
-}) => {
+// TODO: type
+const useMediaCollectionForm = ({ title = '', id = undefined }) => {
     const form = useForm({
         data: { title },
         submit: data =>
