@@ -140,16 +140,16 @@ module.exports = {
         plugin(function ({ addBase }) {
             addBase({
                 'h1, .h1': {
-                    '@apply text-2xl font-semibold md:text-2xl': {},
+                    '@apply text-2xl font-medium md:text-2xl': {},
                 },
                 'h2, .h2': {
-                    '@apply text-xl md:text-xl font-semibold': {},
+                    '@apply text-xl md:text-xl font-medium': {},
                 },
                 'h3, .h3': {
-                    '@apply text-base lg:text-lg font-semibold': {},
+                    '@apply text-base lg:text-lg font-medium': {},
                 },
                 'h4, .h4': {
-                    '@apply text-base font-semibold': {},
+                    '@apply text-base font-medium': {},
                 },
             });
         }),

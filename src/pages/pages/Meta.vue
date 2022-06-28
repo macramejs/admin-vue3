@@ -2,7 +2,7 @@
     <MainBody>
         <MainContent>
             <Card class="flex flex-col max-w-3xl gap-5">
-                <h2 class="inline-block pb-8 text-xl font-medium">
+                <h2>
                     {{ $t('pages.meta_information') }}
                 </h2>
                 <FormField no-label>

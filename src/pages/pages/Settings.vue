@@ -1,17 +1,15 @@
 <template>
-    <span class="inline-block pb-8 text-xl font-medium">
-        {{ $t('pages.page_settings') }}
-    </span>
-    <div class="grid grid-cols-12 gap-6">
-        <div class="col-span-full md:col-span-9">
-            <Card class="flex gap-5">
-                <FormField no-label class="w-2/3">
+    <MainBody>
+        <MainContent class="space-y-5">
+            <Card class="flex flex-col max-w-3xl gap-5">
+                <h2>
+                    {{ $t('pages.page_settings') }}
+                </h2>
+                <FormGroup>
                     <Input
                         :label="$t('pages.page_name')"
                         v-model="pageForm.name"
                     />
-                </FormField>
-                <FormField no-label class="w-1/3">
                     <Input
                         :label="$t('pages.page_slug')"
                         v-model="pageForm.slug"
@@ -19,24 +17,40 @@
                             slug => (pageForm.slug = slugify(slug))
                         "
                     />
-                </FormField>
+                </FormGroup>
             </Card>
-            <Button
-                secondary
-                class="!bg-red-500 !text-white !border-none flex mt-4"
-                @click="deletePage(pageState.value.id)"
-            >
-                <IconTrash class="w-4 h-4 mr-2" />
-                {{ $t('pages.delete_page') }}
-            </Button>
-        </div>
-    </div>
+            <Card class="flex flex-col max-w-3xl gap-5">
+                <h2>
+                    {{ $t('pages.delete_page') }}
+                </h2>
+                <p>
+                    {{ $t('pages.confirm_delete_page') }}:
+                    <strong>{{ pageState.value.name }}</strong>
+                </p>
+                <Input v-model="confirm_delete" />
+
+                <Button
+                    secondary
+                    class="!bg-red-500 !text-white !border-none flex mt-4"
+                    @click="deletePage(pageState.value.id)"
+                    :disabled="pageState.value.name != confirm_delete"
+                >
+                    <IconTrash class="w-4 h-4 mr-2" />
+                    {{ $t('pages.delete_page') }}
+                </Button>
+            </Card>
+        </MainContent>
+    </MainBody>
 </template>
 
 <script lang="ts" setup>
+import { MainBody, MainContent } from '@/layout';
 import { pageState, deletePage } from '@/entities';
-import { Card, FormField, Input, Button } from '@/ui';
+import { Card, Input, Button, FormGroup } from '@/ui';
 import IconTrash from '@/ui/Icons/IconTrash.vue';
 import { slugify } from '@/modules/helpers';
 import { pageForm } from '@/entities';
+import { ref } from 'vue';
+
+const confirm_delete = ref('');
 </script>

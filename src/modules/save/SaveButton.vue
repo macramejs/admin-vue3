@@ -1,7 +1,17 @@
 <template>
-    <Button @click="emit('save')">
-        <slot> Save </slot>
-        <Spinner v-if="busy" class="w-3 h-3 ml-2" />
+    <Button @click="emit('save')" class="relative">
+        <div
+            :class="{
+                'opacity-0': busy,
+            }"
+        >
+            <slot> Save </slot>
+        </div>
+        <div
+            class="absolute left-0 flex items-center justify-center w-full h-full"
+        >
+            <Spinner v-if="busy" class="w-3 h-3 ml-2" />
+        </div>
     </Button>
 </template>
 <script lang="ts" setup>
