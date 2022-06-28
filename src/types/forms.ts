@@ -32,7 +32,7 @@ export type ResetForm = Form<ResetFormData>;
 
 export interface PageFormData {
     name: string;
-    parent_id: number | undefined;
+    parent_id: number | null | undefined;
     content: { [k: string]: any }[];
     attributes: { [k: string]: any };
     is_live: boolean;

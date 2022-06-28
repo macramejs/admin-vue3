@@ -1,13 +1,13 @@
 <template>
     <MainBody>
-        <Sections v-model="form.content" :sections="sections" />
+        <Content v-model="form.content" :sections="sections" />
     </MainBody>
 </template>
 
 <script lang="ts" setup>
 import { MainBody } from '@/layout';
 import { PropType } from 'vue';
-import { Sections, sections } from '@/modules/content';
+import { Content, sections } from '@/modules/content';
 import { Block } from '@/types/resources';
 import { BlockForm } from '@/types';
 

@@ -11,7 +11,7 @@ import { ref, Ref } from 'vue';
 import { pageTree } from './page.tree';
 
 export type UsePageForm = (
-    data: Partial<PageFormData> & { id: number | undefined }
+    data: Partial<PageFormData> & { id?: number | undefined }
 ) => PageForm;
 
 export const pageModel = ref<Page>();

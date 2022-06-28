@@ -3,7 +3,7 @@
         <AddCollectionForm class="mb-4" />
     </SidebarSecondarySection>
     <SidebarSecondarySection>
-        <SidebarSecondaryLink
+        <!-- <SidebarSecondaryLink
             :active="!collection"
             class="flex-1 py-1 pr-4 cursor-pointer"
             to="/media"
@@ -11,7 +11,7 @@
         >
             <div class="flex justify-between">
                 {{ $t('media.all') }}
-                <!-- <span class="text-gray-300"> {{ mediaIndex.length }}</span> -->
+                <span class="text-gray-300"> {{ mediaIndex.length }}</span>
             </div>
         </SidebarSecondaryLink>
         <SidebarSecondaryLink
@@ -23,9 +23,9 @@
         >
             <div class="flex justify-between">
                 {{ c.title }}
-                <!-- <span class="text-gray-300"> {{ c.files_count }}</span> -->
+                <span class="text-gray-300"> {{ c.files_count }}</span>
             </div>
-        </SidebarSecondaryLink>
+        </SidebarSecondaryLink> -->
     </SidebarSecondarySection>
 </template>
 
