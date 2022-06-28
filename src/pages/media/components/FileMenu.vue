@@ -2,7 +2,7 @@
     <ContextMenu>
         <ContextMenuItem
             class="hover:bg-red-signal text-red-signal"
-            @click="deleteFile(props.file)"
+            @click="deleteMedia(file.id)"
         >
             <template #icon>
                 <IconTrash class="origin-left scale-75" />
@@ -14,7 +14,7 @@
 
 <script lang="ts" setup>
 import { Media } from '@/types/resources';
-import { deleteFile } from '@/modules/media';
+import { deleteMedia } from '@/entities';
 import { PropType } from 'vue';
 import { ContextMenu, ContextMenuItem } from '@/ui';
 import IconTrash from '@/ui/Icons/IconTrash.vue';

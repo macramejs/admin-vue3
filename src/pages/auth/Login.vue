@@ -1,6 +1,6 @@
 <template>
     <GuestLayout>
-        <form @submit.prevent="form.submit()" class="w-1/2 space-y-4">
+        <form @submit.prevent="form.submit()" class="w-1/2 space-y-5">
             <Input
                 autofocus
                 :label="$t('auth.email')"
