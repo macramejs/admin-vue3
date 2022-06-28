@@ -6,16 +6,22 @@
         </Topbar>
         <router-view />
     </template>
-    <template v-else> Busy </template>
+    <Loading v-else />
 </template>
 
 <script setup lang="ts">
-import { PropType, computed, watch, onMounted } from 'vue';
+import { computed, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import MenusTopbarRight from './components/MenusTopbarRight.vue';
 import MenusTopbarLeft from './components/MenusTopbarLeft.vue';
-import { Topbar } from '@/layout';
-import { menuState, useMenuItemTree, menuItemTree, linksState, updateMenuItemTree } from '@/entities';
+import { Topbar, Loading } from '@/layout';
+import {
+    menuState,
+    useMenuItemTree,
+    menuItemTree,
+    linksState,
+    updateMenuItemTree,
+} from '@/entities';
 
 const route = useRoute();
 
