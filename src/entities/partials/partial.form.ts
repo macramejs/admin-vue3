@@ -6,9 +6,12 @@ export type UsePartialForm = () => PartialForm;
 
 const usePartialForm: UsePartialForm = () => {
     return useForm({
-        data: { name: '', attributes: {} },
+        data: { 
+            name: '', 
+            attributes: {}
+        },
         submit: (data, id) => updatePartial(data, id),
-        load: id => loadPartial(id as number),
+        load: template => loadPartial(template)
     });
 };
 

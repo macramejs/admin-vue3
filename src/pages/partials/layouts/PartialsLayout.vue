@@ -11,14 +11,13 @@
             </SidebarSecondaryHeader>
         </template>
         <SidebarSecondarySection>
-            <SidebarLink v-for="(template, index) in templates">
-                <router-link
-                    class="flex-1 py-1 cursor-pointer"
-                    :to="`/partials/${index}`"
+            <SidebarSecondaryLink 
+                v-for="(template, index) in templates" 
+                class="flex-1 py-1 cursor-pointer"
+                :to="`/partials/${index}`"
                 >
                     {{ template.__name }}
-                </router-link>
-            </SidebarLink>
+            </SidebarSecondaryLink>
         </SidebarSecondarySection>
     </SidebarSecondary>
     <Main>
@@ -27,11 +26,14 @@
 </template>
 
 <script setup lang="ts">
-import SidebarSecondary from '@/layout/components/SidebarSecondary/SidebarSecondary.vue';
-import SidebarSecondaryHeader from '@/layout/components/SidebarSecondary/SidebarSecondaryHeader.vue';
-import SidebarSecondarySection from '@/layout/components/SidebarSecondary/SidebarSecondarySection.vue';
+import { 
+    SidebarSecondary, 
+    SidebarSecondaryLink, 
+    SidebarSecondaryHeader, 
+    SidebarSecondarySection 
+} from '@/layout';
 import Main from '@/layout/components/Main.vue';
 import IconReportColumns from '@/ui/Icons/IconReportColumns.vue';
 import PartialsHelp from './components/PartialsHelp.vue';
-import { templates } from './../components/templates';
+import { templates } from '../_templates';
 </script>

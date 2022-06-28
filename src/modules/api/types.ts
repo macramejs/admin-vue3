@@ -5,7 +5,7 @@ type TModel = Record<string, any>;
 
 // load one
 export type LoadOne<R extends Resource<TModel>, D extends TModel[] = []> = (
-    ...args: [...D, ...[number]]
+    ...args: [...D, ...[number|string]]
 ) => Promise<AxiosResponse<R, any>>;
 
 // load many
