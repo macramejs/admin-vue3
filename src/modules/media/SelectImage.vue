@@ -73,7 +73,7 @@ const props = defineProps({
 });
 
 const model = ref(props.modelValue);
-const selectedImage = ref<Media|null>(null);
+const selectedImage = ref<Media | null>(null);
 
 onBeforeMount(async () => {
     selectedImage.value = props.modelValue?.id
