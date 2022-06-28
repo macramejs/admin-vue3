@@ -14,6 +14,7 @@
                     <FilesFilters />
                 </MainSidebarSection>
                 <MainSidebarSection :title="$t('media.collections')">
+                    <!-- TODO: -->
                     <pre>{{ mediaCollectionIndex }}</pre>
                 </MainSidebarSection>
             </MainSidebar>

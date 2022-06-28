@@ -2,7 +2,7 @@
     <div class="w-full mt-10">
         <div class="grid grid-cols-12 gap-5">
             <div
-                class="flex justify-center col-span-full lg:col-span-6 xl:col-span-3"
+                class="flex justify-center col-span-6 md:col-span-4 lg:col-span-3 xl:col-span-2"
             >
                 <MediaUpload :collection="collection" />
             </div>

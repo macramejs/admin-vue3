@@ -1,8 +1,8 @@
 <template>
     <div
-        class="sticky flex flex-col transition-all duration-300 bg-white shadow"
+        class="sticky flex flex-col transition-all duration-300 bg-white shadow w"
         :class="{
-            'w-[233px]': open,
+            'w-3/12 min-w-[280px] max-w-[400px]': open,
             'w-[60px]': !open,
         }"
     >
