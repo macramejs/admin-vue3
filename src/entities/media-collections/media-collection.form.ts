@@ -12,8 +12,10 @@ export type UseMediaCollectionForm = (
     data: Partial<MediaCollectionFormData> & { id?: number | undefined }
 ) => MediaCollectionForm;
 
-// TODO: type
-const useMediaCollectionForm = ({ title = '', id = undefined }) => {
+const useMediaCollectionForm: UseMediaCollectionForm = ({
+    title = '',
+    id = undefined,
+}) => {
     const form = useForm({
         data: { title },
         submit: data =>
