@@ -39,7 +39,7 @@ export type UserCollectionResource = CollectionResource<User>;
 // Media
 
 export type Media = {
-    id?: number;
+    id: number;
     display_name: string;
     group: string;
     disk: string;
