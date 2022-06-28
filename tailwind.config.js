@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+
+const plugin = require('tailwindcss/plugin');
+
 module.exports = {
     content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
     theme: {
@@ -111,10 +114,44 @@ module.exports = {
             primary: '0px 6px 9px -4px rgba(255,116,76,0.6)',
             sm: '0px 2px 4px 0px rgba(0,0,0,0.05)',
         },
+        screens: {
+            sm: '640px',
+            // => @media (min-width: 640px) { ... }
+
+            md: '768px',
+            // => @media (min-width: 768px) { ... }
+
+            lg: '1024px',
+            // => @media (min-width: 1024px) { ... }
+
+            xl: '1280px',
+            // => @media (min-width: 1280px) { ... }
+
+            '2xl': '1730px',
+            // => @media (min-width: 1730px) { ... }
+        },
         extend: {
             gridTemplateColumns: {
                 app: '300px 1fr',
             },
         },
     },
+    plugins: [
+        plugin(function ({ addBase }) {
+            addBase({
+                'h1, .h1': {
+                    '@apply text-2xl font-medium md:text-2xl': {},
+                },
+                'h2, .h2': {
+                    '@apply text-xl md:text-xl font-medium': {},
+                },
+                'h3, .h3': {
+                    '@apply text-base lg:text-lg font-medium': {},
+                },
+                'h4, .h4': {
+                    '@apply text-base font-medium': {},
+                },
+            });
+        }),
+    ],
 };

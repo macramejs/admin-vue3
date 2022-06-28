@@ -7,13 +7,12 @@
     </button>
     <Modal lg v-model:open="isOpen" :title="$t('pages.edit_slug')">
         <div class="space-y-3">
-            TODO
-            <!-- <Input
+            <Input
                 label="Slug"
-                :modelValue="form.slug"
-                @update:modelValue="slug => (form.slug = slugify(slug))"
+                :modelValue="pageForm.slug"
+                @update:modelValue="slug => (pageForm.slug = slugify(slug))"
                 @keyup.enter="isOpen = false"
-            /> -->
+            />
         </div>
         <template #footer>
             <Button @click="isOpen = false">Ok</Button>
@@ -22,11 +21,11 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, PropType } from 'vue';
+import { ref } from 'vue';
 import { Modal, Input, Button } from '@/ui';
 import IconEditPencil from '@/ui/Icons/IconEditPencil.vue';
 import { slugify } from '@/modules/helpers';
-import { Page } from '@/types';
+import { pageForm } from '@/entities';
 
 const isOpen = ref<boolean>(false);
 </script>

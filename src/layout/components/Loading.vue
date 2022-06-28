@@ -1,11 +1,22 @@
 <template>
     <div class="flex items-center justify-center w-full h-full">
-        <span class="loader text-orange"></span>
+        <span
+            class="loader"
+            :class="{
+                'text-white': white,
+                'text-orange': !white,
+            }"
+        ></span>
     </div>
 </template>
 
 <script setup lang="ts">
-//
+defineProps({
+    white: {
+        type: Boolean,
+        default: false,
+    },
+});
 </script>
 
 <style>

@@ -1,5 +1,5 @@
 <template>
-    <template v-if="!isLoading && isLoaded">
+    <template v-if="show">
         <Topbar>
             <PagesTopbarLeft />
             <PagesTopbarRight />
@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-import { watch, computed } from 'vue';
+import { watch, computed, ref } from 'vue';
 import { useRoute } from 'vue-router';
 import PagesTopbarRight from './components/PagesTopbarRight.vue';
 import PagesTopbarLeft from './components/PagesTopbarLeft.vue';
@@ -33,20 +33,16 @@ const route = useRoute();
 
 const pageId = computed(() => parseInt(route.params.page as string));
 
-const isLoading = computed(() => {
-    return pageState.isLoading;
-});
-
-const isLoaded = computed(() => {
-    return pageState.isLoaded && !!pageForm.value;
-});
+const show = ref<boolean>(false);
 
 const loadData = () => {
+    show.value = false;
     pageState.load(pageId.value).then(page => {
         if (Array.isArray(page.attributes)) {
             page.attributes = {};
         }
         pageForm.value = usePageForm(page);
+        show.value = true;
     });
 };
 

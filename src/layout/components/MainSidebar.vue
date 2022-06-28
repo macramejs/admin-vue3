@@ -2,7 +2,7 @@
     <div
         class="sticky flex flex-col transition-all duration-300 bg-white shadow w"
         :class="{
-            'w-[280px] lg:w-[400px]': open,
+            'w-[280px] 2xl:w-[400px]': open,
             'w-[60px]': !open,
         }"
     >

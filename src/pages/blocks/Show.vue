@@ -2,7 +2,7 @@
     <MainBody>
         <MainContent>
             <div>
-                <Sections
+                <Content
                     v-model="blockForm.content"
                     :sections="sections"
                     v-if="!blockState.isLoading"
@@ -18,7 +18,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { MainBody, MainContent, MainSidebar } from '@/layout';
-import { Drawers, sections, Sections } from '@/modules/content';
+import { Drawers, sections, Content } from '@/modules/content';
 import { blockForm, blockState } from '@/entities';
 
 // allow drawing all registered sections

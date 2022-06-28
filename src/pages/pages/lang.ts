@@ -9,6 +9,8 @@ export const messages = {
             preview: 'Vorschau',
             page_settings: 'Seiten Einstellungen',
             delete_page: 'Seite löschen',
+            confirm_delete_page:
+                'Namen der Seite eingeben um das Löschen zu bestätigen',
             page_slug: 'Seiten Slug',
             page_name: 'Seiten Name',
             new_page: 'Neue Seite',
