@@ -8,9 +8,13 @@ const __dirname = path.dirname(__filename);
 
 // dirs to work
 let paths = [
-    { path: '../src/ui', split: '/ui/' },
-    { path: '../src/layout', split: '/layout/' },
-    { path: '../src/modules/content/elements', split: '/content/elements/' },
+    { tag: 'ui', path: '../src/ui', split: '/ui/' },
+    { tag: 'layout', path: '../src/layout', split: '/layout/' },
+    {
+        tag: 'elements',
+        path: '../src/modules/content/elements',
+        split: '/content/elements/',
+    },
 ];
 
 const getFilesRecursively = (directory, indexPath, split) => {
