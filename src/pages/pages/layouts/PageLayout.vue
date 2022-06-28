@@ -43,6 +43,9 @@ const isLoaded = computed(() => {
 
 const loadData = () => {
     pageState.load(pageId.value).then(page => {
+        if (Array.isArray(page.attributes)) {
+            page.attributes = {};
+        }
         pageForm.value = usePageForm(page);
     });
 };
