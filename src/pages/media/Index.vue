@@ -9,7 +9,7 @@
             <MainContent>
                 <FilesGrid :collections="mediaCollectionIndex.items" />
             </MainContent>
-            <MainSidebar v-model:open="isOpen">
+            <MainSidebar :title="$t('media.filter')" v-model:open="isOpen">
                 <MainSidebarSection :title="$t('media.filter')">
                     <FilesFilters />
                 </MainSidebarSection>
