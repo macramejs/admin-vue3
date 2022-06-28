@@ -54,7 +54,7 @@
                                 <SelectLocale />
                             </DialogTitle>
                             <slot />
-                            <div class="flex justify-end pt-4 space-x-3">
+                            <div class="flex justify-end pt-6 space-x-3">
                                 <slot name="footer" />
                             </div>
                         </div>

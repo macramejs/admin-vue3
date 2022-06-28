@@ -7,7 +7,7 @@
         }"
     >
         <div class="flex-1 w-full overflow-y-auto">
-            <slot />
+            <slot v-if="open" />
             <div class="w-full p-4 mt-4" v-if="!open">
                 <div class="flex items-center w-full gap-4 rotate-90">
                     <slot name="title">

@@ -8,7 +8,7 @@
             <MainContent>
                 <FilesGrid />
             </MainContent>
-            <MainSidebar v-model:open="isOpen">
+            <MainSidebar :title="$t('media.filter')" v-model:open="isOpen">
                 <MainSidebarSection :title="$t('media.filter')">
                 </MainSidebarSection>
                 <MainSidebarSection :title="$t('media.collections')">
