@@ -1,5 +1,5 @@
 <template>
-    <Drawer title="Image Full" hint="image ..." color="purple">
+    <Drawer title="Infobox" hint="Infobox" color="purple">
         <svg
             class="w-4 h-4"
             width="24"
@@ -10,19 +10,19 @@
             xmlns="http://www.w3.org/2000/svg"
         >
             <path
-                d="M21 3.6V20.4C21 20.7314 20.7314 21 20.4 21H3.6C3.26863 21 3 20.7314 3 20.4V3.6C3 3.26863 3.26863 3 3.6 3H20.4C20.7314 3 21 3.26863 21 3.6Z"
+                d="M12 11.5V16.5"
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
             />
             <path
-                d="M3 16L10 13L21 18"
+                d="M12 7.51L12.01 7.49889"
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
             />
             <path
-                d="M16 10C14.8954 10 14 9.10457 14 8C14 6.89543 14.8954 6 16 6C17.1046 6 18 6.89543 18 8C18 9.10457 17.1046 10 16 10Z"
+                d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -31,5 +31,5 @@
     </Drawer>
 </template>
 <script lang="ts" setup>
-import Drawer from './BaseDrawer.vue';
+import Drawer from '../../components/BaseDrawer.vue';
 </script>

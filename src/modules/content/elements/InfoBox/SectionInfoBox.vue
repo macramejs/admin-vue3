@@ -13,11 +13,11 @@
     </BaseSection>
 </template>
 <script setup lang="ts">
-import BaseSection from './BaseSection.vue';
+import BaseSection from '../../components/BaseSection.vue';
+import Link from '../../components/Link.vue';
 import { Card, Textarea, Input, FormGroup } from '@/ui';
-import DrawerInfoBox from './../drawers/DrawerInfoBox.vue';
+import DrawerInfoBox from '././DrawerInfoBox.vue';
 import { watch, reactive } from 'vue';
-import Link from './components/Link.vue';
 
 const emit = defineEmits(['update:modelValue']);
 

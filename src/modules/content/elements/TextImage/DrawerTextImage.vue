@@ -18,5 +18,5 @@
     </Drawer>
 </template>
 <script lang="ts" setup>
-import Drawer from './BaseDrawer.vue';
+import Drawer from '../../components/BaseDrawer.vue';
 </script>

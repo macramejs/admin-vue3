@@ -24,9 +24,9 @@
 <script setup lang="ts">
 import Draggable from 'vuedraggable';
 import { Card, AddItemButton } from '@/ui';
-import BaseSection from './BaseSection.vue';
+import BaseSection from '../../components/BaseSection.vue';
 import { watch, reactive } from 'vue';
-import DrawerGridGallery from '../drawers/DrawerGridGallery.vue';
+import DrawerGridGallery from './DrawerGridGallery.vue';
 import SelectImage from '@/modules/media/SelectImage.vue';
 import { v4 as uuid } from 'uuid';
 

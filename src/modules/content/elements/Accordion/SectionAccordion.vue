@@ -71,14 +71,14 @@ import {
     ContextMenu,
     ContextMenuItem,
 } from '@/ui';
-import BaseSection from './BaseSection.vue';
+import BaseSection from '../../components/BaseSection.vue';
 import IconMoreHoriz from '@/ui/Icons/IconMoreHoriz.vue';
 import IconDraggable from '@/ui/Icons/custom/IconDraggable.vue';
 import IconTrash from '@/ui/Icons/IconTrash.vue';
 import { watch, reactive } from 'vue';
 import Draggable from 'vuedraggable';
 import { v4 as uuid } from 'uuid';
-import DrawerAccordion from '../drawers/DrawerAccordion.vue';
+import DrawerAccordion from './DrawerAccordion.vue';
 
 const emit = defineEmits(['update:modelValue']);
 

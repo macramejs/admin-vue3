@@ -15,9 +15,9 @@
     </BaseSection>
 </template>
 <script setup lang="ts">
-import BaseSection from './BaseSection.vue';
+import BaseSection from '../../components/BaseSection.vue';
 import { Card, Select } from '@/ui';
-import DrawerBlock from '../drawers/DrawerBlock.vue';
+import DrawerBlock from './DrawerBlock.vue';
 import { watch, reactive, computed } from 'vue';
 import { blocksState } from '@/entities';
 

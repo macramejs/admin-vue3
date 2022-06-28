@@ -8,10 +8,10 @@
     </BaseSection>
 </template>
 <script setup lang="ts">
-import BaseSection from './BaseSection.vue';
+import BaseSection from '../../components/BaseSection.vue';
 import { FormFieldLabel } from '@/ui';
 import { watch, ref } from 'vue';
-import DrawerImageFull from './../drawers/DrawerImageFull.vue';
+import DrawerImageFull from '././DrawerImageFull.vue';
 import SelectImage from '@/modules/media/SelectImage.vue';
 
 const emit = defineEmits(['update:modelValue']);

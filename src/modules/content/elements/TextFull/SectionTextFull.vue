@@ -9,11 +9,11 @@
     </BaseSection>
 </template>
 <script setup lang="ts">
-import BaseSection from './BaseSection.vue';
+import BaseSection from '../../components/BaseSection.vue';
 import { Wysiwyg, Card } from '@/ui';
 import { translatable } from '@macramejs/macrame-vue3';
 import { locale } from '@/modules/localize';
-import DrawerTextFull from './../drawers/DrawerTextFull.vue';
+import DrawerTextFull from './DrawerTextFull.vue';
 
 const emit = defineEmits(['update:modelValue']);
 

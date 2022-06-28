@@ -1,5 +1,5 @@
 <template>
-    <Drawer title="Grid Galerie" hint="Galerie" color="green">
+    <Drawer title="Logo Wall" hint="Logo Wall" color="orange">
         <svg
             class="w-4 h-4"
             width="24"
@@ -33,5 +33,5 @@
     </Drawer>
 </template>
 <script lang="ts" setup>
-import Drawer from './BaseDrawer.vue';
+import Drawer from '../../components/BaseDrawer.vue';
 </script>

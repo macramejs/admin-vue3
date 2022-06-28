@@ -1,19 +1,22 @@
 <template>
     <BaseSection>
         <template v-slot:title>
-            <DrawerImageCarousel preview />
+            <DrawerLogoWall preview />
         </template>
-        <div class="pb-6">
+        <Card class="mb-3">
+            <Input v-model="model.headline" label="Überschrift" />
+        </Card>
+        <div class="pb-6 space-y-3">
             <Draggable
                 tag="div"
-                class="grid grid-cols-2 gap-5"
+                class="grid grid-cols-3 gap-5"
                 :list="model.items"
                 handle=".drag-logo"
                 item-key="_draggableKey"
                 v-if="model"
             >
                 <template #item="{ element, index }">
-                    <Card :key="index">
+                    <Card class="mb-3" :key="index">
                         <Header class="mb-6">
                             <div class="flex items-center space-x-4">
                                 <InteractionButton
@@ -23,7 +26,7 @@
                                     <IconDraggable class="w-2.5 h-2.5" />
                                 </InteractionButton>
                                 <div class="text-lg font-semibold">
-                                    {{ element.name || 'Carousel-Element' }}
+                                    {{ element.name || 'Logo' }}
                                 </div>
                             </div>
                             <ContextMenu placement="left">
@@ -45,25 +48,25 @@
                                 </ContextMenuItem>
                             </ContextMenu>
                         </Header>
-                        <div class="grid grid-cols-12 gap-5">
-                            <div class="col-span-6">
-                                <SelectImage v-model="element.image" />
-                            </div>
-                            <div class="col-span-6 space-y-4">
-                                <Input v-model="element.title" label="Titel" />
-                                <Input v-model="element.text" label="Text" />
-                            </div>
+                        <div class="space-y-4">
+                            <SelectImage v-model="element.image" />
+                            <Input v-model="element.name" label="Name" />
+                            <Link v-model="element.link" label="Link" />
                         </div>
                     </Card>
                 </template>
             </Draggable>
         </div>
         <div class="flex justify-center">
-            <AddItemButton @click="addItem"> Bild hinzufügen </AddItemButton>
+            <AddItemButton @click="addItem">
+                Neues Logo hinzufügen
+            </AddItemButton>
         </div>
     </BaseSection>
 </template>
 <script setup lang="ts">
+import BaseSection from '../../components/BaseSection.vue';
+import Link from '../../components/Link.vue';
 import {
     AddItemButton,
     Card,
@@ -73,15 +76,14 @@ import {
     ContextMenu,
     ContextMenuItem,
 } from '@/ui';
-import BaseSection from './BaseSection.vue';
 import IconMoreHoriz from '@/ui/Icons/IconMoreHoriz.vue';
 import IconDraggable from '@/ui/Icons/custom/IconDraggable.vue';
 import IconTrash from '@/ui/Icons/IconTrash.vue';
-import { watch, reactive } from 'vue';
+import DrawerLogoWall from './DrawerLogoWall.vue';
 import Draggable from 'vuedraggable';
 import SelectImage from '@/modules/media/SelectImage.vue';
 import { v4 as uuid } from 'uuid';
-import DrawerImageCarousel from '../drawers/DrawerImageCarousel.vue';
+import { reactive, watch } from 'vue';
 
 const emit = defineEmits(['update:modelValue']);
 
@@ -90,12 +92,14 @@ const props = defineProps({
         type: Object,
         required: true,
         default: () => ({
+            headline: '',
             items: [],
         }),
     },
 });
 
 const model = reactive({
+    headline: props.modelValue.headline,
     items: props.modelValue.items.map((item: any) => {
         return { ...item, _draggableKey: uuid() };
     }),
@@ -103,9 +107,13 @@ const model = reactive({
 
 function addItem() {
     model.items.push({
-        title: '',
-        text: '',
+        name: '',
         _draggableKey: uuid(),
+        link: {
+            link: '',
+            text: '',
+            new_tab: false,
+        },
         image: {
             id: null,
             title: '',

@@ -73,7 +73,7 @@ import IconDraggable from '@/ui/Icons/custom/IconDraggable.vue';
 import IconTrash from '@/ui/Icons/IconTrash.vue';
 import IconNavArrowDown from '@/ui/Icons/IconNavArrowDown.vue';
 import IconMoreHoriz from '@/ui/Icons/IconMoreHoriz.vue';
-import { hideSections } from '../';
+import { hideSections } from '..';
 
 const props = defineProps({
     title: {

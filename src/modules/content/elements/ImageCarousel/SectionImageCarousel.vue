@@ -1,31 +1,29 @@
 <template>
     <BaseSection>
         <template v-slot:title>
-            <DrawerCards preview />
+            <DrawerImageCarousel preview />
         </template>
-        <Card class="mb-3">
-            <Input v-model="model.headline" label="Überschrift" />
-        </Card>
-        <hr class="mb-3" />
-        <div class="pb-6 space-y-3">
+        <div class="pb-6">
             <Draggable
                 tag="div"
+                class="grid grid-cols-2 gap-5"
                 :list="model.items"
-                handle=".drag-card"
+                handle=".drag-logo"
                 item-key="_draggableKey"
+                v-if="model"
             >
                 <template #item="{ element, index }">
-                    <Card class="mb-3" :key="index">
+                    <Card :key="index">
                         <Header class="mb-6">
                             <div class="flex items-center space-x-4">
                                 <InteractionButton
-                                    class="cursor-move drag-card"
+                                    class="cursor-move drag-logo"
                                     gray
                                 >
                                     <IconDraggable class="w-2.5 h-2.5" />
                                 </InteractionButton>
                                 <div class="text-lg font-semibold">
-                                    {{ element.title || 'Card' }}
+                                    {{ element.name || 'Carousel-Element' }}
                                 </div>
                             </div>
                             <ContextMenu placement="left">
@@ -48,13 +46,12 @@
                             </ContextMenu>
                         </Header>
                         <div class="grid grid-cols-12 gap-5">
-                            <div class="col-span-12">
+                            <div class="col-span-6">
                                 <SelectImage v-model="element.image" />
                             </div>
-                            <div class="col-span-8 space-y-4">
+                            <div class="col-span-6 space-y-4">
                                 <Input v-model="element.title" label="Titel" />
-                                <Textarea v-model="element.text" label="Text" />
-                                <Link v-model="element.link" />
+                                <Input v-model="element.text" label="Text" />
                             </div>
                         </div>
                     </Card>
@@ -62,7 +59,7 @@
             </Draggable>
         </div>
         <div class="flex justify-center">
-            <AddItemButton @click="addItem"> Card hinzufügen </AddItemButton>
+            <AddItemButton @click="addItem"> Bild hinzufügen </AddItemButton>
         </div>
     </BaseSection>
 </template>
@@ -72,22 +69,19 @@ import {
     Card,
     InteractionButton,
     Input,
-    Textarea,
     Header,
     ContextMenu,
     ContextMenuItem,
 } from '@/ui';
-
-import BaseSection from './BaseSection.vue';
+import BaseSection from '../../components/BaseSection.vue';
 import IconMoreHoriz from '@/ui/Icons/IconMoreHoriz.vue';
 import IconDraggable from '@/ui/Icons/custom/IconDraggable.vue';
 import IconTrash from '@/ui/Icons/IconTrash.vue';
 import { watch, reactive } from 'vue';
-import Link from './components/Link.vue';
 import Draggable from 'vuedraggable';
 import SelectImage from '@/modules/media/SelectImage.vue';
 import { v4 as uuid } from 'uuid';
-import DrawerCards from '../drawers/DrawerCards.vue';
+import DrawerImageCarousel from './DrawerImageCarousel.vue';
 
 const emit = defineEmits(['update:modelValue']);
 
@@ -96,14 +90,12 @@ const props = defineProps({
         type: Object,
         required: true,
         default: () => ({
-            headline: '',
             items: [],
         }),
     },
 });
 
 const model = reactive({
-    headline: props.modelValue.headline,
     items: props.modelValue.items.map((item: any) => {
         return { ...item, _draggableKey: uuid() };
     }),
@@ -111,18 +103,14 @@ const model = reactive({
 
 function addItem() {
     model.items.push({
-        name: '',
-        link: {
-            link: '',
-            text: '',
-            new_tab: false,
-        },
+        title: '',
+        text: '',
+        _draggableKey: uuid(),
         image: {
             id: null,
             title: '',
             alt: '',
         },
-        _draggableKey: uuid(),
     });
 }
 

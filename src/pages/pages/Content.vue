@@ -5,7 +5,7 @@
                 <div v-if="!pageForm.isLoading">
                     <component :is="getComponent" v-if="!pageForm.isLoading">
                         <ToggleSections />
-                        <Sections
+                        <Content
                             v-model="pageForm.content"
                             :sections="sections"
                         />
@@ -26,7 +26,7 @@
 import { ref, computed } from 'vue';
 import { MainBody, MainContent, MainSidebar } from '@/layout';
 import { templates } from '@/modules/content/templates';
-import { Drawers, sections, Sections } from '@/modules/content';
+import { Drawers, sections, Content } from '@/modules/content';
 import { pageForm } from '@/entities';
 import ToggleSections from './components/ToggleSections.vue';
 import { TransitionSlideFade } from '@/ui';
