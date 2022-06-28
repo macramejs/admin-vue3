@@ -23,7 +23,7 @@
             <input type="submit" class="hidden" />
         </form>
         <template v-slot:footer>
-            <Button @click="submit"> {{ $t('pages.save') }} </Button>
+            <Button @click="submit"> {{ $t('pages.save') }} </Button> 
         </template>
     </Modal>
 </template>
