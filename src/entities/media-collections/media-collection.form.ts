@@ -1,4 +1,9 @@
-import { MediaCollectionForm, MediaCollectionFormData } from '@/types';
+import {
+    Media,
+    MediaCollection,
+    MediaCollectionForm,
+    MediaCollectionFormData,
+} from '@/types';
 import { useForm } from '@macramejs/macrame-vue3';
 import { ref, Ref } from 'vue';
 import { updateOrCreateMediaCollection } from './api';

@@ -50,7 +50,7 @@ export type Media = {
     url?: string;
 };
 export type MediaResource = Resource<Media>;
-export type MediaCollectionIndexResource = IndexResource<Media>;
+export type MediaIndexResource = IndexResource<Media>;
 
 // MediaCollection
 
@@ -62,8 +62,7 @@ export type MediaCollection = {
 export type MediaCollectionResource = Resource<MediaCollection>;
 export type MediaCollectionCollectionResource =
     CollectionResource<MediaCollection>;
-export type MediaCollectionCollectionIndexResource =
-    IndexResource<MediaCollection>;
+export type MediaCollectionIndexResource = IndexResource<MediaCollection>;
 
 // Page
 

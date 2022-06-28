@@ -86,10 +86,7 @@ export type PartialForm = Form<PartialFormData, PartialResource>;
 export type MediaCollectionFormData = {
     title: string;
 };
-export type MediaCollectionForm = Form<
-    MediaCollectionFormData,
-    PartialResource
->;
+export type MediaCollectionForm = Form<MediaCollectionFormData>;
 
 export type MediaCollectionUploadFormData = {
     files: any[];
