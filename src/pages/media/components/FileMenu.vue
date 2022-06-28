@@ -19,7 +19,7 @@ import { PropType } from 'vue';
 import { ContextMenu, ContextMenuItem } from '@/ui';
 import IconTrash from '@/ui/Icons/IconTrash.vue';
 
-const props = defineProps({
+defineProps({
     file: {
         type: Object as PropType<Media>,
         required: true,

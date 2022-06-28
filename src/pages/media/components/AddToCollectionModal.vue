@@ -25,6 +25,7 @@ import { ref, PropType, computed } from 'vue';
 import { Modal, Select, Button, ContextMenuItem } from '@/ui';
 import { Selection } from '../modules';
 import { MediaCollection } from '@/types/resources';
+import { mediaCollectionIndex } from '@/entities';
 
 const isOpen = ref<boolean>(false);
 
@@ -35,17 +36,12 @@ const props = defineProps({
         type: Object as PropType<Selection>,
         required: true,
     },
-    collections: {
-        type: Array as PropType<MediaCollection[]>,
-        required: true,
-    },
 });
 
 //
 
 const collectionOptions = computed(() => {
-    console.log({ col: props.collections });
-    return props.collections.map(collection => ({
+    return mediaCollectionIndex.items.map(collection => ({
         value: collection,
         label: collection.title,
     }));

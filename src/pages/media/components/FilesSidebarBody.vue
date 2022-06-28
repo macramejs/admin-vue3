@@ -15,7 +15,7 @@
             </div>
         </SidebarSecondaryLink>
         <SidebarSecondaryLink
-            v-for="c in collections"
+            v-for="c in mediaCollectionIndex.items"
             :key="c.id"
             :active="c.id == collection?.id"
             class="flex-1 py-1 pr-4 cursor-pointer"
@@ -30,22 +30,11 @@
 </template>
 
 <script lang="ts" setup>
+import { mediaCollectionIndex } from '@/entities';
 import { SidebarSecondaryLink, SidebarSecondarySection } from '@/layout';
-import { PropType } from 'vue';
-import { MediaCollection } from '@/types';
-
-import { mediaIndex } from '@/entities';
 import AddCollectionForm from './AddCollectionForm.vue';
 
 const props = defineProps({
-    collections: {
-        type: Array as PropType<MediaCollection[]>,
-        required: true,
-    },
-    collection: {
-        type: Object as PropType<MediaCollection>,
-        required: false,
-    },
     showForm: {
         type: Boolean,
         required: true,

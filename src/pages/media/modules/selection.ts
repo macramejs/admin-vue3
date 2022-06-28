@@ -1,3 +1,8 @@
+import {
+    addFilesToMediaCollection,
+    deleteMultipleMediaItems,
+    removeFilesFromMediaCollection,
+} from '@/entities';
 import { Media, MediaCollection } from '@/types';
 import { reactive } from 'vue';
 
@@ -10,46 +15,20 @@ export interface Selection {
 const useSelection = (files: Media[]) => {
     const sel = reactive<Selection>({
         files,
-        addToCollection() {
-            // TODO:
+        addToCollection(collection) {
+            if (this.files.length === 0) return;
+
+            addFilesToMediaCollection(
+                { ids: this.files.map(file => file.id) },
+                collection.id
+            );
         },
         delete() {
-            // TODO:
+            if (this.files.length === 0) return;
+
+            deleteMultipleMediaItems({ ids: this.files.map(file => file.id) });
         },
     });
-
-    sel.addToCollection = collection => {
-        if (sel.files.length === 0) {
-            return;
-        }
-        // TODO:
-        // return Inertia.post(
-        //     `/admin/media/${collection.id}/add`,
-        //     {
-        //         ids: sel.files.map(file => file.id),
-        //     },
-        //     {
-        //         onSuccess() {
-        //             sel.files = [];
-        //         },
-        //     }
-        // );
-    };
-
-    sel.delete = () => {
-        //TODO:
-        //     return Inertia.post(
-        //         `/admin/media/delete`,
-        //         {
-        //             ids: sel.files.map(file => file.id),
-        //         },
-        //         {
-        //             onSuccess() {
-        //                 mediaIndex.reload();
-        //             },
-        //         }
-        //     );
-    };
 
     return sel;
 };

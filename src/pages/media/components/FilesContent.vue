@@ -1,7 +1,7 @@
 <template>
     <MainBody>
         <MainContent>
-            <FilesGrid :collection="collection" :collections="collections" />
+            <FilesGrid />
         </MainContent>
         <MainSidebar v-model:open="isSidebarOpen">
             <FilesFilters />
@@ -10,22 +10,10 @@
 </template>
 
 <script lang="ts" setup>
-import { PropType, ref } from 'vue';
-import { MediaCollection } from '@/types';
+import { ref } from 'vue';
 import { MainBody, MainContent, MainSidebar } from '@/layout';
 import FilesGrid from './FilesGrid.vue';
 import FilesFilters from './FilesFilters.vue';
-
-const props = defineProps({
-    collections: {
-        type: Array as PropType<MediaCollection[]>,
-        required: true,
-    },
-    collection: {
-        type: Object as PropType<MediaCollection>,
-        required: false,
-    },
-});
 
 const isSidebarOpen = ref(true);
 </script>

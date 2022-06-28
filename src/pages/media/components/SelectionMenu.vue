@@ -10,14 +10,13 @@
 
         <AddToCollectionModal
             :selection="selection"
-            :collections="collections"
         />
 
         <ContextMenuDivider />
 
         <ContextMenuItem
             class="text-red-signal hover:bg-red-signal"
-            @click="selection.delete"
+            @click="selection.delete()"
         >
             <template #icon>
                 <IconTrash class="origin-left scale-75" />
@@ -32,15 +31,10 @@ import IconTrash from '@/ui/Icons/IconTrash.vue';
 import { PropType } from 'vue';
 import { Selection } from '../modules';
 import AddToCollectionModal from './AddToCollectionModal.vue';
-import { MediaCollection } from '@/types/resources';
 
 const props = defineProps({
     selection: {
         type: Object as PropType<Selection>,
-        required: true,
-    },
-    collections: {
-        type: Array as PropType<MediaCollection[]>,
         required: true,
     },
 });
