@@ -1,9 +1,9 @@
 <template>
     <MainBody>
         <MainContent>
-            <span class="inline-block pb-8 text-xl font-medium">
+            <h2>
                 {{ $t('pages.meta_information') }}
-            </span>
+            </h2>
             <div class="grid grid-cols-12 gap-6">
                 <div class="col-span-full md:col-span-9">
                     <Card class="flex flex-col gap-5">
@@ -32,7 +32,10 @@
                                 <span class="inline-block">
                                     {{ origin }}
                                 </span>
-                                <span class="inline-block" v-html="pageState.value.full_slug" />
+                                <span
+                                    class="inline-block"
+                                    v-html="pageState.value.full_slug"
+                                />
                             </div>
                             <div class="text-[20px] text-[#1a0dab]">
                                 {{ pageForm.meta.title }}

@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+
+const plugin = require('tailwindcss/plugin');
+
 module.exports = {
     content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
     theme: {
@@ -133,4 +136,22 @@ module.exports = {
             },
         },
     },
+    plugins: [
+        plugin(function ({ addBase }) {
+            addBase({
+                'h1, .h1': {
+                    '@apply text-2xl font-semibold md:text-2xl': {},
+                },
+                'h2, .h2': {
+                    '@apply text-xl md:text-xl font-semibold': {},
+                },
+                'h3, .h3': {
+                    '@apply text-base lg:text-lg font-semibold': {},
+                },
+                'h4, .h4': {
+                    '@apply text-base font-semibold': {},
+                },
+            });
+        }),
+    ],
 };
