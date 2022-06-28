@@ -111,6 +111,22 @@ module.exports = {
             primary: '0px 6px 9px -4px rgba(255,116,76,0.6)',
             sm: '0px 2px 4px 0px rgba(0,0,0,0.05)',
         },
+        screens: {
+            sm: '640px',
+            // => @media (min-width: 640px) { ... }
+
+            md: '768px',
+            // => @media (min-width: 768px) { ... }
+
+            lg: '1024px',
+            // => @media (min-width: 1024px) { ... }
+
+            xl: '1280px',
+            // => @media (min-width: 1280px) { ... }
+
+            '2xl': '1730px',
+            // => @media (min-width: 1730px) { ... }
+        },
         extend: {
             gridTemplateColumns: {
                 app: '300px 1fr',
