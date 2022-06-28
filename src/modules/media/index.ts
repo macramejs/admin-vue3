@@ -8,16 +8,7 @@ export const getMediaById = async (id: number) => {
     return media as Media;
 };
 
-// import { useIndex, Index } from '@macramejs/macrame-vue3';
-// import { client } from '../api';
-// import { useMediaIndex, loadMediaItem } from '@/entities';
-
-// export const mediaIndex = useMediaIndex();
-
-// export const deleteFile = async (file: Media) => {
-//     await client.post(`/media/delete/`, {
-//         body: {
-//             ids: [file.id],
-//         },
-//     });
-// };
+export const deleteFile = async (file: Media) => {
+    await deleteFile(file);
+    return;
+};

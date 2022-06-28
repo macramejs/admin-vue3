@@ -12,7 +12,7 @@
             <input type="submit" class="hidden" />
         </form>
         <template v-slot:footer>
-            <Button @click="submit"> Save </Button>
+            <Button @click="submit"> {{ $t('blocks.save') }} </Button>
         </template>
     </Modal>
 </template>
@@ -32,9 +32,9 @@ const form: BlockForm = useBlockForm({});
 const router = useRouter();
 
 const submit = () => {
-    form.submit().then((response) => {
+    form.submit().then(response => {
         blocksState.load();
-        
+
         router.push(`/blocks/${response.data.data.id}`);
 
         isOpen.value = false;
