@@ -1,19 +1,41 @@
 <template>
     <div
-        class="sticky flex flex-col transition-all duration-300 bg-white shadow"
+        class="sticky flex flex-col transition-all duration-300 bg-white shadow w"
         :class="{
-            'w-[233px]': open,
+            'w-[280px] lg:w-[400px]': open,
             'w-[60px]': !open,
         }"
     >
         <div class="flex-1 w-full overflow-y-auto">
-            <slot v-if="open" />
-            <div class="w-full p-4 mt-4" v-if="!open">
-                <div class="flex items-center w-full gap-4 rotate-90">
-                    <slot name="title">
-                        {{ title }}
-                    </slot>
+            <div
+                class="w-full p-4 cursor-pointer"
+                :class="{
+                    'border-b border-gray-400': open,
+                }"
+                @click="$emit('update:open', !open)"
+                v-if="title || $slots.title"
+            >
+                <div
+                    class="flex items-center w-full gap-4"
+                    :class="{
+                        'rotate-90 pl-6': !open,
+                    }"
+                >
+                    <div
+                        class="inline-flex items-center space-x-2 font-semibold"
+                    >
+                        <slot name="icon" />
+
+                        <div>
+                            <slot name="title">
+                                {{ title }}
+                            </slot>
+                        </div>
+                    </div>
                 </div>
+            </div>
+            <div v-if="open">
+                <slot />
             </div>
         </div>
         <div

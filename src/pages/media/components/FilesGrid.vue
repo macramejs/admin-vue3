@@ -2,11 +2,11 @@
     <div class="w-full mt-10">
         <div class="grid grid-cols-12 gap-5">
             <div
-                class="flex justify-center col-span-full lg:col-span-6 xl:col-span-3"
+                class="flex justify-center col-span-6 md:col-span-4 lg:col-span-3 xl:col-span-2"
             >
-                <MediaUpload />
+                <MediaUpload :collection="collection" />
             </div>
-            <FilesGridTable />
+            <FilesGridTable :collections="collections" />
         </div>
     </div>
 </template>
@@ -14,6 +14,18 @@
 <script lang="ts" setup>
 import FilesGridTable from './FilesGridTable.vue';
 import { MediaUpload } from '@/modules/media';
+import { MediaCollection } from '@/types';
+import { PropType } from 'vue';
+
+defineProps({
+    collection: {
+        type: Object as PropType<MediaCollection>,
+    },
+    collections: {
+        type: Array as PropType<MediaCollection[]>,
+        required: true,
+    },
+});
 </script>
 
 <style scoped>

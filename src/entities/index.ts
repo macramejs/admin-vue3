@@ -20,6 +20,11 @@ export * from './links/links.state';
 export * from './media/api';
 export * from './media/media.index';
 
+// media-collection
+export * from './media-collections/api';
+export * from './media-collections/media-collection.form';
+export * from './media-collections/media-collection.index';
+
 // menu-items
 export * from './menu-items/api';
 export * from './menu-items/menu-item.form';

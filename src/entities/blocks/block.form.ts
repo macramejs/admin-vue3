@@ -2,7 +2,6 @@ import { useForm } from '@macramejs/macrame-vue3';
 import { loadBlock, updateOrCreateBlock } from './api';
 import { BlockForm, BlockFormData } from '@/types';
 import { Ref, ref } from 'vue';
-import { blocksState } from './blocks.state';
 
 export type UseBlockForm = (
     data: Partial<BlockFormData> & { id?: number | undefined }

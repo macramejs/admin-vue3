@@ -2,7 +2,7 @@
     <div
         v-for="file in mediaIndex.items"
         :key="file.id"
-        class="relative flex items-center justify-center cursor-pointer col-span-full md:col-span-6 xl:col-span-3 aspect-square"
+        class="relative flex items-center justify-center col-span-6 cursor-pointer md:col-span-4 lg:col-span-3 xl:col-span-2 aspect-square"
     >
         <label class="w-full h-full img-container">
             <input
@@ -58,8 +58,15 @@ import { PropType } from 'vue';
 import { ContextButton } from '@/ui';
 import SelectionMenu from './SelectionMenu.vue';
 import { selection, useSelection } from '../modules';
-import { mediaIndex } from '@/modules/media';
+import { mediaIndex } from '@/entities';
 import { MediaCollection } from '@/types/resources';
+
+const props = defineProps({
+    collections: {
+        type: Array as PropType<MediaCollection[]>,
+        required: true,
+    },
+});
 </script>
 
 <style scoped>

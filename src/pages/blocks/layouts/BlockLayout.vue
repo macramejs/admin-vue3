@@ -8,10 +8,11 @@
         </Topbar>
         <router-view />
     </template>
+    <Loading v-else />
 </template>
 
 <script setup lang="ts">
-import { Topbar } from '@/layout';
+import { Topbar, Loading } from '@/layout';
 import { Button } from '@/ui';
 import { blockForm, useBlockForm } from '@/entities';
 import { blockState } from '@/entities';

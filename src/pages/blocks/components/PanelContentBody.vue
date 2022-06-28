@@ -1,11 +1,11 @@
 <template>
-    <ContentBody>
+    <MainBody>
         <Sections v-model="form.content" :sections="sections" />
-    </ContentBody>
+    </MainBody>
 </template>
 
 <script lang="ts" setup>
-import { ContentBody } from '@/ui';
+import { MainBody } from '@/layout';
 import { PropType } from 'vue';
 import { Sections, sections } from '@/modules/content';
 import { Block } from '@/types/resources';

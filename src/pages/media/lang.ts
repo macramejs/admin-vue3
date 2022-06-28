@@ -3,6 +3,7 @@ export const messages = {
         media: {
             media: 'Medien',
             enter_new_name: 'Neuen Namen eingeben',
+            new_collection: 'Neue Collection',
             add_to_collection: 'Zur Collection hinzufügen',
             add: 'Hinzufügen',
             delete: 'Löschen',
@@ -23,6 +24,7 @@ export const messages = {
         media: {
             media: 'Media',
             enter_new_name: 'Enter new name',
+            new_collection: 'New Collection',
             add_to_collection: 'Add To Collection',
             add: 'Add',
             delete: 'Delete',

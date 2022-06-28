@@ -30,6 +30,7 @@ export const messages = {
             planned: 'geplant',
             offline: 'offline',
             online: 'online',
+            sections: 'Sektionen',
             help_text:
                 'Seiten sind die einzelnen per URL aufrufbaren Seiten der Website. Eine Seite basiert auf einem Template und wird aus einem Pool von frei kombinierbaren Content-Sektionen aufgebaut. Eine Seite verfügt immer über einen Slug, der Teil der URL ist. Seiten können hierarchisch verschachtelt werden, sodass sich die Slugs der verschachtelten Seiten entsprechend zur URL zusammensetzen.',
         },
@@ -65,6 +66,7 @@ export const messages = {
             planned: 'planned',
             offline: 'offline',
             online: 'online',
+            sections: 'Sections',
             help_text:
                 'Pages are the individual pages of the website that can be called up via URL. A page is based on a template and is built from a pool of freely combinable content sections. A page always has a slug that is part of the URL. Pages can be nested hierarchically, so that the slugs of the nested pages are composed according to the URL.',
         },

@@ -73,10 +73,44 @@ export type BlockFormData = {
 };
 export type BlockForm = Form<BlockFormData>;
 
-// // Partials
+// Partials
 
 export type PartialFormData = {
     name: string;
     attributes: { [k: string]: any };
 };
 export type PartialForm = Form<PartialFormData, PartialResource>;
+
+// MediaCollection
+
+export type MediaCollectionFormData = {
+    title: string;
+};
+export type MediaCollectionForm = Form<
+    MediaCollectionFormData,
+    PartialResource
+>;
+
+export type MediaCollectionUploadFormData = {
+    files: any[];
+};
+export type MediaCollectionUploadForm = Form<
+    MediaCollectionUploadFormData,
+    PartialResource
+>;
+
+export type MediaCollectionRemoveFormData = {
+    files: any[];
+};
+export type MediaCollectionRemoveForm = Form<
+    MediaCollectionRemoveFormData,
+    PartialResource
+>;
+
+export type MediaCollectionAddFormData = {
+    files: any[];
+};
+export type MediaCollectionAddForm = Form<
+    MediaCollectionAddFormData,
+    PartialResource
+>;

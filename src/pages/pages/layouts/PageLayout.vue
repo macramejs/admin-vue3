@@ -17,7 +17,7 @@
 
         <router-view />
     </template>
-    <template v-else> Busy </template>
+    <Loading v-else />
 </template>
 
 <script setup lang="ts">
@@ -25,7 +25,7 @@ import { watch, computed } from 'vue';
 import { useRoute } from 'vue-router';
 import PagesTopbarRight from './components/PagesTopbarRight.vue';
 import PagesTopbarLeft from './components/PagesTopbarLeft.vue';
-import { Tabs, Tab, Topbar } from '@/layout';
+import { Tabs, Tab, Topbar, Loading } from '@/layout';
 import { usePageForm, pageForm } from '@/entities';
 import { pageState } from '@/entities';
 
@@ -43,9 +43,22 @@ const isLoaded = computed(() => {
 
 const loadData = () => {
     pageState.load(pageId.value).then(page => {
+        if (Array.isArray(page.attributes)) {
+            page.attributes = {};
+        }
         pageForm.value = usePageForm(page);
     });
 };
 
-watch(() => pageId.value, loadData, { immediate: true });
+// watch the route param in order to load data
+watch(
+    () => pageId.value,
+    id => {
+        // should not be loaded when namespace is left
+        if (id) {
+            loadData();
+        }
+    },
+    { immediate: true }
+);
 </script>

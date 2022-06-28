@@ -1,29 +1,19 @@
 <template>
-    <SidebarSecondary>
-        <template v-slot:header>
-            <FilesSidebarHeader v-model:showForm="showForm" />
-        </template>
-        <template v-slot:default>
-            <FilesSidebarBody
-                :collections="collections"
-                :collection="collection"
-                :show-form="showForm"
-            />
-        </template>
-    </SidebarSecondary>
+    <FilesSidebarHeader v-model:showForm="showForm" />
+    <FilesSidebarBody
+        :collections="collections"
+        :collection="collection"
+        :show-form="showForm"
+    />
 </template>
 
 <script lang="ts" setup>
 import { PropType, ref } from 'vue';
-import {
-    SidebarSecondary,
-    SidebarSecondarySection,
-} from '@/ui';
 import FilesSidebarHeader from './FilesSidebarHeader.vue';
 import FilesSidebarBody from './FilesSidebarBody.vue';
 import { MediaCollection } from '@/types';
 
-const props = defineProps({
+defineProps({
     collections: {
         type: Array as PropType<MediaCollection[]>,
         required: true,

@@ -21,27 +21,11 @@ import { useRoute } from 'vue-router';
 import { Main } from '@/layout';
 import { Tabs, Tab, Topbar } from '@/layout';
 import { pageForm } from '@/entities';
-import { PageTreeCollectionResource } from '@/types';
-
-const route = useRoute();
-
-// const pageId = computed(() => {
-//     return route.params.page as string;
-// });
-
-// watch(
-//     () => pageId.value,
-//     id => {
-//         pageForm.load(id);
-//     },
-//     {
-//         immediate: true,
-//     }
-// );
+import { PageTreeResource } from '@/types';
 
 defineProps({
     pages: {
-        type: Object as PropType<PageTreeCollectionResource>,
+        type: Object as PropType<PageTreeResource>,
         required: true,
     },
 });

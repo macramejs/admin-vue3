@@ -13,7 +13,10 @@
                 </div>
             </TransitionSlideFade>
         </MainContent>
-        <MainSidebar v-model:open="isOpen">
+        <MainSidebar v-model:open="isOpen" :title="$t('pages.sections')">
+            <template v-slot:icon>
+                <IconGridAdd class="w-4 h-4" />
+            </template>
             <Drawers :sections="drawsSections" />
         </MainSidebar>
     </MainBody>
@@ -27,6 +30,7 @@ import { Drawers, sections, Sections } from '@/modules/content';
 import { pageForm } from '@/entities';
 import ToggleSections from './components/ToggleSections.vue';
 import { TransitionSlideFade } from '@/ui';
+import IconGridAdd from '@/ui/Icons/IconGridAdd.vue';
 
 const getComponent = computed(() => {
     return pageForm.value.template in templates
