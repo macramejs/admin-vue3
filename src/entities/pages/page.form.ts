@@ -1,11 +1,17 @@
 import { useForm } from '@macramejs/macrame-vue3';
-import { loadPage, updateOrCreatePage } from './api';
-import { Page, PageForm, PageFormData } from '@/types';
+import { duplicatePage, loadPage, updateOrCreatePage } from './api';
+import {
+    Page,
+    PageDuplicateForm,
+    PageDuplicateFormData,
+    PageForm,
+    PageFormData,
+} from '@/types';
 import { ref, Ref } from 'vue';
 import { pageTree } from './page.tree';
 
 export type UsePageForm = (
-    data: Partial<PageFormData> & { id?: number | undefined }
+    data: Partial<PageFormData> & { id: number | undefined }
 ) => PageForm;
 
 export const pageModel = ref<Page>();
@@ -56,4 +62,26 @@ const usePageForm: UsePageForm = ({
 
 let pageForm = ref<PageForm>() as Ref<PageForm>;
 
-export { usePageForm, pageForm };
+export type UseDupicatePageForm = (
+    data: Partial<PageDuplicateFormData>,
+    id: number
+) => PageDuplicateForm;
+
+const useDuplicatePageForm: UseDupicatePageForm = (
+    { name = '' },
+    id: number
+) => {
+    return useForm({
+        data: {
+            name,
+        },
+        submit: data => {
+            return duplicatePage(data, id as number).then(response => {
+                pageTree.load();
+                return response;
+            });
+        },
+    });
+};
+
+export { usePageForm, pageForm, useDuplicatePageForm };

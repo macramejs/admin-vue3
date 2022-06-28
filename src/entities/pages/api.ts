@@ -26,6 +26,10 @@ const updateOrCreatePage: UpdateOrCreate<PageFormData> = (
     return id ? client.put(`pages/${id}`, data) : client.post(`pages`, data);
 };
 
+const duplicatePage = (data: { name: string }, pageId: number) => {
+    return client.post(`pages/${pageId}/duplicate`, data);
+};
+
 const deletePage: Delete = id => client.delete(`pages/${id}`);
 
 // page tree
@@ -38,6 +42,7 @@ const updatePageTree: Update<{ order: TreeOrder }> = data =>
 export {
     loadPage,
     loadPages,
+    duplicatePage,
     deletePage,
     updateOrCreatePage,
     loadPageTree,

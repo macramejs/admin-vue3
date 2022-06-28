@@ -22,6 +22,8 @@ import { ref, PropType } from 'vue';
 import { Modal, Input, Button } from '@/ui';
 import IconCopy from '@/ui/Icons/IconCopy.vue';
 import { Page } from '@/types/resources';
+import { useDuplicatePageForm } from '@/entities';
+import { useRouter } from 'vue-router';
 
 const isOpen = ref<boolean>(false);
 
@@ -32,11 +34,18 @@ const props = defineProps({
     },
 });
 
-// TODO: @cbl
-const form = ref({
-    name: '',
-});
+const form = useDuplicatePageForm(
+    {
+        name: '',
+    },
+    props.page.id
+);
 
-// TODO: @cbl
-const submit = () => {};
+const router = useRouter();
+
+const submit = () => {
+    form.submit().then(response => {
+        router.push(`/pages/${response.data.data.id}`);
+    });
+};
 </script>

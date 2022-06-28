@@ -46,10 +46,12 @@ export interface PageFormData {
 }
 export type PageForm = Form<PageFormData>;
 
-export interface PageSlugFormData {
-    slug: string;
+// Page Duplicate
+
+export interface PageDuplicateFormData {
+    name: string;
 }
-export type PageSlugForm = Form<PageSlugFormData>;
+export type PageDuplicateForm = Form<PageDuplicateFormData>;
 
 // Menu
 export interface MenuFormData {
