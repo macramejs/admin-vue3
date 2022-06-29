@@ -1,7 +1,7 @@
 <template>
     <ContextMenu>
         <ContextMenuItem
-            class="hover:bg-red-signal text-red-signal"
+            class="hover:bg-red-signal text-red-signal hover:text-white"
             @click="deleteMedia(file.id)"
         >
             <template #icon>

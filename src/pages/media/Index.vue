@@ -1,22 +1,18 @@
 <template>
     <Main>
-        <FileDropzone></FileDropzone>
         <Topbar>
             <div class="font-semibold">{{ $t('media.media') }}</div>
-            <AddMediaCollectionModal />
+            <FileSelection />
         </Topbar>
         <MainBody>
             <MainContent>
                 <FilesGrid />
             </MainContent>
             <MainSidebar :title="$t('media.filter')" v-model:open="isOpen">
-                <MainSidebarSection :title="$t('media.filter')">
-                    <FilesFilters />
-                </MainSidebarSection>
-                <MainSidebarSection :title="$t('media.collections')">
-                    <!-- TODO: -->
-                    <pre>{{ mediaCollectionIndex }}</pre>
-                </MainSidebarSection>
+                <template v-slot:icon>
+                    <IconInputSearch class="w-4 h-4" />
+                </template>
+                <FilesSidebar />
             </MainSidebar>
         </MainBody>
     </Main>
@@ -26,19 +22,13 @@
 import { ref } from 'vue';
 
 import { Topbar } from '@/layout';
-import {
-    Main,
-    MainBody,
-    MainContent,
-    MainSidebar,
-    MainSidebarSection,
-} from '@/layout';
+import { Main, MainBody, MainContent, MainSidebar } from '@/layout';
 import { mediaIndex, mediaCollectionIndex } from '@/entities';
 
-import FileDropzone from './components/FileDropzone.vue';
+import FileSelection from './components/FileSelection.vue';
 import FilesGrid from './components/FilesGrid.vue';
-import FilesFilters from './components/FilesFilters.vue';
-import AddMediaCollectionModal from './components/AddMediaCollectionModal.vue';
+import IconInputSearch from '@/ui/Icons/IconInputSearch.vue';
+import FilesSidebar from './components/sidebar/FilesSidebar.vue';
 
 mediaIndex.load();
 mediaCollectionIndex.load();

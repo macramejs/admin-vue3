@@ -6,14 +6,62 @@
             >
                 <MediaUpload />
             </div>
-            <FilesGridTable />
+            <div
+                v-for="file in mediaIndex.items"
+                :key="file.id"
+                class="relative flex items-center justify-center col-span-6 cursor-pointer md:col-span-4 lg:col-span-3 xl:col-span-2 aspect-square"
+            >
+                <label class="w-full h-full img-container">
+                    <input
+                        type="checkbox"
+                        :id="`${file.id}`"
+                        class="absolute opacity-0"
+                        :value="file"
+                        v-model="selection.files"
+                    />
+                    <div
+                        class="absolute top-0 left-0 w-full cursor-pointer h-full bg-black border-[3px] border-transparent bg-opacity-0 hover:bg-opacity-80"
+                    >
+                        <div
+                            class="absolute img-checkbox top-0 left-0 hidden items-center justify-center w-5 h-5 rounded-br-[6px] text-white bg-orange"
+                        >
+                            <svg
+                                width="24"
+                                height="24"
+                                class="scale-75 -translate-x-[3px] -translate-y-px"
+                                stroke-width="1"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    d="m5 13 4 4L19 7"
+                                    stroke="currentColor"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                            </svg>
+                        </div>
+                    </div>
+                    <img
+                        v-if="file.url"
+                        class="object-contain w-full h-full pointer-events-none"
+                        :src="file.url"
+                    />
+                    <FileMenu
+                        :file="file"
+                        class="absolute bottom-0 right-0 mb-1 mr-1"
+                    />
+                </label>
+            </div>
         </div>
     </div>
 </template>
 
 <script lang="ts" setup>
-import FilesGridTable from './FilesGridTable.vue';
 import { MediaUpload } from '@/modules/media';
+import { selection } from '../modules';
+import { mediaIndex } from '@/entities';
+import FileMenu from './FileMenu.vue';
 </script>
 
 <style scoped>

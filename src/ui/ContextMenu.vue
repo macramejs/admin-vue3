@@ -45,6 +45,10 @@ defineProps({
         type: String as PropType<PopperPlacement>,
         default: 'bottom',
     },
+    disabled: {
+        type: Boolean,
+        default: false,
+    },
 });
 </script>
 

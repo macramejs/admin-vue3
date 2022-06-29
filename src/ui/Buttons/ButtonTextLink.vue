@@ -1,12 +1,11 @@
 <template>
     <component
         :is="tag"
-        class="relative inline-flex h-[20px] rounded px-2.5 items-center justify-center text-sm uppercase transition-all duration-300 focus:ring focus:outline-none"
+        class="relative inline-flex items-center justify-center text-sm underline uppercase transition-all duration-300 underline-offset-4"
         :class="{
-            'focus:rounded hover:border-indigo-500 py-3 after:absolute after:left-1/2 after:bottom-[3px] after:h-px after:w-[calc(100%-20px)] after:-translate-x-1/2 hover:after:bg-indigo-500 active:after:bg-indigo-500 text-black focus:ring-transparent focus:bg-orange-100':
+            ' hover:border-indigo-500  after:absolute hover:after:bg-indigo-500  text-black focus:ring-transparent focus:text-orange':
                 !disabled,
-            'opacity-40 py-2 px-3 cursor-not-allowed focus:ring-transparent':
-                disabled,
+            'opacity-40  cursor-not-allowed focus:ring-transparent': disabled,
         }"
         :disabled="disabled"
         v-bind="$attrs"

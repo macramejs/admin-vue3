@@ -1,9 +1,10 @@
 <template>
-    <slot name="button" :open="() => (isOpen = true)">
-        <ContextMenuItem @click="isOpen = true">
-            {{ $t('media.add_to_collection') }}
-        </ContextMenuItem>
-    </slot>
+    <ContextMenuItem
+        @click="isOpen = true"
+        :disabled="selection.files.length == 0"
+    >
+        {{ $t('media.add_to_collection') }}
+    </ContextMenuItem>
     <Modal lg v-model:open="isOpen" :title="$t('media.add_to_collection')">
         <div class="space-y-3">
             <Select

@@ -57,7 +57,7 @@ export type MediaIndexResource = IndexResource<Media>;
 export type MediaCollection = {
     id: number;
     title: string;
-    key?: string;
+    key: string;
 };
 export type MediaCollectionResource = Resource<MediaCollection>;
 export type MediaCollectionCollectionResource =

@@ -1,8 +1,7 @@
 <template>
-    <div class="p-4">
+    <div class="py-4">
         <Input v-model.debounce="mediaIndex.search" />
         <div class="pt-4">
-            <!-- // TODO: @cbl - this doesn't filter anything -->
             <Checkbox
                 v-model="mediaIndex.filters.types.value"
                 value="images"
@@ -17,8 +16,6 @@
             >
                 {{ $t('media.documents') }}
             </Checkbox>
-
-            {{ mediaIndex.filters.types.value }}
         </div>
     </div>
 </template>

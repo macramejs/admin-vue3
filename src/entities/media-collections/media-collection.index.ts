@@ -6,7 +6,11 @@ type MediaCollectionIndexSortByKeys = 'id';
 
 export const useMediaCollectionIndex = () => {
     const index = useIndex<MediaCollection, MediaCollectionIndexSortByKeys>({
-        load: params => loadMediaCollections(params),
+        load: params => {
+            console.log({ params });
+
+            return loadMediaCollections(params);
+        },
     });
 
     index.reloadOnChange(index.filters);

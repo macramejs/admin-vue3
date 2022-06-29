@@ -1,5 +1,7 @@
 <template>
-    <Button @click="isOpen = true">{{ $t('media.new_collection') }}</Button>
+    <ButtonTextLink @click="isOpen = true">{{
+        $t('media.new_collection')
+    }}</ButtonTextLink>
     <Modal
         v-model:open="isOpen"
         sm
@@ -24,7 +26,7 @@
 import { ref } from 'vue';
 import { mediaCollectionIndex, useMediaCollectionForm } from '@/entities';
 import { Input } from '@/ui';
-import { Button, Modal } from '@/ui';
+import { ButtonTextLink, Modal } from '@/ui';
 
 const isOpen = ref<boolean>(false);
 

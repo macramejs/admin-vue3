@@ -4,6 +4,7 @@
         :class="{
             'flex items-center gap-2': $slots.icon,
         }"
+        :disabled="disabled"
     >
         <slot name="icon" />
         <slot>{{ label }}</slot>
@@ -15,6 +16,10 @@ defineProps({
     label: {
         type: String,
         required: false,
+    },
+    disabled: {
+        type: Boolean,
+        default: false,
     },
 });
 </script>
