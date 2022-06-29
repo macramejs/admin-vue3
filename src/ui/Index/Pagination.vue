@@ -1,61 +1,27 @@
 <template>
     <div class="flex justify-around">
         <div class="flex items-stretch space-x-2">
-            <Button
+            <ButtonMidGray
                 secondary
                 square
                 class="relative"
                 @click="table.setPage(1)"
                 :disabled="table.currentPage == 1"
             >
-                <svg
-                    class="absolute fill-current left-1"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    width="24"
-                    height="24"
-                >
-                    <path fill="none" d="M0 0h24v24H0z" />
-                    <path
-                        d="M10.828 12l4.95 4.95-1.414 1.414L8 12l6.364-6.364 1.414 1.414z"
-                    />
-                </svg>
-                <svg
-                    class="absolute fill-current right-1"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    width="24"
-                    height="24"
-                >
-                    <path fill="none" d="M0 0h24v24H0z" />
-                    <path
-                        d="M10.828 12l4.95 4.95-1.414 1.414L8 12l6.364-6.364 1.414 1.414z"
-                    />
-                </svg>
-            </Button>
-            <Button
+                <IconFastArrowLeft class="w-4 h-4" />
+            </ButtonMidGray>
+            <ButtonMidGray
                 secondary
                 square
                 :disabled="table.currentPage == 1"
                 @click="table.setPage(table.currentPage - 1)"
             >
-                <svg
-                    class="fill-current"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    width="24"
-                    height="24"
-                >
-                    <path fill="none" d="M0 0h24v24H0z" />
-                    <path
-                        d="M10.828 12l4.95 4.95-1.414 1.414L8 12l6.364-6.364 1.414 1.414z"
-                    />
-                </svg>
-            </Button>
-            <div class="flex items-center px-4 space-x-6 text-gray">
-                <span class="text-lg" v-if="table.currentPage > 2"> ... </span>
+                <IconNavArrowLeft class="w-4 h-4" />
+            </ButtonMidGray>
+            <div class="flex items-center px-4 space-x-6 text-gray-900 text-md">
+                <span class="" v-if="table.currentPage > 2"> ... </span>
                 <span
-                    class="text-lg cursor-pointer"
+                    class="cursor-pointer"
                     v-if="
                         table.currentPage == table.lastPage &&
                         table.currentPage > 2
@@ -65,103 +31,70 @@
                     {{ table.currentPage - 2 }}
                 </span>
                 <span
-                    class="text-lg cursor-pointer"
+                    class="cursor-pointer"
                     v-if="table.currentPage > 1"
                     @click="table.setPage(table.currentPage - 1)"
                 >
                     {{ table.currentPage - 1 }}
                 </span>
-                <span class="text-lg font-bold text-blue">
+                <span class="font-bold text-orange">
                     {{ table.currentPage }}
                 </span>
                 <span
-                    class="text-lg cursor-pointer"
+                    class="cursor-pointer"
                     v-if="table.currentPage < table.lastPage"
                     @click="table.setPage(table.currentPage + 1)"
                 >
                     {{ table.currentPage + 1 }}
                 </span>
                 <span
-                    class="text-lg cursor-pointer"
+                    class="cursor-pointer"
                     v-if="table.currentPage == 1 && table.lastPage > 2"
                     @click="table.setPage(table.currentPage + 2)"
                 >
                     {{ table.currentPage + 2 }}
                 </span>
                 <span
-                    class="text-lg cursor-pointer"
+                    class="cursor-pointer"
                     v-if="table.currentPage < table.lastPage - 1"
                 >
                     ...
                 </span>
             </div>
-            <Button
+            <ButtonMidGray
                 secondary
                 square
                 :disabled="!(table.currentPage < table.lastPage)"
                 @click="table.setPage(table.currentPage + 1)"
             >
-                <svg
-                    class="fill-current"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    width="24"
-                    height="24"
-                >
-                    <path fill="none" d="M0 0h24v24H0z" />
-                    <path
-                        d="M13.172 12l-4.95-4.95 1.414-1.414L16 12l-6.364 6.364-1.414-1.414z"
-                    />
-                </svg>
-            </Button>
-            <Button
+                <IconNavArrowRight class="w-4 h-4" />
+            </ButtonMidGray>
+            <ButtonMidGray
                 secondary
                 square
                 class="relative"
-                @click="table.setLastPage()"
+                @click="table.setPage(table.lastPage)"
                 :disabled="!(table.currentPage < table.lastPage)"
             >
-                <svg
-                    class="absolute fill-current right-1"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    width="24"
-                    height="24"
-                >
-                    <path fill="none" d="M0 0h24v24H0z" />
-                    <path
-                        d="M13.172 12l-4.95-4.95 1.414-1.414L16 12l-6.364 6.364-1.414-1.414z"
-                    />
-                </svg>
-                <svg
-                    class="absolute fill-current left-1"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    width="24"
-                    height="24"
-                >
-                    <path fill="none" d="M0 0h24v24H0z" />
-                    <path
-                        d="M13.172 12l-4.95-4.95 1.414-1.414L16 12l-6.364 6.364-1.414-1.414z"
-                    />
-                </svg>
-            </Button>
+                <IconFastArrowRight class="w-4 h-4" />
+            </ButtonMidGray>
         </div>
     </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, PropType } from 'vue';
+<script lang="ts" setup>
+import { PropType } from 'vue';
 import { Index } from '@macramejs/macrame-vue3';
-import Button from '../Buttons/Button.vue';
+import ButtonMidGray from '../Buttons/ButtonMidGray.vue';
+import IconNavArrowRight from '@/ui/Icons/IconNavArrowRight.vue';
+import IconFastArrowRight from '@/ui/Icons/IconFastArrowRight.vue';
+import IconNavArrowLeft from '@/ui/Icons/IconNavArrowLeft.vue';
+import IconFastArrowLeft from '@/ui/Icons/IconFastArrowLeft.vue';
 
-export default defineComponent({
-    components: { Button },
-    props: {
-        table: {
-            type: Object as PropType<Index>,
-            required: true,
-        },
+defineProps({
+    table: {
+        type: Object as PropType<Index>,
+        required: true,
     },
 });
 </script>

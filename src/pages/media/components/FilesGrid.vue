@@ -54,6 +54,9 @@
                 </label>
             </div>
         </div>
+        <div class="py-8">
+            <Pagination :table="mediaIndex" />
+        </div>
     </div>
 </template>
 
@@ -62,6 +65,7 @@ import { MediaUpload } from '@/modules/media';
 import { selection } from '../modules';
 import { mediaIndex } from '@/entities';
 import FileMenu from './FileMenu.vue';
+import { Pagination } from '@/ui';
 </script>
 
 <style scoped>
