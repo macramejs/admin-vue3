@@ -79,7 +79,7 @@ import {
 } from '@/ui';
 
 import BaseSection from '../../components/BaseSection.vue';
-import Link from '../../components/Link.vue';
+import Link from '@/modules/link/Link.vue';
 import IconMoreHoriz from '@/ui/Icons/IconMoreHoriz.vue';
 import IconDraggable from '@/ui/Icons/custom/IconDraggable.vue';
 import IconTrash from '@/ui/Icons/IconTrash.vue';

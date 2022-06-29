@@ -66,7 +66,7 @@
 </template>
 <script setup lang="ts">
 import BaseSection from '../../components/BaseSection.vue';
-import Link from '../../components/Link.vue';
+import Link from '@/modules/link/Link.vue';
 import {
     AddItemButton,
     Card,

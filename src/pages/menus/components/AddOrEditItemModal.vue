@@ -9,31 +9,28 @@
             <IconPlus class="w-5 h-5" />
         </Button>
     </slot>
-    <Modal :open="isOpen" @close="isOpen = false" v-bind="$attrs" md>
-        <h2>{{ $t('menus.add_item') }}</h2>
-        <div>
-            <FormField>
-                <Input :label="$t('menus.title')" v-model="form.title" />
-            </FormField>
-            <FormField>
-                <Select
-                    :label="$t('menus.link')"
-                    v-model="form.link"
-                    :options="linksState.value"
-                    label-key="title"
-                    value-key="link"
-                />
-            </FormField>
-        </div>
-        <Button @click="submit"> {{ $t('menus.save') }} </Button>
+    <Modal
+        :open="isOpen"
+        @close="isOpen = false"
+        v-bind="$attrs"
+        md
+        :title="$t('menus.add_item')"
+    >
+        <FormGroup>
+            <LinkForm v-model="link" />
+        </FormGroup>
+        <template v-slot:footer>
+            <Button @click="submit"> {{ $t('menus.save') }} </Button>
+        </template>
     </Modal>
 </template>
 
 <script lang="ts" setup>
-import { PropType, ref, Ref } from 'vue';
-import { Modal, Input, Select, Button, FormField } from '@/ui';
+import { PropType, ref } from 'vue';
+import { Modal, Input, Select, Button, FormGroup } from '@/ui';
 import IconPlus from '@/ui/Icons/IconPlus.vue';
 import { useMenuItemForm, linksState } from '@/entities';
+import LinkForm from '@/modules/link/LinkForm.vue';
 import { Menu, MenuItem } from '@/types';
 
 const isOpen = ref<boolean>(false);
@@ -50,9 +47,19 @@ const props = defineProps({
     },
 });
 
-const form = useMenuItemForm(props.menu, {});
+const link = ref({
+    link: props.menuItem.link,
+    text: props.menuItem.title,
+    new_tab: false,
+});
 
 const submit = () => {
+    const form = useMenuItemForm(props.menu, {
+        id: props.menuItem?.id,
+        link: link.value.link,
+        title: link.value.text,
+    });
+
     form.submit().then(() => {
         isOpen.value = false;
     });

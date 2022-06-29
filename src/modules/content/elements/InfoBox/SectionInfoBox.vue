@@ -14,7 +14,7 @@
 </template>
 <script setup lang="ts">
 import BaseSection from '../../components/BaseSection.vue';
-import Link from '../../components/Link.vue';
+import Link from '@/modules/link/Link.vue';
 import { Card, Textarea, Input, FormGroup } from '@/ui';
 import DrawerInfoBox from '././DrawerInfoBox.vue';
 import { watch, reactive } from 'vue';
