@@ -7,9 +7,10 @@
     >
         <img
             :src="thumb"
-            class="object-cover w-full h-auto max-w-full max-h-full lazyload lazyload-animation"
+            class="w-full h-auto max-w-full max-h-full lazyload lazyload-animation"
             :class="{
                 'object-cover': cover,
+                'object-contain': contain,
             }"
             data-sizes="auto"
             :data-srcset="srcset"
@@ -34,6 +35,10 @@ const props = defineProps({
         },
     },
     cover: {
+        type: Boolean,
+        default: false,
+    },
+    contain: {
         type: Boolean,
         default: false,
     },

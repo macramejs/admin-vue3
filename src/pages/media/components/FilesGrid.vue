@@ -11,6 +11,7 @@
                 :key="file.id"
                 class="relative flex items-center justify-center col-span-6 cursor-pointer md:col-span-4 lg:col-span-3 xl:col-span-2 aspect-square"
             >
+                <FileMenu :file="file" class="absolute z-20 bottom-2 right-1" />
                 <label class="w-full h-full img-container">
                     <input
                         type="checkbox"
@@ -20,7 +21,7 @@
                         v-model="selection.files"
                     />
                     <div
-                        class="absolute top-0 left-0 w-full cursor-pointer h-full bg-black border-[3px] border-transparent bg-opacity-0 hover:bg-opacity-80"
+                        class="absolute top-0 left-0 w-full cursor-pointer h-full bg-black border-[3px] border-transparent bg-opacity-0 hover:bg-opacity-80 z-10"
                     >
                         <div
                             class="absolute img-checkbox top-0 left-0 hidden items-center justify-center w-5 h-5 rounded-br-[6px] text-white bg-orange"
@@ -42,14 +43,12 @@
                             </svg>
                         </div>
                     </div>
-                    <img
+                    <ResponsiveImage
                         v-if="file.url"
-                        class="object-contain w-full h-full pointer-events-none"
-                        :src="file.url"
-                    />
-                    <FileMenu
-                        :file="file"
-                        class="absolute bottom-0 right-0 mb-1 mr-1"
+                        :src="file.url.replaceAll(' ', '%20')"
+                        class="flex items-center w-full h-full pointer-events-none"
+                        contain
+                        :sizes="[10, 200]"
                     />
                 </label>
             </div>
@@ -66,6 +65,7 @@ import { selection } from '../modules';
 import { mediaIndex } from '@/entities';
 import FileMenu from './FileMenu.vue';
 import { Pagination } from '@/ui';
+import ResponsiveImage from '@/ui/ResponsiveImage.vue';
 </script>
 
 <style scoped>
