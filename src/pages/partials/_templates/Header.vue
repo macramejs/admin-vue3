@@ -1,7 +1,7 @@
 <template>
     <FormGroup>
         <SelectImage v-model="partialForm.attributes.header_image" />
-        <Input label="Claim" v-model="claim" />
+        <Input label="Claim" v-model="partialForm.attributes.claim" />
     </FormGroup>
     <slot />
 </template>
