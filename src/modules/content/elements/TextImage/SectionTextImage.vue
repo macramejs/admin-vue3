@@ -33,6 +33,9 @@ import { watch, reactive } from 'vue';
 import DrawerTextImage from '././DrawerTextImage.vue';
 import SelectImage from '@/modules/media/SelectImage.vue';
 import FormGroup from '@/ui/Form/FormGroup.vue';
+import { translatable } from '@macramejs/macrame-vue3';
+import { locale } from '@/modules/localize';
+
 const emit = defineEmits(['update:modelValue']);
 
 const props = defineProps({

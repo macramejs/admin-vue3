@@ -11,6 +11,8 @@ import { Input } from '@/ui';
 import SelectImage from '@/modules/media/SelectImage.vue';
 
 import { pageForm } from '@/entities';
+import { translatable } from '@macramejs/macrame-vue3';
+import { locale } from '@/modules/localize';
 
 const h1 = translatable<string>(
     locale as any,
