@@ -18,7 +18,7 @@
                 ></path>
             </svg>
         </div>
-        <BaseInput
+        <Input
             v-model.debounce="table.search"
             class="w-full h-full pl-6 text-gray-800 bg-transparent outline-none placeholder:text-gray-500"
             :placeholder="placeholder"
@@ -26,24 +26,18 @@
     </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, PropType } from 'vue';
+<script lang="ts" setup>
+import { PropType } from 'vue';
 import { Index } from '@macramejs/macrame-vue3';
-import { Input as BaseInput } from '@macramejs/macrame-vue3';
+import { Input } from '@/ui';
 
-export default defineComponent({
-    components: { BaseInput },
-    props: {
-        table: {
-            type: Object as PropType<Index>,
-            required: true,
-        },
-        placeholder: {
-            type: String,
-        },
+defineProps({
+    table: {
+        type: Object as PropType<Index>,
+        required: true,
     },
-    setup() {
-        //
+    placeholder: {
+        type: String,
     },
 });
 </script>

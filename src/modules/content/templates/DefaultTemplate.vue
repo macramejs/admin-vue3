@@ -15,7 +15,7 @@ import SelectImage from '@/modules/media/SelectImage.vue';
 import { pageForm } from '@/entities';
 
 const h1 = translatable<string>(
-    locale,
+    locale as any,
     pageForm.value.attributes.h1,
     value => (pageForm.value.attributes.h1 = value)
 );

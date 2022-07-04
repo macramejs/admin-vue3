@@ -7,14 +7,14 @@
 </template>
 
 <script lang="ts" setup>
-import { partialForm } from "@/entities";
-import { Input, FormGroup } from "@/ui";
+import { partialForm } from '@/entities';
+import { Input, FormGroup } from '@/ui';
 import SelectImage from '@/modules/media/SelectImage.vue';
 import { locale } from '@/modules/localize';
 import { translatable } from '@macramejs/macrame-vue3';
 
 const claim = translatable<string>(
-    locale,
+    locale as any,
     partialForm.attributes.claim,
     value => (partialForm.attributes.claim = value)
 );

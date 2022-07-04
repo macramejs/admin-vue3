@@ -54,7 +54,8 @@
             </div>
         </div>
         <div class="py-8">
-            <Pagination :table="mediaIndex" />
+            <!-- TODO: fix any -->
+            <Pagination :table="(mediaIndex as any)" />
         </div>
     </div>
 </template>

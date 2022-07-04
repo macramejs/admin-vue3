@@ -27,7 +27,8 @@ const props = defineProps({
     },
 });
 
-const text = translatable<string>(locale, props.modelValue.text, value =>
+// TODO: fix any
+const text = translatable<string>(locale as any, props.modelValue.text, value =>
     emit('update:modelValue', { text: value })
 );
 </script>

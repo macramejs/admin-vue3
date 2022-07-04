@@ -6,57 +6,59 @@
                 square
                 class="relative"
                 @click="table.setPage(1)"
-                :disabled="table.currentPage == 1"
+                :disabled="table.meta.current_page == 1"
             >
                 <IconFastArrowLeft class="w-4 h-4" />
             </ButtonMidGray>
             <ButtonMidGray
                 secondary
                 square
-                :disabled="table.currentPage == 1"
-                @click="table.setPage(table.currentPage - 1)"
+                :disabled="table.meta.current_page == 1"
+                @click="table.setPage(table.meta.current_page - 1)"
             >
                 <IconNavArrowLeft class="w-4 h-4" />
             </ButtonMidGray>
             <div class="flex items-center px-4 space-x-6 text-gray-900 text-md">
-                <span class="" v-if="table.currentPage > 2"> ... </span>
+                <span class="" v-if="table.meta.current_page > 2"> ... </span>
                 <span
                     class="cursor-pointer"
                     v-if="
-                        table.currentPage == table.lastPage &&
-                        table.currentPage > 2
+                        table.meta.current_page == table.meta.last_page &&
+                        table.meta.current_page > 2
                     "
-                    @click="table.setPage(table.currentPage - 2)"
+                    @click="table.setPage(table.meta.current_page - 2)"
                 >
-                    {{ table.currentPage - 2 }}
+                    {{ table.meta.current_page - 2 }}
                 </span>
                 <span
                     class="cursor-pointer"
-                    v-if="table.currentPage > 1"
-                    @click="table.setPage(table.currentPage - 1)"
+                    v-if="table.meta.current_page > 1"
+                    @click="table.setPage(table.meta.current_page - 1)"
                 >
-                    {{ table.currentPage - 1 }}
+                    {{ table.meta.current_page - 1 }}
                 </span>
                 <span class="font-bold text-orange">
-                    {{ table.currentPage }}
+                    {{ table.meta.current_page }}
                 </span>
                 <span
                     class="cursor-pointer"
-                    v-if="table.currentPage < table.lastPage"
-                    @click="table.setPage(table.currentPage + 1)"
+                    v-if="table.meta.current_page < table.meta.last_page"
+                    @click="table.setPage(table.meta.current_page + 1)"
                 >
-                    {{ table.currentPage + 1 }}
+                    {{ table.meta.current_page + 1 }}
                 </span>
                 <span
                     class="cursor-pointer"
-                    v-if="table.currentPage == 1 && table.lastPage > 2"
-                    @click="table.setPage(table.currentPage + 2)"
+                    v-if="
+                        table.meta.current_page == 1 && table.meta.last_page > 2
+                    "
+                    @click="table.setPage(table.meta.current_page + 2)"
                 >
-                    {{ table.currentPage + 2 }}
+                    {{ table.meta.current_page + 2 }}
                 </span>
                 <span
                     class="cursor-pointer"
-                    v-if="table.currentPage < table.lastPage - 1"
+                    v-if="table.meta.current_page < table.meta.last_page - 1"
                 >
                     ...
                 </span>
@@ -64,8 +66,8 @@
             <ButtonMidGray
                 secondary
                 square
-                :disabled="!(table.currentPage < table.lastPage)"
-                @click="table.setPage(table.currentPage + 1)"
+                :disabled="!(table.meta.current_page < table.meta.last_page)"
+                @click="table.setPage(table.meta.current_page + 1)"
             >
                 <IconNavArrowRight class="w-4 h-4" />
             </ButtonMidGray>
@@ -73,8 +75,8 @@
                 secondary
                 square
                 class="relative"
-                @click="table.setPage(table.lastPage)"
-                :disabled="!(table.currentPage < table.lastPage)"
+                @click="table.setPage(table.meta.last_page)"
+                :disabled="!(table.meta.current_page < table.meta.last_page)"
             >
                 <IconFastArrowRight class="w-4 h-4" />
             </ButtonMidGray>

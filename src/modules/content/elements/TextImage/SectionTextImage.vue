@@ -54,14 +54,16 @@ const props = defineProps({
 
 const model = reactive(props.modelValue);
 
+// TODO: fix any
 const title = translatable<string>(
-    locale,
+    locale as any,
     model.image.title,
     value => (model.image.title = value)
 );
 
+// TODO: fix any
 const alt = translatable<string>(
-    locale,
+    locale as any,
     model.image.alt,
     value => (model.image.alt = value)
 );

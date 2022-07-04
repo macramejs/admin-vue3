@@ -339,7 +339,7 @@
 </template>
 
 <script lang="ts" setup>
-import { watch, computed, ref } from 'vue';
+import { watch, computed, ref, Ref, PropType } from 'vue';
 import {
     Listbox,
     ListboxButton,
@@ -360,7 +360,7 @@ import TableHeader from '@tiptap/extension-table-header';
 
 const props = defineProps({
     modelValue: {
-        type: String,
+        type: String as PropType<any>,
         default: '',
     },
     errors: {
