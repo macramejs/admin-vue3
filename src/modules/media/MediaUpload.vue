@@ -3,26 +3,22 @@
 </template>
 
 <script lang="ts" setup>
-import { MediaCollection } from '@/types';
+import { computed } from 'vue';
 import { FileUpload } from '@/ui';
-import { PropType } from 'vue';
-import { mediaIndex } from '@/entities';
+import { mediaCollectionIndex, mediaIndex } from '@/entities';
 
 const emit = defineEmits(['uploaded']);
-
-const props = defineProps({
-    collection: {
-        type: Object as PropType<MediaCollection>,
-        required: false,
-    },
-});
 
 const success = function () {
     mediaIndex.load();
     emit('uploaded');
 };
 
-const url = props.collection
-    ? `/media/${props.collection.id}/upload`
-    : `/media/upload`;
+const url = computed(() => {
+    let c = mediaCollectionIndex.items.find(item => {
+        return item.key == mediaIndex.filters?.collection?.value;
+    });
+
+    return c ? `/media/upload/${c.id}` : `/media/upload`;
+});
 </script>

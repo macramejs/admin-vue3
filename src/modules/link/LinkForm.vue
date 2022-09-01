@@ -8,7 +8,7 @@
         <Select
             v-if="!external"
             label="Link"
-            v-model="model.link"
+            v-model="model.url"
             :options="linksState.value"
             label-key="title"
             value-key="link"
@@ -16,7 +16,7 @@
 
         <Input
             v-else
-            v-model="model.link"
+            v-model="model.url"
             class="w-full"
             label="Externer Link"
         />
@@ -25,6 +25,25 @@
             <span> In neuem Tab öffnen </span>
             <Toggle v-model="model.new_tab" />
         </div>
+
+        <Disclosure v-slot="{ open }">
+            <DisclosureButton
+                class="transition-colors duration-300 border-b border-gray-700 outline-none hover:border-orange-500 hover:text-orange-500 w-fit"
+            >
+                {{ open ? 'weniger anzeigen' : 'mehr anzeigen' }}
+            </DisclosureButton>
+            <DisclosurePanel>
+                <Toggle
+                    v-model="model.alternative_layout"
+                    label="Alternatives Layout"
+                />
+                <div class="mt-1 text-xs">
+                    Passt das Grid Layout der Navigation an, sodass es
+                    spaltenweise verläuft. Funktioniert nur bei Punkten der
+                    ersten Navigationsebene
+                </div>
+            </DisclosurePanel>
+        </Disclosure>
     </FormGroup>
 </template>
 
@@ -32,13 +51,15 @@
 import { PropType, ref, watch } from 'vue';
 import { Input, Select, Toggle, FormGroup } from '@/ui';
 import { linksState } from '@/entities';
+import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue';
 
 const emit = defineEmits(['update:modelValue']);
 
 interface Link {
-    link: string;
+    url: string;
     text: string;
     new_tab: boolean;
+    alternative_layout: boolean;
 }
 
 const props = defineProps({
@@ -48,13 +69,13 @@ const props = defineProps({
     },
 });
 
-const external = ref<boolean>(props.modelValue.link?.startsWith('http'));
+const external = ref<boolean>(props.modelValue.url?.startsWith('http'));
 const model = ref<Link>(props.modelValue);
 
 watch(
     () => external.value,
     val => {
-        model.value.link = '';
+        model.value.url = '';
     }
 );
 
