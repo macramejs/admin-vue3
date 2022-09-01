@@ -2,6 +2,7 @@
     <ContextMenuItem
         @click="isOpen = true"
         :disabled="selection.files.length == 0"
+        class="whitespace-nowrap"
     >
         {{ $t('media.add_to_collection') }}
     </ContextMenuItem>
@@ -22,24 +23,16 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, PropType, computed } from 'vue';
+import { ref, computed } from 'vue';
 import { Modal, Select, Button, ContextMenuItem } from '@/ui';
-import { Selection } from '../modules';
+import { selection } from '../modules';
 import { MediaCollection } from '@/types/resources';
 import { mediaCollectionIndex } from '@/entities';
+import { useRouter } from 'vue-router';
 
 const isOpen = ref<boolean>(false);
 
 const collection = ref<MediaCollection>();
-
-const props = defineProps({
-    selection: {
-        type: Object as PropType<Selection>,
-        required: true,
-    },
-});
-
-//
 
 const collectionOptions = computed(() => {
     return mediaCollectionIndex.items.map(collection => ({
@@ -48,11 +41,18 @@ const collectionOptions = computed(() => {
     }));
 });
 
+const router = useRouter();
+
 const addToCollection = () => {
     if (!collection.value) return;
 
-    props.selection.addToCollection(collection.value);
+    selection.addToCollection(collection.value);
 
     isOpen.value = false;
+
+    // clear selection
+    selection.files = [];
+
+    router.push(`/media/${collection.value.key}`);
 };
 </script>
