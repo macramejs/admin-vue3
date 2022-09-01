@@ -1,18 +1,19 @@
 <template>
-    <BaseSection>
+    <BaseSection wrap>
         <template v-slot:title>
             <DrawerImageFull preview />
         </template>
-        <FormFieldLabel> Bild </FormFieldLabel>
-        <SelectImage v-model="model.image" />
+        <SectionImageFullForm
+            v-bind="$attrs"
+            :model-value="modelValue"
+            @update:model-value="e => emit('update:modelValue', e)"
+        />
     </BaseSection>
 </template>
 <script setup lang="ts">
 import BaseSection from '../../components/BaseSection.vue';
-import { FormFieldLabel } from '@/ui';
-import { watch, ref } from 'vue';
 import DrawerImageFull from '././DrawerImageFull.vue';
-import SelectImage from '@/modules/media/SelectImage.vue';
+import SectionImageFullForm from './SectionImageFullForm.vue';
 
 const emit = defineEmits(['update:modelValue']);
 
@@ -29,14 +30,4 @@ const props = defineProps({
         }),
     },
 });
-
-const model = ref(props.modelValue);
-
-watch(
-    () => model,
-    () => {
-        emit('update:modelValue', model);
-    },
-    { deep: true }
-);
 </script>

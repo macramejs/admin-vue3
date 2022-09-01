@@ -75,6 +75,7 @@ export type Page = {
     template: string;
     full_slug: string;
     is_live: boolean;
+    parent_id: number;
     publish_at: string;
     has_been_published: boolean;
     preview_key: string;

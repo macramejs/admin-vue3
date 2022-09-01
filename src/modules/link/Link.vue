@@ -3,9 +3,9 @@
         <ButtonMidGray @click="init()">
             {{ $t('content.chose_link') }}
         </ButtonMidGray>
-        <IconArrowRight class="w-4 h-4" v-if="model.link" />
-        <div v-if="model.link" class="text-sm text-orange">
-            {{ model.link }}
+        <IconArrowRight class="w-4 h-4" v-if="model.url" />
+        <div v-if="model.url" class="text-sm text-orange">
+            {{ model.url }}
         </div>
     </div>
     <Modal v-model:open="isOpen" sm :title="$t('content.chose_link')" localize>
@@ -18,7 +18,7 @@
             <Select
                 v-if="!external"
                 label="Link"
-                v-model="model.link"
+                v-model="model.url"
                 :options="linksState.value"
                 label-key="title"
                 value-key="link"
@@ -26,7 +26,7 @@
 
             <Input
                 v-else
-                v-model="model.link"
+                v-model="model.url"
                 class="w-full"
                 label="Externer Link"
             />
@@ -61,9 +61,10 @@ import IconArrowRight from '@/ui/Icons/IconArrowRight.vue';
 const emit = defineEmits(['update:modelValue']);
 
 interface Link {
-    link: string;
+    url: string;
     text: string;
     new_tab: boolean;
+    external: boolean;
 }
 
 const props = defineProps({
@@ -73,13 +74,14 @@ const props = defineProps({
     },
 });
 
-const external = ref<boolean>(props.modelValue.link?.startsWith('http'));
+const external = ref<boolean>(props.modelValue.url?.startsWith('http'));
 const model = ref<Link>(props.modelValue);
 
 watch(
     () => external.value,
     val => {
-        model.value.link = '';
+        model.value.url = '';
+        model.value.external = external.value;
     }
 );
 
@@ -87,6 +89,7 @@ const isOpen = ref<boolean>(false);
 
 const init = () => {
     model.value = props.modelValue;
+    model.value.external = external.value;
     isOpen.value = true;
 };
 

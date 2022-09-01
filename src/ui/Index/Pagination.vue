@@ -5,7 +5,7 @@
                 secondary
                 square
                 class="relative"
-                @click="table.setPage(1)"
+                @click="setPage(1)"
                 :disabled="table.meta.current_page == 1"
             >
                 <IconFastArrowLeft class="w-4 h-4" />
@@ -14,7 +14,7 @@
                 secondary
                 square
                 :disabled="table.meta.current_page == 1"
-                @click="table.setPage(table.meta.current_page - 1)"
+                @click="setPage(table.meta.current_page - 1)"
             >
                 <IconNavArrowLeft class="w-4 h-4" />
             </ButtonMidGray>
@@ -26,14 +26,14 @@
                         table.meta.current_page == table.meta.last_page &&
                         table.meta.current_page > 2
                     "
-                    @click="table.setPage(table.meta.current_page - 2)"
+                    @click="setPage(table.meta.current_page - 2)"
                 >
                     {{ table.meta.current_page - 2 }}
                 </span>
                 <span
                     class="cursor-pointer"
                     v-if="table.meta.current_page > 1"
-                    @click="table.setPage(table.meta.current_page - 1)"
+                    @click="setPage(table.meta.current_page - 1)"
                 >
                     {{ table.meta.current_page - 1 }}
                 </span>
@@ -43,7 +43,7 @@
                 <span
                     class="cursor-pointer"
                     v-if="table.meta.current_page < table.meta.last_page"
-                    @click="table.setPage(table.meta.current_page + 1)"
+                    @click="setPage(table.meta.current_page + 1)"
                 >
                     {{ table.meta.current_page + 1 }}
                 </span>
@@ -52,7 +52,7 @@
                     v-if="
                         table.meta.current_page == 1 && table.meta.last_page > 2
                     "
-                    @click="table.setPage(table.meta.current_page + 2)"
+                    @click="setPage(table.meta.current_page + 2)"
                 >
                     {{ table.meta.current_page + 2 }}
                 </span>
@@ -67,7 +67,7 @@
                 secondary
                 square
                 :disabled="!(table.meta.current_page < table.meta.last_page)"
-                @click="table.setPage(table.meta.current_page + 1)"
+                @click="setPage(table.meta.current_page + 1)"
             >
                 <IconNavArrowRight class="w-4 h-4" />
             </ButtonMidGray>
@@ -75,7 +75,7 @@
                 secondary
                 square
                 class="relative"
-                @click="table.setPage(table.meta.last_page)"
+                @click="setPage(table.meta.last_page)"
                 :disabled="!(table.meta.current_page < table.meta.last_page)"
             >
                 <IconFastArrowRight class="w-4 h-4" />
@@ -92,11 +92,23 @@ import IconNavArrowRight from '@/ui/Icons/IconNavArrowRight.vue';
 import IconFastArrowRight from '@/ui/Icons/IconFastArrowRight.vue';
 import IconNavArrowLeft from '@/ui/Icons/IconNavArrowLeft.vue';
 import IconFastArrowLeft from '@/ui/Icons/IconFastArrowLeft.vue';
+import { useRoute, useRouter } from 'vue-router';
 
-defineProps({
+const props = defineProps({
     table: {
         type: Object as PropType<Index>,
         required: true,
     },
 });
+
+const route = useRoute();
+const router = useRouter();
+
+const setPage = (i: number) => {
+    props.table.setPage(i);
+    router.push({
+        path: route.path,
+        query: { page: i },
+    });
+};
 </script>

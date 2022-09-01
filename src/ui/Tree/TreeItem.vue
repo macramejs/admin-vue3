@@ -1,5 +1,5 @@
 <template>
-    <Disclosure v-slot="{ open }" defaultOpen>
+    <Disclosure v-slot="{ open }" :defaultOpen="defaultOpen">
         <div class="flex items-center justify-between w-full group">
             <div
                 class="flex justify-between flex-1 pl-3 pr-2 rounded"
@@ -61,6 +61,7 @@ const props = defineProps({
         required: true,
     },
     children: {
+        type: Object,
         required: true,
     },
     isActive: {
@@ -74,6 +75,10 @@ const props = defineProps({
     outline: {
         type: Boolean,
         default: false,
+    },
+    defaultOpen: {
+        type: Boolean,
+        default: true,
     },
 });
 </script>

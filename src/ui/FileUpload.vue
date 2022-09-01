@@ -1,7 +1,7 @@
 <template>
     <div class="w-full">
         <div
-            class="flex items-center justify-center w-full transition-colors duration-300 border rounded cursor-pointer bg-gray-transparent focus:outline-none focus:border-orange aspect-square max-h-96"
+            class="flex items-center justify-center w-full border border-dashed rounded cursor-pointer hover:bg-opacity-25 aspect-square border-gray hover:bg-orange-100"
             :class="{
                 'border-red-signal': fileRejections.length > 0 || isDragReject,
                 'border-green': isDragAccept,
@@ -15,8 +15,12 @@
         >
             <input v-bind="(getInputProps() as any)" />
             <div class="flex flex-col items-center justify-center">
-                <div class="text-orange">
-                    <IconAddMediaImage class="w-4 h-4" />
+                <div class="pb-2 text-orange">
+                    <IconAddMediaImage class="w-8 h-8" v-if="!toggleIcon" />
+                    <IconArrowDown
+                        class="w-8 h-8 animate-icon"
+                        v-if="toggleIcon"
+                    />
                 </div>
                 <div class="text-sm text-center uppercase" v-if="busy">
                     {{ $t('ui.loading') }}
@@ -50,6 +54,7 @@ import IconAddMediaImage from './Icons/IconAddMediaImage.vue';
 import { ref, computed } from 'vue';
 import { useDropzone } from 'vue3-dropzone';
 import { client } from '@/modules/api';
+import IconArrowDown from './Icons/IconArrowDown.vue';
 const props = defineProps({
     modelValue: Array,
     accept: {
@@ -77,6 +82,13 @@ const props = defineProps({
         default: false,
     },
 });
+
+const toggleIcon = ref(false);
+
+setInterval(() => {
+    toggleIcon.value = !toggleIcon.value;
+}, 4000);
+
 const emit = defineEmits(['success', 'failed']);
 
 const busy = ref(false);
@@ -141,3 +153,18 @@ const errors = computed(() => {
     return fileRejections.value[0].errors as any;
 });
 </script>
+
+<style>
+.animate-icon {
+    animation: MoveUpDown 0.8s linear infinite;
+}
+@keyframes MoveUpDown {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-6px);
+    }
+}
+</style>

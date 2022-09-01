@@ -27,6 +27,12 @@
                 </ContextMenuItem>
             </template>
         </DuplicatePageModal>
+        <ContextMenuItem :to="`/pages/edit/${page.id}?root=${page.id}`">
+            <template #icon>
+                <IconNetworkRight class="w-4 h-4" />
+            </template>
+            <span>Strang öffnen</span>
+        </ContextMenuItem>
         <ContextMenuItem
             class="hover:bg-red-signal hover:text-white text-red-signal"
             @click="deletePage(page.id)"
@@ -46,6 +52,7 @@ import IconMoreHoriz from '@/ui/Icons/IconMoreHoriz.vue';
 import IconTrash from '@/ui/Icons/IconTrash.vue';
 import IconPlus from '@/ui/Icons/IconPlus.vue';
 import IconCopy from '@/ui/Icons/IconCopy.vue';
+import IconNetworkRight from '@/ui/Icons/IconNetworkRight.vue';
 
 import { PropType } from 'vue';
 import { Page } from '@/types/resources';

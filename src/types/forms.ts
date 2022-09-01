@@ -1,6 +1,12 @@
 import { PartialResource } from './resources';
 import { Form, RawTree } from '@macramejs/macrame-vue3';
 
+interface Image {
+    id: number;
+    title: string;
+    alt: string;
+}
+
 // Example
 
 export type Example = {

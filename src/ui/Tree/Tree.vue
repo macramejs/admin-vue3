@@ -3,9 +3,10 @@
         tag="div"
         :list="tree.items"
         handle=".handle"
-        item-key="uuid"
         v-if="tree"
+        class="dragArea"
     >
+        <!-- item-key="uuid" -->
         <template #item="{ element }">
             <div class="py-1 pl-2 draggable-wrapper">
                 <slot :item="element.value" :children="element.children" />

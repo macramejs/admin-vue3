@@ -1,13 +1,20 @@
 import { RouteRecordRaw } from 'vue-router';
 
-import Show from './Show.vue';
-
 const routes: RouteRecordRaw[] = [
     {
         path: '/media',
-        component: () => import('./Index.vue'),
+        component: () => import('./layouts/MediaLayout.vue'),
+        children: [
+            {
+                path: '',
+                component: () => import('./Index.vue'),
+            },
+            {
+                path: ':collection',
+                component: () => import('./Index.vue'),
+            },
+        ],
     },
 ];
 
 export { routes };
-

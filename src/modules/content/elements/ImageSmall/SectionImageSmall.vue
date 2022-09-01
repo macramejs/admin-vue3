@@ -1,0 +1,33 @@
+<template>
+    <BaseSection wrap>
+        <template v-slot:title>
+            <DrawerImageSmall preview />
+        </template>
+        <SectionImageSmallForm
+            v-bind="$attrs"
+            :model-value="modelValue"
+            @update:model-value="e => emit('update:modelValue', e)"
+        />
+    </BaseSection>
+</template>
+<script setup lang="ts">
+import BaseSection from '../../components/BaseSection.vue';
+import DrawerImageSmall from '././DrawerImageSmall.vue';
+import SectionImageSmallForm from './SectionImageSmallForm.vue';
+
+const emit = defineEmits(['update:modelValue']);
+
+const props = defineProps({
+    modelValue: {
+        type: Object,
+        required: true,
+        default: () => ({
+            image: {
+                id: null,
+                title: '',
+                alt: '',
+            },
+        }),
+    },
+});
+</script>

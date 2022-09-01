@@ -32,7 +32,7 @@
                         </InteractionButton>
                     </template>
                     <ContextMenuItem
-                        class="hover:bg-red-signal text-red-signal"
+                        class="hover:bg-red-signal text-red-signal hover:text-white"
                         @click="emit('destroy')"
                     >
                         <template #icon>

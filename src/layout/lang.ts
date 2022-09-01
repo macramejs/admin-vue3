@@ -6,8 +6,10 @@ export const messages = {
             navigations: 'Navigationen',
             blocks: 'Blöcke',
             sections: 'Bereiche',
-            settings: 'Einstellungen',
+            system: 'Systemverwaltung',
             help: 'Brauchst du Hilfe?',
+            forms: 'Formulare',
+            redirects: 'Weiterleitungen',
         },
     },
     en: {
@@ -17,8 +19,10 @@ export const messages = {
             navigations: 'Navigations',
             blocks: 'Blocks',
             sections: 'Sections',
-            settings: 'Settings',
+            system: 'System Management',
             help: 'Need help?',
+            forms: 'Forms',
+            redirects: 'Redirects',
         },
     },
 };

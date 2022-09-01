@@ -1,19 +1,19 @@
 <template>
-    <BaseSection>
+    <BaseSection wrap>
         <template v-slot:title>
             <DrawerTextFull preview />
         </template>
-        <Card>
-            <Wysiwyg v-model="text" class="w-full" />
-        </Card>
+        <SectionTextFullForm
+            v-bind="$attrs"
+            :model-value="modelValue"
+            @update:model-value="e => emit('update:modelValue', e)"
+        />
     </BaseSection>
 </template>
 <script setup lang="ts">
 import BaseSection from '../../components/BaseSection.vue';
-import { Wysiwyg, Card } from '@/ui';
+import SectionTextFullForm from './SectionTextFullForm.vue';
 import DrawerTextFull from './DrawerTextFull.vue';
-import { translatable } from '@macramejs/macrame-vue3';
-import { locale } from '@/modules/localize';
 
 const emit = defineEmits(['update:modelValue']);
 
@@ -26,9 +26,4 @@ const props = defineProps({
         }),
     },
 });
-
-// TODO: fix any
-const text = translatable<string>(locale as any, props.modelValue.text, value =>
-    emit('update:modelValue', { text: value })
-);
 </script>

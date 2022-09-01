@@ -5,23 +5,22 @@
             <PagesTopbarRight />
         </Topbar>
         <Tabs>
-            <Tab :to="`/pages/${pageId}`">{{ $t('pages.content') }}</Tab>
-            <Tab :to="`/pages/${pageId}/meta`">Meta</Tab>
-            <Tab :to="`/pages/${pageId}/settings`">{{
+            <Tab :to="`/pages/edit/${pageId}`">{{ $t('pages.content') }}</Tab>
+            <Tab :to="`/pages/edit/${pageId}/meta`">Meta</Tab>
+            <Tab :to="`/pages/edit/${pageId}/settings`">{{
                 $t('pages.settings')
             }}</Tab>
-            <Tab :to="`/pages/${pageId}/audits`">{{
-                $t('pages.versions')
-            }}</Tab>
+            <!-- <Tab :to="`/pages/edit/${pageId}/audits`">{{ -->
+            <!--     $t('pages.versions') -->
+            <!-- }}</Tab> -->
         </Tabs>
-
         <router-view />
     </template>
     <Loading v-else />
 </template>
 
 <script setup lang="ts">
-import { watch, computed, ref } from 'vue';
+import { watch, computed, ref, onBeforeUnmount } from 'vue';
 import { useRoute } from 'vue-router';
 import PagesTopbarRight from './components/PagesTopbarRight.vue';
 import PagesTopbarLeft from './components/PagesTopbarLeft.vue';
@@ -44,7 +43,13 @@ const loadData = () => {
         pageForm.value = usePageForm(page);
         show.value = true;
     });
+
+    // pageTree.load(pageId.value);
 };
+
+onBeforeUnmount(() => {
+    // pageTree.load();
+});
 
 // watch the route param in order to load data
 watch(

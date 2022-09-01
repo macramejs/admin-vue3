@@ -4,10 +4,15 @@
     </tr>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script lang="ts" setup>
+import { provide } from 'vue';
 
-export default defineComponent({
-    //
+const props = defineProps({
+    link: {
+        type: String,
+        default: null,
+    },
 });
+
+provide('link', props.link);
 </script>

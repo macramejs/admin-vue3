@@ -1,6 +1,6 @@
 import { useIndex } from '@macramejs/macrame-vue3';
 import { Media } from '@/types/resources';
-import { reactive } from 'vue';
+import { reactive, ref, watch } from 'vue';
 import { loadMediaItems } from './api';
 
 type MediaIndexSortByKeys = 'id';
@@ -17,6 +17,9 @@ type MediaIndexFilters = {
     collection: MediaIndexCollectionFilter;
     types: MediaIndexTypesFilter;
 };
+
+// TODO: macrame backport
+export const mediaIndexIsLoaded = ref(false);
 
 export const useMediaIndex = () => {
     const collectionFilter = reactive<MediaIndexCollectionFilter>({
@@ -36,14 +39,24 @@ export const useMediaIndex = () => {
     });
 
     const index = useIndex<Media, MediaIndexSortByKeys, MediaIndexFilters>({
-        load: params => loadMediaItems(params),
+        load: async params => {
+            // TODO: macrame backport
+            mediaIndexIsLoaded.value = false;
+
+            let re = await loadMediaItems(params);
+
+            mediaIndexIsLoaded.value = true;
+
+            return re;
+        },
         filters: {
             collection: collectionFilter,
             types: typesFilter,
         },
     });
 
-    index.reloadOnChange(index.filters);
+    // TODO: check why? this toggles a second load of the index…
+    // index.reloadOnChange(index.filters);
 
     return index;
 };

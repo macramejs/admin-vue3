@@ -26,7 +26,9 @@ const useSelection = (files: Media[]) => {
         delete() {
             if (this.files.length === 0) return;
 
-            deleteMultipleMediaItems({ ids: this.files.map(file => file.id) });
+            return deleteMultipleMediaItems({
+                ids: this.files.map(file => file.id),
+            });
         },
     });
 

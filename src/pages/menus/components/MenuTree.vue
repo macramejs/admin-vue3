@@ -1,11 +1,15 @@
 <template>
-    <BaseTree :tree="tree" :group="{ name: 'nav-tree' }" 
-        class="nav-tree-wrapper">
+    <BaseTree
+        :tree="tree"
+        :group="{ name: 'nav-tree' }"
+        class="nav-tree-wrapper py-0.5"
+    >
         <template v-slot:default="{ item, children }">
             <MenuTreeItem
                 :menu-item="item"
                 :children="children"
                 :live="live && item.is_public"
+                :key="item.id"
             />
         </template>
     </BaseTree>
@@ -29,7 +33,6 @@ defineProps({
     },
 });
 </script>
-
 
 <style>
 .nav-tree-wrapper > div {

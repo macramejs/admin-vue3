@@ -1,10 +1,10 @@
 <template>
     <div>
         <slot name="search">
-            <Search :table="table" :placeholder="searchPlaceholder" />
+            <!-- // -->
         </slot>
         <div
-            class="w-full pt-9"
+            class="relative w-full overflow-hidden pt-9"
             :class="{ 'bg-white shadow rounded-md': isTable }"
         >
             <slot />
@@ -24,6 +24,12 @@
                     </div>
                 </div>
             </slot>
+            <div
+                class="absolute top-0 w-full h-full bg-white bg-opacity-80"
+                v-if="busy"
+            >
+                <Loading />
+            </div>
         </div>
         <slot name="pagination"> </slot>
     </div>
@@ -33,11 +39,7 @@
 import { PropType } from 'vue';
 import { Index } from '@macramejs/macrame-vue3';
 import Pagination from './Pagination.vue';
-import Search from './Search.vue';
-
-type IndexProps = {
-    table: Index;
-};
+import Loading from '@/layout/components/Loading.vue';
 
 defineProps({
     table: {
@@ -50,6 +52,10 @@ defineProps({
     isTable: {
         type: Boolean,
         default: true,
+    },
+    busy: {
+        type: Boolean,
+        default: false,
     },
 });
 </script>

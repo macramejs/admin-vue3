@@ -11,7 +11,7 @@
                 <AddPageModal />
             </SidebarSecondaryHeader>
         </template>
-        <PagesTree :tree="pageTree" />
+        <Tree :children="pageTree.items" class="pr-2 -ml-4" />
     </SidebarSecondary>
     <Main>
         <router-view />
@@ -23,14 +23,40 @@ import { onBeforeMount, onMounted } from 'vue';
 import { SidebarSecondary, SidebarSecondaryHeader } from '@/layout';
 import { Main } from '@/layout';
 import IconPage from '@/ui/Icons/IconPage.vue';
-import PagesTree from './../components/Tree/PagesTree.vue';
+import Tree from './../components/Tree/Tree.vue';
 import AddPageModal from './../components/AddPageModal.vue';
 
-import { blocksState, pageTree } from '@/entities';
+import {
+    blocksState,
+    pageTree,
+    updatePageTree,
+    mediaIndex,
+    mediaCollectionIndex,
+    mediaIndexIsLoaded,
+    mediaCollectionIndexIsLoaded,
+} from '@/entities';
 import PagesHelp from './components/PagesHelp.vue';
 
+const loadTree = () => {
+    pageTree.load(undefined);
+
+    pageTree.onOrderChange((order: any) =>
+        updatePageTree({ order }, undefined)
+    );
+};
+
 onBeforeMount(() => {
-    pageTree.load();
+    loadTree();
+});
+
+onMounted(() => {
     blocksState.load();
+
+    if (!mediaIndexIsLoaded.value) {
+        mediaIndex.load();
+    }
+    if (!mediaCollectionIndexIsLoaded.value) {
+        mediaCollectionIndex.load();
+    }
 });
 </script>

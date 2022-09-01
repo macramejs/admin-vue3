@@ -3,6 +3,7 @@ export * from './auth/api';
 export * from './auth/auth-user.state';
 export * from './auth/forgot-password.form';
 export * from './auth/is-authenticated.state';
+export * from './auth/is-admin.state';
 export * from './auth/login.form';
 export * from './auth/reset-password.form';
 
@@ -19,6 +20,7 @@ export * from './links/links.state';
 // media
 export * from './media/api';
 export * from './media/media.index';
+export * from './media/media-items.state';
 
 // media-collection
 export * from './media-collections/api';

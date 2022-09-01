@@ -1,7 +1,7 @@
 <template>
-    <ButtonTextLink @click="isOpen = true">{{
-        $t('media.new_collection')
-    }}</ButtonTextLink>
+    <ButtonRound white sm @click="isOpen = true">
+        <IconPlus class="w-4 h-4" />
+    </ButtonRound>
     <Modal
         v-model:open="isOpen"
         sm
@@ -26,7 +26,8 @@
 import { ref } from 'vue';
 import { mediaCollectionIndex, useMediaCollectionForm } from '@/entities';
 import { Input } from '@/ui';
-import { ButtonTextLink, Modal } from '@/ui';
+import { Button, ButtonRound, Modal } from '@/ui';
+import IconPlus from '@/ui/Icons/IconPlus.vue';
 
 const isOpen = ref<boolean>(false);
 

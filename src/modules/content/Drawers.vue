@@ -1,65 +1,55 @@
 <template>
     <MainSidebarSection :title="$t('content.content')">
         <Cabinet>
-            <DrawerTextFull
-                :draws="SectionTextFull"
-                v-if="sections.text_full"
-            />
-            <DrawerTextImage
-                :draws="SectionTextImage"
-                v-if="sections.text_image"
-            />
-            <DrawerInfoBox :draws="SectionInfoBox" v-if="sections.info_box" />
-            <DrawerImageFull
-                :draws="SectionImageFull"
-                v-if="sections.image_full"
-            />
+            <DrawerH2 :draws="SectionH2" />
+            <DrawerTextFull :draws="SectionTextFull" />
+            <DrawerTextImage :draws="SectionTextImage" />
+            <DrawerInfoBox :draws="SectionInfoBox" />
+            <DrawerCTA :draws="SectionCTA" />
+            <DrawerImageSmall :draws="SectionImageSmall" />
+            <DrawerImageFull :draws="SectionImageFull" />
+            <DrawerVideoEmbed :draws="SectionVideoEmbed" />
+            <DrawerTeaserBoxes :draws="SectionTeaserBoxes" />
+            <DrawerInfoSection :draws="SectionInfoSection" />
         </Cabinet>
     </MainSidebarSection>
     <MainSidebarSection :title="$t('content.image_galleries')">
         <Cabinet>
-            <DrawerGridGallery
-                :draws="SectionGridGallery"
-                v-if="sections.grid_gallery"
-            />
-            <DrawerImageCarousel
-                :draws="SectionImageCarousel"
-                v-if="sections.image_carousel"
-            />
+            <DrawerGridGallery :draws="SectionGridGallery" />
+            <!-- <DrawerImageCarousel :draws="SectionImageCarousel" /> -->
         </Cabinet>
     </MainSidebarSection>
     <MainSidebarSection :title="$t('content.sections')">
         <Cabinet>
-            <DrawerCards :draws="SectionCards" v-if="sections.cards" />
-            <DrawerLogoWall
-                :draws="SectionLogoWall"
-                v-if="sections.logo_wall"
-            />
-            <DrawerAccordion
-                :draws="SectionAccordion"
-                v-if="sections.accordion"
-            />
+            <DrawerCards :draws="SectionCards" />
+            <DrawerLogoWall :draws="SectionLogoWall" />
+            <DrawerAccordion :draws="SectionAccordion" />
         </Cabinet>
     </MainSidebarSection>
-    <MainSidebarSection :title="$t('content.blocks')">
+    <MainSidebarSection :title="$t('content.reusables')">
         <Cabinet>
-            <DrawerBlock :draws="SectionBlock" v-if="sections.block" />
+            <DrawerBlock :draws="SectionBlock" />
         </Cabinet>
     </MainSidebarSection>
 </template>
 
 <script lang="ts" setup>
 import { MainSidebarSection } from '@/layout';
-import { Cabinet } from '@macramejs/macrame-vue3';
+import Cabinet from './Cabinet.vue';
 
 import {
+    SectionH2,
     SectionTextFull,
-    SectionImageCarousel,
     SectionTextImage,
     SectionInfoBox,
+    SectionCTA,
+    SectionInfoSection,
+    SectionImageSmall,
     SectionImageFull,
+    SectionVideoEmbed,
     SectionGridGallery,
     SectionCards,
+    SectionTeaserBoxes,
     SectionAccordion,
     SectionLogoWall,
     SectionBlock,
@@ -69,18 +59,17 @@ import {
     DrawerImageCarousel,
     DrawerTextImage,
     DrawerInfoBox,
+    DrawerCTA,
+    DrawerInfoSection,
+    DrawerImageSmall,
     DrawerImageFull,
+    DrawerVideoEmbed,
     DrawerGridGallery,
     DrawerCards,
+    DrawerTeaserBoxes,
     DrawerAccordion,
     DrawerLogoWall,
     DrawerBlock,
 } from './index';
-
-defineProps({
-    sections: {
-        type: Object,
-        required: true,
-    },
-});
+import DrawerH2 from './elements/H2/DrawerH2.vue';
 </script>

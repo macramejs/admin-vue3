@@ -45,7 +45,7 @@ const usePageForm: UsePageForm = ({
         },
         submit: (data, i) =>
             updateOrCreatePage(data, (i as number) || id).then(response => {
-                if (i || id) pageTree.load();
+                if (i || id) pageTree.load(undefined);
 
                 return response;
             }),
@@ -77,7 +77,7 @@ const useDuplicatePageForm: UseDupicatePageForm = (
         },
         submit: data => {
             return duplicatePage(data, id as number).then(response => {
-                pageTree.load();
+                pageTree.load(undefined);
                 return response;
             });
         },

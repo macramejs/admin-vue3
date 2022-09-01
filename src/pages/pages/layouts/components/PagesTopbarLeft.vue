@@ -11,8 +11,8 @@
 import { computed } from 'vue';
 import { pageForm } from '@/entities';
 import { pageState } from '@/entities';
-import { Page } from '@/types';
 import EditSlugModal from '../../components/EditSlugModal.vue';
+import config from '@/config';
 
 const fullSlug = computed(() => {
     if (pageState.value.full_slug) {
@@ -24,7 +24,7 @@ const fullSlug = computed(() => {
 const pageUrl = computed(() => {
     if (pageState.value.full_slug) {
         let parts = pageState.value.full_slug.split('/').filter(p => p);
-        return `${window.location.origin}/${parts.join('/')}?preview=${
+        return `${config.app.url}${parts.join('/')}?preview=${
             pageState.value.preview_key
         }`;
     }

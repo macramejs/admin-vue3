@@ -6,7 +6,7 @@
         >
             <div class="absolute w-full h-full transform scale-110">
                 <img
-                    :src="selectedImage?.url.replaceAll(' ', '%20') + '?w=20'"
+                    :src="selectedImage?.url?.replaceAll(' ', '%20') + '?w=20'"
                     class="object-cover w-full h-full"
                 />
             </div>
@@ -16,7 +16,7 @@
 
             <div class="flex justify-center w-full image-preview">
                 <ResponsiveImage
-                    :src="selectedImage?.url.replaceAll(' ', '%20')"
+                    :src="(selectedImage?.url?.replaceAll(' ', '%20') as string)"
                 />
             </div>
         </div>
@@ -29,7 +29,7 @@
                     </InteractionButton>
                 </template>
                 <ContextMenuItem
-                    class="hover:bg-red-signal text-red-signal"
+                    class="hover:bg-red-signal text-red-signal hover:text-white"
                     @click="deleteImage()"
                 >
                     <template #icon>
@@ -57,6 +57,7 @@ import {
 import IconMoreHoriz from '@/ui/Icons/IconMoreHoriz.vue';
 import IconTrash from '@/ui/Icons/IconTrash.vue';
 import { Media } from '@/types';
+import { mediaIndex } from '@/entities';
 
 const emit = defineEmits(['update:modelValue']);
 
@@ -70,6 +71,10 @@ const props = defineProps({
     modelValue: {
         type: Object as PropType<ParseableImage>,
     },
+    collection: {
+        type: [String],
+        default: null,
+    },
 });
 
 const model = ref(props.modelValue);
@@ -79,6 +84,10 @@ onBeforeMount(async () => {
     selectedImage.value = props.modelValue?.id
         ? await getMediaById(props.modelValue.id)
         : null;
+
+    if (props.collection) {
+        mediaIndex.setFilter('collection', props.collection);
+    }
 });
 
 watch(

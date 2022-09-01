@@ -72,7 +72,7 @@ defineProps({
         default: false,
     },
     errors: {
-        type: Array,
+        type: [ String,  Array],
         default: [],
     },
 });

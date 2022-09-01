@@ -13,11 +13,15 @@
                 </div>
             </TransitionSlideFade>
         </MainContent>
-        <MainSidebar v-model:open="isOpen" :title="$t('pages.sections')">
+        <MainSidebar
+            v-model:open="isOpen"
+            :title="$t('pages.sections')"
+            v-if="hasContent(pageForm.template)"
+        >
             <template v-slot:icon>
                 <IconGridAdd class="w-4 h-4" />
             </template>
-            <Drawers :sections="drawsSections" />
+            <Drawers />
         </MainSidebar>
     </MainBody>
 </template>
@@ -25,7 +29,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 import { MainBody, MainContent, MainSidebar } from '@/layout';
-import { templates } from '@/modules/content/templates';
+import { templates, hasContent } from './templates';
 import { Drawers, sections, Content } from '@/modules/content';
 import { pageForm } from '@/entities';
 import ToggleSections from './components/ToggleSections.vue';
@@ -37,13 +41,6 @@ const getComponent = computed(() => {
         ? templates[pageForm.value.template]
         : 'div';
 });
-
-// allow drawing all registered sections
-type DrawsSections = {
-    [k: string]: boolean;
-};
-let drawsSections: DrawsSections = {};
-for (let key in sections) drawsSections[key] = true;
 
 const isOpen = ref(true);
 </script>

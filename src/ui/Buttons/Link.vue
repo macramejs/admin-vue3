@@ -22,5 +22,5 @@ const props = defineProps({
 
 const attrs = useAttrs();
 
-const tag = 'href' in attrs ? 'a' : 'button';
+const tag = 'to' in attrs ? 'router-link' : 'button';
 </script>

@@ -16,12 +16,13 @@
         <Sections
             v-bind="($attrs as any)"
             style="min-height: calc(100vh - 150px)"
+
         />
     </div>
 </template>
 
 <script lang="ts" setup>
-import { Sections } from '@macramejs/macrame-vue3';
+import Sections from './Sections.vue';
 import { computed, useAttrs } from 'vue';
 
 const attrs = useAttrs();

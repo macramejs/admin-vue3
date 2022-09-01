@@ -3,6 +3,9 @@
         :to="to"
         active-class="bg-gray-50 bg-opacity-10"
         class="flex items-center h-[36px] flex-auto text-base font-light rounded group hover:bg-white hover:bg-opacity-10"
+        :class="{
+            '!bg-opacity-0': active === false,
+        }"
     >
         <div
             v-if="$slots.icon"
@@ -10,15 +13,19 @@
         >
             <slot name="icon" />
         </div>
-        <div v-if="!hideTitle" class="flex-1 pl-3 tracking-wider text-gray-100">
+        <div
+            v-if="!hideTitle"
+            class="flex-1 tracking-wider text-gray-100"
+            :class="{
+                'pl-3': !$slots.icon,
+            }"
+        >
             <slot>{{ title }}</slot>
         </div>
     </router-link>
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue';
-
 const props = defineProps({
     title: {
         type: String,
@@ -26,6 +33,7 @@ const props = defineProps({
     },
     to: {
         type: String,
+        required: true,
     },
     hideTitle: {
         type: Boolean,
