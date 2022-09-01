@@ -10,7 +10,7 @@
             </div>
         </MainContent>
         <MainSidebar v-model:open="isOpen">
-            <Drawers :sections="drawsSections" />
+            <Drawers />
         </MainSidebar>
     </MainBody>
 </template>
@@ -20,13 +20,6 @@ import { ref } from 'vue';
 import { MainBody, MainContent, MainSidebar } from '@/layout';
 import { Drawers, sections, Content } from '@/modules/content';
 import { blockForm, blockState } from '@/entities';
-
-// allow drawing all registered sections
-type DrawsSections = {
-    [k: string]: boolean;
-};
-let drawsSections: DrawsSections = {};
-for (let key in sections) if (key != 'blocks') drawsSections[key] = true;
 
 const isOpen = ref(true);
 </script>
