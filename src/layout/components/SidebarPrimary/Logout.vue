@@ -10,7 +10,7 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
 import Link from './Link.vue';
-import IconLogOut from '@/ui/icons/IconLogOut.vue';
+import IconLogOut from '@/ui/Icons/IconLogOut.vue';
 import { logout, isAuthenticated } from '@/entities';
 
 defineProps({

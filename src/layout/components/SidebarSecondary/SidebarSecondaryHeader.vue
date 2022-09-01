@@ -5,7 +5,7 @@
             <slot name="title">
                 <div class="relative">
                     {{ title }}
-                    <div class="absolute -mt-1">
+                    <div class="absolute -mt-1" v-if="$slots.help">
                         <Help>
                             <slot name="help" />
                         </Help>

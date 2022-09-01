@@ -24,6 +24,8 @@ const usePageForm: UsePageForm = ({
     is_live = false,
     publish_at = null,
     template = '',
+    menu_id = null,
+    layout = '',
     slug = '',
     meta = {
         title: '',
@@ -40,12 +42,14 @@ const usePageForm: UsePageForm = ({
             is_live,
             publish_at,
             template,
+            menu_id,
+            layout,
             slug,
             meta,
         },
         submit: (data, i) =>
             updateOrCreatePage(data, (i as number) || id).then(response => {
-                if (i || id) pageTree.load();
+                if (i || id) pageTree.load(undefined);
 
                 return response;
             }),
@@ -77,7 +81,7 @@ const useDuplicatePageForm: UseDupicatePageForm = (
         },
         submit: data => {
             return duplicatePage(data, id as number).then(response => {
-                pageTree.load();
+                pageTree.load(undefined);
                 return response;
             });
         },

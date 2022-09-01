@@ -1,10 +1,11 @@
 import axios from 'axios';
+import config from '@/config';
 
 export * from './types';
 
 const client = axios.create({
-    baseURL: import.meta.env.VITE_API_URL as string,
-    timeout: 5000,
+    baseURL: config.api.baseUrl,
+    timeout: config.api.timeout,
     withCredentials: true,
     headers: { Accept: 'application/json' },
 });

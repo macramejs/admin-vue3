@@ -34,7 +34,11 @@ const deletePage: Delete = id => client.delete(`pages/${id}`);
 
 // page tree
 
-const loadPageTree: LoadMany<PageTreeResource> = () => client.get(`page-tree`);
+const loadPageTree: LoadMany<PageTreeResource, [number | undefined]> = (
+    rootId = undefined
+) => {
+    return rootId ? client.get(`page-tree/${rootId}`) : client.get(`page-tree`);
+};
 
 const updatePageTree: Update<{ order: TreeOrder }> = data =>
     client.put(`page-tree`, data);
