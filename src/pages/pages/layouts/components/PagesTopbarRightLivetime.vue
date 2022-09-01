@@ -89,7 +89,6 @@
 // imports
 import { ref, watch } from 'vue';
 import { Toggle } from '@/ui';
-import { Page } from '@/types';
 import { pageForm } from '@/entities';
 import { pageState } from '@/entities';
 import { DatePicker } from 'v-calendar';

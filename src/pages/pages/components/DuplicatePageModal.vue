@@ -45,7 +45,7 @@ const router = useRouter();
 
 const submit = () => {
     form.submit().then(response => {
-        router.push(`/pages/${response.data.data.id}`);
+        router.push(`/pages/edit/${response.data.data.id}`);
     });
 };
 </script>

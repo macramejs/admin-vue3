@@ -2,9 +2,6 @@
     <div class="flex items-center space-x-6">
         <PagesTopbarRightLivetime />
 
-        <div class="flex items-center space-x-2">
-            <SelectLocale />
-        </div>
         <SaveButton @save="save()" :disabled="!pageForm.isDirty" :busy="busy">
             {{ $t('pages.save') }}
         </SaveButton>
@@ -12,7 +9,6 @@
 </template>
 <script lang="ts" setup>
 import PagesTopbarRightLivetime from './PagesTopbarRightLivetime.vue';
-import { SelectLocale } from '@/modules/localize';
 import { pageForm } from '@/entities';
 
 import { usePageTree } from '@/entities';
@@ -24,7 +20,7 @@ const busy = ref<boolean>(false);
 const save = async () => {
     busy.value = true;
     await pageForm.value.submit();
-    usePageTree().load();
+    usePageTree().load(undefined);
     busy.value = false;
 };
 </script>

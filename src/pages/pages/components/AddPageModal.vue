@@ -32,7 +32,7 @@
 import { ref, PropType, watch } from 'vue';
 import { Modal, Input, Select, ButtonRound, Button, FormGroup } from '@/ui';
 import IconPlus from '@/ui/Icons/IconPlus.vue';
-import { templateOptions } from '@/modules/content/templates';
+import { templateOptions } from '../templates';
 import { Page } from '@/types/resources';
 import { slugify } from '@/modules/helpers';
 
@@ -53,6 +53,7 @@ const isOpen = ref<boolean>(false);
 
 const form: PageForm = usePageForm({
     parent_id: props.parent?.id,
+    template: 'default',
 });
 
 const isSlugEdited = ref(false);
@@ -61,8 +62,8 @@ const router = useRouter();
 
 const submit = function () {
     form.submit().then(response => {
-        pageTree.load();
-        router.push(`/pages/${response.data.data.id}`);
+        pageTree.load(undefined);
+        router.push(`/pages/edit/${response.data.data.id}`);
         isOpen.value = false;
     });
 };
