@@ -10,7 +10,6 @@
                 v-model="pageForm.attributes.info_section"
             />
         </section>
-
     </div>
 </template>
 
@@ -20,7 +19,6 @@ import { Input, Card, Link } from '@/ui';
 import { pageForm } from '@/entities';
 import SectionInfoSectionForm from '@/modules/content/elements/InfoSection/SectionInfoSectionForm.vue';
 import SectionTextImageForm from '@/modules/content/elements/TextImage/SectionTextImageForm.vue';
-import SectionServicesForm from '@/modules/content/elements/Services/SectionServicesForm.vue';
 import SectionTeaserBoxesForm from '@/modules/content/elements/TeaserBoxes/SectionTeaserBoxesForm.vue';
 import { onMounted } from 'vue';
 
