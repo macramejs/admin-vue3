@@ -16,8 +16,9 @@
         md
         :title="$t('menus.add_item')"
     >
+        <!-- Add group -->
         <FormGroup>
-            <LinkForm v-model="link" />
+            <LinkForm v-model="link as any" />
         </FormGroup>
         <template v-slot:footer>
             <Button @click="submit"> {{ $t('menus.save') }} </Button>
@@ -48,7 +49,7 @@ const props = defineProps({
 });
 
 const link = ref({
-    link: props.menuItem.link,
+    url: props.menuItem.link,
     text: props.menuItem.title,
     new_tab: false,
 });
@@ -56,7 +57,7 @@ const link = ref({
 const submit = () => {
     const form = useMenuItemForm(props.menu, {
         id: props.menuItem?.id,
-        link: link.value.link,
+        link: link.value.url,
         title: link.value.text,
     });
 

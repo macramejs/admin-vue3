@@ -21,9 +21,7 @@
             />
         </SidebarSecondarySection>
     </SidebarSecondary>
-    <Main>
-        <router-view />
-    </Main>
+    <router-view />
 </template>
 
 <script setup lang="ts">
