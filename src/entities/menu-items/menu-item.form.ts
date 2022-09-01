@@ -10,10 +10,10 @@ export type UseMenuItemForm = (
 
 export const useMenuItemForm: UseMenuItemForm = (
     menu,
-    { title = '', link = '', alternative_layout = false, id = undefined }
+    { title = '', link = '', id = undefined }
 ) => {
     const form = useForm({
-        data: { title, link, alternative_layout },
+        data: { title, link },
         submit: data =>
             updateOrCreateMenuItem(menu, data, id).then(response => {
                 menuItemTree.value.load();

@@ -24,8 +24,6 @@ const usePageForm: UsePageForm = ({
     is_live = false,
     publish_at = null,
     template = '',
-    menu_id = null,
-    layout = '',
     slug = '',
     meta = {
         title: '',
@@ -42,8 +40,6 @@ const usePageForm: UsePageForm = ({
             is_live,
             publish_at,
             template,
-            menu_id,
-            layout,
             slug,
             meta,
         },
