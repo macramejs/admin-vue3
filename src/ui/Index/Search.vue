@@ -18,7 +18,7 @@
                 ></path>
             </svg>
         </div>
-        <Input
+        <input
             v-model.debounce="table.search"
             class="w-full h-full pl-6 text-gray-800 bg-transparent outline-none placeholder:text-gray-500"
             :placeholder="placeholder"
@@ -29,7 +29,6 @@
 <script lang="ts" setup>
 import { PropType } from 'vue';
 import { Index } from '@macramejs/macrame-vue3';
-import { Input } from '@/ui';
 
 defineProps({
     table: {

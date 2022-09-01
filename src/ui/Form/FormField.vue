@@ -1,11 +1,13 @@
 <template>
-    <div class="todo">
+    <div class="pb-5">
         <template v-if="!noLabel">
             <slot name="label">
                 <FormFieldLabel :label="label" />
             </slot>
         </template>
-        <slot />
+        <div>
+            <slot />
+        </div>
         <div
             v-if="hint && !errors"
             class="mt-1 text-xs text-right text-gray-500"

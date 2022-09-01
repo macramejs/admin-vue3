@@ -51,7 +51,7 @@
                                 <div>
                                     {{ title }}
                                 </div>
-                                <SelectLocale />
+                                <SelectLocale v-if="localize" />
                             </DialogTitle>
                             <slot />
                             <div class="flex justify-end pt-6 space-x-3">

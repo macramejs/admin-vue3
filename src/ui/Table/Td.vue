@@ -1,18 +1,24 @@
 <template>
-    <td class="py-5 pl-6 pr-6" :class="{ slim }">
-        <slot />
+    <td :class="{ slim }">
+        <component :is="as" :to="link" class="block py-5 pl-6 pr-6">
+            <slot />
+        </component>
     </td>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script lang="ts" setup>
+import { inject, computed } from 'vue';
 
-export default defineComponent({
-    props: {
-        slim: {
-            type: Boolean,
-            default: false,
-        },
+const link = inject('link') || null;
+
+const props = defineProps({
+    slim: {
+        type: Boolean,
+        default: false,
     },
+});
+
+const as = computed(() => {
+    return link ? 'router-link' : 'div';
 });
 </script>

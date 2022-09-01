@@ -18,7 +18,6 @@
 <script setup lang="ts">
 import { Card, Toggle, FormGroup } from '@/ui';
 import Link from '@/modules/link/Link.vue';
-import { iconsState } from '@/entities';
 
 import { watch, reactive, computed } from 'vue';
 
@@ -40,12 +39,6 @@ const props = defineProps({
 });
 
 const model = reactive(props.modelValue);
-
-const icons = computed(() => {
-    return iconsState.value?.map(icon => {
-        return icon;
-    });
-});
 
 watch(
     () => model,

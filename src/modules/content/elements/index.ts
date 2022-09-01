@@ -27,11 +27,8 @@ export { default as DrawerCTA } from './CTA/DrawerCTA.vue';
 export { default as SectionCTA } from './CTA/SectionCTA.vue';
 export { default as SectionCTAForm } from './CTA/SectionCTAForm.vue';
 export { default as DrawerH2 } from './H2/DrawerH2.vue';
-export { default as SectionInfoBoxLoud } from './InfoBoxLoud/SectionInfoBoxLoud.vue';
-export { default as SectionInfoBoxLoudForm } from './InfoBoxLoud/SectionInfoBoxLoudForm.vue';
 export { default as DrawerInfoSection } from './InfoSection/DrawerInfoSection.vue';
 export { default as SectionAccordionForm } from './Accordion/SectionAccordionForm.vue';
-export { default as DrawerInfoBoxLoud } from './InfoBoxLoud/DrawerInfoBoxLoud.vue';
 export { default as SectionInfoSection } from './InfoSection/SectionInfoSection.vue';
 export { default as SectionInfoSectionForm } from './InfoSection/SectionInfoSectionForm.vue';
 export { default as SectionListing } from './Listing/SectionListing.vue';
@@ -51,6 +48,3 @@ export { default as SectionTextImageForm } from './TextImage/SectionTextImageFor
 export { default as DrawerVideoEmbed } from './VideoEmbed/DrawerVideoEmbed.vue';
 export { default as SectionVideoEmbed } from './VideoEmbed/SectionVideoEmbed.vue';
 export { default as SectionVideoEmbedForm } from './VideoEmbed/SectionVideoEmbedForm.vue';
-export { default as DrawerForm } from './Form/DrawerForm.vue';
-export { default as SectionForm } from './Form/SectionForm.vue';
-export { default as SectionFormForm } from './Form/SectionFormForm.vue';

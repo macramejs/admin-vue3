@@ -1,7 +1,7 @@
 <template>
     <SwitchGroup>
         <div class="inline-flex flex-col">
-            <SwitchLabel class="mr-4">
+            <SwitchLabel class="mr-4" v-if="label || $slots.default">
                 <slot> {{ label }} </slot>
             </SwitchLabel>
             <Switch
@@ -12,6 +12,10 @@
                     'bg-green':
                         (variant_ == null && modelValue) ||
                         (variant_ == 'primary' && modelValue),
+
+                    'bg-orange':
+                        (variant_ == null && modelValue) ||
+                        (variant_ == 'orange' && modelValue),
 
                     'text-lg': size_ == 'lg',
                     'text-base': size_ == 'md' || size_ == null,
@@ -58,22 +62,22 @@ import { getVariant, variants } from '../_props/variant';
 const emit = defineEmits(['update:modelValue']);
 
 const props = defineProps({
-        label: {
-            type: String,
-            default: null,
-        },
-        disabled: {
-            type: Boolean,
-            default: false,
-        },
-        modelValue: {
-            type: Boolean,
-            default: false,
-        },
-        ...sizes,
-        ...variants,
-    });
-    
+    label: {
+        type: String,
+        default: null,
+    },
+    disabled: {
+        type: Boolean,
+        default: false,
+    },
+    modelValue: {
+        type: Boolean,
+        default: false,
+    },
+    ...sizes,
+    ...variants,
+});
+
 const size_ = getSize(props, {});
 const variant_ = getVariant(props, {});
 

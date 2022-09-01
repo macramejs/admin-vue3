@@ -5,14 +5,11 @@
             <DrawerTextFull :draws="SectionTextFull" />
             <DrawerTextImage :draws="SectionTextImage" />
             <DrawerInfoBox :draws="SectionInfoBox" />
-            <DrawerInfoBoxLoud :draws="SectionInfoBoxLoud" />
             <DrawerCTA :draws="SectionCTA" />
             <DrawerImageSmall :draws="SectionImageSmall" />
             <DrawerImageFull :draws="SectionImageFull" />
             <DrawerVideoEmbed :draws="SectionVideoEmbed" />
             <DrawerTeaserBoxes :draws="SectionTeaserBoxes" />
-            <DrawerTeaserBoxesIcon :draws="SectionTeaserBoxesIcon" />
-            <DrawerContactPeople :draws="SectionContactPeople" />
             <DrawerInfoSection :draws="SectionInfoSection" />
         </Cabinet>
     </MainSidebarSection>
@@ -32,7 +29,6 @@
     <MainSidebarSection :title="$t('content.reusables')">
         <Cabinet>
             <DrawerBlock :draws="SectionBlock" />
-            <DrawerForm :draws="SectionForm" />
         </Cabinet>
     </MainSidebarSection>
 </template>
@@ -44,10 +40,8 @@ import Cabinet from './Cabinet.vue';
 import {
     SectionH2,
     SectionTextFull,
-    SectionContactPeople,
     SectionTextImage,
     SectionInfoBox,
-    SectionInfoBoxLoud,
     SectionCTA,
     SectionInfoSection,
     SectionImageSmall,
@@ -56,19 +50,15 @@ import {
     SectionGridGallery,
     SectionCards,
     SectionTeaserBoxes,
-    SectionTeaserBoxesIcon,
     SectionAccordion,
     SectionLogoWall,
     SectionBlock,
-    SectionForm,
 } from './index';
 import {
     DrawerTextFull,
     DrawerImageCarousel,
     DrawerTextImage,
-    DrawerContactPeople,
     DrawerInfoBox,
-    DrawerInfoBoxLoud,
     DrawerCTA,
     DrawerInfoSection,
     DrawerImageSmall,
@@ -77,11 +67,9 @@ import {
     DrawerGridGallery,
     DrawerCards,
     DrawerTeaserBoxes,
-    DrawerTeaserBoxesIcon,
     DrawerAccordion,
     DrawerLogoWall,
     DrawerBlock,
-    DrawerForm,
 } from './index';
 import DrawerH2 from './elements/H2/DrawerH2.vue';
 </script>

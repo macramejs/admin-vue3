@@ -90,18 +90,35 @@
                 }"
             >
                 <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="-2 -4 24 24"
                     width="16"
-                    fill="currentColor"
+                    stroke-width="1.5"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
                 >
                     <path
-                        d="M12.7361611,0.063952038 C13.2551391,0.263360331 13.5227261,0.869148905 13.3338336,1.41701869 L8.54555162,15.3051026 C8.35665911,15.8529724 7.78281676,16.1354563 7.26383885,15.936048 C6.74486095,15.7366397 6.47727387,15.1308511 6.66616638,14.5829813 L11.4544484,0.694897379 C11.6433409,0.147027596 12.2171832,-0.135456255 12.7361611,0.063952038 Z M2.41421356,8.25614867 L5.94974747,11.9885083 C6.34027176,12.4007734 6.34027176,13.0691871 5.94974747,13.4814522 C5.55922318,13.8937173 4.9260582,13.8937173 4.53553391,13.4814522 L0.292893219,9.0026206 C-0.0976310729,8.59035554 -0.0976310729,7.9219418 0.292893219,7.50967674 L4.53553391,3.03084515 C4.9260582,2.61858008 5.55922318,2.61858008 5.94974747,3.03084515 C6.34027176,3.44311021 6.34027176,4.11152395 5.94974747,4.52378901 L2.41421356,8.25614867 Z M17.5857864,8.25614867 L14.0502525,4.52378901 C13.6597282,4.11152395 13.6597282,3.44311021 14.0502525,3.03084515 C14.4407768,2.61858008 15.0739418,2.61858008 15.4644661,3.03084515 L19.7071068,7.50967674 C20.0976311,7.9219418 20.0976311,8.59035554 19.7071068,9.0026206 L15.4644661,13.4814522 C15.0739418,13.8937173 14.4407768,13.8937173 14.0502525,13.4814522 C13.6597282,13.0691871 13.6597282,12.4007734 14.0502525,11.9885083 L17.5857864,8.25614867 Z"
-                    ></path>
+                        d="M10 17L9.33334 17C8.22877 17 7.33334 16.1047 7.33334 15.0002C7.33334 14.3284 7.33334 13.6211 7.33333 13.1111C7.33333 12.5556 6 12 6 12C6 12 7.33333 11.4444 7.33334 10.8889C7.33334 10.4359 7.33334 9.70586 7.33334 8.99998C7.33334 7.89541 8.22877 7 9.33334 7L10 7"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                    <path
+                        d="M14 17L14.6667 17C15.7712 17 16.6667 16.1047 16.6667 15.0002C16.6667 14.3284 16.6667 13.6211 16.6667 13.1111C16.6667 12.5556 18 12 18 12C18 12 16.6667 11.4444 16.6667 10.8889C16.6667 10.4359 16.6667 9.70586 16.6667 8.99998C16.6667 7.89541 15.7712 7 14.6667 7L14 7"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                    <path
+                        d="M21 3.6V20.4C21 20.7314 20.7314 21 20.4 21H3.6C3.26863 21 3 20.7314 3 20.4V3.6C3 3.26863 3.26863 3 3.6 3H20.4C20.7314 3 21 3.26863 21 3.6Z"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
                 </svg>
             </button>
             <button
-                @click="setLink()"
+                @click="selectLink()"
                 class="p-1 flex items-center focus:outline-none focus:ring-4 focus:ring-orange-100 justify-center w-8 h-8 rounded-[8px]"
                 :class="{
                     'bg-orange-100 text-orange': editor.isActive('link'),
@@ -141,6 +158,67 @@
                 </svg>
             </button>
             <button
+                @click="editor?.chain().focus().toggleOrderedList().run()"
+                class="p-1 flex items-center focus:outline-none focus:ring-4 focus:ring-orange-100 justify-center w-8 h-8 rounded-[8px]"
+                :class="{
+                    'bg-orange-100 text-orange': editor.isActive('orderedList'),
+                    'text-indigo-900 hover:bg-gray-100':
+                        !editor.isActive('orderedList'),
+                }"
+            >
+                <svg
+                    width="24"
+                    stroke-width="1.5"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M9 6L20 6"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                    <path
+                        d="M5 8L5 4"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                    <path
+                        d="M6 14L4.6 14C4.26863 14 4 13.7314 4 13.4L4 12.6C4 12.2686 4.26863 12 4.6 12L5.4 12C5.73137 12 6 11.7314 6 11.4L6 10.6C6 10.2686 5.73137 10 5.4 10L4 10"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                    <path
+                        d="M4 16L5.4 16C5.73137 16 6 16.2686 6 16.6L6 19.4C6 19.7314 5.73137 20 5.4 20L4 20"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                    <path
+                        d="M6 18L4 18"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                    <path
+                        d="M9 12L20 12"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                    <path
+                        d="M9 18L20 18"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                </svg>
+            </button>
+            <button
                 @click="editor?.chain().focus().toggleUnderline().run()"
                 class="p-1 flex items-center focus:outline-none focus:ring-4 focus:ring-orange-100 justify-center w-8 h-8 rounded-[8px]"
                 :class="{
@@ -161,6 +239,17 @@
                 </svg>
             </button>
             <button
+                @click="editor?.chain().focus().toggleBlockquote().run()"
+                class="p-1 flex items-center focus:outline-none focus:ring-4 focus:ring-orange-100 justify-center w-8 h-8 rounded-[8px]"
+                :class="{
+                    'bg-orange-100 text-orange': editor.isActive('blockquote'),
+                    'text-indigo-900 hover:bg-gray-100':
+                        !editor.isActive('blockquote'),
+                }"
+            >
+                <IconQuote class="w-4 h-4" />
+            </button>
+            <button
                 @click="openTableMenu = !openTableMenu"
                 class="p-1 flex items-center focus:outline-none focus:ring-4 focus:ring-orange-100 justify-center w-8 h-8 rounded-[8px]"
                 :class="{
@@ -179,6 +268,7 @@
                     ></path>
                 </svg>
             </button>
+
             <transition
                 name="slide-open"
                 enter-from-class="transition duration-300 -translate-y-3 opacity-0"
@@ -283,7 +373,7 @@
                     <button
                         @click="editor?.chain().focus().deleteTable().run()"
                         aria-label="delete table"
-                        class="p-1 flex items-center focus:outline-none focus:ring-4 focus:ring-orange-100 justify-center w-8 h-8 rounded-[8px] text-red-signal hover:bg-red hover:bg-opacity-20"
+                        class="p-1 flex items-center focus:outline-none focus:ring-4 focus:ring-orange-100 justify-center w-8 h-8 rounded-[8px]"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -299,7 +389,7 @@
                     <button
                         @click="editor?.chain().focus().deleteColumn().run()"
                         aria-label="add column before"
-                        class="p-1 flex items-center focus:outline-none focus:ring-4 focus:ring-orange-100 justify-center w-8 h-8 rounded-[8px] text-red-signal hover:bg-red hover:bg-opacity-20"
+                        class="p-1 flex items-center focus:outline-none focus:ring-4 focus:ring-orange-100 justify-center w-8 h-8 rounded-[8px]"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -315,7 +405,7 @@
                     <button
                         @click="editor?.chain().focus().deleteRow().run()"
                         aria-label="add column after"
-                        class="p-1 flex items-center focus:outline-none focus:ring-4 focus:ring-orange-100 justify-center w-8 h-8 rounded-[8px] text-red-signal hover:bg-red hover:bg-opacity-20"
+                        class="p-1 flex items-center focus:outline-none focus:ring-4 focus:ring-orange-100 justify-center w-8 h-8 rounded-[8px]"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -328,18 +418,249 @@
                             ></path>
                         </svg>
                     </button>
+                    <button
+                        @click="editor?.chain().focus().mergeCells().run()"
+                        aria-label="merge cells"
+                        class="p-1 flex items-center focus:outline-none focus:ring-4 focus:ring-orange-100 justify-center w-8 h-8 rounded-[8px]"
+                    >
+                        <svg
+                            width="16"
+                            height="16"
+                            stroke-width="1.5"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                d="M15 9H20.4C20.7314 9 21 9.26863 21 9.6V20.4C21 20.7314 20.7314 21 20.4 21H9.6C9.26863 21 9 20.7314 9 20.4V15"
+                                stroke="currentColor"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                            <path
+                                d="M15 9V3.6C15 3.26863 14.7314 3 14.4 3H3.6C3.26863 3 3 3.26863 3 3.6V14.4C3 14.7314 3.26863 15 3.6 15H9"
+                                stroke="currentColor"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
+                    </button>
+                    <button
+                        @click="editor?.chain().focus().splitCell().run()"
+                        aria-label="split cells"
+                        class="p-1 flex items-center focus:outline-none focus:ring-4 focus:ring-orange-100 justify-center w-8 h-8 rounded-[8px]"
+                    >
+                        <svg
+                            width="16"
+                            height="16"
+                            stroke-width="1.5"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                d="M21 9.6V20.4C21 20.7314 20.7314 21 20.4 21H9.6C9.26863 21 9 20.7314 9 20.4V9.6C9 9.26863 9.26863 9 9.6 9H20.4C20.7314 9 21 9.26863 21 9.6Z"
+                                stroke="currentColor"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                            <path
+                                d="M15 3.6V14.4C15 14.7314 14.7314 15 14.4 15H3.6C3.26863 15 3 14.7314 3 14.4V3.6C3 3.26863 3.26863 3 3.6 3H14.4C14.7314 3 15 3.26863 15 3.6Z"
+                                stroke="currentColor"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
+                    </button>
                 </div>
             </transition>
+            <button
+                @click="editor?.chain().focus().undo().run()"
+                class="p-1 flex items-center focus:outline-none focus:ring-4 focus:ring-orange-100 justify-center w-8 h-8 rounded-[8px]"
+            >
+                <svg
+                    width="16"
+                    height="16"
+                    stroke-width="1.5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M5 7V9.5V12"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                    <path
+                        d="M7.875 9.5H14.875C20.375 9.5 20.375 18 14.875 18C11.875 18 4.875 18 4.875 18"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                    <path
+                        d="M11.375 13L7.875 9.5L11.375 6"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                </svg>
+            </button>
+            <button
+                @click="editor?.chain().focus().redo().run()"
+                class="p-1 flex items-center focus:outline-none focus:ring-4 focus:ring-orange-100 justify-center w-8 h-8 rounded-[8px]"
+            >
+                <svg
+                    width="16"
+                    height="16"
+                    stroke-width="1.5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M19 7V9.5V12"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                    <path
+                        d="M16 9.5C16 9.5 12 9.5 9 9.5C3.5 9.5 3.5 18 9 18C12 18 19 18 19 18"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                    <path
+                        d="M12.5 13L16 9.5L12.5 6"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                </svg>
+            </button>
+            <button @click="editor?.chain().focus().unsetAllMarks().run()">
+                <svg
+                    width="16"
+                    height="16"
+                    stroke-width="1.5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M7 4H4V7"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                    <path
+                        d="M8 12H12H16"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                    <path
+                        d="M4 11V13"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                    <path
+                        d="M11 4H13"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                    <path
+                        d="M11 20H13"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                    <path
+                        d="M20 11V13"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                    <path
+                        d="M17 4H20V7"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                    <path
+                        d="M7 20H4V17"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                    <path
+                        d="M17 20H20V17"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                </svg>
+            </button>
+            <button @click="toggleRawEdit()">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="-2 -4 24 24"
+                    width="16"
+                    fill="currentColor"
+                >
+                    <path
+                        d="M12.7361611,0.063952038 C13.2551391,0.263360331 13.5227261,0.869148905 13.3338336,1.41701869 L8.54555162,15.3051026 C8.35665911,15.8529724 7.78281676,16.1354563 7.26383885,15.936048 C6.74486095,15.7366397 6.47727387,15.1308511 6.66616638,14.5829813 L11.4544484,0.694897379 C11.6433409,0.147027596 12.2171832,-0.135456255 12.7361611,0.063952038 Z M2.41421356,8.25614867 L5.94974747,11.9885083 C6.34027176,12.4007734 6.34027176,13.0691871 5.94974747,13.4814522 C5.55922318,13.8937173 4.9260582,13.8937173 4.53553391,13.4814522 L0.292893219,9.0026206 C-0.0976310729,8.59035554 -0.0976310729,7.9219418 0.292893219,7.50967674 L4.53553391,3.03084515 C4.9260582,2.61858008 5.55922318,2.61858008 5.94974747,3.03084515 C6.34027176,3.44311021 6.34027176,4.11152395 5.94974747,4.52378901 L2.41421356,8.25614867 Z M17.5857864,8.25614867 L14.0502525,4.52378901 C13.6597282,4.11152395 13.6597282,3.44311021 14.0502525,3.03084515 C14.4407768,2.61858008 15.0739418,2.61858008 15.4644661,3.03084515 L19.7071068,7.50967674 C20.0976311,7.9219418 20.0976311,8.59035554 19.7071068,9.0026206 L15.4644661,13.4814522 C15.0739418,13.8937173 14.4407768,13.8937173 14.0502525,13.4814522 C13.6597282,13.0691871 13.6597282,12.4007734 14.0502525,11.9885083 L17.5857864,8.25614867 Z"
+                    ></path>
+                </svg>
+            </button>
         </div>
         <EditorContent
             :class="{ 'wysiwyg-has-errors': errors.length > 0 }"
             :editor="editor"
+            v-if="!editRaw"
+            ref="editorContent"
         />
+        <Textarea
+            v-model="contentCopy"
+            v-if="editRaw"
+            class="bg-gray-50 block"
+            :style="{
+                'min-height': rawEditorHeight + 'px',
+                'font-family': 'monospace',
+            }"
+        ></Textarea>
     </div>
+    <Modal v-model:open="isOpen" sm title="Link wählen">
+        <FormGroup>
+            <div class="flex items-center space-x-2">
+                <span> Externer link </span>
+                <Toggle v-model="externalLink" />
+            </div>
+            <Select
+                v-if="!externalLink"
+                label="Link"
+                v-model="selectedLink"
+                :options="linksState.value"
+                label-key="title"
+                value-key="link"
+            />
+            <Input
+                v-else
+                v-model="selectedLink"
+                class="w-full"
+                label="Externer Link"
+            />
+        </FormGroup>
+        <template v-slot:footer>
+            <Button @click="setLink()"> select </Button>
+        </template>
+    </Modal>
 </template>
 
 <script lang="ts" setup>
-import { watch, computed, ref, Ref, PropType } from 'vue';
+import { watch, computed, ref, PropType } from 'vue';
 import {
     Listbox,
     ListboxButton,
@@ -354,9 +675,24 @@ import Link from '@tiptap/extension-link';
 import Underline from '@tiptap/extension-underline';
 import Code from '@tiptap/extension-code';
 import Table from '@tiptap/extension-table';
+import OrderedList from '@tiptap/extension-ordered-list';
 import TableRow from '@tiptap/extension-table-row';
 import TableCell from '@tiptap/extension-table-cell';
 import TableHeader from '@tiptap/extension-table-header';
+import Blockquote from '@tiptap/extension-blockquote';
+import { linksState } from '@/entities';
+import Select from './Select.vue';
+import Modal from '../Modal.vue';
+import Button from '../Buttons/Button.vue';
+import Input from './Input.vue';
+import Toggle from './Toggle.vue';
+import FormGroup from './FormGroup.vue';
+import IconQuote from '../Icons/IconQuote.vue';
+import Textarea from './Textarea.vue';
+
+if (!linksState.isLoaded) {
+    linksState.load();
+}
 
 const props = defineProps({
     modelValue: {
@@ -375,6 +711,8 @@ const props = defineProps({
 
 const emit = defineEmits(['update:modelValue']);
 
+const contentCopy = ref('');
+
 const editor = useEditor({
     content: props.modelValue,
     extensions: [
@@ -389,14 +727,52 @@ const editor = useEditor({
         TableRow,
         TableCell,
         TableHeader,
+        OrderedList,
+        Blockquote,
         Link.configure({
             openOnClick: false,
         }),
     ],
     onUpdate: () => {
         emit('update:modelValue', editor.value?.getHTML());
+        contentCopy.value = editor?.value?.getHTML() as string;
+    },
+    onCreate({ editor }) {
+        contentCopy.value = editor.getHTML();
     },
 });
+
+const editRaw = ref(false);
+const editorContent = ref();
+const rawEditorHeight = ref(150);
+const toggleRawEdit = () => {
+    if (!editRaw.value) {
+        rawEditorHeight.value = editorContent.value.$el.offsetHeight;
+    }
+
+    editRaw.value = !editRaw.value;
+};
+
+watch(
+    () => contentCopy.value,
+    val => {
+        if (editRaw.value) {
+            let data = stripScripts(val);
+            editor?.value?.commands.setContent(data);
+        }
+    }
+);
+
+const stripScripts = (s: any) => {
+    var div = document.createElement('div');
+    div.innerHTML = s;
+    var scripts = div.getElementsByTagName('script');
+    var i = scripts.length;
+    while (i--) {
+        scripts[i].parentNode?.removeChild(scripts[i]);
+    }
+    return div.innerHTML;
+};
 
 const openTableMenu = ref(false);
 
@@ -424,9 +800,33 @@ const activeStyle = computed(() => {
     }
 });
 
+const externalLink = ref(false);
+const isOpen = ref(false);
+const selectedLink = ref();
+
+const selectLink = () => {
+    selectedLink.value = editor.value?.getAttributes('link').href;
+    if (selectedLink.value?.startsWith('http')) {
+        externalLink.value = true;
+    }
+    isOpen.value = true;
+};
+
+watch(
+    () => externalLink.value,
+    val => {
+        if (isOpen.value && !val) {
+            selectedLink.value = '';
+        }
+    }
+);
+
 const setLink = () => {
-    const previousUrl = editor.value?.getAttributes('link').href;
-    const url = window.prompt('URL', previousUrl);
+    // const previousUrl = editor.value?.getAttributes('link').href;
+    // const url = window.prompt('URL', previousUrl);
+    const url = selectedLink.value;
+
+    isOpen.value = false;
 
     // cancelled
     if (url === null) {
@@ -445,7 +845,7 @@ const setLink = () => {
         ?.chain()
         .focus()
         .extendMarkRange('link')
-        .setLink({ href: url })
+        .setLink({ href: url, target: '_self' })
         .run();
 };
 
@@ -515,10 +915,10 @@ watch(selectedHeading, () => {
 .ProseMirror ul {
     padding-inline: 16px;
 }
-.ProseMirror li {
+.ProseMirror ul > li {
     position: relative;
 }
-.ProseMirror li::before {
+.ProseMirror ul > li::before {
     content: '';
     position: absolute;
     left: -16px;
@@ -526,6 +926,10 @@ watch(selectedHeading, () => {
     border-radius: 9999px;
     padding: 3px;
     background: #fead5e;
+}
+.ProseMirror ol {
+    list-style: auto;
+    padding-inline: 16px;
 }
 .ProseMirror table {
     border: 1px solid #120f30;
@@ -544,5 +948,27 @@ watch(selectedHeading, () => {
     padding-inline: 12px;
     padding-top: 5px;
     min-width: 50px;
+}
+.ProseMirror blockquote {
+    text-align: center;
+    font-size: 22px;
+    color: #23b901;
+    font-family: 'Roboto Slab';
+    font-weight: bold;
+}
+.ProseMirror td,
+.ProseMirror th {
+    position: relative;
+}
+.ProseMirror .selectedCell:after {
+    z-index: 2;
+    position: absolute;
+    content: '';
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(254, 173, 94, 0.3);
+    pointer-events: none;
 }
 </style>

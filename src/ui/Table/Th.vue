@@ -1,6 +1,6 @@
 <template>
     <th
-        class="pb-2 pl-6 font-light bg-white border-b text-gray border-gray slim"
+        class="pb-2 pl-6 font-light bg-white border-b text-gray border-gray"
         :class="{
             'cursor-pointer': isSortable,
         }"
@@ -18,6 +18,8 @@
 <script lang="ts" setup>
 import { PropType, computed } from 'vue';
 import { Index } from '@macramejs/macrame-vue3';
+import { clone } from 'lodash';
+import { Console } from 'console';
 
 const props = defineProps({
     table: {
@@ -33,25 +35,24 @@ const props = defineProps({
 const isSortable = computed(() => !!props.sortBy && !!props.table);
 
 const applySort = () => {
-    if (!isSortable) {
-        return;
-    }
-    if (!props.table) {
-        return;
-    }
-    if (!props.sortBy) {
+    if (!isSortable || !props.table || !props.sortBy) {
         return;
     }
 
+    const sortBy = JSON.parse(JSON.stringify(props.table.sortBy));
+    for(let i = 0;i<sortBy.length;i++) {
+        if(!sortBy[i] || sortBy[i].key == props.sortBy) continue;
+        props.table.removeSortBy(sortBy[i].key, false);
+    }
+
     if (!props.table.isSortedBy(props.sortBy)) {
-        console.log('Add new (asc)');
         props.table.addSortBy(props.sortBy);
     } else if (props.table.isSortedBy(props.sortBy, 'asc')) {
-        console.log('Change new (desc)');
         props.table.addSortBy(props.sortBy, 'desc');
     } else {
-        console.log('Remove');
-        props.table.removeSortBy(props.sortBy);
+        props.table.removeSortBy(props.sortBy, false);
     }
+
+    
 };
 </script>
