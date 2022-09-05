@@ -9,6 +9,7 @@ import { messages as content } from '@/modules/content/lang';
 import { messages as blocks } from '@/pages/blocks/lang';
 import { messages as layout } from '@/layout/lang';
 import { messages as ui } from '@/ui/lang';
+import { messages as system } from '@/pages/system/lang';
 
 const translations = [
     auth,
@@ -20,6 +21,7 @@ const translations = [
     menus,
     partials,
     ui,
+    system,
 ];
 
 let messages = {};
