@@ -22,6 +22,7 @@ const props = defineProps({
         type: Object,
         required: true,
         default: () => ({
+            centered: false,
             text: '',
         }),
     },

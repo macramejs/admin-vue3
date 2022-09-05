@@ -1,5 +1,6 @@
 <template>
-    <Card class="mb-3">
+    <Card class="flex flex-col gap-8 mb-3">
+        <Toggle v-model="model.centered" label="Content zentrieren" />
         <Input v-model="model.headline" label="Überschrift" />
     </Card>
     <div class="pb-6 space-y-3">
@@ -43,7 +44,7 @@
                     </Header>
                     <div class="col-span-6 space-y-4">
                         <Input v-model="element.title" label="Title" />
-                        <Textarea v-model="element.text" label="Text" />
+                        <Wysiwyg v-model="element.text" label="Text" />
                     </div>
                 </Card>
             </template>
@@ -62,8 +63,9 @@ import {
     Card,
     InteractionButton,
     Input,
-    Textarea,
+    Wysiwyg,
     Header,
+    Toggle,
     ContextMenu,
     ContextMenuItem,
 } from '@/ui';
@@ -80,6 +82,7 @@ const props = defineProps({
         required: true,
         default: () => ({
             headline: '',
+            centered: false,
             items: [],
         }),
     },
@@ -87,6 +90,7 @@ const props = defineProps({
 
 const model = reactive({
     headline: props.modelValue.headline,
+    centered: props.modelValue.centered,
     items: props.modelValue.items.map((item: any) => {
         return { ...item, _draggableKey: uuid() };
     }),

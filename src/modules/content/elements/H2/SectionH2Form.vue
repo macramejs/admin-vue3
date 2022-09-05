@@ -1,10 +1,11 @@
 <template>
-    <Card class="mb-3">
+    <Card class="flex flex-col gap-8 mb-3">
+        <Toggle v-model="model.centered" label="Content zentrieren" />
         <Input v-model="model.text" label="H2 Überschrift" />
     </Card>
 </template>
 <script setup lang="ts">
-import { Card, Input } from '@/ui';
+import { Card, Toggle, Input } from '@/ui';
 
 import { watch, reactive } from 'vue';
 
@@ -16,6 +17,7 @@ const props = defineProps({
         required: true,
         default: () => ({
             text: '',
+            centered: false,
         }),
     },
 });

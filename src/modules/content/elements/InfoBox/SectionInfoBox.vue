@@ -24,6 +24,7 @@ const props = defineProps({
         default: () => ({
             title: '',
             text: '',
+            centered: false,
             link: {
                 link: '',
                 text: '',

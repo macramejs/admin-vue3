@@ -23,6 +23,7 @@ defineProps({
         required: true,
         default: () => ({
             text: '',
+            centered: false,
         }),
     },
 });

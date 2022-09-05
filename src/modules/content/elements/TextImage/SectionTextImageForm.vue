@@ -1,5 +1,10 @@
 <template>
     <Card>
+        <Toggle
+            class="mb-6"
+            v-model="model.centered"
+            label="Content zentrieren"
+        />
         <div class="grid grid-cols-2 gap-5">
             <div class="col-span-1">
                 <FormFieldLabel> Text </FormFieldLabel>
@@ -23,14 +28,7 @@
     </Card>
 </template>
 <script setup lang="ts">
-import {
-    Card,
-    Input,
-    FormGroup,
-    Textarea,
-    Wysiwyg,
-    FormFieldLabel,
-} from '@/ui';
+import { Card, Input, FormGroup, Toggle, Wysiwyg, FormFieldLabel } from '@/ui';
 import SelectImage from '@/modules/media/SelectImage.vue';
 import Link from '@/modules/link/Link.vue';
 
@@ -44,6 +42,7 @@ const props = defineProps({
         required: true,
         default: () => ({
             text: '',
+            centered: false,
             image: {
                 id: null,
                 title: '',
