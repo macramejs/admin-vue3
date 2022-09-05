@@ -6,7 +6,7 @@
             </div>
             <MenuTree :tree="menuItemTree" />
         </MainContent>
-        <MainSidebar v-model:open="isOpen" />
+        <!-- <MainSidebar v-model:open="isOpen" /> -->
     </MainBody>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
     <Drawer
         title="Call To Action"
-        hint="Call to Action Button setzt besonderen Akzent"
+        hint="Button für besonderen Akzent"
         color="purple"
     >
         <IconInfoEmpty class="w-4 h-4" />

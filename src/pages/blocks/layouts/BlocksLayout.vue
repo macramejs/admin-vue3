@@ -38,9 +38,24 @@ import IconReportColumns from '@/ui/Icons/IconReportColumns.vue';
 import AddBlockModal from '../components/AddBlockModal.vue';
 import BlocksHelp from './components/BlocksHelp.vue';
 import { onMounted } from 'vue';
-import { blocksState } from '@/entities';
+import {
+    blocksState,
+    linksState,
+    mediaIndex,
+    mediaCollectionIndex,
+    mediaIndexIsLoaded,
+    mediaCollectionIndexIsLoaded,
+} from '@/entities';
 
-onMounted(() => {
-    blocksState.load();
+onMounted(async () => {
+    await blocksState.load();
+    await linksState.load();
+
+    if (!mediaIndexIsLoaded.value) {
+        mediaIndex.load();
+    }
+    if (!mediaCollectionIndexIsLoaded.value) {
+        mediaCollectionIndex.load();
+    }
 });
 </script>

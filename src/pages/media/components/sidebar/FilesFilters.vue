@@ -22,4 +22,6 @@
 <script lang="ts" setup>
 import { Input, Checkbox } from '@/ui';
 import { mediaIndex } from '@/entities';
+
+mediaIndex.reloadOnChange(mediaIndex.filters);
 </script>

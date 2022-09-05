@@ -8,6 +8,8 @@
             <ToggleSection />
             <RadioSection />
             <SelectSection />
+            <SelectSearchSection />
+            <SelectMultipleSection />
             <SliderSection />
             <TextareaSection />
             <WysiwygSection />
@@ -25,6 +27,8 @@ import {
     ToggleSection,
     RadioSection,
     SelectSection,
+    SelectSearchSection,
+    SelectMultipleSection,
     SliderSection,
     TextareaSection,
     WysiwygSection,

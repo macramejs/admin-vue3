@@ -26,6 +26,8 @@ export { default as CheckboxSwitchSection } from './CheckboxSwitch.vue';
 export { default as ToggleSection } from './Toggle.vue';
 export { default as RadioSection } from './Radio.vue';
 export { default as SelectSection } from './Select.vue';
+export { default as SelectSearchSection } from './SelectSearch.vue';
+export { default as SelectMultipleSection } from './SelectMultiple.vue';
 export { default as SliderSection } from './Slider.vue';
 export { default as TextareaSection } from './Textarea.vue';
 export { default as WysiwygSection } from './Wysiwyg.vue';

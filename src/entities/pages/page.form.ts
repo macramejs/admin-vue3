@@ -25,10 +25,6 @@ const usePageForm: UsePageForm = ({
     publish_at = null,
     template = '',
     slug = '',
-    meta = {
-        title: '',
-        description: '',
-    },
     id = undefined,
 }) => {
     return useForm({
@@ -41,7 +37,6 @@ const usePageForm: UsePageForm = ({
             publish_at,
             template,
             slug,
-            meta,
         },
         submit: (data, i) =>
             updateOrCreatePage(data, (i as number) || id).then(response => {

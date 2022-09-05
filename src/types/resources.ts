@@ -10,6 +10,10 @@ export type CollectionResource<Model> = { data: Model[] };
 
 export type DateTime = {
     readable_diff: string;
+    original: string;
+    iso: string;
+    formatted: string;
+    label: string;
 };
 export type DateTimeResource = Resource<DateTime>;
 
@@ -145,3 +149,17 @@ export type PartialCollectionResource = CollectionResource<Partial>;
 // Stored
 
 export type StoredResource = Resource<{ id: number }>;
+
+// SystemUser
+export interface SystemUser {
+    id: number;
+    name: string;
+    email: string;
+    is_admin: boolean;
+    district_association: string;
+    is_district_associative: boolean;
+    has_verified_email: boolean;
+}
+export type SystemUserResource = Resource<SystemUser>;
+export type SystemUserCollectionResource = CollectionResource<SystemUser>;
+export type SystemUserIndexResource = IndexResource<SystemUser>;

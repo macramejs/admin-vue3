@@ -11,7 +11,12 @@
                 <AddPageModal />
             </SidebarSecondaryHeader>
         </template>
-        <Tree :children="pageTree.items" class="pr-2 -ml-4" />
+        <transition name="fade">
+            <div v-if="pageTree.isLoading" class="py-0.5 -ml-4 pr-2">
+                <PageTreeSkeletonItem v-for="i in 7" />
+            </div>
+            <Tree v-else :children="pageTree.items" class="pr-2 -ml-4" />
+        </transition>
     </SidebarSecondary>
     <Main>
         <router-view />
@@ -36,6 +41,7 @@ import {
     mediaCollectionIndexIsLoaded,
 } from '@/entities';
 import PagesHelp from './components/PagesHelp.vue';
+import PageTreeSkeletonItem from './components/PageTreeSkeletonItem.vue';
 
 const loadTree = () => {
     pageTree.load(undefined);

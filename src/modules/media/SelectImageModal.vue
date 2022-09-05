@@ -43,6 +43,12 @@
                 </div>
             </nav>
             <div class="relative flex-1">
+                <button
+                    @click="isOpen = false"
+                    class="absolute top-0 right-0 rounded focus:outline-none focus:ring focus:ring-orange-100"
+                >
+                    <IconCancel />
+                </button>
                 <div class="pb-6 text-lg font-bold">Datei auswählen</div>
                 <div class="grid grid-cols-12 gap-4 mb-5 media-modal">
                     <div
@@ -105,6 +111,7 @@
 <script lang="ts" setup>
 import Loading from '@/layout/components/Loading.vue';
 import IconAddMediaImage from '@/ui/Icons/IconAddMediaImage.vue';
+import IconCancel from '@/ui/Icons/IconCancel.vue';
 import { Modal, Pagination } from '@/ui';
 import { computed, PropType, ref, watch } from 'vue';
 import {

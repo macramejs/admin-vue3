@@ -27,6 +27,8 @@ export { default as FormGroup } from './Form/FormGroup.vue';
 export { default as Input } from './Form/Input.vue';
 export { default as RadioGroup } from './Form/RadioGroup.vue';
 export { default as Select } from './Form/Select.vue';
+export { default as SelectSearch } from './Form/SelectSearch.vue';
+export { default as SelectMultiple } from './Form/SelectMultiple.vue';
 export { default as Slider } from './Form/Slider.vue';
 export { default as Textarea } from './Form/Textarea.vue';
 export { default as Toggle } from './Form/Toggle.vue';

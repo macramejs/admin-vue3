@@ -1,5 +1,5 @@
-import { PartialResource } from './resources';
-import { Form, RawTree } from '@macramejs/macrame-vue3';
+import { PartialResource, DateTime, SystemUserResource } from './resources';
+import { Form } from '@macramejs/macrame-vue3';
 
 interface Image {
     id: number;
@@ -45,10 +45,6 @@ export interface PageFormData {
     publish_at: string | null;
     template: string;
     slug: string;
-    meta: {
-        title: string;
-        description: string;
-    };
 }
 export type PageForm = Form<PageFormData>;
 
@@ -62,7 +58,6 @@ export type PageDuplicateForm = Form<PageDuplicateFormData>;
 // Menu
 export interface MenuFormData {
     title: string;
-    type: string;
 }
 export type MenuForm = Form<MenuFormData>;
 
@@ -93,6 +88,7 @@ export type PartialForm = Form<PartialFormData, PartialResource>;
 
 export type MediaCollectionFormData = {
     title: string;
+    key: string;
 };
 export type MediaCollectionForm = Form<MediaCollectionFormData>;
 
@@ -119,3 +115,13 @@ export type MediaCollectionAddForm = Form<
     MediaCollectionAddFormData,
     PartialResource
 >;
+
+// System User
+export type SystemUserFormData = {
+    name: string;
+    email: string;
+    password: string;
+    district_association_id: number;
+    is_admin: boolean;
+};
+export type SystemUserForm = Form<SystemUserFormData, SystemUserResource>;

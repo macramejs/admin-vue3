@@ -45,9 +45,9 @@ const props = defineProps({
 const model = reactive({
     headline: props.modelValue.headline,
     text: props.modelValue.text,
-    items: props.modelValue.items.map((item: any) => {
+    items: props.modelValue.items?.map((item: any) => {
         return { ...item, _draggableKey: uuid() };
-    }),
+    }) || []
 });
 
 function addItem() {

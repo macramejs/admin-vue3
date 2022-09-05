@@ -1,7 +1,7 @@
 <template>
     <MainBody>
-        <MainContent class="space-y-5">
-            <Card class="flex flex-col max-w-3xl gap-5">
+        <MainContent class="">
+            <Card class="flex flex-col max-w-3xl gap-5 mb-5">
                 <h2>
                     {{ $t('pages.page_settings') }}
                 </h2>
@@ -32,7 +32,7 @@
                 <Button
                     secondary
                     class="!bg-red-500 !text-white !border-none flex mt-4"
-                    @click="deletePage(pageState.value.id)"
+                    @click="submit"
                     :disabled="pageState.value.name != confirm_delete"
                 >
                     <IconTrash class="w-4 h-4 mr-2" />
@@ -45,12 +45,19 @@
 
 <script lang="ts" setup>
 import { MainBody, MainContent } from '@/layout';
-import { pageState, deletePage } from '@/entities';
+import { pageState, pageTree, deletePage } from '@/entities';
 import { Card, Input, Button, FormGroup } from '@/ui';
 import IconTrash from '@/ui/Icons/IconTrash.vue';
 import { slugify } from '@/modules/helpers';
 import { pageForm } from '@/entities';
 import { ref } from 'vue';
+import { router } from '@/plugins/router';
 
 const confirm_delete = ref('');
+
+const submit = async () => {
+    await deletePage(pageState.value.id);
+    pageTree.load(undefined);
+    router.push(`/pages`);
+};
 </script>

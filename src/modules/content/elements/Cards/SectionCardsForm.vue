@@ -47,7 +47,9 @@
                         </div>
                         <div class="col-span-8 space-y-4">
                             <Input v-model="element.title" label="Titel" />
-                            <Textarea v-model="element.text" label="Text" />
+                        </div>
+                        <div class="space-y-4 col-span-full">
+                            <Wysiwyg v-model="element.text" label="Text" />
                             <Link v-model="element.link" />
                         </div>
                     </div>
@@ -65,7 +67,7 @@ import {
     Card,
     InteractionButton,
     Input,
-    Textarea,
+    Wysiwyg,
     Header,
     ContextMenu,
     ContextMenuItem,

@@ -250,6 +250,153 @@
                 <IconQuote class="w-4 h-4" />
             </button>
             <button
+                @click="editor?.chain().focus().undo().run()"
+                class="p-1 flex items-center focus:outline-none focus:ring-4 focus:ring-orange-100 justify-center w-8 h-8 rounded-[8px]"
+            >
+                <svg
+                    width="16"
+                    height="16"
+                    stroke-width="1.5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M5 7V9.5V12"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                    <path
+                        d="M7.875 9.5H14.875C20.375 9.5 20.375 18 14.875 18C11.875 18 4.875 18 4.875 18"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                    <path
+                        d="M11.375 13L7.875 9.5L11.375 6"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                </svg>
+            </button>
+            <button
+                @click="editor?.chain().focus().redo().run()"
+                class="p-1 flex items-center focus:outline-none focus:ring-4 focus:ring-orange-100 justify-center w-8 h-8 rounded-[8px]"
+            >
+                <svg
+                    width="16"
+                    height="16"
+                    stroke-width="1.5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M19 7V9.5V12"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                    <path
+                        d="M16 9.5C16 9.5 12 9.5 9 9.5C3.5 9.5 3.5 18 9 18C12 18 19 18 19 18"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                    <path
+                        d="M12.5 13L16 9.5L12.5 6"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                </svg>
+            </button>
+            <button
+                class="p-1 flex items-center focus:outline-none focus:ring-4 focus:ring-orange-100 justify-center w-8 h-8 rounded-[8px]"
+                @click="editor?.chain().focus().unsetAllMarks().run()"
+            >
+                <svg
+                    width="16"
+                    height="16"
+                    stroke-width="1.5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M7 4H4V7"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                    <path
+                        d="M8 12H12H16"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                    <path
+                        d="M4 11V13"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                    <path
+                        d="M11 4H13"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                    <path
+                        d="M11 20H13"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                    <path
+                        d="M20 11V13"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                    <path
+                        d="M17 4H20V7"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                    <path
+                        d="M7 20H4V17"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                    <path
+                        d="M17 20H20V17"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                </svg>
+            </button>
+            <button
+                class="p-1 flex items-center focus:outline-none focus:ring-4 focus:ring-orange-100 justify-center w-8 h-8 rounded-[8px]"
+                @click="toggleRawEdit()"
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="-2 -4 24 24"
+                    width="16"
+                    fill="currentColor"
+                >
+                    <path
+                        d="M12.7361611,0.063952038 C13.2551391,0.263360331 13.5227261,0.869148905 13.3338336,1.41701869 L8.54555162,15.3051026 C8.35665911,15.8529724 7.78281676,16.1354563 7.26383885,15.936048 C6.74486095,15.7366397 6.47727387,15.1308511 6.66616638,14.5829813 L11.4544484,0.694897379 C11.6433409,0.147027596 12.2171832,-0.135456255 12.7361611,0.063952038 Z M2.41421356,8.25614867 L5.94974747,11.9885083 C6.34027176,12.4007734 6.34027176,13.0691871 5.94974747,13.4814522 C5.55922318,13.8937173 4.9260582,13.8937173 4.53553391,13.4814522 L0.292893219,9.0026206 C-0.0976310729,8.59035554 -0.0976310729,7.9219418 0.292893219,7.50967674 L4.53553391,3.03084515 C4.9260582,2.61858008 5.55922318,2.61858008 5.94974747,3.03084515 C6.34027176,3.44311021 6.34027176,4.11152395 5.94974747,4.52378901 L2.41421356,8.25614867 Z M17.5857864,8.25614867 L14.0502525,4.52378901 C13.6597282,4.11152395 13.6597282,3.44311021 14.0502525,3.03084515 C14.4407768,2.61858008 15.0739418,2.61858008 15.4644661,3.03084515 L19.7071068,7.50967674 C20.0976311,7.9219418 20.0976311,8.59035554 19.7071068,9.0026206 L15.4644661,13.4814522 C15.0739418,13.8937173 14.4407768,13.8937173 14.0502525,13.4814522 C13.6597282,13.0691871 13.6597282,12.4007734 14.0502525,11.9885083 L17.5857864,8.25614867 Z"
+                    ></path>
+                </svg>
+            </button>
+            <button
                 @click="openTableMenu = !openTableMenu"
                 class="p-1 flex items-center focus:outline-none focus:ring-4 focus:ring-orange-100 justify-center w-8 h-8 rounded-[8px]"
                 :class="{
@@ -474,147 +621,6 @@
                     </button>
                 </div>
             </transition>
-            <button
-                @click="editor?.chain().focus().undo().run()"
-                class="p-1 flex items-center focus:outline-none focus:ring-4 focus:ring-orange-100 justify-center w-8 h-8 rounded-[8px]"
-            >
-                <svg
-                    width="16"
-                    height="16"
-                    stroke-width="1.5"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                >
-                    <path
-                        d="M5 7V9.5V12"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    />
-                    <path
-                        d="M7.875 9.5H14.875C20.375 9.5 20.375 18 14.875 18C11.875 18 4.875 18 4.875 18"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    />
-                    <path
-                        d="M11.375 13L7.875 9.5L11.375 6"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    />
-                </svg>
-            </button>
-            <button
-                @click="editor?.chain().focus().redo().run()"
-                class="p-1 flex items-center focus:outline-none focus:ring-4 focus:ring-orange-100 justify-center w-8 h-8 rounded-[8px]"
-            >
-                <svg
-                    width="16"
-                    height="16"
-                    stroke-width="1.5"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                >
-                    <path
-                        d="M19 7V9.5V12"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    />
-                    <path
-                        d="M16 9.5C16 9.5 12 9.5 9 9.5C3.5 9.5 3.5 18 9 18C12 18 19 18 19 18"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    />
-                    <path
-                        d="M12.5 13L16 9.5L12.5 6"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    />
-                </svg>
-            </button>
-            <button @click="editor?.chain().focus().unsetAllMarks().run()">
-                <svg
-                    width="16"
-                    height="16"
-                    stroke-width="1.5"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                >
-                    <path
-                        d="M7 4H4V7"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    />
-                    <path
-                        d="M8 12H12H16"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    />
-                    <path
-                        d="M4 11V13"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    />
-                    <path
-                        d="M11 4H13"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    />
-                    <path
-                        d="M11 20H13"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    />
-                    <path
-                        d="M20 11V13"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    />
-                    <path
-                        d="M17 4H20V7"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    />
-                    <path
-                        d="M7 20H4V17"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    />
-                    <path
-                        d="M17 20H20V17"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    />
-                </svg>
-            </button>
-            <button @click="toggleRawEdit()">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="-2 -4 24 24"
-                    width="16"
-                    fill="currentColor"
-                >
-                    <path
-                        d="M12.7361611,0.063952038 C13.2551391,0.263360331 13.5227261,0.869148905 13.3338336,1.41701869 L8.54555162,15.3051026 C8.35665911,15.8529724 7.78281676,16.1354563 7.26383885,15.936048 C6.74486095,15.7366397 6.47727387,15.1308511 6.66616638,14.5829813 L11.4544484,0.694897379 C11.6433409,0.147027596 12.2171832,-0.135456255 12.7361611,0.063952038 Z M2.41421356,8.25614867 L5.94974747,11.9885083 C6.34027176,12.4007734 6.34027176,13.0691871 5.94974747,13.4814522 C5.55922318,13.8937173 4.9260582,13.8937173 4.53553391,13.4814522 L0.292893219,9.0026206 C-0.0976310729,8.59035554 -0.0976310729,7.9219418 0.292893219,7.50967674 L4.53553391,3.03084515 C4.9260582,2.61858008 5.55922318,2.61858008 5.94974747,3.03084515 C6.34027176,3.44311021 6.34027176,4.11152395 5.94974747,4.52378901 L2.41421356,8.25614867 Z M17.5857864,8.25614867 L14.0502525,4.52378901 C13.6597282,4.11152395 13.6597282,3.44311021 14.0502525,3.03084515 C14.4407768,2.61858008 15.0739418,2.61858008 15.4644661,3.03084515 L19.7071068,7.50967674 C20.0976311,7.9219418 20.0976311,8.59035554 19.7071068,9.0026206 L15.4644661,13.4814522 C15.0739418,13.8937173 14.4407768,13.8937173 14.0502525,13.4814522 C13.6597282,13.0691871 13.6597282,12.4007734 14.0502525,11.9885083 L17.5857864,8.25614867 Z"
-                    ></path>
-                </svg>
-            </button>
         </div>
         <EditorContent
             :class="{ 'wysiwyg-has-errors': errors.length > 0 }"
@@ -625,7 +631,7 @@
         <Textarea
             v-model="contentCopy"
             v-if="editRaw"
-            class="bg-gray-50 block"
+            class="block bg-gray-50"
             :style="{
                 'min-height': rawEditorHeight + 'px',
                 'font-family': 'monospace',

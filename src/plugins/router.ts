@@ -9,6 +9,8 @@ import { routes as menuRoutes } from '@/pages/menus/routes';
 import { routes as pagesRoutes } from '@/pages/pages/routes';
 import { routes as blocksRoutes } from '@/pages/blocks/routes';
 import { routes as partialsRoutes } from '@/pages/partials/routes';
+import { routes as appSettingsRoutes } from '@/pages/app-settings/routes';
+import { routes as systemRoutes } from '@/pages/system/routes';
 
 const routes: RouteRecordRaw[] = [
     // guest
@@ -29,6 +31,8 @@ const routes: RouteRecordRaw[] = [
             ...pagesRoutes,
             ...blocksRoutes,
             ...partialsRoutes,
+            ...appSettingsRoutes,
+            ...systemRoutes,
         ],
     },
 ];

@@ -1,6 +1,6 @@
 <template>
     <div
-        class="flex flex-col justify-between h-screen overflow-y-scroll transition-all duration-500 bg-gray-900 border-r border-gray-800"
+        class="flex flex-col justify-between h-screen overflow-y-scroll transition-all duration-500 bg-gray-900 border-r border-gray-800 whitespace-nowrap"
         @mouseover="expanded = true"
         @mouseleave="expanded = false"
         :class="{
