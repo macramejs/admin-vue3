@@ -44,10 +44,12 @@
         </SidebarPrimary>
         <router-view />
     </div>
+    <Toast />
 </template>
 
 <script lang="ts" setup>
 import { computed, ref } from 'vue';
+import Toast from '@/modules/toast/Toast.vue';
 import SidebarPrimary from './components/SidebarPrimary/SidebarPrimary.vue';
 import SidebarSection from './components/SidebarPrimary/SidebarSection.vue';
 import Link from './components/SidebarPrimary/Link.vue';
