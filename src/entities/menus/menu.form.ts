@@ -7,13 +7,9 @@ export type UseMenuForm = (
     data: Partial<MenuFormData> & { id?: number }
 ) => MenuForm;
 
-export const useMenuForm: UseMenuForm = ({
-    title = '',
-    type = '',
-    id = undefined,
-}) => {
+export const useMenuForm: UseMenuForm = ({ title = '', id = undefined }) => {
     const form = useForm({
-        data: { title, type },
+        data: { title },
         submit: data =>
             updateOrCreateMenu(data, id).then(response => {
                 menusState.load();
