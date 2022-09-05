@@ -6,6 +6,7 @@
             <DrawerTextImage :draws="SectionTextImage" />
             <DrawerInfoBox :draws="SectionInfoBox" />
             <DrawerCTA :draws="SectionCTA" />
+            <DrawerMap :draws="SectionMap" />
             <DrawerImageSmall :draws="SectionImageSmall" />
             <DrawerImageFull :draws="SectionImageFull" />
             <DrawerVideoEmbed :draws="SectionVideoEmbed" />
@@ -22,6 +23,7 @@
     <MainSidebarSection :title="$t('content.sections')">
         <Cabinet>
             <DrawerCards :draws="SectionCards" />
+            <DrawerDownloads :draws="SectionDownloads" />
             <DrawerLogoWall :draws="SectionLogoWall" />
             <DrawerAccordion :draws="SectionAccordion" />
         </Cabinet>
@@ -43,6 +45,8 @@ import {
     SectionTextImage,
     SectionInfoBox,
     SectionCTA,
+    SectionDownloads,
+    SectionMap,
     SectionInfoSection,
     SectionImageSmall,
     SectionImageFull,
@@ -60,6 +64,8 @@ import {
     DrawerTextImage,
     DrawerInfoBox,
     DrawerCTA,
+    DrawerDownloads,
+    DrawerMap,
     DrawerInfoSection,
     DrawerImageSmall,
     DrawerImageFull,

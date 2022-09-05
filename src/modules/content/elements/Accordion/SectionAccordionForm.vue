@@ -43,7 +43,7 @@
                     </Header>
                     <div class="col-span-6 space-y-4">
                         <Input v-model="element.title" label="Title" />
-                        <Textarea v-model="element.text" label="Text" />
+                        <Wysiwyg v-model="element.text" label="Text" />
                     </div>
                 </Card>
             </template>
@@ -62,7 +62,7 @@ import {
     Card,
     InteractionButton,
     Input,
-    Textarea,
+    Wysiwyg,
     Header,
     ContextMenu,
     ContextMenuItem,

@@ -21,7 +21,7 @@
                                 <IconDraggable class="w-2.5 h-2.5" />
                             </InteractionButton>
                             <div class="text-lg font-semibold">
-                                {{ element.title || 'Card' }}
+                                {{ element.title || 'Download' }}
                             </div>
                         </div>
                         <ContextMenu placement="left">
@@ -43,14 +43,10 @@
                     </Header>
                     <div class="grid grid-cols-12 gap-5">
                         <div class="col-span-12">
-                            <SelectImage v-model="element.image" />
+                            <SelectFile v-model="element.file" />
                         </div>
                         <div class="col-span-8 space-y-4">
                             <Input v-model="element.title" label="Titel" />
-                        </div>
-                        <div class="space-y-4 col-span-full">
-                            <Wysiwyg v-model="element.text" label="Text" />
-                            <Link v-model="element.link" />
                         </div>
                     </div>
                 </Card>
@@ -67,7 +63,7 @@ import {
     Card,
     InteractionButton,
     Input,
-    Wysiwyg,
+    Textarea,
     Header,
     ContextMenu,
     ContextMenuItem,
@@ -79,7 +75,7 @@ import IconDraggable from '@/ui/Icons/custom/IconDraggable.vue';
 import IconTrash from '@/ui/Icons/IconTrash.vue';
 import { watch, reactive } from 'vue';
 import Draggable from 'vuedraggable';
-import SelectImage from '@/modules/media/SelectImage.vue';
+import SelectFile from '@/modules/media/SelectFile.vue';
 import { v4 as uuid } from 'uuid';
 
 const emit = defineEmits(['update:modelValue']);
@@ -109,12 +105,7 @@ const model = reactive({
 function addItem() {
     model.items.push({
         name: '',
-        link: {
-            link: '',
-            text: '',
-            new_tab: false,
-        },
-        image: {
+        file: {
             id: null,
             title: '',
             alt: '',

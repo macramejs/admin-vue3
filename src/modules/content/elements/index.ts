@@ -26,6 +26,12 @@ export { default as SectionInfoBoxForm } from './InfoBox/SectionInfoBoxForm.vue'
 export { default as DrawerCTA } from './CTA/DrawerCTA.vue';
 export { default as SectionCTA } from './CTA/SectionCTA.vue';
 export { default as SectionCTAForm } from './CTA/SectionCTAForm.vue';
+export { default as DrawerDownloads } from './Downloads/DrawerDownloads.vue';
+export { default as SectionDownloads } from './Downloads/SectionDownloads.vue';
+export { default as SectionDownloadsForm } from './Downloads/SectionDownloadsForm.vue';
+export { default as DrawerMap } from './Map/DrawerMap.vue';
+export { default as SectionMap } from './Map/SectionMap.vue';
+export { default as SectionMapForm } from './Map/SectionMapForm.vue';
 export { default as DrawerH2 } from './H2/DrawerH2.vue';
 export { default as DrawerInfoSection } from './InfoSection/DrawerInfoSection.vue';
 export { default as SectionAccordionForm } from './Accordion/SectionAccordionForm.vue';

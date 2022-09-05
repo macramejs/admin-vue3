@@ -4,7 +4,9 @@
         :class="{
             'outline-dashed outline-3 outline-gray': !hasChildren,
         }"
-        style="min-height: calc(100vh - 150px)"
+        :style="
+            fullHeight ? 'min-height: calc(100vh - 150px)' : 'min-height: 150px'
+        "
     >
         <template v-if="!hasChildren">
             <div
@@ -15,8 +17,11 @@
         </template>
         <Sections
             v-bind="($attrs as any)"
-            style="min-height: calc(100vh - 150px)"
-
+            :style="
+                fullHeight
+                    ? 'min-height: calc(100vh - 150px)'
+                    : 'min-height: 150px'
+            "
         />
     </div>
 </template>
@@ -24,6 +29,13 @@
 <script lang="ts" setup>
 import Sections from './Sections.vue';
 import { computed, useAttrs } from 'vue';
+
+defineProps({
+    fullHeight: {
+        type: Boolean,
+        default: true,
+    },
+});
 
 const attrs = useAttrs();
 const hasChildren = computed(() => {

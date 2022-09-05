@@ -11,6 +11,8 @@ import SectionTextFull from './elements/TextFull/SectionTextFull.vue';
 import SectionTextImage from './elements/TextImage/SectionTextImage.vue';
 import SectionInfoBox from './elements/InfoBox/SectionInfoBox.vue';
 import SectionCTA from './elements/CTA/SectionCTA.vue';
+import SectionDownloads from './elements/Downloads/SectionDownloads.vue';
+import SectionMap from './elements/Map/SectionMap.vue';
 import SectionInfoSection from './elements/InfoSection/SectionInfoSection.vue';
 import SectionImageSmall from './elements/ImageSmall/SectionImageSmall.vue';
 import SectionImageFull from './elements/ImageFull/SectionImageFull.vue';
@@ -34,8 +36,10 @@ const sections = {
     grid_gallery: SectionGridGallery,
     info_box: SectionInfoBox,
     cta: SectionCTA,
+    map: SectionMap,
     info_section: SectionInfoSection,
     cards: SectionCards,
+    downloads: SectionDownloads,
     teaser_boxes: SectionTeaserBoxes,
     text_image: SectionTextImage,
     accordion: SectionAccordion,
