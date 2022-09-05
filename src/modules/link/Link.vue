@@ -8,20 +8,20 @@
             {{ model.url }}
         </div>
     </div>
-    <Modal v-model:open="isOpen" sm :title="$t('content.chose_link')" localize>
+    <Modal v-model:open="isOpen" md :title="$t('content.chose_link')" localize>
         <FormGroup>
             <Input v-model="model.text" class="w-full" label="Linktext" />
 
             <div class="flex items-center space-x-2">
                 <span> Externer link </span><Toggle v-model="external" />
             </div>
-            <Select
+            <SelectSearch
                 v-if="!external"
                 label="Link"
                 v-model="model.url"
                 :options="linksState.value"
-                label-key="title"
-                value-key="link"
+                labelKey="title"
+                valueKey="link"
             />
 
             <Input
@@ -52,6 +52,7 @@ import {
     ButtonMidGray,
     Modal,
     Select,
+    SelectSearch,
     Toggle,
     FormGroup,
 } from '@/ui';

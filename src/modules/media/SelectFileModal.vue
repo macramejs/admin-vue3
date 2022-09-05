@@ -5,7 +5,7 @@
                 class="flex flex-col items-center justify-center w-full rounded cursor-pointer bg-gray-50 hover:bg-gray-200 h-28 text-gray"
             >
                 <IconAddMediaImage class="w-12 h-12" />
-                {{ $t('media.select_image') }}
+                {{ $t('media.select_document') }}
             </div>
         </slot>
     </div>
@@ -57,10 +57,10 @@
                         <MediaUpload />
                     </div>
                     <div
-                        v-for="(image, key) in images"
+                        v-for="(file, key) in files"
                         :key="key"
-                        class="relative flex items-center col-span-6 rounded cursor-pointer sm:col-span-4 md:col-span-4 lg:col-span-2 xl:col-span-1 aspect-square"
-                        @click="selectImage(image)"
+                        class="relative flex items-center col-span-6 rounded cursor-pointer sm:col-span-4 md:col-span-3 lg:col-span-2 xl:col-span-2 aspect-square"
+                        @click="selectFile(file)"
                     >
                         <div
                             class="absolute group top-0 left-0 w-full cursor-pointer h-full bg-black border-[3px] border-transparent bg-opacity-0 hover:bg-opacity-80 z-10"
@@ -68,7 +68,7 @@
                             <div
                                 class="pt-1 pl-1 text-white truncate opacity-0 group-hover:opacity-100"
                             >
-                                {{ image.filename }}
+                                {{ file.filename }}
                             </div>
                             <div
                                 class="absolute img-checkbox top-0 left-0 hidden items-center justify-center w-5 h-5 rounded-br-[6px] text-white bg-orange"
@@ -91,9 +91,19 @@
                             </div>
                         </div>
                         <img
-                            :src="image.url"
+                            v-if="file.mimetype.includes('image')"
+                            :src="file.url"
                             class="object-contain w-full h-full"
                         />
+                        <div
+                            v-if="
+                                file.url &&
+                                file.mimetype.includes('application')
+                            "
+                            class="flex items-center justify-center w-full h-full border border-gray-200 rounded pointer-events-none"
+                        >
+                            <IconEmptyPage class="w-16 h-16" />
+                        </div>
                     </div>
                 </div>
                 <div
@@ -111,6 +121,7 @@
 <script lang="ts" setup>
 import Loading from '@/layout/components/Loading.vue';
 import IconAddMediaImage from '@/ui/Icons/IconAddMediaImage.vue';
+import IconEmptyPage from '@/ui/Icons/IconEmptyPage.vue';
 import IconCancel from '@/ui/Icons/IconCancel.vue';
 import { Modal, Pagination } from '@/ui';
 import { computed, PropType, ref, watch } from 'vue';
@@ -136,11 +147,9 @@ defineProps({
     },
 });
 
-const images = computed(() => {
+const files = computed(() => {
     let data = [];
-    data = mediaIndex.items.filter(
-        item => !item.mimetype.includes('application')
-    );
+    data = mediaIndex.items;
     return data;
 });
 
@@ -154,8 +163,8 @@ watch(
     }
 );
 
-const selectImage = (image: any) => {
-    emit('update:modelValue', image);
+const selectFile = (file: any) => {
+    emit('update:modelValue', file);
     isOpen.value = false;
 };
 
