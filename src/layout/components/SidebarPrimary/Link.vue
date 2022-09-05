@@ -33,7 +33,7 @@
         >
             <div
                 v-if="!hideTitle"
-                class="flex-1 pl-3 tracking-wider text-gray-100 delay-100"
+                class="flex-1 pl-3 tracking-wider text-gray-100 delay-[160ms]"
                 :class="{
                     'group-hover:text-orange': isActive && !secondary,
                 }"
