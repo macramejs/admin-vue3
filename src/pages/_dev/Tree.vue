@@ -1,14 +1,6 @@
 <template>
     <MainBody>
         <MainContent> tree </MainContent>
-        <!-- <MainSidebar v-model:open="isOpen">
-            <Drawers :sections="drawsSections" />
-            <DrawerSection title="Blöcke">
-                <Cabinet>
-                    <DrawerBlocks :draws="SectionBlocks" />
-                </Cabinet>
-            </DrawerSection>
-        </MainSidebar> -->
     </MainBody>
 </template>
 
