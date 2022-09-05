@@ -40,8 +40,8 @@ const applySort = () => {
     }
 
     const sortBy = JSON.parse(JSON.stringify(props.table.sortBy));
-    for(let i = 0;i<sortBy.length;i++) {
-        if(!sortBy[i] || sortBy[i].key == props.sortBy) continue;
+    for (let i = 0; i < sortBy.length; i++) {
+        if (!sortBy[i] || sortBy[i].key == props.sortBy) continue;
         props.table.removeSortBy(sortBy[i].key, false);
     }
 
@@ -52,7 +52,5 @@ const applySort = () => {
     } else {
         props.table.removeSortBy(props.sortBy, false);
     }
-
-    
 };
 </script>
