@@ -1,6 +1,7 @@
 <template>
     <Card>
         <FormGroup>
+            <Toggle v-model="model.centered" label="Content zentrieren" />
             <Input v-model="model.title" class="w-full" label="Titel" />
             <Textarea v-model="model.text" class="w-full" label="Text" />
             <Link v-model="model.link" />
@@ -8,7 +9,7 @@
     </Card>
 </template>
 <script setup lang="ts">
-import { Card, Input, FormGroup, Textarea } from '@/ui';
+import { Card, Input, FormGroup, Toggle, Textarea } from '@/ui';
 import Link from '@/modules/link/Link.vue';
 
 import { watch, reactive } from 'vue';
@@ -22,6 +23,7 @@ const props = defineProps({
         default: () => ({
             title: '',
             text: '',
+            centered: false,
             link: {
                 link: '',
                 text: '',

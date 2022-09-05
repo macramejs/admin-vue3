@@ -1,9 +1,12 @@
 <template>
     <FormFieldLabel>Vimeo-ID</FormFieldLabel>
-    <Input v-model="model.id" label="Vimeo-ID" />
+    <Card class="flex flex-col gap-6">
+        <Toggle v-model="model.centered" label="Content zentrieren" />
+        <Input v-model="model.id" label="Vimeo-ID" />
+    </Card>
 </template>
 <script setup lang="ts">
-import { FormFieldLabel, Input } from '@/ui';
+import { FormFieldLabel, Input, Card, Toggle } from '@/ui';
 
 import { watch, reactive, computed } from 'vue';
 
@@ -15,6 +18,7 @@ const props = defineProps({
         required: true,
         default: () => ({
             id: '',
+            centered: false,
         }),
     },
 });

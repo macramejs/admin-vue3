@@ -1,10 +1,13 @@
 <template>
     <FormFieldLabel> Bild </FormFieldLabel>
+    <Card class="mb-6">
+        <Toggle v-model="model.centered" label="Content zentrieren" />
+    </Card>
     <SelectImage v-model="model.image" />
 </template>
 <script setup lang="ts">
 import SelectImage from '@/modules/media/SelectImage.vue';
-import { FormFieldLabel } from '@/ui';
+import { FormFieldLabel, Toggle, Card } from '@/ui';
 
 import { watch, reactive } from 'vue';
 
@@ -15,6 +18,7 @@ const props = defineProps({
         type: Object,
         required: true,
         default: () => ({
+            centered: false,
             image: {
                 id: null,
                 title: '',
