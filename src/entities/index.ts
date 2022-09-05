@@ -48,3 +48,9 @@ export * from './pages/page.tree';
 // partials
 export * from './partials/api';
 export * from './partials/partial.form';
+
+// system-users
+export * from './system-users/api';
+export * from './system-users/system-user.state';
+export * from './system-users/system-users.index';
+export * from './system-users/system-user.form';
