@@ -26,11 +26,13 @@ const route = useRoute();
 const blockId = computed(() => parseInt(route.params.block as string));
 
 const loadData = () => {
-    show.value = false;
-    blockState.load(blockId.value).then(block => {
-        blockForm.value = useBlockForm(block);
-        show.value = true;
-    });
+    if (blockId.value) {
+        show.value = false;
+        blockState.load(blockId.value).then(block => {
+            blockForm.value = useBlockForm(block);
+            show.value = true;
+        });
+    }
 };
 
 watch(() => blockId.value, loadData, { immediate: true });

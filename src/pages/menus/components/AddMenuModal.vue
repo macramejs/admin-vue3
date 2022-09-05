@@ -7,8 +7,13 @@
     <Modal lg v-model:open="isOpen" :title="$t('menus.new_menu')">
         <form @submit.prevent="submit">
             <FormGroup>
-                <Input :label="$t('menus.name')" v-model="form.title" />
-                <Input :label="$t('menus.type')" v-model="form.type" />
+                <FormField noLabel :errors="form.errors.title">
+                    <Input
+                        :label="$t('menus.name')"
+                        v-model="form.title"
+                        :errors="form.errors.title"
+                    />
+                </FormField>
             </FormGroup>
 
             <input type="submit" class="hidden" />
@@ -28,6 +33,7 @@ import IconPlus from '@/ui/Icons/IconPlus.vue';
 import { useMenuForm } from '@/entities';
 import { MenuForm } from '@/types';
 import { useRouter } from 'vue-router';
+import FormField from '@/ui/Form/FormField.vue';
 
 const isOpen = ref<boolean>(false);
 

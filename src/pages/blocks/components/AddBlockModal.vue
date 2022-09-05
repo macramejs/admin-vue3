@@ -7,7 +7,13 @@
     <Modal lg v-model:open="isOpen" title="Neuer Block">
         <form @submit.prevent="submit">
             <div class="space-y-3">
-                <Input label="Name" v-model="form.name" />
+                <FormField noLabel :errors="form.errors.name">
+                    <Input
+                        label="Name"
+                        v-model="form.name"
+                        :errors="form.errors.name"
+                    />
+                </FormField>
             </div>
             <input type="submit" class="hidden" />
         </form>
@@ -19,7 +25,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { Modal, Input, ButtonRound, Button } from '@/ui';
+import { Modal, Input, ButtonRound, Button, FormField } from '@/ui';
 import IconPlus from '@/ui/Icons/IconPlus.vue';
 import { blocksState, useBlockForm } from '@/entities';
 import { BlockForm } from '@/types';

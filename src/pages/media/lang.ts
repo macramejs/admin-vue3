@@ -3,6 +3,7 @@ export const messages = {
         media: {
             media: 'Medien',
             enter_new_name: 'Neuen Namen eingeben',
+            enter_new_key: 'Neuen Key eingeben',
             new_collection: 'Neue Sammlung',
             add_to_collection: 'Zu einer Sammlung hinzufügen',
             clear_selection: 'Auswahl aufheben',
@@ -19,6 +20,7 @@ export const messages = {
                 'Keine Dateien ausgewählt | Eine Datei ausgewählt | {count} Dateien ausgewählt',
             edit_selection: 'Auswahl bearbeiten',
             select_image: 'Bild auswählen',
+            select_document: 'Dokument auswählen',
             filter: 'Filter',
             collections: 'Sammlungen',
             collection: 'Sammlung',
@@ -30,6 +32,7 @@ export const messages = {
         media: {
             media: 'Media',
             enter_new_name: 'Enter new name',
+            enter_new_key: 'Enter new key',
             new_collection: 'New Collection',
             add_to_collection: 'Add To Collection',
             clear_selection: 'Clear selection',
@@ -46,6 +49,7 @@ export const messages = {
                 'No files selected | One file selected | {count} files selected',
             edit_selection: 'Edit Selection',
             select_image: 'Select Image',
+            select_document: 'Select Document',
             filter: 'Filter',
             collections: 'Collections',
             collection: 'Collection',

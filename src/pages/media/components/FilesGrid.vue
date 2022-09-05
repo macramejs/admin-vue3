@@ -75,12 +75,10 @@
                     class="absolute z-10 flex items-center justify-center w-full h-full"
                 >
                     <div
+                        v-if="file.mimetype.includes('image')"
                         class="flex items-center justify-center w-12 h-12 text-white rounded bg-gray"
                     >
-                        <IconMediaImage
-                            class="w-6 h-6"
-                            v-if="file.mimetype.includes('image')"
-                        />
+                        <IconMediaImage class="w-6 h-6" />
                     </div>
                 </div>
             </div>

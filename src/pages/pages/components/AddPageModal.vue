@@ -7,17 +7,29 @@
     <Modal lg v-model:open="isOpen" :title="$t('pages.new_page')">
         <form @submit.prevent="submit">
             <FormGroup>
-                <Input :label="$t('pages.name')" v-model="form.name" />
-                <Input
-                    :label="$t('pages.slug')"
-                    :modelValue="form.slug"
-                    @update:modelValue="updateSlug"
-                />
-                <Select
-                    :label="$t('pages.template')"
-                    :options="templateOptions"
-                    v-model="form.template"
-                />
+                <FormField noLabel :errors="form.errors.name">
+                    <Input
+                        :label="$t('pages.name')"
+                        v-model="form.name"
+                        :errors="form.errors.name"
+                    />
+                </FormField>
+                <FormField noLabel :errors="form.errors.slug">
+                    <Input
+                        :label="$t('pages.slug')"
+                        :modelValue="form.slug"
+                        @update:modelValue="updateSlug"
+                        :errors="form.errors.slug"
+                    />
+                </FormField>
+                <FormField noLabel :errors="form.errors.template">
+                    <Select
+                        :label="$t('pages.template')"
+                        :options="templateOptions"
+                        v-model="form.template"
+                        :errors="form.errors.template"
+                    />
+                </FormField>
             </FormGroup>
 
             <input type="submit" class="hidden" />
@@ -30,7 +42,15 @@
 
 <script lang="ts" setup>
 import { ref, PropType, watch } from 'vue';
-import { Modal, Input, Select, ButtonRound, Button, FormGroup } from '@/ui';
+import {
+    Modal,
+    Input,
+    Select,
+    ButtonRound,
+    Button,
+    FormGroup,
+    FormField,
+} from '@/ui';
 import IconPlus from '@/ui/Icons/IconPlus.vue';
 import { templateOptions } from '../templates';
 import { Page } from '@/types/resources';

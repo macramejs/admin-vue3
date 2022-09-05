@@ -33,7 +33,7 @@
             </template>
             <span>Strang öffnen</span>
         </ContextMenuItem>
-        <ContextMenuItem
+        <!-- <ContextMenuItem
             class="hover:bg-red-signal hover:text-white text-red-signal"
             @click="deletePage(page.id)"
         >
@@ -41,7 +41,7 @@
                 <IconTrash class="origin-left scale-75" />
             </template>
             <span>{{ $t('pages.delete') }}</span>
-        </ContextMenuItem>
+        </ContextMenuItem> -->
     </ContextMenu>
 </template>
 
