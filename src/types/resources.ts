@@ -156,8 +156,6 @@ export interface SystemUser {
     name: string;
     email: string;
     is_admin: boolean;
-    district_association: string;
-    is_district_associative: boolean;
     has_verified_email: boolean;
 }
 export type SystemUserResource = Resource<SystemUser>;

@@ -121,7 +121,6 @@ export type SystemUserFormData = {
     name: string;
     email: string;
     password: string;
-    district_association_id: number;
     is_admin: boolean;
 };
 export type SystemUserForm = Form<SystemUserFormData, SystemUserResource>;

@@ -6,9 +6,6 @@
                     <Th :table="systemUserIndex" sort-by="id">Id</Th>
                     <Th :table="systemUserIndex" sort-by="name">Name</Th>
                     <Th :table="systemUserIndex" sort-by="email">E-Mail</Th>
-                    <Th :table="systemUserIndex" sort-by="district_association"
-                        >Kreisverband
-                    </Th>
                     <Th>Rolle</Th>
                 </Tr>
             </template>
@@ -21,11 +18,6 @@
                     <Td>{{ user.id }}</Td>
                     <Td>{{ user.name }}</Td>
                     <Td>{{ user.email }}</Td>
-                    <Td>
-                        <Badge v-if="user.district_association" turkise>{{
-                            user.district_association
-                        }}</Badge>
-                    </Td>
                     <Td>
                         <Badge v-if="user.is_admin" red>Admin</Badge>
                     </Td>
