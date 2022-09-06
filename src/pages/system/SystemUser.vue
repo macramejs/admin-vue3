@@ -21,13 +21,6 @@
                             v-model="systemUserForm.email"
                             label="E-Mail Adresse"
                         />
-                        <Select
-                            label="Verband"
-                            labelKey="name"
-                            valueKey="id"
-                            v-model="systemUserForm.district_association_id"
-                            :options="districtOptions"
-                        />
                     </FormGroup>
                 </Card>
                 <Card>
@@ -51,12 +44,7 @@
 <script lang="ts" setup>
 import { computed, onBeforeMount, onMounted, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import {
-    deleteSystemUser,
-    districtAssociationsState,
-    systemUserForm,
-    systemUserState,
-} from '@/entities';
+import { deleteSystemUser, systemUserForm, systemUserState } from '@/entities';
 import { Main, MainBody, MainContent } from '@/layout';
 import SaveButton from '@/modules/save/SaveButton.vue';
 import Topbar from '@/layout/components/Topbar.vue';
@@ -99,19 +87,4 @@ const del = () => {
         });
     }
 };
-
-const districtOptions = computed(() => {
-    let options = districtAssociationsState.value?.map(district => {
-        return {
-            id: district.id,
-            name: district.name,
-        };
-    });
-
-    return [{ id: null, name: 'Landesverband' }, ...options];
-});
-
-onBeforeMount(() => {
-    districtAssociationsState.load();
-});
 </script>
