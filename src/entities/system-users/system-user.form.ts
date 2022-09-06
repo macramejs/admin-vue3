@@ -15,7 +15,6 @@ const useSystemUserForm = () => {
             name: '',
             email: '',
             password: '',
-            district_association_id: 0,
             is_admin: false,
         },
         submit: (data, id) => updateOrCreateSystemUser(data, id),

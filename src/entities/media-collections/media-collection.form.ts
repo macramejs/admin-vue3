@@ -14,10 +14,11 @@ export type UseMediaCollectionForm = (
 
 const useMediaCollectionForm: UseMediaCollectionForm = ({
     title = '',
+    key = '',
     id = undefined,
 }) => {
     const form = useForm({
-        data: { title },
+        data: { title, key },
         submit: data =>
             updateOrCreateMediaCollection(data, id).then(response => {
                 // TODO: reload media collections
