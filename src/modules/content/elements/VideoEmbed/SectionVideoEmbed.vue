@@ -23,7 +23,7 @@ const props = defineProps({
         required: true,
         default: () => ({
             id: '',
-            centered: false,
+            content_wide: false,
         }),
     },
 });

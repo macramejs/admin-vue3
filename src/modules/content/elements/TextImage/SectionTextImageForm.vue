@@ -2,8 +2,8 @@
     <Card>
         <Toggle
             class="mb-6"
-            v-model="model.centered"
-            label="Content zentrieren"
+            v-model="model.content_wide"
+            label="Ganze Containerbreite"
         />
         <div class="grid grid-cols-2 gap-5">
             <div class="col-span-1">
@@ -42,7 +42,7 @@ const props = defineProps({
         required: true,
         default: () => ({
             text: '',
-            centered: false,
+            content_wide: false,
             image: {
                 id: null,
                 title: '',

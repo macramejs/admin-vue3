@@ -1,7 +1,7 @@
 <template>
     <FormFieldLabel> Bild </FormFieldLabel>
     <Card class="mb-6">
-        <Toggle v-model="model.centered" label="Content zentrieren" />
+        <Toggle v-model="model.content_wide" label="Ganze Containerbreite" />
     </Card>
     <SelectImage v-model="model.image" />
 </template>
@@ -18,7 +18,7 @@ const props = defineProps({
         type: Object,
         required: true,
         default: () => ({
-            centered: false,
+            content_wide: false,
             image: {
                 id: null,
                 title: '',

@@ -1,7 +1,7 @@
 <template>
     <FormFieldLabel>Vimeo-ID</FormFieldLabel>
     <Card class="flex flex-col gap-6">
-        <Toggle v-model="model.centered" label="Content zentrieren" />
+        <Toggle v-model="model.content_wide" label="Ganze Containerbreite" />
         <Input v-model="model.id" label="Vimeo-ID" />
     </Card>
 </template>
@@ -18,7 +18,7 @@ const props = defineProps({
         required: true,
         default: () => ({
             id: '',
-            centered: false,
+            content_wide: false,
         }),
     },
 });

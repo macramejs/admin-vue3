@@ -1,7 +1,10 @@
 <template>
     <Card>
         <FormGroup>
-            <Toggle v-model="model.centered" label="Content zentrieren" />
+            <Toggle
+                v-model="model.content_wide"
+                label="Ganze Containerbreite"
+            />
             <Link v-model="model.link" />
             <div>
                 <Toggle
@@ -30,7 +33,7 @@ const props = defineProps({
         required: true,
         default: () => ({
             important: false,
-            centered: false,
+            content_wide: false,
             link: {
                 link: '',
                 text: '',

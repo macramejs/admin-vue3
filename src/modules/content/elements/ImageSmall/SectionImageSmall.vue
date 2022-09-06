@@ -22,7 +22,7 @@ const props = defineProps({
         type: Object,
         required: true,
         default: () => ({
-            centered: false,
+            content_wide: false,
             image: {
                 id: null,
                 title: '',
