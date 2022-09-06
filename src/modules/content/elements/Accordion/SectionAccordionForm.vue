@@ -1,6 +1,6 @@
 <template>
     <Card class="flex flex-col gap-8 mb-3">
-        <Toggle v-model="model.centered" label="Content zentrieren" />
+        <Toggle v-model="model.content_wide" label="Ganze Containerbreite" />
         <Input v-model="model.headline" label="Überschrift" />
     </Card>
     <div class="pb-6 space-y-3">
@@ -82,7 +82,7 @@ const props = defineProps({
         required: true,
         default: () => ({
             headline: '',
-            centered: false,
+            content_wide: false,
             items: [],
         }),
     },
@@ -90,7 +90,7 @@ const props = defineProps({
 
 const model = reactive({
     headline: props.modelValue.headline,
-    centered: props.modelValue.centered,
+    content_wide: props.modelValue.content_wide,
     items: props.modelValue.items.map((item: any) => {
         return { ...item, _draggableKey: uuid() };
     }),

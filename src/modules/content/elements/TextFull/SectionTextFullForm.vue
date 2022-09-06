@@ -1,6 +1,6 @@
 <template>
     <Card class="flex flex-col gap-6">
-        <Toggle v-model="model.centered" label="Content zentrieren" />
+        <Toggle v-model="model.content_wide" label="Ganze Containerbreite" />
         <Wysiwyg v-model="model.text" class="w-full" />
     </Card>
 </template>
@@ -15,7 +15,7 @@ const props = defineProps({
         type: Object,
         required: true,
         default: () => ({
-            centered: false,
+            content_wide: false,
             text: '',
         }),
     },
